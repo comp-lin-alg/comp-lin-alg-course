@@ -145,8 +145,8 @@ interpretation of matrix-vector multiplication.
 
 .. proof:definition:: Nullspace
 
-   The nullspace `\mbox{null}(A)` of `A` is the set of vectors `x`
-   satisfying `Ax=0`, i.e.
+   The nullspace `\mbox{null}(A)` of `A` (or kernel) is the set of
+   vectors `x` satisfying `Ax=0`, i.e.
 
    .. math::
 
@@ -374,7 +374,7 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 Unitary matrices
 ----------------
 
-.. proof:definition::
+.. proof:definition:: Unitary matrices
 
    A matrix `Q\in \mathbb{C}^{m\times m}` is unitary if `Q^* =Q^{-1}`.
 
@@ -416,7 +416,7 @@ Various vector norms are useful to measure the size of a vector.
 In computational linear algebra we need them for quantifying errors
 etc.
 
-.. proof:definition::
+.. proof:definition:: Norms
 
    A norm is a function `\|\cdot\|:\mathbb{C}^m \to \mathbb{R}`, such that
 
@@ -443,4 +443,80 @@ where `W` is a matrix.
 Projectors and projections
 --------------------------
 
+.. proof:definition:: Projector
+   
+   A projector `P` is a square matrix that satisfies `P^2=P`.
 
+If `v \in \mbox{range}(P)`, then there exists `x` such that
+`Pv = x`. Then,
+
+.. math::
+
+   Pv = P(Px) = P^2x = Px = v,
+
+and hence multiplying by `P` does not change `v`.
+
+Now suppose that `Pv \neq v` (so that `v\notin \mbox{range}(P)).
+Then,
+
+.. math::
+
+   P(Pv - v) = P^2v - Pv = Pv - Pv = 0,
+
+which means that `Pv-v` is the nullspace of `P`. We have
+
+.. math::
+
+   Pv -v = -(I-P)v.
+
+.. proof:definition:: Complementary projector
+
+   Let `P` be a projector. Then we call `I-P` the complementary projector.
+
+To see that `I-P` is also a projector, we just calculate,
+
+.. math::
+
+   (I-P)^2 = I^2 - 2P + P^2 = I - 2P + P = I - P.
+
+ If `Pu=0`, then `(I-P)u = u`. In other words, the nullspace
+ of `P` is contained in the range of `I-P`.
+
+ On the other hand, if `v` is in the range of `I-P`,  then
+there exists some `w` such that
+ 
+ .. math::
+
+    v = (I-P)w = w - Pw.
+
+We have
+
+.. math::
+
+   Pv = P(w-Pw) = Pw - P^2w = Pw - Pw = 0.
+
+Hence, the range of `I-P` is contained in the nullspace of `P`.
+Combining these two results we see that the range of `I-P`
+is equal to the nullspace of `P`. Since `P` is the complementary
+projector to `I-P`, we can repeat the same argument to show
+that the range of `P` is equal to the nullspace of `I-P`.
+
+We see that a projector `P` separates `\mathbb{C}^m` into two
+subspaces, the nullspace of `P` and the range of `P`. In fact the
+converse is also true: given two subspaces `S_1` and `S_2`
+of `\mathbb{C}^m` with `S_1 \cap S_2 = \{0\}`, then there
+exists a projector `P` whose range is `S_1` and whose nullspace
+is `S_2`.
+
+Now we introduce orthogonality into the concept of projectors.
+
+.. proof:definition:: Orthogonal projector
+
+   `P` is an orthogonal projector if
+
+   .. math::
+
+      (Pv)^*(Pv-v) = 0, \, \forall v \in \mathbb{C}^m.
+
+In this case, `P` separates the space into two orthogonal subspaces.
+   

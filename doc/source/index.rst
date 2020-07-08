@@ -18,7 +18,7 @@
 
       practicalities
 
-   .. image:: _static/trefbau.png
+   .. image:: _static/trefbau.jpg
       :align: right
       :width: 20ex
 

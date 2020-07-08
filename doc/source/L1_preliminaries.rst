@@ -418,11 +418,11 @@ etc.
 
 .. proof:definition::
 
-   A norm is a function `\|\cdot\|:\mathbb{C}^m \to \mathbb{R}, such that
+   A norm is a function `\|\cdot\|:\mathbb{C}^m \to \mathbb{R}`, such that
 
-   #. `\|x\|\geq 0`, and `\|x\|=0\implies x =0.
-   #. '\|x+y\| \leq \|x\| + \|y\|` (triangle inequality).
-   #. `\|\alpha x\| = |\alpha|\|x\|` for all `x \in \mathbb{C}^m'
+   #. `\|x\|\geq 0`, and `\|x\|=0\implies x =0.`
+   #. `\|x+y\| \leq \|x\| + \|y\|` (triangle inequality).
+   #. `\|\alpha x\| = |\alpha|\|x\|` for all `x \in \mathbb{C}^m`
       and `\alpha \in \mathbb{C}`.
 
 We have already seen the 2-norm, or Euclidean norm, which is part of a

@@ -294,7 +294,7 @@ The inner product is a critical tool in computational linear algebra.
 
 .. proof:definition:: Inner product
 
-   Let `x,y\in \mathb{C}^m`. Then the inner product of `x` and `y` is
+   Let `x,y\in \mathbb{C}^m`. Then the inner product of `x` and `y` is
 
    .. math::
 
@@ -336,3 +336,75 @@ Orthogonality will emerge as an early key concept in this course.
 
     We say that `S` is orthonormal if we also have `\|x\|=1`
     for all `x\in S`.
+
+Orthogonal components of a vector
+---------------------------------
+
+Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
+`\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
+Now take
+
+.. math::
+
+   r = v - (q_1^*v)q_1 - (q_2^*v)q_2 - \ldots (q_n^*v)q_n.
+
+Then, we can check that `r` is orthogonal to `S`, by calculating
+for each `1\leq i \leq n`,
+
+.. math::
+
+   q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots (q_n^*v)(q_i^*q_n)
+
+   = q_i^*v - q_i^*v = 0,
+
+since `q_i^*q_j=0` if `i\neq j`, and 1 if `i=j`.
+Thus,
+
+.. math::
+
+   v = r + \sum_{i=1}^n (q_i^*v)q_i
+   = r + \sum_{i=1}^n \underbrace{(q_i q_i^*)}_{\mbox{rank-1 matrix}}v.
+
+If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
+
+.. math::
+
+   v = \sum_{i=1}^m (q_i q_i^*)v.
+
+Unitary matrices
+----------------
+
+.. proof:definition::
+
+   A matrix `Q\in \mathbb{C}^{m\times m}` is unitary if `Q^* =Q^{-1}`.
+
+   For real matrices, a matrix `Q`  is orthogonal if `Q^T=Q^{-1}`.
+
+.. proof:theorem::
+
+   The columns of a unitary matrix `Q` are orthonormal.
+
+.. proof:proof::
+
+   We have `I = Q^*Q`. Then using the column space interpretation
+   of matrix-matrix multiplication,
+
+   .. math::
+
+      e_j = Q^*q_j,
+
+   where `q_j` is the jth column of `Q`. Taking row i of `e_j`, we have
+
+   .. math::
+
+      \delta_{ij} = q_i^*q_j, \mbox{ where }
+      \delta_{ij} = \left\{
+      \begin{array}{ccc}
+      1 & \mbox{if} & i=j, \\
+      0 & \mbox{otherwise} & \\
+      \end{array}\right. .
+   
+Extending a theme from earlier, we can interpret `Q^*=Q^{-1}` as
+representing a change of orthogonal basis. If `Qx = b`, then
+`x=Q^*b` contains the coefficients of `b` expanded in the basis
+given by the orthonormal columns of `Q`.

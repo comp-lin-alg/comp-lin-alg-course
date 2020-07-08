@@ -22,13 +22,13 @@
       :align: right
       :width: 20ex
 
-   A PDF version of the course notes is `available here
-   <Computationallinearalgebra.pdf>`_.
-
-   The theory part of the module will consist of two hours per week
-   primarily composed of lectures, with occasional tutorials. This part of
-   the module will be led by `Prof. Colin Cotter
+   This module is led by `Prof. Colin Cotter
    <http://www.imperial.ac.uk/people/colin.cotter>`_.
+	      
+   A PDF version of the course notes is `available here
+   <Computationallinearalgebra.pdf>`_.  The lecture material for this
+   course is available as videos linked from the web version of the
+   notes.
 
    The text for this part of the module is Trefethen and Bau
    *Numerical Linear Algebra*. Another very useful reference is

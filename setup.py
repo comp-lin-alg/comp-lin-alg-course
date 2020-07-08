@@ -1,8 +1,8 @@
 from distutils.core import setup
 from glob import glob
 
-setup(name='finite-element-course',
-      version=2018.0,
+setup(name='comp-lin-alg-course',
+      version=2020.0,
       description="""Computational linear algebra tasks in support of Computational Linear Algebra 3/4/5 at
 Imperial College London""",
       author="Colin Cotter",

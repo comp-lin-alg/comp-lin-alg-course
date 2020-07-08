@@ -193,35 +193,35 @@ Invertibility and inverses
 This means that an invertible matrix has columns that form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
 
-.. math::
+   .. math::
 
-   e_j = \begin{pmatrix}
-   0 \\
-   \ldots \\
-   0 \\
-   1 \\
-   0 \\
-   \ldots \\
-   0 \\
-   \end{pmatrix},
+      e_j = \begin{pmatrix}
+      0 \\
+      \ldots \\
+      0 \\
+      1 \\
+      0 \\
+      \ldots \\
+      0 \\
+      \end{pmatrix},
 
 i.e. `e_j` has all entries zero except for the jth entry which is 1, we can
 write
 
-.. math::
+   .. math::
 
-   e_j = \sum_{k=1}^m z_{ik} a_k, \quad 1\leq j \leq m.
+      e_j = \sum_{k=1}^m z_{ik} a_k, \quad 1\leq j \leq m.
 
 In other words,
 
-.. math::
+   .. math::
 
-   I =
-   \begin{pmatrix}
-   e_1 & e_2 & \ldots & e_m
-   \end{pmatrix}
+      I =
+      \begin{pmatrix}
+      e_1 & e_2 & \ldots & e_m
+      \end{pmatrix}
 
-   = ZA.
+      = ZA.
 
 We call `Z` a (left) inverse of `A`. (Exercises: show that `Z` is
 the unique left inverse of `A`, and show that `Z` is also the unique
@@ -247,9 +247,9 @@ Finding the inverse of a matrix can be seen as a change of basis. Considering
 the equation `Ax= b`, we have `x = A^{-1}b` for invertible `A`. We have
 seen already that `b` can be written as
 
-.. math::
+   .. math::
 
-   b = \sum_{j=1}^m x_j a_j.
+      b = \sum_{j=1}^m x_j a_j.
 
 Since the columns of `A` span `\mathbb{C}^m`, the entries of `x` thus
 provide the unique expansion of `b` in the columns of `A` which form a
@@ -344,32 +344,32 @@ Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
 Now take
 
-.. math::
+   .. math::
 
-   r = v - (q_1^*v)q_1 - (q_2^*v)q_2 - \ldots (q_n^*v)q_n.
+      r = v - (q_1^*v)q_1 - (q_2^*v)q_2 - \ldots (q_n^*v)q_n.
 
 Then, we can check that `r` is orthogonal to `S`, by calculating
 for each `1\leq i \leq n`,
 
-.. math::
+   .. math::
 
-   q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots (q_n^*v)(q_i^*q_n)
+      q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots (q_n^*v)(q_i^*q_n)
 
    = q_i^*v - q_i^*v = 0,
 
 since `q_i^*q_j=0` if `i\neq j`, and 1 if `i=j`.
 Thus,
 
-.. math::
+   .. math::
 
-   v = r + \sum_{i=1}^n (q_i^*v)q_i
-   = r + \sum_{i=1}^n \underbrace{(q_i q_i^*)}_{\mbox{rank-1 matrix}}v.
+      v = r + \sum_{i=1}^n (q_i^*v)q_i
+      = r + \sum_{i=1}^n \underbrace{(q_i q_i^*)}_{\mbox{rank-1 matrix}}v.
 
 If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 
-.. math::
+   .. math::
 
-   v = \sum_{i=1}^m (q_i q_i^*)v.
+      v = \sum_{i=1}^m (q_i q_i^*)v.
 
 Unitary matrices
 ----------------
@@ -428,15 +428,15 @@ etc.
 We have already seen the 2-norm, or Euclidean norm, which is part of a
 larger class of norms called p-norms, with
 
-.. math::
+   .. math::
 
-   \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
+      \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
 
 for real 'p>0'. We will also consider weighted norms
 
-.. math::
+   .. math::
 
-   \|x\|_{W,p} = \|Wx \|_p,
+      \|x\|_{W,p} = \|Wx \|_p,
 
 where `W` is a matrix.
 
@@ -450,24 +450,24 @@ Projectors and projections
 If `v \in \mbox{range}(P)`, then there exists `x` such that
 `Pv = x`. Then,
 
-.. math::
-
-   Pv = P(Px) = P^2x = Px = v,
+   .. math::
+ 
+      Pv = P(Px) = P^2x = Px = v,
 
 and hence multiplying by `P` does not change `v`.
 
 Now suppose that `Pv \neq v` (so that `v\notin \mbox{range}(P)).
 Then,
 
-.. math::
+   .. math::
 
-   P(Pv - v) = P^2v - Pv = Pv - Pv = 0,
+      P(Pv - v) = P^2v - Pv = Pv - Pv = 0,
 
 which means that `Pv-v` is the nullspace of `P`. We have
 
-.. math::
-
-   Pv -v = -(I-P)v.
+   .. math::
+ 
+      Pv -v = -(I-P)v.
 
 .. proof:definition:: Complementary projector
 
@@ -475,25 +475,27 @@ which means that `Pv-v` is the nullspace of `P`. We have
 
 To see that `I-P` is also a projector, we just calculate,
 
-.. math::
+   .. math::
 
-   (I-P)^2 = I^2 - 2P + P^2 = I - 2P + P = I - P.
+      (I-P)^2 = I^2 - 2P + P^2 = I - 2P + P = I - P.
 
- If `Pu=0`, then `(I-P)u = u`. In other words, the nullspace
+ If `Pu=0`, then `(I-P)u = u`.
+
+ In other words, the nullspace
  of `P` is contained in the range of `I-P`.
 
  On the other hand, if `v` is in the range of `I-P`,  then
 there exists some `w` such that
  
- .. math::
+   .. math::
 
-    v = (I-P)w = w - Pw.
+      v = (I-P)w = w - Pw.
 
 We have
 
-.. math::
+   .. math::
 
-   Pv = P(w-Pw) = Pw - P^2w = Pw - Pw = 0.
+      Pv = P(w-Pw) = Pw - P^2w = Pw - Pw = 0.
 
 Hence, the range of `I-P` is contained in the nullspace of `P`.
 Combining these two results we see that the range of `I-P`
@@ -520,3 +522,34 @@ Now we introduce orthogonality into the concept of projectors.
 
 In this case, `P` separates the space into two orthogonal subspaces.
    
+Constructing orthogonal projectors from sets of orthonormal vectors
+-------------------------------------------------------------------
+
+Let `\{q_1,\ldots,q_n\}` be an orthonormal set of vectors in
+`\mathbb{C}^m`. We write
+
+.. math::
+
+   \hat{Q} = \begin{pmatrix}
+   q_1 & q_2 & \ldots & q_n \\
+   \end{pmatrix}.
+
+Previously we showed that for any `v\in \mathbb{C}^m`, we have
+
+.. math::
+
+   v = \underbrace{r}_{\mbox{Orthogonal to column space of }\hat{Q}} +
+   \underbrace{\sum_{i=1}^n (q_iq^*_i)v}_{\mbox{in the column space of }\hat{Q}}.
+
+Hence, the map
+
+.. math::
+
+   v \mapsto Pv = \sum_{i=1}^n (q_iq^*_i)v = \hat{Q}\hat{Q}^*v.
+
+NEED TO FIGURE THIS OUT!!!!
+
+is an orthogonal projection onto the range of `\hat{Q}`. The complementary
+projector is `P_{\perp} = I - 
+
+

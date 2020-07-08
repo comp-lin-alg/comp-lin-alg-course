@@ -408,3 +408,39 @@ Extending a theme from earlier, we can interpret `Q^*=Q^{-1}` as
 representing a change of orthogonal basis. If `Qx = b`, then
 `x=Q^*b` contains the coefficients of `b` expanded in the basis
 given by the orthonormal columns of `Q`.
+
+Vector norms
+------------
+
+Various vector norms are useful to measure the size of a vector.
+In computational linear algebra we need them for quantifying errors
+etc.
+
+.. proof:definition::
+
+   A norm is a function `\|\cdot\|:\mathbb{C}^m \to \mathbb{R}, such that
+
+   #. `\|x\|\geq 0`, and `\|x\|=0\implies x =0.
+   #. '\|x+y\| \leq \|x\| + \|y\|` (triangle inequality).
+   #. `\|\alpha x\| = |\alpha|\|x\|` for all `x \in \mathbb{C}^m'
+      and `\alpha \in \mathbb{C}`.
+
+We have already seen the 2-norm, or Euclidean norm, which is part of a
+larger class of norms called p-norms, with
+
+.. math::
+
+   \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
+
+for real 'p>0'. We will also consider weighted norms
+
+.. math::
+
+   \|x\|_{W,p} = \|Wx \|_p,
+
+where `W` is a matrix.
+
+Projectors and projections
+--------------------------
+
+

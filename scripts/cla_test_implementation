@@ -21,7 +21,7 @@ repo = git.Repo(".")
 
 if args.update:
     g = github.Github(os.environ["GITHUB_OAUTH"])
-    org = g.get_organization("finite-element")
+    org = g.get_organization("comp-lin-alg")
 
     for r in org.get_repos():
         if r.name.startswith("fe-%d" % year):

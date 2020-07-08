@@ -545,11 +545,45 @@ Hence, the map
 
 .. math::
 
-   v \mapsto Pv = \sum_{i=1}^n (q_iq^*_i)v = \hat{Q}\hat{Q}^*v.
+   v \mapsto Pv = \underbrace{\sum_{i=1}^n (q_iq^*_i)}_{=P}v,
 
-NEED TO FIGURE THIS OUT!!!!
+is an orthogonal projector. In fact, `P` has very simple form.
 
-is an orthogonal projection onto the range of `\hat{Q}`. The complementary
-projector is `P_{\perp} = I - 
+.. proof:theorem::
+
+   The orthogonal projector `P` takes the form
+
+   .. math::
+
+      P = \hat{Q}\hat{Q}^*.
+
+.. proof:proof::
+
+   From the change of basis interpretation of multiplication by
+   `\hat{Q}^*`, the entries in `\hat{Q}^*v` gives coefficients of the
+   projection of `v` onto the column space of `\hat{Q}` when expanded
+   using the columns as a basis. Then, multiplication by `\hat{Q}`
+   gives the projection of `v` expanded again in the canonical basis.
+   Hence, multiplication by `\hat{Q}\hat{Q}^*` gives exactly the same
+   result as multiplication by the formula for `P` above.
+
+This means that `\hat{Q}\hat{Q}^*` is an orthogonal projection onto
+the range of `\hat{Q}`. The complementary projector is `P_{\perp} =
+I - \hat{Q}\hat{Q}^*` is an orthogonal projection onto the nullspace
+of `\hat{Q}`.
+
+An important special case is when `\hat{Q}` has just one column,
+and then
+
+.. math::
+
+   P = q_1q_1^*, \, P_{\perp}=I - q_1q_1^*.
+
+We notice that `P^* = (\hat{Q}\hat{Q}^*) = \hat{Q}\hat{Q}^* = P`.
+In fact the following is true.
+
+.. proof:theorem::
+
+   `P=P^*` if and only if `Q` is an orthogonal projector.
 
 

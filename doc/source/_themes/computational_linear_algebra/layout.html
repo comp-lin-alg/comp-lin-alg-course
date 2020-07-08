@@ -1,0 +1,34 @@
+{% extends "basic/layout.html" %}
+
+{% block extrahead %}
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="{{ pathto('_static/ie6.css', 1) }}" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+<link rel="stylesheet" href="{{ pathto('_static/featured.css', 1) }}">
+
+{% if theme_favicon %}
+<link rel="shortcut icon" href="{{ pathto('_static/'+theme_favicon, 1) }}" />
+{% endif %}
+{% endblock %}
+
+{# override upper relbar to show our navigation menu #}
+{% block relbar1 %}
+<div class="wrapper">
+  <a href="{{ pathto('index.html', 1) }}"><img src="{{ pathto('_static/%s.%s' % ('banner', 'png'), 1) }}" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="https://github.com/finite-element/finite-element-course" title="GitHub">GitHub</a></li>
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+{% endblock %}
+
+{# do not display lower relbar #}
+{% block relbar2 %}{% endblock %}
+
+{# do not display sidebars #}
+{% block sidebar1 %}{% endblock %}
+{% block sidebar2 %}{% endblock %}

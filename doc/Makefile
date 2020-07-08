@@ -55,7 +55,7 @@ apidoc: $(GENERATED_FILES)
 	PYTHONPATH=$(PWD)/..:$(PYTHONPATH) sphinx-apidoc ../cla_utils -o source/ -f -T
 
 webgit:
-	git clone git@github.com:Computational-Linear-Algebra-Course/cla.github.io.git webgit
+	git clone git@github.com:comp-lin-alg/comp-lin-alg.github.io.git webgit
 
 html: apidoc webgit latexpdf
 	rm webgit/* || true

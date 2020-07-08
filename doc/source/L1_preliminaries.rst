@@ -1,0 +1,4 @@
+.. default-role:: math
+
+Preliminaries
+=============

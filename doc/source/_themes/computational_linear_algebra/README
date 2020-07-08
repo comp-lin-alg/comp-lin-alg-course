@@ -1,0 +1,6 @@
+This is the Sphinx theme for the Computational Linear Algebra web page.
+It was originally based on the Finite Element Course web page,
+Which was based on the FInAT web page,
+which was based on the Firedrake web page,
+which was based on the dolfin-adjoint theme,
+which was in turn based on the FEniCS project theme.

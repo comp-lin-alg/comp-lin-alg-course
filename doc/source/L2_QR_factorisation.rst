@@ -12,7 +12,7 @@ powerful and insightful transformation is the QR factorisation.
 In this section we will introduce the QR factorisation and some
 good and bad algorithms to compute it.
 
-What is the QR Factorisation?
+What is the QR factorisation?
 -----------------------------
 
 We start with another definition.
@@ -125,3 +125,80 @@ We now present the classical Gram-Schmidt algorithm as pseudo-code.
 (Remember that Python doesn't have END FOR statements, but instead
 uses indentation to terminate code blocks. We'll write END statements
 for code blocks in pseudo-code in these notes.)
+
+Projector interpretation of Gram-Schmidt
+----------------------------------------
+
+At each step of the Gram-Schmidt algorithm, a projector is applied to
+a column of `A`. We have
+
+.. math::
+
+   q_1 = \frac{P_1a_1}{\|P_1a_1\|},
+
+   q_2 = \frac{P_2a_2}{\|P_2a_2\|},
+
+   \vdots
+
+   q_n = \frac{P_na_n}{\|P_na_n\|},
+
+where `P_j` are orthogonal projectors that project out the first `j-1`
+columns `(q_1,\ldots,q_{j-1})` (`P_1` is the identity as this set is
+empty when `j=1`). The orthogonal projector onto the first `j-1` columns
+is `\hat{Q}_{j-1}\hat{Q}_{j-1}^*`, where
+
+.. math::
+
+   \hat{Q}_{j-1} =
+   \begin{pmatrix} q_1 & q_2 & \ldots & q_{j-1} \end{pmatrix}.
+
+Hence, `P_j` is the complementary projector, `P_j=I -
+\hat{Q}_{j-1}\hat{Q}_{j-1}^*`.
+
+Modified Gram-Schmidt
+---------------------
+
+There is a big problem with the classical Gram-Schmidt algorithm. It
+is unstable, which means that when it is implemented in inexact
+arithmetic on a computer, round-off error unacceptably pollutes the
+entries of `Q` and `R`, and the algorithm is not useable in
+practice. What happens is that the columns of `Q` are not quite
+orthogonal, and this loss of orthogonality spoils everything. We will
+discuss stability later in the course, but right now we will just
+discuss the fix for the classical Gram-Schmidt algorithm, which is
+based upon the projector interpretation which we just discussed.
+
+To reorganise Gram-Schmidt to avoid instability, we decompose `P_j`
+into a sequence of `j-1` projectors of rank `m-1`, that each project
+out one column of `Q`, i.e.
+
+.. math::
+
+   P_j = P_{\perp q_{j-1}}\ldots P_{\perp q_2} P_{\perp q_1},
+
+where
+
+.. math::
+
+   P_{\perp q_j} = I - q_jq_j^*.
+
+Then, 
+
+.. math::
+
+   v_j = P_ja_j = P_{\perp q_{j-1}}\ldots P_{\perp q_2}P_{\perp q_1}a_j.
+
+Here we notice that we must apply `P_{\perp q_1}` to all but one
+columns of `A`, and `P_{\perp q_2}` to all but two columns of `A`,
+`P_{\perp q_3}` to all but three columns of `A`, and so on. In fact,
+the applying `P_{\perp q_j}` to the first `j-1` columns does nothing,
+because `q_j` is already orthogonal to all of those columns. Even further,
+it is actually a good thing, because it helps to keep all of the columns
+as orthonormal as possible under inexact arithmetic.
+
+Hence, we can equivalently apply `P_{\perp q_1}` to all columns of
+`A`, then obtain `q_2` by normalising the second column, then apply
+`P_{\perp q_2}` to all the columns of `A`, and obtain `q_3` by
+normalising the second column and so on.
+
+sequential transformations of A

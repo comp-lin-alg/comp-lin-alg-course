@@ -49,3 +49,4 @@
    :maxdepth: 2
 
    L1_preliminaries
+   L2_QR_factorisation

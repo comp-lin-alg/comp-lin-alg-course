@@ -12,7 +12,7 @@ parser = ArgumentParser(description="""Helper script to mark computational linea
 
 parser.add_argument("--update", action="store_true", help="Update all student repositories.")
 parser.add_argument("--checkout", type=str, action="store", metavar=("REPO"),
-                        help="checkout computational_linear_algebra/cla-%d-REPO." % year)
+                        help="checkout comp_lin_alg/cla-%d-REPO." % year)
 parser.add_argument("--test", action="store_true", help="Execute tests")
 parser.add_argument("-x", action="store_true", help="Stop on first test fail")
 args = parser.parse_args()

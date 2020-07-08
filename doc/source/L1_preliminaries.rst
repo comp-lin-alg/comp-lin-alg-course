@@ -287,8 +287,8 @@ The following identity is very important when dealing with adjoints.
 
       (AB)^* = B^*A^*.
 
-Inner products
---------------
+Inner products and orthogonality
+--------------------------------
 
 The inner product is a critical tool in computational linear algebra.
 
@@ -308,8 +308,31 @@ to define size of vectors.
       
 .. proof:definition:: 2-Norm
 
-   Let `x\in \mathb{C}^m`. Then the 2-norm of `x` is
+   Let `x\in \mathbb{C}^m`. Then the 2-norm of `x` is
 
    .. math::
 
       \|x\| = \sqrt{\sum_{i=1}^m x_i^2} = \sqrt{x^*x}.
+
+Orthogonality will emerge as an early key concept in this course.
+      
+ .. proof:definition:: Orthogonal vectors
+
+    Let `x,y\in \mathbb{C}^m`. The two vectors are orthogonal if
+    `x^*y=0`.
+
+    Similarly, let `X`, `Y` be two sets of vectors. The two sets
+    are orthogonal if
+
+    .. math::
+
+       x^*y = 0\, \forall x\in X, \, y\in Y.
+
+    A set `S` of vectors is itself orthogonal if
+
+    .. math::
+
+       x^*y = 0\,\forall x,y \in S.
+
+    We say that `S` is orthonormal if we also have `\|x\|=1`
+    for all `x\in S`.

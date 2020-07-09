@@ -237,12 +237,12 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
     * FOR `j = i+1` TO `n`
 
       * `r_{ij} \gets q_i^*a_j`
-	* `v_j \gets v_j - r_{ij}q_i`
+      * `v_j \gets v_j - r_{ij}q_i`
     * END FOR
 * END FOR
 
 This algorithm can be applied "in place", overwriting the entries
-in `A` with the `v`s and eventually the `q`s.
+in `A` with the `v` s and eventually the `q` s.
 
 Modified Gram-Schmidt as triangular orthogonalisation
 -----------------------------------------------------
@@ -586,7 +586,7 @@ Now we have the reduced `QR` factorisation of `A`, and we can write
 
       \hat{Q}\hat{R}x = \hat{Q}\hat{Q}^*b.
 
-Left multiplication by `hat{Q}^*` then gives
+Left multiplication by `\hat{Q}^*` then gives
 
    .. math::
 

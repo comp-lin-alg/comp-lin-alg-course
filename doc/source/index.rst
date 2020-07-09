@@ -50,3 +50,4 @@
 
    L1_preliminaries
    L2_QR_factorisation
+   L2_analysing_algorithms

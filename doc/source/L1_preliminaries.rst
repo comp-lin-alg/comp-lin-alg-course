@@ -549,6 +549,8 @@ Hence, the map
 
 is an orthogonal projector. In fact, `P` has very simple form.
 
+.. _orthogonal_projector
+
 .. proof:theorem::
 
    The orthogonal projector `P` takes the form

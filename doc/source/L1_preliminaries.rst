@@ -88,13 +88,13 @@ then
 i.e. a linear combination of the columns of `A` as described above.
 
 We can extend this idea to matrix-matrix multiplication. Taking 
-`A\in \mathbb{C}^{l\times m}`, `C\in \mathbb{C}^{m\times n}`,
-`B\in \mathbb{C}^{l\times n}`, with `B=AC`, then the components of
+`A\in \mathbb{C}^{m\times l}`, `C\in \mathbb{C}^{l\times n}`,
+`B\in \mathbb{C}^{m\times n}`, with `B=AC`, then the components of
 `B` are given by
 
    .. math::
 
-      b_{ij} = \sum_{k=1}^m a_{ik}c_{kj}, \quad 1\leq i \leq l, \,
+      b_{ij} = \sum_{k=1}^l a_{ik}c_{kj}, \quad 1\leq i \leq m, \,
       1\leq j \leq n.
 
 Writing `b_j \in \mathbb{C}^m` as the jth column of `B`, for `1\leq j \leq n`,
@@ -549,7 +549,7 @@ Hence, the map
 
 is an orthogonal projector. In fact, `P` has very simple form.
 
-.. _orthogonal_projector
+.. _orthogonal_projector:
 
 .. proof:theorem::
 

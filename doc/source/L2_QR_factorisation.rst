@@ -82,7 +82,7 @@ Hence we have to find `R` coefficients such that
 
 .. math::
 
-   q_1 = \frac{a_1}{r_11},
+   q_1 = \frac{a_1}{r_{11}},
 
    q_2 = \frac{a_2-r_{12}q_1}{r_{22}}
 
@@ -564,11 +564,13 @@ the 2-norm of the residual `r=b-Ax`, i.e. `x` is the minimiser of
 
       min_x \|Ax - b\|^2.
 
-This residual will not be zero in general, when `b` is not in the range of
-`A`. The nearest point in the range of `A` to `b` is `Pb`, where `P` is
-the orthogonal projector onto the range of `A`. From `Theorem {number}<dual_condition>`, we know that `P=\hat{Q}\hat{Q}^*`, where `\hat{Q}` from the
-reduced `QR` factorisation has the same column space as `A` (but with
-orthogonal columns).
+This residual will not be zero in general, when `b` is not in the
+range of `A`. The nearest point in the range of `A` to `b` is `Pb`,
+where `P` is the orthogonal projector onto the range of `A`. From
+:numref:`Theorem {number}<orthogonal_projector>`, we know that
+`P=\hat{Q}\hat{Q}^*`, where `\hat{Q}` from the reduced `QR`
+factorisation has the same column space as `A` (but with orthogonal
+columns).
 
 Then, we just have to solve
 

@@ -104,3 +104,5 @@ Now we have to sum this over `k`, so the total operation count is
 
       \sim 4n^2m - 4(n+m)\frac{n^2}{2} + 4\frac{n^3}{3}
       = 2mn^2 - \frac{2n^3}{3}.
+
+NEED TO FIX INDICES EVERYWHERE 

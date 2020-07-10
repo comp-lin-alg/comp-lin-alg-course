@@ -105,4 +105,122 @@ Now we have to sum this over `k`, so the total operation count is
       \sim 4n^2m - 4(n+m)\frac{n^2}{2} + 4\frac{n^3}{3}
       = 2mn^2 - \frac{2n^3}{3}.
 
-NEED TO FIX INDICES EVERYWHERE 
+Matrix norms for discussing stability
+-------------------------------------
+
+In the rest of this section we will discuss another important aspect
+of analysing computational linear algebra algorithms, stability. To do
+this we need to introduce some norms for matrices in addition to the
+norms for vectors that we discussed in Section 1.
+
+If we ignore their multiplication properties, matrices in
+`\mathbb{C}^{m\times n}` can be added and scalar multiplied, hence we
+can view them as a vector space, in which we can define norms, just
+as we did for vectors.
+
+One type of norm arises from simply treating the matrix entries as
+entries of a vector and evaluating the 2-norm.
+
+.. proof:definition:: Frobenius norm
+
+   The Frobenius norm is the matrix version of the 2-norm, defined as
+
+      .. math::
+
+	 \|A\|_F = \sqrt{\sum_{i=1}^m\sum_{j=1}^nA_{ij}^2}.
+
+(Exercise: show that `\|AB\|_F \leq \|A\|_F\|B\|_F`.)
+
+Another type of norm measures the maximum amount of stretching the matrix
+can cause when multiplying a vector.
+
+.. proof:definition:: Induced matrix norm
+
+   Given an `m\times n` matrix `A` and any chosen vector norms
+   `\|\cdot\|_{(n)}` and `\|\cdot\|_{(m)}` on `\mathbb{C}^n` and
+   `\mathbb{C}^m`, respectively, the induced norm on `A` is
+
+      .. math::
+
+	 \|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, x\neq 0}\frac{\|Ax\|_{(m)}}
+	 {\|x\|_{(n)}}.
+
+Directly from the definition we can show
+
+   .. math::
+
+      \frac{\|Ax\|_{(m)}}{\|x\|_{(n)}} \leq \sup_{x\in\mathbb{C}^n, x\neq 0}
+      \frac{\|Ax\|_{(m)}}
+      {\|x\|_{(n)} = \|A\|_{(m,n)}},
+
+and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
+
+Norm inequalities
+-----------------
+
+Often it is difficult to find exact values for norms, so we compute upper
+bounds using inequalities instead. Here are a few useful inequalities.
+
+.. proof:definition:: H\"older inequality
+
+   Let `x,y\in \mathbb{C}^m`, and `p,q \in \mathbb{R}+` such that
+   `\frac{1}{p}+{1}{q} = 1`. Then
+
+      .. math::
+
+	 |x^*y| \leq \|x\|_p\|y\|_q.
+
+In the case `p=q=2` this becomes the Cauchy-Schwartz inequality.
+
+.. proof:definition:: Cauchy-Schwartz inequality
+
+   Let `x,y\in \mathbb{C}^m`. Then
+
+      .. math::
+
+	 |x^*y| \leq \|x\|_2\|y\|_2.
+
+For example, we can use this to bound the operator norm of the outer
+product `A=uv^*` of two vectors.
+
+   .. math::
+
+      \|Ax\|_2 = \|uv^*x\|_2 = \|u(v^*x)\|_2 = |v^*x|\|u\|_2
+      \leq \|u\|_2\|v\|_2\|x\|_2,
+
+so `\|A\|_2 \leq \|u\|_2\|v\|_2`.
+
+We can also compute bounds for `\|AB\|_2`.
+
+.. proof:theorem::
+
+   Let `A\in \mathbb{C}^{l\times m}`, `B\in \mathbb{C}^{m\times n}`. Then
+
+      .. math::
+
+	 \|AB|_{(l,n)} \leq \|A\|_{(l,m)}\|B\|_{(m,n)}.
+
+.. proof:proof::
+
+      .. math::
+
+	 \|ABx\|_{(l)} \leq \|A\|_{(l,m)}\|Bx\|_{(m)}
+	 \leq \|A\|_{(l,m)}\|B\|_{(m,n)}\|x\|_{(n)},
+
+   so
+
+      .. math::
+
+	 \|AB\|_{(l,n)} = \sup_{x\neq 0}\frac{\|ABx\|_{(l)}}{\|x\|_{(n)}}
+	 \leq \|A\|_{(l,m)}\|B\|_{(m,n)},
+
+   as required.
+
+Condition number
+----------------
+
+The key tool to understanding numerical stability of computational
+linear algebra algorithms is the condition number of matrices.
+
+
+   

@@ -220,7 +220,191 @@ Condition number
 ----------------
 
 The key tool to understanding numerical stability of computational
-linear algebra algorithms is the condition number of matrices.
+linear algebra algorithms is the condition number.  The condition
+number is a very general concept that measures the behaviour of a
+mathematical problem under perturbations. Here we think of a
+mathematical problem as a function `f:X\to Y`, where `X` and `Y` are
+normed vector spaces (further generalisations are possible). It is
+often the case that `f` has different properties under perturbation
+for different values of `x\in X`.
 
+.. proof:definition:: Well conditioned and ill conditioned.
 
+   We say that a problem is well conditioned (at `x`) if small changes
+   in `x` lead to small changes in `f(x)`. We say that a problem is
+   ill conditioned if small changes in `x` lead to large changes in
+   `f(x)`.
+
+These changes are measured by the condition number.
+
+.. proof:definition:: Absolute condition number.
+
+   Let `\delta x` be a perturbation so that `x\mapsto x + \delta x`.
+   The corresponding change in `f(x)` is `\delta f(x)`,
+
+   .. math::
+
+      \delta f(x) = f(x + \delta x) - f(x).
+
+   The absolute condition number of `f` at `x` is
+
+   .. math::
+
+      \hat{\kappa} = \sup_{\delta x \neq 0}\frac{\|\delta f\|}{\|\delta x\|},
+
+   i.e. the maximum that `f` can change relative to the size of the
+   perturbation `\delta x`.
+
+   It is easier to consider linearised perturbations, defining
+   a Jacobian matrix `J(x)` such that
    
+   .. math::
+
+      J(x)\delta x = \lim_{\epsilon \to 0}
+      \frac{f(x+\epsilon\delta x)-f(x)}{\epsilon}
+
+   and then the linear absolute condition number is
+
+   .. math::
+
+      \hat{\kappa} = \sup_{\delta x \neq 0}\frac{\|J(x)\delta x\|}
+      {\|\delta x\|} = \|J(x)\|,
+
+   which is the operator norm of `J(x)`.
+      
+This definition could be improved by measuring this change relative to the
+size of `f` itself.
+   
+.. proof:definition:: Relative condition number.
+
+   The relative condition number of a problem `f` measures the changes
+   `\delta x` and `\delta f` relative to the sizes of `x` and `f`.
+
+   .. math::
+
+      \kappa = \sup_{\delta \neq 0}\frac{\|\delta f\|/\|f\|}
+      {\|\delta x\|/\|x\|}.
+
+   The linear relative condition number is
+
+   .. math::
+
+      \kappa = \frac{\|J\|/\|f\|}{\|x\|} = \frac{\|J\|\|x\|}{\|f\|}.
+
+Since we use floating point numbers on computers, it makes more sense
+to consider relative condition numbers in computational linear
+algebra, and from here on we will always use them whenever we mention
+condition numbers. If `\kappa` is small (`1-100`, say) then we say that
+a problem is well conditioned. If `\kappa` is large (`>10^6`, say),
+then we say that a problem is ill conditioned.
+
+As a first example, consider the problem of finding the square root,
+`f:x\mapsto \sqrt{x}`, a one dimensional problem. In this case,
+`J=x^{1/2}/2`. The (linear) condition number is
+
+   .. math::
+
+      \kappa = \frac{|x^{-1/2}/2||x|}{|x^{1/2}|}=1/2.
+
+Hence, the problem is well-conditioned.
+
+As a second example, consider the problem of finding the roots of a
+polynomial, given its coefficients. Specifically, we consider the
+polynomial `x^2 - 2x +1 = (x-1)^2`, which has two roots equal
+to 1. Here we consider the change in roots relative to the coefficient
+of `x^0` (which is 1). Making a small perturbation to the polynomial,
+`x^2 - 2x + 0.9999 = (x-0.99)(x-1.01)`, so a relative change of `10^{-4}`
+gives a relative change of `10^{-2}` in the roots. Using the general formula
+
+   .. math::
+
+      r = 1 \pm\sqrt{1-c} = 1 \pm \sqrt{\delta c} \implies
+      \delta r = \pm \sqrt{\delta c},
+
+where `r` returns the two roots with perturbations `\delta r` and `c`
+is the coefficient of `x^0` with perturbatino `\delta c`.
+is the perturbation to the coefficient of `x^0` (so 1 becomes
+`1+\delta c`). The (nonlinear) condition number is then
+the sup over `\delta c\neq 0` of 
+
+    .. math::
+
+       \frac{|{\delta r}|/|r|}{|\delta c|/|c|}
+       = \frac{|{\delta r}|}{|\delta c|} = \frac{|\delta c|^{1/2}}{|\delta c|}
+       = |\delta c|^{-1/2} \to \infty \mbox{ as } \delta c \to 0,
+
+so the condition number is unbounded and the problem is
+catastrophically ill conditioned. For an even more vivid example, see
+the conditioning of the roots of the Wilkinson polynomial.
+
+Conditioning of linear algebra computations
+-------------------------------------------
+
+We now look at the condition number of problems from linear algebra.
+The first problem we examine is the problem of matrix-vector
+multiplication, i.e. for a fixed matrix `A\in \mathbb{C}^{m\times n}`,
+the problem is to find `Ax` given `x`. The problem is linear,
+with `J=A`, so the condition number is
+
+   .. math::
+
+      \kappa = \frac{\|A\|\|x\|}{\|Ax\|}.
+
+When `A` is non singular, we can write `x = A^{-1}Ax`, and
+
+   .. math::
+
+      \|x\| = \|A^{-1}Ax\| \leq \|A^{-1}\|\|Ax\|,
+
+so
+
+   .. math::
+
+      \kappa \leq \frac{\|A\|\|A^{-1}\|\|Ax\|}{\|Ax\|}
+      = \|A\|\|A^{-1}\|.
+
+We call this upper bound the condition number `\kappa(A)` of the matrix `A`.
+
+The next problem we consider is the condition number of solving
+`Ax=b`, with `b` fixed but considering perturbations to `A`. So, we
+have `f:A\mapsto x`. The condition number of this problem measures how
+small changes `\delta A` to `A` translate to changes `\delta x` to
+`x`. The perturbed problem is
+
+   .. math::
+
+      (A + \delta A)(x + \delta x) = b,
+
+which simplifies (using `Ax=b`) to
+
+   .. math::
+
+      \delta A(x + \delta x) + A\delta x = 0,
+
+which is independent of `b`. If we are considering the linear
+condition number, we can drop the nonlinear term, and we get
+
+   .. math::
+
+      \delta A x + A \delta x = 0, \implies \delta x = -A^{-1}\delta Ax,
+
+ from which we may compute the bound
+
+   .. math::
+
+      \|\delta x\| \leq \|A^{-1}\|\|\delta A\|\|x\|.    
+
+Then, we can compute the condition number
+
+   .. math::
+
+      \kappa = \sup_{\|\delta A\|\neq 0}
+      \frac{\|\delta x\|/\|x\|}{\|\delta A\|/\|A\|}.
+      \leq \sup_{\|\delta A\|\neq 0}
+      \frac{\|A^{-1}\|\|\delta A\|\|x\|/\|x\|}{\|\delta A\|/\|A\|}.
+      = \|A^{-1}\|\|A\| = \kappa(A),
+
+having used the bound for `\delta x`. Hence the bound on the condition
+number for this problem is the condition number of `A`.
+
+

@@ -234,6 +234,7 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
   
   * `r_{ii} \gets \|v_i\|_2`
   * `q_i = v_i/r_{ii}`
+    
     * FOR `j = i+1` TO `n`
 
       * `r_{ij} \gets q_i^*a_j`

@@ -632,6 +632,10 @@ It turns out that the Householder method is backwards stable.
 	 \tilde{Q}\tilde{R} = A + \delta A, \quad
 	 \frac{\|\delta A\|}{\|A\|} = \mathcal{O}(\varepsilon).
 
+.. proof:proof::
+
+   See the textbook by Trefethen and Bau, Lecture 16.
+	 
 Backward stability for solving a linear system using QR
 -------------------------------------------------------
 
@@ -644,7 +648,16 @@ gives
    
       Rx = Q^*b = y.
 
-Written in components, this equation is
+The solution of this equation is `x=R^{-1}y`, but if there is one
+message to take home from this course, it is that you should *never*
+form the inverse of a matrix. It is especially disasterous to use
+Kramer's rule, which has an operation count scaling like
+`\mathcal{O}(m!)` and is numerically unstable. There are some better
+algorithms for finding the inverse of a matrix if you really need it,
+but in almost every situation it is better to *solve* a matrix system
+rather than forming the inverse of the matrix and multiplying it.  It
+is particularly easy to solve an equation formed from an upper
+triangular matrix.  Written in components, this equation is
 
   .. math::
 
@@ -666,14 +679,59 @@ pseudo-code.
 
 * `x_m  \gets y_m/R_{mm}`
 * FOR `i= m-1` TO 1 (BACKWARDS)
+  
   * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
 
 In each iteration, there are `m-i-1` multiplications and subtractions
 plus a division, so the total operation count is `\sim m^2` FLOPs.
 
+In comparison, the least bad way to form the inverse `Z` of `R` is to
+write `RZ = I`. Then, the `k`th column of this equation is
+
+   .. math::
+
+      Rz_k = e_k,
+
+where `z_k` is the kth column of `Z`. Solving for each column
+independently using back substitution leads to an operation count of
+`\sim m^3` FLOPs, much slower than applying back substitution directly
+to `b`. Hopefully this should convince you to always seek an
+alternative to forming the inverse of a matrix.
+
 There are then three steps to solving `Ax=b` using QR factorisation.
 
-#. Find the QR factorisation of `A` (here we shall use the Householder algorithm).
+#. Find the QR factorisation of `A` (here we shall use the Householder
+   algorithm).
 #. Set `y=Q^*b` (using the implicit multiplication algorithm).
 #. Solve `Rx=y` (using back substitution).
+
+So our `f` here is the solution of `Ax=b` given `b` and `A`, and our
+`\tilde{f}` is the composition of the three algorithms above. Now we
+ask: "Is this composition of algorithms stable?"
+
+We already know that the Householder algorithm is stable, and a
+floating point implementation produces `\tilde{Q},\tilde{R}` such that
+`\tilde{Q}\tilde{R}=A+\delta A` with `\|\delta
+A\|/\|A\|=\mathcal{O}(\varepsilon)`. It turns out that the implicit
+multiplication algorithm is also backwards stable, for similar reasons
+(as it is applying the same Householder reflections). This means that
+given `\tilde{Q}` (we have already perturbed `Q` when forming it using
+Householder) and `b`, the floating point implementation gives
+`\tilde{y}` which is not exactly equal to `\tilde{Q}^*b`, but instead
+satisfies
+
+   .. math::
+
+      \tilde{y}= (\tilde{Q}+\delta \tilde{Q})^*b \implies
+      (\tilde{Q} + \delta \tilde{Q})\tilde{y} = b,
+
+for some unitary perturbation `\delta\tilde{Q}` with
+`\|\delta\tilde{Q}\|=\mathcal{\varepsilon)` (note that `\|\delta
+Q\|=1` because it is unitary). Note that here, we are treating `b` as
+fixed and considering the backwards stability under perturbations to
+`\tilde{Q}`.
+
+Finally, it can be shown (see Lecture 17 of Trefethen and Bau for a proof)
+that the backward substitution algorithm is backward stable. This means that
+given `\tilde{y}` and `\tilde{R}`, 
 

@@ -563,6 +563,8 @@ the right answer. The following result shows what accuracy we can expect
 from a backward stable algorithm, which involves the condition number
 of `f`.
 
+.. _accuracy_backward
+
 .. proof:theorem:: Accuracy of a backward stable algorithm
 
    Suppose that a backward stable algorithm is applied to solve problem
@@ -609,7 +611,12 @@ We now consider the example of the problem of finding the QR
 factorisation of a matrix `A`, implemented in floating point
 arithmetic using the Householder method. The input is `A`, and the
 exact output is `Q,R`, whilst the floating point algorithm output is
-`\tilde{Q},\tilde{R}`. For this problem, backwards stability means
+`\tilde{Q},\tilde{R}`. Here, we consider `\tilde{Q}` as the exact
+unitary matrix produced by composing Householder rotations made by
+the floating point vectors `\tilde{v}_k` that approximate the `v_k`
+vectors in the exact arithmetic Householder algorithm.
+
+For this problem, backwards stability means
 that there exists a perturbed input `A+\delta A`, with `\|\delta
 A\|/\|A\| =\mathcal{O}(\varepsilon)`, such that `\tilde{Q},\tilde{R}`
 are exact solutions to the problem, i.e. `\tilde{Q}\tilde{R}=A+\delta
@@ -722,16 +729,132 @@ satisfies
 
    .. math::
 
-      \tilde{y}= (\tilde{Q}+\delta \tilde{Q})^*b \implies
-      (\tilde{Q} + \delta \tilde{Q})\tilde{y} = b,
+      \tilde{y}= (\tilde{Q}+\delta{Q})^*b \implies
+      (\tilde{Q} + \delta{Q})\tilde{y} = b,
 
-for some unitary perturbation `\delta\tilde{Q}` with
-`\|\delta\tilde{Q}\|=\mathcal{\varepsilon)` (note that `\|\delta
-Q\|=1` because it is unitary). Note that here, we are treating `b` as
-fixed and considering the backwards stability under perturbations to
-`\tilde{Q}`.
+for some perturbation `\delta Q` with `\|\delta
+Q\|=\mathcal{O}(\varepsilon)` (note that `\|Q\|=1` because it is
+unitary). Note that here, we are treating `b` as fixed and considering
+the backwards stability under perturbations to `\tilde{Q}`.
 
-Finally, it can be shown (see Lecture 17 of Trefethen and Bau for a proof)
-that the backward substitution algorithm is backward stable. This means that
-given `\tilde{y}` and `\tilde{R}`, 
+Finally, it can be shown (see Lecture 17 of Trefethen and Bau for a
+proof) that the backward substitution algorithm is backward
+stable. This means that given `\tilde{y}` and `\tilde{R}`, the
+floating point implementation of backward substitution produces
+`\tilde{x}` such that
 
+   .. math::
+
+      (\tilde{R} + \delta \tilde{R})\tilde{x} = \tilde{y},
+
+for some upper triangular perturbation such that `\|\delta
+\tilde{R}\|/\|\tilde{R}\|=\mathcal{O}(\varepsilon)`.
+
+Using the individual backward stability of these three algorithms,
+we show the following result.
+
+.. proof:theorem::
+
+   The QR algorithm to solve `Ax=b` is backward stable, producing
+   a solution `\tilde{x}` such that
+
+      .. math::
+
+	 (A+\Delta A)\tilde{x} = b,
+
+   for some `\|\Delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
+
+.. proof:proof::
+
+   From backward stability for the calculation of `Q^*b`, we have
+
+      .. math::
+
+	 b = (\tilde{Q}+\delta Q)\tilde{y},
+
+	 = (\tilde{Q} + \delta Q)(\tilde{R} + \delta R)x,
+
+   having substituted the backward stability formula for back
+   substitution in the second line. Multiplying out the brackets
+   and using backward stability for the Householder method gives
+
+      .. math::
+
+	 b = (\tilde{Q}\tilde{R} + (\delta Q)\tilde{R} + \tilde{Q}\delta R
+	 + (\delta Q)\delta R)\tilde{x},
+
+	 = \underbrace{(A + \delta A + (\delta Q)\tilde{R} +
+	 \tilde{Q}\delta R
+	   + (\delta Q)\delta R)}_{=\Delta A}\tilde{x}.
+
+   This defines `\Delta A` and it remains to estimate each of these
+   terms. We immediately have `\|\delta A\|=\mathcal{O}(\varepsilon)`
+   from backward stability of the Householder method.
+
+   Next we estimate the second term. Using `A + \delta A =
+   \tilde{Q}\tilde{R}`, we have
+
+      .. math::
+
+	 \tilde{R} = \tilde{Q}^*(A + \delta A),
+
+   we have
+
+      .. math::
+
+	 \frac{\|\tilde{R}\|}{\|A\|} \leq \|\tilde{Q}^*\|
+	 \frac{\|A+\delta A\|}{\|A\|} = \mathcal{O}(1), \mbox{ as }
+	 \varepsilon \to 0.
+
+   Then we have
+
+      .. math::
+
+	 \frac{\|(\delta Q)\tilde{R}\|}{\|A\|}
+	 \leq \|\delta Q\|\frac{\|\tilde{R}\|}{\|A\|}
+	 = \mathcal{O}(\varepsilon).
+
+   To estimate the third term, we have
+
+      .. math::
+
+	 \frac{\|\tilde{Q}\delta R\|}{\|A\|} \leq \frac{\|\delta
+	 R\|}{\|A\|}\underbrace{\|\tilde{Q}\|}_{=1} =
+	 \underbrace{\frac{\|\delta
+	 R\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
+	 \underbrace{\frac{\|\tilde{R}\|}{\|A\|}}_{\mathcal{O}(1)}
+	 = \mathcal{O}(\varepsilon).
+
+   Finally, the fourth term has size
+
+   .. math::
+
+      \frac{\|\delta Q\delta R\|}{\|A\|} \leq
+      \underbrace{\|\delta Q\|}_{\mathcal{O}(\varepsilon)}
+      \underbrace{\frac{\|\delta R\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
+      \underbrace{\frac{\|\tilde{R}\|}
+      {\|A\|\}}}_{\mathcal{O}(1)} = \mathcal{O}(\epsilon^2),
+
+   hence `\|\delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
+
+.. proof:Corollary::
+
+   When solving `Ax=b` using the QR factorisation procedure above, the
+   floating point implementation produces an approximate solution
+   `\tilde{x}` with
+   
+      .. math::
+
+	 \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa(A)\varepsilon).
+   
+.. proof:proof::
+   
+   From :numref:`Theorem {number}<accuracy_backward>`, using the
+   backward stability that we just derived, we know that
+   
+      .. math::
+
+	 \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa\varepsilon),
+
+   where `\kappa` is the condition number of the problem of solving
+   `Ax=b`, which we have shown is bounded from above by `\kappa(A)`.

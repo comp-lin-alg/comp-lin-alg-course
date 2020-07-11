@@ -28,7 +28,7 @@ The first step puts zeros below the first entry in the first column.
 
    .. math::
 
-      L_1A = \begin{pmatrix}
+      A_1 = L_1A = \begin{pmatrix}
       u_1 & v_2^1 & v_2^1 & \ldots & v_n^1 \\
       \end{pmatrix},
 
@@ -40,7 +40,7 @@ column.
 
    .. math::
 
-      L_2L_1A = \begin{pmatrix}
+      A_2 = L_2L_1A = \begin{pmatrix}
       u_1 & u_2 & v_2^2 & \ldots & v_n^2 \\
       \end{pmatrix},
 
@@ -48,3 +48,24 @@ column.
       u_2 = \begin{pmatrix} u_{12} \\ u_{22} \\ 0 \\ \ldots \\ 0 \\
       \end{pmatrix}.
 
+After repeated left multiplications we have
+
+   .. math::
+
+      A_n = \underbrace{L_n\ldots L_2L_1}A = U.
+
+If we assume (we will show this later) that all these lower triangular
+matrices are invertible, we can define
+
+   .. math::
+
+      L = (L_n\ldots L_2L_1)^{-1} = L_1^{-1}L_2^{-1}\ldots L_n^{-1},
+
+      \mbox{ so that }
+
+      L^{-1} = L_n\ldots L_2L_1.
+
+Then we have `L^{-1}A = U`, i.e. `A=LU`.
+
+So, we need to find lower triangular matrices `L_k` that do not change
+the first `k-1` rows, and 

@@ -563,7 +563,7 @@ the right answer. The following result shows what accuracy we can expect
 from a backward stable algorithm, which involves the condition number
 of `f`.
 
-.. _accuracy_backward
+.. _accuracy_backward:
 
 .. proof:theorem:: Accuracy of a backward stable algorithm
 

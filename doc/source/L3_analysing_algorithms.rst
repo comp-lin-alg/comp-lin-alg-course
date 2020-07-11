@@ -426,3 +426,254 @@ subdivided as `(1,1+2^{-52},1+2\times 2^{-52},1+3\times 2^{-52},
 `[1,2]` by `2^j`. In this representation, the gaps between numbers
 scale with the number size. We call this set of numbers the (double
 precision) floating point numbers `\mathbb{F}\subset \mathbb{R}`.
+
+A key aspect of a floating point number system is "machine epsilon"
+(`\varepsilon`), which measures the larges relative distance between
+two numbers. Considering the description above, we see that
+`\varepsilon` is the the distance between 1 and the adjacent number, i.e.
+
+   .. math::
+
+      \varepsilon = 2^{-53} \approx 1.11 \times 10^{-16}.
+
+`\varepsilon` defines the accuracy with which arbitrary real numbers
+(within the range of the maximum magnitude above) can be approximated
+in `\mathbb{F}`.
+
+   .. math::
+
+      \forall x \in \mathbb{R}, \, \exists x'\in \mathbb{F}
+      \mbox{ such that } |x-x'| \leq \varepsilon |x|.
+
+.. proof:definition:: Floating point rounding function
+
+   We define `f_L:\mathbb{R}\to \mathbb{F}` as the function that rounds
+   `x\in \mathbb{R}` to the nearest floating point number.
+
+The following axiom is just a formal presentation of the properties
+of floating point numbers that we discussed below.
+   
+.. proof:definition:: Floating point axiom I
+
+      .. math::
+
+	 \forall x \in \mathbb{R}, \, \exists \epsilon' \mbox{ with }
+	 |\epsilon'| \leq \varepsilon, 
+
+	 \mbox{ such that } f_L(x) = x(1+\epsilon').
+
+The arithmetic operations `+,-,\times,\div` on `\mathbb{R}` have
+analogous operations `\oplus,\ominus,\otimes`, etc. In general, binary
+operators `\odot` (as a general symbol representing the floating point
+version of a real arithmetic operator `\cdot` which could be any of the
+above) are constructed such that
+
+   .. math::
+
+      x\odot y = f_L(x\cdot y),
+
+for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
+
+.. proof:definition:: Floating point axiom II
+
+   .. math::
+		      
+      \forall x,y \in \mathbb{F}, \exists \epsilon' \mbox{ with }
+      |\epsilon'|\leq \varepsilon,\mbox{ such that }
+
+      x\odot y = (x\cdot y)(1 + \epsilon').
+
+Stability
+---------
+
+Stability describes the perturbation behaviour of a numerical algorithm
+when used to solve a problem on a computer. Now we have two problems
+`f:X\to Y` (the original problem implemented in the real numbers), and
+`\tilde{f}:X\to Y` (the modified problem where floating point numbers
+are used at each step).
+
+Given a problem `f` (such as computing the QR factorisation), we are given:
+
+#. A floating point system `\mathbb{F}`,
+#. An algorithm for computing `f`,
+#. A floating point implementation `\tilde{f}` for `f`.
+
+Then the chosen `x\in X` is rounded to `x'=f_L(x)`, and supplied to
+the floating point implementation of the algorithm to obtain
+`\tilde{f}(x)\in Y`.
+
+Now we want to compare `f(x)` with `\tilde{f}(x)`. We can measure the
+absolute error
+
+   .. math::
+
+      \|\tilde{f}(x)-f(x)\|,
+
+ or the relative error (taking into account the size of `f`),
+
+   .. math::
+
+      \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|}.
+
+An aspiration (but an unrealistic one) would be to aim for an algorithm
+to accurate to machine precision, i.e. 
+
+   .. math::
+
+      \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} = \mathcal{O}(\varepsilon),
+
+by which we mean that `\exists C>0` such that
+
+   .. math::
+
+      \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} \leq C\varepsilon,
+
+for sufficiently small `\varepsilon`.
+
+.. proof:definition:: Stability
+
+   An algorithm `\tilde{f}` for `f` is stable if for each `x\in X`,
+
+      .. math::
+
+	 \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
+
+   for all `\tilde{x}` with
+
+      .. math::
+
+	 \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).	 
+
+We say that a stable algorithm gives nearly the right answer to nearly the
+right question.
+
+.. proof:definition:: Backward stability
+
+   An algorithm `\tilde{f}` for `f` is backward stable if for each `x\in X`,
+   `\exists\tilde{x}` such that
+   
+      .. math::
+
+	 \tilde{f}(x) = f(\tilde{x}),
+	 \mbox{ with }
+	 \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).
+
+A backward stable algorithm gives exactly the right answer to nearly 
+the right answer. The following result shows what accuracy we can expect
+from a backward stable algorithm, which involves the condition number
+of `f`.
+
+.. proof:theorem:: Accuracy of a backward stable algorithm
+
+   Suppose that a backward stable algorithm is applied to solve problem
+   `f:X\to Y` with condition number `\kappa` using a floating point
+   number system satisfying the floating point axioms I and II. Then
+   the relative error satisfies
+
+      .. math::
+
+	 \frac{\|\tilde{f}(x) - f(x)\|}{\|f(x)\|}
+	 = \mathcal{O}(\kappa(x)\epsilon).
+
+.. proof:proof::
+
+   Since `\tilde{f}` is backward stable, we have `\tilde{x}` with
+   `\tilde{f}(x)=f(\tilde{x})` and `\|\tilde{x}-x\|/\|x\| =
+   \mathcal{O}(\varepsilon)` as above.
+   Then,
+
+      .. math::
+
+	 \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} =
+	 \frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|},
+
+	 = 	 \underbrace{\frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|}
+	 \frac{\|x\|}{\|\tilde{x}-x\|}}_{=\kappa}
+	 \underbrace{\frac{\|\tilde{x}-x\|}{\|x\|}}_{=\mathcal{O}(\epsilon)},
+
+   as required.
+
+This type of calculation is known as backward error analysis,
+originally introduced by Jim Wilkinson to analyse the accuracy of
+eigenvalue calculations using the PILOT ACE, one of the early
+computers build at the National Physical Laboratory in the late 1940s
+and early 1950s. In backward error analysis we investigate the
+accuracy via conditioning and stability. This is usually much easier
+than forward analysis, where one would simply try to keep a running
+tally of errors committed during each step of the algorithm.
+
+Backward stability of the Householder algorithm
+-----------------------------------------------
+
+We now consider the example of the problem of finding the QR
+factorisation of a matrix `A`, implemented in floating point
+arithmetic using the Householder method. The input is `A`, and the
+exact output is `Q,R`, whilst the floating point algorithm output is
+`\tilde{Q},\tilde{R}`. For this problem, backwards stability means
+that there exists a perturbed input `A+\delta A`, with `\|\delta
+A\|/\|A\| =\mathcal{O}(\varepsilon)`, such that `\tilde{Q},\tilde{R}`
+are exact solutions to the problem, i.e. `\tilde{Q}\tilde{R}=A+\delta
+A`. This means that there is very small backward error,
+
+   .. math::
+
+      \frac{\|A-\tilde{Q}\tilde{R}\|}{\|A\|} = \mathcal{O}(\varepsilon).
+      
+It turns out that the Householder method is backwards stable.
+
+.. proof:theorem::
+
+   Let the QR factorisation be computed for `A` using a floating point
+   implementation of the Householder algorithm. This factorisation is
+   backwards stable, i.e. the result `\tilde{Q}\tilde{R}` satisfy
+
+      .. math::
+
+	 \tilde{Q}\tilde{R} = A + \delta A, \quad
+	 \frac{\|\delta A\|}{\|A\|} = \mathcal{O}(\varepsilon).
+
+Backward stability for solving a linear system using QR
+-------------------------------------------------------
+
+The QR factorisation provides a method for solving systems of
+equations `Ax=b` for `x` given `b`, where `A` is an invertible
+matrix. Substituting `A=QR` and then left-multiplying by `Q^*`
+gives
+
+   .. math::
+   
+      Rx = Q^*b = y.
+
+Written in components, this equation is
+
+  .. math::
+
+     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
+
+     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
+     
+     \vdots
+
+     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
+     
+      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
+
+The last equation yields `x_m` directly by dividing by `R_{mm}`, then
+we can use this value to directly compute `x_{m-1}`. This is repeated
+for all of the entries of `x` from `m` down to 1. This procedure is
+called back substitution, which we summarise in the following
+pseudo-code.
+
+* `x_m  \gets y_m/R_{mm}`
+* FOR `i= m-1` TO 1 (BACKWARDS)
+  * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
+
+In each iteration, there are `m-i-1` multiplications and subtractions
+plus a division, so the total operation count is `\sim m^2` FLOPs.
+
+There are then three steps to solving `Ax=b` using QR factorisation.
+
+#. Find the QR factorisation of `A` (here we shall use the Householder algorithm).
+#. Set `y=Q^*b` (using the implicit multiplication algorithm).
+#. Solve `Rx=y` (using back substitution).
+

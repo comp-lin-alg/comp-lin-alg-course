@@ -517,6 +517,8 @@ apply the same operations to `b` that are applied to the columns of
   * `b_{k:m} \gets b_{k:m} - 2v_k(v_k^*b_{k:m})`
 * END FOR
 
+We call this procedure "implicit multiplication".
+  
 If we really need `Q`, we can get it by matrix-vector products
 with each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.
 This means that first we need to compute a matrix-vector product

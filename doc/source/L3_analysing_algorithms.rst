@@ -407,4 +407,22 @@ Then, we can compute the condition number
 having used the bound for `\delta x`. Hence the bound on the condition
 number for this problem is the condition number of `A`.
 
+Floating point numbers and arithmetic
+-------------------------------------
 
+Floating point number systems on computers use a discrete and finite
+representation of the real numbers. One of the first things we can
+deduce from this fact is that there exists a largest and a smallest
+positive number.  In "double precision", the standard floating point
+number format for scientific computing these days, the largest number
+is `N_{\max}\approx 1.79\times 10^{308}`, and the smallest number is
+`N_{\min}\approx 2.23 \times 10^{-308}`. The second thing that we can
+deduce is that there must be gaps between adjacent numbers in the
+number system. In the double precision format, the interval `[1,2]` is
+subdivided as `(1,1+2^{-52},1+2\times 2^{-52},1+3\times 2^{-52},
+\ldots, 2)`. The next interval `[2,4]` is subdivided as `(2, 2 +
+2^{-51}, 2 + 2\times 2^{-51}, \ldots, 4)`.  In general, the interval
+`[2^j, 2^{j+1}]` is subdivided by multiplying the set subdividing
+`[1,2]` by `2^j`. In this representation, the gaps between numbers
+scale with the number size. We call this set of numbers the (double
+precision) floating point numbers `\mathbb{F}\subset \mathbb{R}`.

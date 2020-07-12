@@ -26,7 +26,7 @@
    <http://www.imperial.ac.uk/people/colin.cotter>`_.
 	      
    A PDF version of the course notes is `available here
-   <Computationallinearalgebra.pdf>`_.  The lecture material for this
+   <Computationallinearalgebracourse.pdf>`_.  The lecture material for this
    course is available as videos linked from the web version of the
    notes.
 

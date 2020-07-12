@@ -12,6 +12,9 @@ explore the the family of methods that go right back to the technique
 of Gaussian elimination, that you will have been familiar with since
 secondary school.
 
+An algorithm for LU decomposition
+---------------------------------
+
 The computational way to view Gaussian elimination is through the LU
 decomposition of an invertible matrix, `A=LU`, where `L` is lower
 triangular (`l_{ij}=0` for `j<i`) and `U` is upper triangular

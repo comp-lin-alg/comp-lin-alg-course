@@ -458,7 +458,7 @@ is Hermitian,
 
       = I - 2\frac{(v^*)^*v^*}{v^*v},
 
-      = I - 2\frac{(vv^*}{v^*v} = F.
+      = I - 2\frac{vv^*}{v^*v} = F.
 
 Now we use this to show that `F` is unitary,
       

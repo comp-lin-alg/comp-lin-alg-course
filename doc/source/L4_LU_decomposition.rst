@@ -71,4 +71,39 @@ matrices are invertible, we can define
 Then we have `L^{-1}A = U`, i.e. `A=LU`.
 
 So, we need to find lower triangular matrices `L_k` that do not change
-the first `k-1` rows, and 
+the first `k-1` rows, and transforms the kth column 'x_k' of `A_k`
+as follows.
+
+   .. math::
+
+      Lx_k = L\begin{pmatrix}
+      x_{1k}\\
+      \vdots\\
+      x_{kk}\\
+      x_{k+1,k}\\
+      \vdots\\
+      x_{m,k}\\
+      \end{pmatrix}
+      = \begin{pmatrix}
+      x_{1k}\\
+      \vdots\\
+      x_{kk}\\
+      0 \\
+      \vdots\\
+      0 \\
+      \end{pmatrix}.
+
+As before with the Householder method, we see that we need the top-left
+`k\times k` submatrix of `L` to be the identity (so that it doesn't change
+the first `k` rows). We claim that the following matrix transforms
+`x_k` to the required form.
+
+   .. math::
+
+      L_k = \begin{pmatrix}
+      asdf
+      \end{pmatrix}
+
+Then, using the column space interpretation of
+matrix-vector multiplication, i.e. that `Lx_k` is a linear combination
+of the 

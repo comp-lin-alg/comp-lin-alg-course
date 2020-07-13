@@ -383,6 +383,13 @@ we left multiply the equation by `P` and use the factorisation get
 `LUx=Pb`. The procedure is then as before, but `b` must be permuted to
 `Pb` before doing the forwards and back substitutions.
 
+We call this strategy *partial pivoting*. In contrast, *complete
+pivoting* additionally employs permutations `Q_k` on the right that
+swap columns of `A_k` as well as the rows swapped by the permutations
+`P_k`. By similar arguments, one can obtain the LU factorisation with
+complete pivoting, `PAQ=LU`.
+
+
 Stability of LU factorisation
 -----------------------------
 
@@ -391,8 +398,60 @@ result.
 
 .. proof:theorem::
 
-   Let `\tilde{L}` and `\tilde{U}` be 
+   Let `\tilde{L}` and `\tilde{U}` be the result of the Gaussian
+   elimination algorithm implemented in a floating point number system
+   satisfying axioms I and II. If no zero pivots are encountered, then
 
+      .. math::
+
+	 `\tilde{L}\tilde{U} = A + \delta A
+
+   where
+
+      .. math::
+
+	 \frac{\|\delta A\|}{\|L\|\|U\|} = \mathcal{O}(\varepsilon),
+
+   for some perturbation `\delta A`.
+
+The algorithm is backward stable if `\|L\|\|U\|=\mathcal{O}(\|A\|)`,
+but there will be problems is `|L\|\|U\|\gg \|A\|`. For a proof of this
+result, see the textbook by Golub and van Loan.
+
+A similar result exists for pivoted LU. The main extra issue is that
+small changes could potentially lead to a different pivoting matrix
+`\tilde{P}` which is then `O(1)` different from `P`. This is characterised
+in the following result (which we also do not prove).
+
+.. proof:theorem::
+
+   Let `\tilde{P}`, `\tilde{L}` and `\tilde{U}` be the result of the
+   partial pivoted Gaussian elimination algorithm implemented in a
+   floating point number system satisfying axioms I and II. If no zero
+   pivots are encountered, then
+
+      .. math::
+
+	 `\tilde{L}\tilde{U} = A + \delta A
+
+   where
+
+      .. math::
+
+	 \frac{\|\delta A\|}{\|A\|} = \mathcal{O}(\rho\varepsilon),
+
+   for some perturbation `\delta A`, and where `\rho` is the growth
+   factor,
+
+      .. math::
+
+	 \rho = \frac{\max_{ij}|u_{ij}|}{|a_{ij}|}.
+
+Thus, partial pivoting (and complete pivoting turns out not to help
+much extra) can keep the entries in `L` under control, but there can
+still be pathological cases where entries in `U` can get large,
+leading to large `\rho` and unstable computations.
+	 
 Taking advantage of matrix structure
 ------------------------------------
 
@@ -404,14 +463,38 @@ structure is a central theme in computational linear algebra.
 Here we will discuss some examples of structure to be exploited.
 
 When `A` is a lower or upper triangular matrix then we can use
-forwards or back substitution, with `\mathcal{O}(m^2)` operation
-count as previously discussed.
+forwards or back substitution, with `\mathcal{O}(m^2)` operation count
+as previously discussed.
 
-When `A` is a diagonal matrix, i.e. `A_{ij}=0` for `i\ne j`, it only
+symmetric When `A` is a diagonal matrix, i.e. `A_{ij}=0` for `i\ne j`, it only
 has `m` nonzero entries, that can be stored as a vector,
 `(A_{11},A_{22},\ldots,A_{mm})`. In this case, `Ax=b` can be solved in
 `m` operations, just by setting `x_i=b_i/A_{ii}`, for
 `i=1,2,\ldots,m`.
+
+Similarly, if `A \in \mathcal{C}^{dm\times dm}` is block diagonal,
+i.e.
+
+   .. math::
+
+      A = \begin{pmatrix}
+      B_{1} & 0 & \ldots & 0 \\
+      0 & B_{2} & \ldots & 0 \\
+      \vdots & \vdots & \ddots & 0 \\
+      0 & 0 & \ldots B_{m}
+      \end{pmatrix},
+
+where `B_{i}\in\mathcal{C}^{d\times d}` for `i=1,2,\ldots,m`. The inverse
+of `A` is
+
+   .. math::
+
+      A = \begin{pmatrix}
+      B_{1}^{-1} & 0 & \ldots & 0 \\
+      0 & B_{2}^{-1} & \ldots & 0 \\
+      \vdots & \vdots & \ddots & 0 \\
+      0 & 0 & \ldots B_{m}^{-1}
+      \end{pmatrix}.
 
 A generalisation of a diagonal matrix is a banded matrix, where
 `A_{ij}=0` for `i>j+p` and for `i<j-q`. We call `p` the upper
@@ -444,7 +527,7 @@ exploit this structure in the forward and back substitution
 algorithms as well. For example, the forward substitution algorithm
 is given as pseudo-code below.
 
-* `x_1 \gets b_1/L_11`
+* `x_1 \gets b_1/L_{11}`
 * FOR `k=2` TO `m`
 
   * `j \gets \max(1, k-p)`
@@ -454,4 +537,144 @@ is given as pseudo-code below.
 This has an operation count `\mathcal{O}(mp)`. The story is
 very similar for the back substitution.
 
+Another example that we have already encountered is unitary matrices
+`Q`. Since `Q^{-1}=Q^*`, solving the system `Qx=b` is just the cost of
+applying `Q^*`, with operation count `\mathcal{O}(m^2)`.
 
+An important matrix that we shall encounter later is an upper
+Hessenberg matrix, that has a lower bandwidth of 1, but no particular
+zero structure above the diagonal. In this case, the `L` matrix is
+still banded (with lower bandwidth 1) but the `U` matrix is not.  This
+means that there are still savings due to the zeros in `L`, but work
+has to be done on the entire column of `U` above the diagonal, and so
+solving an upper Hessenberg system has operation count
+`\mathcal{O}(m^2)`.
+
+Cholesky factorisation
+----------------------
+
+An example of extra structure which we shall discuss in a bit more
+detail is the case of Hermitian positive definite matrices. Recall
+that a Hermitian matrix satisfies `A^*=A`, whilst positive definite
+means that
+
+   .. math::
+
+      x^*Ax > 0, \, \forall \|x\|>0.
+
+When `A` is Hermitian positive definite, it is possible to find an
+upper triangular matrix `R` such that `A=R^*R`, which is called the
+Cholesky factorisation. To show that it is possible to compute
+the Cholesky factorisation, we start by assuming that `A` has
+a 1 in the top-left hand corner, so that 
+
+   .. math::
+
+      A = \begin{pmatrix}
+      1 & w^* \\
+      w & K \\
+      \end{pmatrix}
+
+where `w` is a `m-1` vector containing the rest of the first column
+of `A`, and `K` is an `(m-1)\times(m-1)` Hermitian positive
+definite matrix. (Exercise: show that `K` is Hermitian positive
+definite.)
+
+After one stage of Gaussian elimination, we have
+
+   .. math::
+
+      \underbrace{\begin{pmatrix}
+      1 & 0 \\
+      -w & I \\
+      \end{pmatrix}}_{L_1^{-1}}
+      \underbrace{
+      \begin{pmatrix}
+      1 & w^* \\
+      w & K \\
+      \end{pmatrix}}_{A}
+      = 
+      \begin{pmatrix}
+      1 & w^* \\
+      0 & K - ww^* \\
+      \end{pmatrix}.
+
+Further,
+
+   .. math::
+
+      \begin{pmatrix}
+      1 & w^* \\
+      0 & K - ww^* \\
+      \end{pmatrix}=
+      \underbrace{
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & K - ww^* \\
+      \end{pmatrix}}_{A_1}
+      \underbrace{
+      \begin{pmatrix}
+      1 & w^T \\
+      0 & I \\
+      \end{pmatrix}}_{(L_1^{-1})^*=L_1^{-*}},
+
+so that `A = L_1^{-1}A_1L_1^{-*}`.
+If `a_{11} neq 1`, we at least
+know that ``a_{11}= e_1^*Ae_1>0`, and the factorisation becomes
+
+   .. math::
+
+      A =
+      \underbrace{\begin{pmatrix} \alpha & 0 \\
+      w/\alpha & I \\
+      \end{pmatrix}}_{R_1^T}
+      \underbrace{
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & K - \frac{ww^*}{a_{11}} \\
+      \end{pmatrix}}_{A_1}
+      \underbrace{
+      \begin{pmatrix}
+      \alpha & w/\alpha \\
+      0 & I \\
+      \end{pmatrix}}_{R_1},
+
+where `\alpha=\sqrt{a_{11}}`. We can check that `A_1` is positive
+definite, since
+
+   .. math::
+
+      x^*A_1x = x^*R_1^{-*}AR_1x = (R_1^{-1}x)^*AR_1x = y^*Ay > 0, \mbox{ where }
+      y = R_1x.
+
+Hence, `K-{ww^*}/{a_{11}}` is positive definite, since
+
+   .. math::
+
+      r^*(K-\frac{ww^*}{a_{11}})r = \begin{pmatrix} 0 \\ r \\ \end{pmatrix}^*
+      A_1 \begin{pmatrix} 0 \\ r \\ \end{pmatrix} > 0,
+
+and hence we can now perform the same procedure all over again to `K -
+{ww^*}/a_{11}`. By induction we can always continue until we have the
+required Cholesky factorisation, which is unique (since there were no
+choices to be made at any step).
+
+We can then present the Cholesky factorisation as pseudo-code.
+
+* `R\gets A`
+* FOR `k=1` TO `m`
+
+  * FOR `j=k+1` to `m`
+
+    * `R_{j,j:m} \gets R_{j,j:m} - R_{k,j:m}\bar{R}_{kj}/R_{kk}`
+  * `R_{k,k:m} \gets R_{k,k:m}/\sqrt{R_{k:k}}`
+      
+The operation count of the Cholesky factorisation is dominated
+by the operation inside the `j` loop, which has one division,
+`m-j+1` multiplications, and `m-j+1` subtractions, giving
+`\sim 2(m-j)` FLOPs. The total operation count is then
+
+   .. math::
+
+      N_{\mbox{FLOPs}} = \sum_{k=1}^m\sum_{j=k+1}^m
+      \sim \frac{1}{3}m^3.

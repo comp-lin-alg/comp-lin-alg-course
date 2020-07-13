@@ -52,3 +52,4 @@
    L2_QR_factorisation
    L3_analysing_algorithms
    L4_LU_decomposition
+   L5_eigenvalues

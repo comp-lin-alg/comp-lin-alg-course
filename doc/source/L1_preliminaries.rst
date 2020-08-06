@@ -43,9 +43,10 @@ so that the product
 produces `b \in \mathbb{C}^m`, defined by
 
    .. math::
+      :label: matvec
 
       b_i = \sum_{j=1}^n a_{ij}x_j, \, i=1,2,\ldots,m.
-
+      
 In this course it is important to
 consider the general case where `m \neq n`, which has many applications
 in data analysis, curve fitting etc. We will usually state generalities
@@ -104,7 +105,7 @@ we see that
    .. math::
 
       b_j = Ac_j.
-
+      
 This means that the jth column of `B` is the matrix-vector product of
 `A` with the jth column of `C`. This kind of "column thinking" is very
 useful in understanding computational linear algebra algorithms.
@@ -125,6 +126,19 @@ we see
 
 which means that all the columns of `uv^T` are multiples of `u`. We will
 see in the next section that this matrix has rank 1.
+
+.. _ex-basic-matvec:
+
+.. proof:exercise::
+
+   The :func:`~cla_utils.exercises1.basic_matvec` and
+   :func:`~cla_utils.exercises1.column_matvec` functions have been
+   left unimplemented. To finish the first function,
+   :func:`~cla_utils.exercises1.basic_matvec`, add code so that it
+   computes the matrix-vector product `b=Ax` from inputs `A` and `x`.
+   In this first implementation, you should simply implement
+   :eq:`matvec` in a double nested for loop (one for the sum over `j`,
+   and one for the `i` elements of `b`).
 
 Range, nullspace and rank
 -------------------------

@@ -93,3 +93,14 @@ def rank2(u1, u2, v1, v2):
     A = B.dot(C)
 
     return A
+
+
+def rank1pert_inv(u, v):
+    """
+    Return the inverse of the matrix A = I + uv^*, where I 
+    is the mxm dimensional identity matrix, with
+
+    :param u, v: two m-dimensional numpy arrays
+    """
+
+    return Ainv

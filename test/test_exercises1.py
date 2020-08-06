@@ -1,6 +1,7 @@
 '''Test integration using the quadrature module.'''
 import pytest
 from cla_utils import basic_matvec, column_matvec, rank2
+from cla_utils import rank1pert_inv
 from numpy import random
 import numpy as np
 
@@ -21,10 +22,10 @@ def test_basic_matvec(m, n):
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
 def test_rank2_matrix(m, n):
     random.seed(1451*m + 1901*n)
-    u1 = np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
-    u2 = np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
-    v1 = np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
-    v2 = np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
+    u1 = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+    u2 = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+    v1 = 1/np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
+    v2 = 1/np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
 
     A = rank2(u1, u2, v1, v2)
     a1 = random.randn(m)
@@ -37,6 +38,25 @@ def test_rank2_matrix(m, n):
     assert(np.abs(n1-n2)<1.0e-7)
 
 
+def test_rank1pert_inv():
+    m = 200
+    random.seed(1451)
+    u = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+    v = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+
+    A = np.eye(m) + np.outer(u, v.conj())
+    Ainv = rank1pert_inv(u, v)
+    a1 = random.randn(m)
+    a2 = random.randn(n)
+
+    x = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+
+    y = A.dot(x)
+    err = x - Ainv.dot(y)
+
+    assert(np.abs(err)<1.0e-7)
+
+    
 if __name__ == '__main__':
     import sys
     pytest.main(sys.argv)

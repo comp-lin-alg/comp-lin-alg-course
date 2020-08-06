@@ -1,7 +1,8 @@
 .. default-role:: math
 
-Preliminaries
-=============
+===============
+ Preliminaries
+===============
 
 In this preliminary section we revise a few key linear algebra
 concepts that will be used in the rest of the course, emphasising
@@ -9,7 +10,7 @@ the column space of matrices. We will quote some standard results
 that should be found in an undergraduate linear algebra course.
 
 Matrices, vectors and matrix-vector multiplication
---------------------------------------------------
+==================================================
 
 We will consider the multiplication of a vector
 
@@ -197,7 +198,7 @@ see in the next section that this matrix has rank 1.
    and readable, as well as potentially faster).
    
 Range, nullspace and rank
--------------------------
+=========================
 
 In this section we'll quickly rattle through some definitions and results.
 
@@ -267,9 +268,19 @@ interpretation of matrix-vector multiplication.
    first forming two matrices `B` and `C` from the inputs,
    matrix-vector product `b=Ax` from inputs `A` and `x`. The
    test script will also test this function.
+
+   To measure the rank of `A`, we first need to cast it from a numpy
+   array class to a numpy matrix class, and then use the built-in rank
+   function::
+
+     r = numpy.linalg.rank(numpy.matrix(A))
+
+   and we should find that the rank is equal to 2. Can you explain why
+   this should be the case (use the column space interpretation of
+   matrix-matrix multiplication)?
    
 Invertibility and inverses
---------------------------
+==========================
    
 This means that an invertible matrix has columns that form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
@@ -338,8 +349,20 @@ basis.  Hence, whilst the entries of `b` give basis coefficients for
 `b` in the canonical basis `(e_1,e_2,\ldots,e_m)`, the entries of `x`
 give basis coefficients for `b` in the basis given by the columns of `A`.
 
+.. proof:exercise::
+
+   For matrices of the form, `A = I + uv^*`, where `I` is the `m\times
+   m` identity matrix, and `u,v \in \mathbb{C}^m`, show that whenever
+   `A` is invertible, the inverse is of the form `A = I + \alpha uv^*`
+   where `alpha \in \mathbb{C}`, and calculate the form of `\alpha`.
+
+   The :func:`~cla_utils.exercises1.rank1pert_inv` function has been left
+   unimplemented.  To finish the function, add code so that it
+   computes `A^{-1}` using your formula (and not any built-in matrix
+   inversion routines). The test script will also test this function.
+
 Orthogonal vectors and orthogonal matrices
-------------------------------------------
+==========================================
 
 .. proof:definition:: Adjoint
 
@@ -369,7 +392,7 @@ The following identity is very important when dealing with adjoints.
       (AB)^* = B^*A^*.
 
 Inner products and orthogonality
---------------------------------
+================================
 
 The inner product is a critical tool in computational linear algebra.
 
@@ -419,7 +442,7 @@ Orthogonality will emerge as an early key concept in this course.
     for all `x\in S`.
 
 Orthogonal components of a vector
----------------------------------
+=================================
 
 Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
@@ -453,7 +476,7 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
       v = \sum_{i=1}^m (q_i q_i^*)v.
 
 Unitary matrices
-----------------
+================
 
 .. proof:definition:: Unitary matrices
 
@@ -491,7 +514,7 @@ representing a change of orthogonal basis. If `Qx = b`, then
 given by the orthonormal columns of `Q`.
 
 Vector norms
-------------
+============
 
 Various vector norms are useful to measure the size of a vector.
 In computational linear algebra we need them for quantifying errors
@@ -522,7 +545,7 @@ for real 'p>0'. We will also consider weighted norms
 where `W` is a matrix.
 
 Projectors and projections
---------------------------
+==========================
 
 .. proof:definition:: Projector
    
@@ -604,7 +627,7 @@ Now we introduce orthogonality into the concept of projectors.
 In this case, `P` separates the space into two orthogonal subspaces.
    
 Constructing orthogonal projectors from sets of orthonormal vectors
--------------------------------------------------------------------
+===================================================================
 
 Let `\{q_1,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`. We write

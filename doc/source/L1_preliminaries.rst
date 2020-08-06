@@ -265,7 +265,8 @@ interpretation of matrix-vector multiplication.
    `u_1,u_2\in \mathbb{C}^m` and `v_1,v_2 \in \mathbb{C}^n`. As you
    can see, the function needs to implement this rank-2 matrix by
    first forming two matrices `B` and `C` from the inputs,
-   matrix-vector product `b=Ax` from inputs `A` and `x`.
+   matrix-vector product `b=Ax` from inputs `A` and `x`. The
+   test script will also test this function.
    
 Invertibility and inverses
 --------------------------

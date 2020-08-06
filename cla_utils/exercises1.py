@@ -78,3 +78,18 @@ def time_matvecs():
     print(timeit.Timer(timeable_column_matvec).timeit(number=1))
     print("Timing for numpy matvec")
     print(timeit.Timer(timeable_numpy_matvec).timeit(number=1))
+
+
+def rank2(u1, u2, v1, v2):
+    """
+    Return the rank2 matrix A = u1*u2^* + u2*v2^*.
+
+    :param u1, u2: two m-dimensional numpy arrays
+    :param v1, v2: two n-dimensional numpy arrays
+    """
+
+    "INSERT CODE HERE DEFINING B and C from u1, u2, v1, v2 (AND DELETE THIS)"
+
+    A = B.dot(C)
+
+    return A

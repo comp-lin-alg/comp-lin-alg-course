@@ -131,15 +131,71 @@ see in the next section that this matrix has rank 1.
 
 .. proof:exercise::
 
-   The :func:`~cla_utils.exercises1.basic_matvec` and
-   :func:`~cla_utils.exercises1.column_matvec` functions have been
-   left unimplemented. To finish the first function,
-   :func:`~cla_utils.exercises1.basic_matvec`, add code so that it
+   The :func:`~cla_utils.exercises1.basic_matvec` function has been left
+   unimplemented. To finish the function, add code so that it
    computes the matrix-vector product `b=Ax` from inputs `A` and `x`.
    In this first implementation, you should simply implement
-   :eq:`matvec` in a double nested for loop (one for the sum over `j`,
-   and one for the `i` elements of `b`).
+   :eq:`matvec` with a double nested for loop (one for the sum over `j`,
+   and one for the `i` elements of `b`). Run this script to test your code
+   (and all the exercises from this exercise set)::
 
+      py.test test/test_exercises1.py
+
+   from the Bash command line. Make sure you commit your modifications
+   and push them to your fork of the course repository.
+
+.. _ex-column-matvec:
+
+.. proof:exercise::
+
+   The :func:`~cla_utils.exercises1.column_matvec` function has been
+   left unimplemented.
+   To finish the function, add code so that it computes the
+   matrix-vector product `b=Ax` from inputs `A` and `x`.  This second
+   implementation should use the column-space formulation of
+   matrix-vector multiplication, i.e., `b` is a weighted sum of the
+   columns of `A` with coefficients given by the entries in `x`.  This
+   should be implemented with a single for loop over the entries of
+   `x`. It will be useful to use the Python "slice" notation, for
+   example::
+
+      A[:, 3]
+
+   will return the 4th (since Python numbers from zero) column of `A`.
+   The test script will also test this function.
+
+.. proof:exercise::
+
+   The :func:`~cla_utils.exercises1.time_matvecs` function computes
+   the execution time for these two implementations for some example
+   matrices and compares them with the built-in Numpy matrix-vector
+   product. Run this function and examine the output. You should
+   observe that the basic implementation is much slower than the
+   built-in implementation. This is because built-in Numpy operations
+   use compiled C code that is wrapped in Python, which avoids the
+   overheads of run-time interpretation of the Python code and
+   manipulation of Python objects. Numpy is really useful for
+   computational linear algebra programming because it preserves the
+   readability and flexibility of Python (writing code that looks much
+   more like maths, access to object-oriented programming models)
+   whilst giving near-C speed if used appropriately.  You can read
+   more about the advantages of using Numpy `here
+   <https://numpy.org/devdocs/user/whatisnumpy.html>`_.  You
+   should also observe that the column implementation is somewhere
+   between the speed of the basic implementation and the built-in
+   implementation. This is because (if you did it correctly), each
+   iteration of the for loop involves adding an entire array (a
+   scaling of one of the columns of `A`) to another array (where `b`
+   is being calculated). This will also use compiled C code through
+   Numpy, removing some (but not all) of the Python overheads in the
+   basic implementation.
+
+   In this course, we will present algorithms in the notes that generally
+   do not express the way that Numpy should be used to implement them.
+   In these exercises you should consider the best way to make use of
+   Numpy built-in operations (which will often make the code more maths-like
+   and readable, as well as potentially faster).
+   
 Range, nullspace and rank
 -------------------------
 

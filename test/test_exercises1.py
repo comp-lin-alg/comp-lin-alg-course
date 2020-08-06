@@ -1,6 +1,6 @@
 '''Test integration using the quadrature module.'''
 import pytest
-from cla_utils import basic_matvec, column_matvec
+from cla_utils import basic_matvec, column_matvec, rank2
 from numpy import random
 import numpy as np
 

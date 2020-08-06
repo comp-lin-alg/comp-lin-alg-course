@@ -37,10 +37,9 @@ def test_rank2_matrix(m, n):
 
     assert(np.abs(n1-n2)<1.0e-7)
 
-
-def test_rank1pert_inv():
-    m = 200
-    random.seed(1451)
+@pytest.mark.parametrize('m', [10, 20, 200])
+def test_rank1pert_inv(m):
+    random.seed(1451*m)
     u = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
     v = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 

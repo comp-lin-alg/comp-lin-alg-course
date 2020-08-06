@@ -73,8 +73,8 @@ def time_matvecs():
     """
 
     print("Timing for basic_matvec")
-    print(timeit.timeit(timeable_basic_matvec))
+    print(timeit.Timer(timeable_basic_matvec).timeit(number=1))
     print("Timing for column_matvec")
-    print(timeit.timeit(timeable_column_matvec))
+    print(timeit.Timer(timeable_column_matvec).timeit(number=1))
     print("Timing for numpy matvec")
-    print(timeit.timeit(timeable_numpy_matvec))
+    print(timeit.Timer(timeable_numpy_matvec).timeit(number=1))

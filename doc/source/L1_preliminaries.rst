@@ -361,6 +361,17 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
    computes `A^{-1}` using your formula (and not any built-in matrix
    inversion routines). The test script will also test this function.
 
+   Add a function to :module:`cla_utils.exercises1` that measures the
+   time to compute the inverse of `A` for an input matrix of size 400,
+   and compare with the time to compute the inverse of `A` using the built-in
+   inverse::
+
+     numpy.linalg.inv(A)
+
+   What do you observe? Why do you think this is? We will examine the
+   cost of general purpose matrix inversion algorithms later.
+
+
 Orthogonal vectors and orthogonal matrices
 ==========================================
 

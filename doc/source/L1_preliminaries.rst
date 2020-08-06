@@ -257,6 +257,16 @@ interpretation of matrix-vector multiplication.
    A matrix `A` is called nonsingular, or invertible, if it is a square
    matrix (`m=n`) of full rank.
 
+.. proof:exercise::
+
+   The :func:`~cla_utils.exercises1.rank2` function has been left
+   unimplemented.  To finish the function, add code so that it
+   computes the rank-2 matrix `A = u_1v_1^* + u_2v_2^*` from
+   `u_1,u_2\in \mathbb{C}^m` and `v_1,v_2 \in \mathbb{C}^n`. As you
+   can see, the function needs to implement this rank-2 matrix by
+   first forming two matrices `B` and `C` from the inputs,
+   matrix-vector product `b=Ax` from inputs `A` and `x`.
+   
 Invertibility and inverses
 --------------------------
    

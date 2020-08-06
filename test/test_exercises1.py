@@ -21,10 +21,10 @@ def test_basic_matvec(m, n):
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
 def test_rank2_matrix(m, n):
     random.seed(1451*m + 1901*n)
-    u1 = random.randn(m)
-    u2 = random.randn(m)
-    v1 = random.randn(n)
-    v2 = random.randn(n)
+    u1 = np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+    u2 = np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
+    v1 = np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
+    v2 = np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
 
     A = rank2(u1, u2, v1, v2)
     a1 = random.randn(m)

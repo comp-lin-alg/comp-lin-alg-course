@@ -310,8 +310,8 @@ i.e.
 The Rayleigh quotient gives a quadratically accurate estimate to the
 eigenvalues of `A`.
 
-Power iteration and inverse iteration
--------------------------------------
+Power iteration
+---------------
 
 Power iteration is a simple method for finding the eigenvalue of
 `A` with largest eigenvalue (in magnitude). It is based on the following
@@ -410,7 +410,8 @@ to `\mu`.
 This algorithm is called inverse iteration, which we express in
 pseudo-code below.
 
-* `v^{0} \gets ` some initial vector with `\|v^0\|=1`.
+* `v^{0}\gets` some initial vector with `\|v^0\|=1`.
+
 * FOR `k=1,2,\ldots`
 
   * SOLVE `(A-\mu I)w = v^{k-1}` for `w`
@@ -436,12 +437,13 @@ to an eigenvector. Then we iterate this whole process. This is called
 the Rayleigh quotient iteration, which we express in pseudo-code
 below.
 
-* `v^{0} \gets ` some initial vector with `\|v^0\|=1`.
-  * `\lambda^{(0)} \gets (v^0)^TAv^0`
-* FOR `k=1,2,\ldots`
-  * SOLVE `(A-\lambda^{(k-1)} I)w = v^{k-1}` for `w`
-  * `v^k\gets w/\|w\|`
-  * `\lambda^{(k)} \gets (v^k)^TAv^k`
+   * `v^{0}` some initial vector with `\|v^0\|=1`.
+   * `\lambda^{(0)} \gets (v^0)^TAv^0`
+   * FOR `k=1,2,\ldots`
+  
+     * SOLVE `(A-\lambda^{(k-1)} I)w = v^{k-1}` for `w`
+     * `v^k\gets w/\|w\|`
+     * `\lambda^{(k)} \gets (v^k)^TAv^k`
 
 This dramatically improves the convergence since if
 `\|v^(k)-q_J\|=\mathcal{O}(\delta)` for some small `\delta`, then the
@@ -497,14 +499,14 @@ One problem with power iteration is that it only finds one
 eigenvector/eigenvalue pair at a time. Simultaneous iteration is a
 solution to this. The starting idea is simple: instead of working on
 just one vector `v`, we pick a set of linearly independent vectors
-`v_1^(0),v_2^(0),\ldots,v_n^(0)` and repeatedly apply `A` to each of
+`v_1^{(0)},v_2^{(0)},\ldots,v_n^{(0)}` and repeatedly apply `A` to each of
 these vectors. After a large number applications and normalisations in
 the manner of the power iteration, we end up with a linear independent
-set `v_1^(k),v_2^(k),\ldots,v_n^(k)`, `n\leq m`. All of the vectors in this set
+set `v_1^{(k)},v_2^{(k)},\ldots,v_n^{(k)}`, `n\leq m`. All of the vectors in this set
 will be very close to `q_1`, the eigenvector with largest magnitude of
-corresponding eigenvalue. We can choose `v_1^(k)` as our approximation
+corresponding eigenvalue. We can choose `v_1^{(k)}` as our approximation
 of `q_1`, and project this approximation of `q_1` from the rest of the
-vectors `v_2^(k),v_3^(k),\ldots v_m^(k)`.  All the remaining vectors
+vectors `v_2^{(k)},v_3^{(k)},\ldots v_m^{(k)}`.  All the remaining vectors
 will be close to `q_2`, the eigenvector with the next largest
 magnitude of corresponding eigenvalue. Similarly we can choose the
 first one of the remaining projected vectors as an approximation of
@@ -512,9 +514,9 @@ first one of the remaining projected vectors as an approximation of
 
 We can translate this idea to matrices by defining `V^{(0)}` to be the
 matrix with columns given by the set of initial `v`s. Then after `k`
-applications of `A`, we have `V^{(k)}=A^{(k)} V^{(0)}`. By the column space
+applications of `A`, we have `V^{(k)}=A^{k} V^{(0)}`. By the column space
 interpretation of matrix-matrix multiplication, each column of `V^{(k)}`
-is `A^{(k)}` multiplied by the corresponding column of `V^{(0)}`. To make the
+is `A^{k}` multiplied by the corresponding column of `V^{(0)}`. To make the
 normalisation and projection process above, we could just apply the
 Gram-Schmidt algorithm, sequentially forming an orthonormal spanning
 set for the columns of `V^{(k)}` working from left to right.  However, we
@@ -525,9 +527,9 @@ columns of `\hat{Q}^{(k)}` will converge to eigenvectors of `A`, provided
 that:
 
 #. The first `n` eigenvalues of `A` are distinct in absolute value:
-`|\lambda_1| > |\lambda_2| > \ldots > |\lambda_n|`. If we want to find
-all of the eigenvalues `n=m`, then all the absolute values of the
-eigenvalues must be distinct.
+   `|\lambda_1| > |\lambda_2| > \ldots > |\lambda_n|`. If we want to find
+   all of the eigenvalues `n=m`, then all the absolute values of the
+   eigenvalues must be distinct.
 #. The `v` vectors can be expressed as a linear sum of the first `n`
    eigenvectors `q_1,\ldots,q_n` in a non-degenerate way. This turns
    out (we won't show it here) the be equivalent to the condition that

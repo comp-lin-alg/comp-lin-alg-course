@@ -372,8 +372,8 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
    cost of general purpose matrix inversion algorithms later.
 
 
-Orthogonal vectors and orthogonal matrices
-==========================================
+Adjoints and Hermitian matrices
+===============================
 
 .. proof:definition:: Adjoint
 

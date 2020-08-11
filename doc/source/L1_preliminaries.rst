@@ -427,30 +427,30 @@ to define size of vectors.
 
    .. math::
 
-      \|x\| = \sqrt{\sum_{i=1}^m x_i^2} = \sqrt{x^*x}.
+      \|x\| = \sqrt{\sum_{i=1}^m |x_i|^2} = \sqrt{x^*x}.
 
 Orthogonality will emerge as an early key concept in this course.
       
- .. proof:definition:: Orthogonal vectors
+.. proof:definition:: Orthogonal vectors
 
-    Let `x,y\in \mathbb{C}^m`. The two vectors are orthogonal if
-    `x^*y=0`.
+   Let `x,y\in \mathbb{C}^m`. The two vectors are orthogonal if
+   `x^*y=0`.
 
-    Similarly, let `X`, `Y` be two sets of vectors. The two sets
-    are orthogonal if
+   Similarly, let `X`, `Y` be two sets of vectors. The two sets
+   are orthogonal if
 
-    .. math::
+   .. math::
 
-       x^*y = 0\, \forall x\in X, \, y\in Y.
+      x^*y = 0\, \forall x\in X, \, y\in Y.
 
-    A set `S` of vectors is itself orthogonal if
+   A set `S` of vectors is itself orthogonal if
+      
+   .. math::
 
-    .. math::
+      x^*y = 0\,\forall x,y \in S.
 
-       x^*y = 0\,\forall x,y \in S.
-
-    We say that `S` is orthonormal if we also have `\|x\|=1`
-    for all `x\in S`.
+   We say that `S` is orthonormal if we also have `\|x\|=1`
+   for all `x\in S`.
 
 Orthogonal components of a vector
 =================================

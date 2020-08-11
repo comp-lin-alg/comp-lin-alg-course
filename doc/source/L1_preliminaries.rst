@@ -470,7 +470,7 @@ for each `1\leq i \leq n`,
 
       q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots (q_n^*v)(q_i^*q_n)
 
-   = q_i^*v - q_i^*v = 0,
+      = q_i^*v - q_i^*v = 0,
 
 since `q_i^*q_j=0` if `i\neq j`, and 1 if `i=j`.
 Thus,

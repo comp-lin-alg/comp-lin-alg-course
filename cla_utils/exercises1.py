@@ -85,8 +85,10 @@ def rank2(u1, u2, v1, v2):
     """
     Return the rank2 matrix A = u1*u2^* + u2*v2^*.
 
-    :param u1, u2: two m-dimensional numpy arrays
-    :param v1, v2: two n-dimensional numpy arrays
+    :param u1: m-dimensional numpy array
+    :param u1: m-dimensional numpy array
+    :param v1: n-dimensional numpy array
+    :param v2: n-dimensional numpy array
     """
 
     raise NotImplementedError
@@ -101,7 +103,8 @@ def rank1pert_inv(u, v):
     Return the inverse of the matrix A = I + uv^*, where I
     is the mxm dimensional identity matrix, with
 
-    :param u, v: two m-dimensional numpy arrays
+    :param u: m-dimensional numpy array
+    :param v: m-dimensional numpy array
     """
 
     raise NotImplementedError
@@ -110,8 +113,7 @@ def rank1pert_inv(u, v):
 
 
 def ABiC(Ahat, xr, xi):
-    """
-    Return the real and imaginary parts of z = A*x, where A = B + iC
+    """Return the real and imaginary parts of z = A*x, where A = B + iC
     with
 
     :param Ahat: an mxm-dimensional numpy array with
@@ -120,8 +122,10 @@ def ABiC(Ahat, xr, xi):
 
     Returns
 
-    :param zr, zi: m-dimensional numpy arrays containing the 
-    real and imaginary parts of z.
+    :param zr: m-dimensional numpy arrays containing the real part of
+    z.
+    :param zi: m-dimensional numpy arrays containing the imaginary part of
+    z.
     """
 
     raise NotImplementedError

@@ -20,10 +20,8 @@ def orthog_cpts(v, Q):
     :param u: an n-dimensional numpy array containing the coefficients
     """
 
-    m, n = Q.shape
+    raise NotImplementedError
 
-    r = np.zeros(m, dtype=np.float64)
-    u = np.zeros(n, dtype=np.float64)
     return r, u
 
 
@@ -44,3 +42,24 @@ def solveQ(Q, b):
     raise NotImplementedError
 
     return x
+
+
+def orthog_proj(Q):
+    """
+    Given a vector v and an orthonormal set of vectors q_1,...q_n,
+    compute the orthogonal projector P that projects vectors onto
+    the subspace spanned by those vectors.
+
+    Inputs
+
+    :param Q: an mxn-dimensional numpy array whose columns are the
+    orthonormal vectors
+
+    Outputs
+
+    :param P: an mxm-dimensional numpy array containing the projector
+    """
+
+    raise NotImplementedError
+
+    return P

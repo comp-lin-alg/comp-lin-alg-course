@@ -9,16 +9,29 @@ import numpy as np
 # Test the basic matvec
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
 def test_basic_matvec(m, n):
-    random.seed(1878*m + 1950*n)    
+    random.seed(1878*m + 1950*n)
     A = random.randn(m, n)
     x = random.randn(n)
 
     b0 = A.dot(x)
     b = basic_matvec(A, x)
 
-    assert(np.linalg.norm(b-b0)<1.0e-6)
+    assert(np.linalg.norm(b-b0) < 1.0e-6)
+
 
 # Test the basic matvec
+@pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
+def test_column_matvec(m, n):
+    random.seed(1878*m + 1950*n)  
+    A = random.randn(m, n)
+    x = random.randn(n)
+
+    b0 = A.dot(x)
+    b = column_matvec(A, x)
+
+    assert(np.linalg.norm(b-b0) < 1.0e-6)
+
+
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
 def test_rank2_matrix(m, n):
     random.seed(1451*m + 1901*n)
@@ -35,27 +48,46 @@ def test_rank2_matrix(m, n):
     n2 = np.vdot(a1, u1)*np.vdot(v1, a2) + \
         np.vdot(a1, u2)*np.vdot(v2, a2)
 
-    assert(np.abs(n1-n2)<1.0e-7)
+    assert(np.abs(n1-n2) < 1.0e-7)
+
 
 @pytest.mark.parametrize('m', [10, 20, 200])
 def test_rank1pert_inv(m):
-    random.seed(1451*m)
+    random.seed(1001*m)
     u = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
     v = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 
     A = np.eye(m) + np.outer(u, v.conj())
     Ainv = rank1pert_inv(u, v)
-    a1 = random.randn(m)
-    a2 = random.randn(n)
 
     x = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 
     y = A.dot(x)
     err = x - Ainv.dot(y)
 
-    assert(np.abs(err)<1.0e-7)
+    assert(np.abs(err) < 1.0e-7)
 
-    
+
+@pytest.mark.parametrize('m', [7, 20, 43])
+def test_ABiC(m):
+    random.seed(1348*m)
+    B = random.randn(m, m)
+    C = random.randn(m, m)
+    A = B + 1j*C
+    xr = random.randn(m)
+    xi = random.randn(m)
+
+    Ahat = B
+    Ahat[np.triu_indices(m, 1)] = C[np.tri_indices(m, 1)]
+    zr, zi = test_ABiC(Ahat, xr, xi)
+
+    z = zr + 1j*zi
+    x = xr + 1j*xi
+    err = z - np.dot(A, x)
+
+    assert(np.abs(err) < 1.0e-7)
+
+
 if __name__ == '__main__':
     import sys
     pytest.main(sys.argv)

@@ -2,10 +2,11 @@ import numpy as np
 import timeit
 import numpy.random as random
 
-#pre-construct a matrix in the namespace to use in tests
+# pre-construct a matrix in the namespace to use in tests
 random.seed(1651)
 A0 = random.randn(500, 500)
 x0 = random.randn(500)
+
 
 def basic_matvec(A, x):
     """
@@ -19,7 +20,7 @@ def basic_matvec(A, x):
     This should be implemented using a double loop over the entries of A
     """
 
-    pass
+    raise NotImplementedError
 
 
 def column_matvec(A, x):
@@ -37,7 +38,7 @@ def column_matvec(A, x):
     This should be implemented using a single loop over the entries of x
     """
 
-    pass
+    raise NotImplementedError
 
 
 def timeable_basic_matvec():
@@ -45,8 +46,8 @@ def timeable_basic_matvec():
     Doing a matvec example with the basic_matvec that we can
     pass to timeit.
     """
-    
-    b = basic_matvec(A0, x0)
+
+    b = basic_matvec(A0, x0) # noqa
 
 
 def timeable_column_matvec():
@@ -54,8 +55,8 @@ def timeable_column_matvec():
     Doing a matvec example with the column_matvec that we can
     pass to timeit.
     """
-    
-    b = column_matvec(A0, x0)
+
+    b = column_matvec(A0, x0) # noqa
 
 
 def timeable_numpy_matvec():
@@ -64,9 +65,9 @@ def timeable_numpy_matvec():
     we can pass to timeit.
     """
 
-    b = A0.dot(x0)
+    b = A0.dot(x0) # noqa
 
-    
+
 def time_matvecs():
     """
     Get some timings for matvecs.
@@ -88,7 +89,7 @@ def rank2(u1, u2, v1, v2):
     :param v1, v2: two n-dimensional numpy arrays
     """
 
-    "INSERT CODE HERE DEFINING B and C from u1, u2, v1, v2 (AND DELETE THIS)"
+    raise NotImplementedError
 
     A = B.dot(C)
 
@@ -97,10 +98,32 @@ def rank2(u1, u2, v1, v2):
 
 def rank1pert_inv(u, v):
     """
-    Return the inverse of the matrix A = I + uv^*, where I 
+    Return the inverse of the matrix A = I + uv^*, where I
     is the mxm dimensional identity matrix, with
 
     :param u, v: two m-dimensional numpy arrays
     """
 
+    raise NotImplementedError
+
     return Ainv
+
+
+def ABiC(Ahat, xr, xi):
+    """
+    Return the real and imaginary parts of z = A*x, where A = B + iC
+    with
+
+    :param Ahat: an mxm-dimensional numpy array with
+    Ahat[i,j] = B[i,j] for i<=j and
+    Ahat[i,j] = C[i,j] for i>j.
+
+    Returns
+
+    :param zr, zi: m-dimensional numpy arrays containing the 
+    real and imaginary parts of z.
+    """
+
+    raise NotImplementedError
+
+    return zr, zi

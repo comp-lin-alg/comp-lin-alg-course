@@ -150,21 +150,26 @@ see in the next section that this matrix has rank 1.
 .. proof:exercise::
 
    The :func:`~cla_utils.exercises1.column_matvec` function has been
-   left unimplemented.
-   To finish the function, add code so that it computes the
-   matrix-vector product `b=Ax` from inputs `A` and `x`.  This second
-   implementation should use the column-space formulation of
-   matrix-vector multiplication, i.e., `b` is a weighted sum of the
+   left unimplemented.  To finish the function, add code so that it
+   computes the matrix-vector product `b=Ax` from inputs `A` and `x`.
+   This second implementation should use the column-space formulation
+   of matrix-vector multiplication, i.e., `b` is a weighted sum of the
    columns of `A` with coefficients given by the entries in `x`.  This
    should be implemented with a single for loop over the entries of
-   `x`. It will be useful to use the Python "slice" notation, for
+   `x`. The test script :python:`test_exercises1.py` will also test
+   this function.
+
+.. hint::
+
+   It will be useful to use the Python "slice" notation, for
    example::
-
-      A[:, 3]
-
+     
+     A[:, 3]
+     
    will return the 4th (since Python numbers from zero) column of `A`.
-   The test script will also test this function.
-
+   For more information, see the `Numpy documentation on slicing.
+   <https://numpy.org/doc/stable/reference/arrays.indexing.html>`_
+   
 .. proof:exercise::
 
    The :func:`~cla_utils.exercises1.time_matvecs` function computes
@@ -267,7 +272,7 @@ interpretation of matrix-vector multiplication.
    can see, the function needs to implement this rank-2 matrix by
    first forming two matrices `B` and `C` from the inputs,
    matrix-vector product `b=Ax` from inputs `A` and `x`. The
-   test script will also test this function.
+   test script :python:`test_exercises1.py` will also test this function.
 
    To measure the rank of `A`, we first need to cast it from a numpy
    array class to a numpy matrix class, and then use the built-in rank
@@ -354,12 +359,13 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
    For matrices of the form, `A = I + uv^*`, where `I` is the `m\times
    m` identity matrix, and `u,v \in \mathbb{C}^m`, show that whenever
    `A` is invertible, the inverse is of the form `A = I + \alpha uv^*`
-   where `alpha \in \mathbb{C}`, and calculate the form of `\alpha`.
+   where `\alpha \in \mathbb{C}`, and calculate the form of `\alpha`.
 
-   The :func:`~cla_utils.exercises1.rank1pert_inv` function has been left
-   unimplemented.  To finish the function, add code so that it
+   The :func:`~cla_utils.exercises1.rank1pert_inv` function has been
+   left unimplemented.  To finish the function, add code so that it
    computes `A^{-1}` using your formula (and not any built-in matrix
-   inversion routines). The test script will also test this function.
+   inversion routines). The test script :python:`test_exercises1.py`
+   will also test this function.
 
    Add a function to :module:`cla_utils.exercises1` that measures the
    time to compute the inverse of `A` for an input matrix of size 400,
@@ -401,6 +407,39 @@ The following identity is very important when dealing with adjoints.
    .. math::
 
       (AB)^* = B^*A^*.
+
+.. proof:exercise::
+
+   Consider a matrix `A=B + iC` where `B,C\in\mathbb{R}^{m\times m}`
+   and `A` is Hermitian. Show that `B=B^T` and `C=-C^T`. To save
+   memory, instead of storing values of `A` (`m\times m` complex
+   numbers to store), consider equivalently storing a real-valued
+   `m\times m` array `\hat{A}` with `\hat{A}_{ij}=B_{ij}` for `i\leq j`
+   and `\hat{A}_{ij}=C_{ij}` for `i>j`.
+
+   The :func:`~cla_utils.exercises1.ABiC` function has been left
+   unimplemented. It should implement matrix vector multiplication
+   `z=Ax`, returning the real and imaginary parts of `z`, given the
+   real and imaginary parts of `x` as inputs, and given the real array
+   `\hat{A}` as above. You should implement the multiplication using
+   real arithmetic only, with just one loop over the entries of `x`,
+   using the column space interpretation of matrix-vector
+   multiplication. The test script :python:`test_exercises1.py` will
+   also test this function.
+   
+.. hint::
+
+   You can use the Python "slice" notation, to assign into a slice
+   of an array, for example::
+     
+     x[3:5] = y[3:5]
+     
+   will copy the 4th and 5th entries of `y` (Python numbers from zero,
+   and the upper limit of the slice is the first index value not to
+   use.  For more information, see the `Numpy documentation on
+   slicing.
+   <https://numpy.org/doc/stable/reference/arrays.indexing.html>`_
+
 
 Inner products and orthogonality
 ================================
@@ -486,6 +525,16 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 
       v = \sum_{i=1}^m (q_i q_i^*)v.
 
+.. proof:exercise::
+
+   The :func:`~cla_utils.exercises1.orthog_cpts` function has been left
+   unimplemented. It should implement the above computation, returning
+   `r` and the coefficients of the component of `v` in each orthonormal
+   direction. You should implement it using one loop over the orthonormal
+   basis vectors (despite the possibility of a matrix-based approach
+   detailed below). The test script :python:`test_exercises2.py` will
+   test this function.
+   
 Unitary matrices
 ================
 
@@ -524,6 +573,10 @@ representing a change of orthogonal basis. If `Qx = b`, then
 `x=Q^*b` contains the coefficients of `b` expanded in the basis
 given by the orthonormal columns of `Q`.
 
+.. proof:exercise::
+
+   
+
 Vector norms
 ============
 
@@ -547,7 +600,7 @@ larger class of norms called p-norms, with
 
       \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
 
-for real 'p>0'. We will also consider weighted norms
+for real `p>0`. We will also consider weighted norms
 
    .. math::
 
@@ -571,7 +624,7 @@ If `v \in \mbox{range}(P)`, then there exists `x` such that
 
 and hence multiplying by `P` does not change `v`.
 
-Now suppose that `Pv \neq v` (so that `v\notin \mbox{range}(P)).
+Now suppose that `Pv \neq v` (so that `v\notin \mbox{range}(P)`).
 Then,
 
    .. math::
@@ -701,6 +754,6 @@ In fact the following is true.
 
 .. proof:theorem::
 
-   `P=P^*` if and only if `Q` is an orthogonal projector.
+   `P=P^*` if and only if `Q` is orthogonal.
 
 

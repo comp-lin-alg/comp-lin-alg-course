@@ -63,3 +63,24 @@ def orthog_proj(Q):
     raise NotImplementedError
 
     return P
+
+
+def orthog_space(V):
+    """
+    Given set of vectors u_1,u_2,..., u_n, compute the
+    orthogonal complement to the subspace U spanned by the vectors.
+
+    Inputs
+
+    :param U: an mxn-dimensional numpy array whose columns are the
+    vectors u_1,u_2,...,u_n.
+
+    Outputs
+
+    :param Q: an lxm-dimensional numpy array whose columns are an orthonormal
+    basis for the subspace orthogonal to U.
+    """
+
+    raise NotImplementedError
+
+    return Q

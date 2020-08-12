@@ -46,6 +46,23 @@ column get multiplied by those zero rows in `R`, so it makes sense to
 only work with the first `n` columns of `Q`, which we call `\hat{Q}`.
 We then have the reduced QR factorisation, `\hat{Q}\hat{R}`.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises2.orthog_space` function has been
+   left unimplemented. Given a set of vectors `v_1,v_2,\ldots,v_n`
+   that span the subspace `U \subset \mathbb{C}^m`, the function
+   should find an orthonormal basis for the orthogonal complement
+   `U^{\perp}` given by
+
+      .. math::
+
+	 U^{\perp} = \{x \in \mathbb{C}^m: x^*v = 0, \, \forall v \in U\}. 
+
+   It is expected that it will only compute this up to a tolerance.
+   You should make use of the built in QR factorisation routine
+   :func:`numpy.linalg.qr`. The test script ``test_exercises2.py`` in
+   the ``test`` directory will test this function.
+
 In the rest of this section we will examine some algorithms for computing
 the QR factorisation, before discussing the application to least squares
 problems. We will start with a bad algorithm, before moving on to some

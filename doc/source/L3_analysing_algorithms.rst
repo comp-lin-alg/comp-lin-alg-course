@@ -595,6 +595,27 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 
       x\odot y = (x\cdot y)(1 + \epsilon').
 
+.. proof:exercise::
+
+   The formula for the roots of a quadratic equation `x^2 - 2px - q=0`
+   is well-known,
+
+      .. math::
+
+	 x = p \pm\sqrt{p^2 + q}.
+
+   Show that the smallest root (with the minus sign above) also
+   satisfies
+
+      .. math::
+
+	 x = \frac{q}{p + \sqrt{p^2 + q}}.
+
+   In the case `p=12345678` and `q=1`, compare the result of these two
+   methods for computing the smallest root when using double floating
+   point arithmetic (the default floating point numbers in
+   Python/NumPy). Which is more accurate? Why is this?
+      
 Stability
 ---------
 

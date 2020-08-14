@@ -778,7 +778,7 @@ It turns out that the Householder method is backwards stable.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises4.backward_stability_householder`
+   The :func:`cla_utils.exercises5.backward_stability_householder`
    function has been left unimplemented. It generates random `Q_1` and
    `R_1` matrices of dimension `m` provided, and forms `A=QR`. It is
    very important that the two matrices `Q_1` and `R_1` are
@@ -786,7 +786,7 @@ It turns out that the Householder method is backwards stable.
    of the same matrix would spoil the experiment). To complete the
    function, pass `A` to the built-in QR factorisation function
    :func:`numpy.linalg.qr` (which uses Householder transformations) to
-   get `Q_2` and `R_2`. Print out the value of `\|Q_2-Q_1`|`,
+   get `Q_2` and `R_2`. Print out the value of `\|Q_2-Q_1\|`,
    `\|R_2-R_1\|`, `\|A-Q_2R_2\|`. Explain what you see using what you
    know about the stability of the Householder algorithm.
 
@@ -852,6 +852,16 @@ independently using back substitution leads to an operation count of
 `\sim m^3` FLOPs, much slower than applying back substitution directly
 to `b`. Hopefully this should convince you to always seek an
 alternative to forming the inverse of a matrix.
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises5.solve_R` function has been left
+   unimplemented. It should implement the `\mathcal{O}(m^2)`
+   back-substitution algorithm to solve `Rx=b`, with a single loop
+   over the columns.
+   The test script ``test_exercises5.py`` in the ``test`` directory
+   will test this function.
+
 
 There are then three steps to solving `Ax=b` using QR factorisation.
 

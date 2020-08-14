@@ -39,7 +39,7 @@ multiply-adds) for example.  Here we shall simply apologise to
 computer scientists in the class, and proceed with this
 interpretation, since we are just making relative comparisons between
 schemes. We shall also concentrate on asymptotic results in the limit
-of large $n$ and/or $m$.
+of large `n` and/or `m`.
 
 Operation count for modified Gram-Schmidt
 -----------------------------------------
@@ -105,6 +105,63 @@ Now we have to sum this over `k`, so the total operation count is
       \sim 4n^2m - 4(n+m)\frac{n^2}{2} + 4\frac{n^3}{3}
       = 2mn^2 - \frac{2n^3}{3}.
 
+.. proof:exercise::
+
+   Compute FLOP counts for the following operations.
+
+   #. `\alpha = x^*y` for `x,y\in \mathbb{C}^m`.
+   #. `y = y + ax` for `x,y \in \mathbb{C}^m`, `a\in\mathbb{C}`.
+   #. `y = y + Ax` for `x\in \mathbb{C}^n`, `y\in\mathbb{C}^m`, `A\in\mathbb{C}^{m\times n}`.
+   #. `C = C + AB` for `A\in \mathbb{C}^{m\times r}`,
+      `B\in \mathbb{C}^{r\times n}`, `C\in \mathbb{C}^{m\times n}`.
+
+.. proof:exercise::
+
+   Suppose `D=ABC` where `A\in \mathbb{C}^{m\times n}`,
+   `B\in\mathbb{C}^{n\times p}`, `C\in\mathbb{C}^{p\times q}`. This
+   can either be computed as `D=(AB)C` (multiply `A` and `B` first,
+   then `C`), or `D=A(BC)` (multiply `B` and `C` first, then `A`).
+   Compute the FLOP count for both approaches. For which values
+   of `m,n,p,q` would the first approach be more efficient?
+
+.. proof:exercise::
+
+   Suppose `W\in \mathbb{C}^{n\times n}` is defined by
+
+   .. math::
+
+      w_{ij} = \sum_{q=1}^n\sum_{p=1}^n x_{ip}y_{pq}z_{qj},
+
+   where `X,Y,Z\in\mathbb{C}^{n\times n}`. What is the FLOP count for
+   computing the entries of `W`?
+
+   The equivalent formula
+
+   .. math::
+
+      w_{ij} = \sum_{p=1}^n\left(\sum_{q=1}^nx_{ip}y_{pq}z_{qj}\right),
+
+   computes the bracket contents first for all `p,j`, before doing
+   the sum over `p`. What is the FLOP count for this alternative
+   method of computing the entries of `W`?
+
+   Using what you have learned, propose an `\mathcal{O}(n^3)` procedure
+   for computing `A\in\mathbb{C}^{n\times n}` with entries
+
+   .. math::
+
+      a_{ij} = \sum_{k=1}^n\sum_{l=1}^n\sum_{m=1}^n
+      E_{ki}F_{ki}G_{lk}H_{lm}F_{lm}G_{mj}.
+
+.. proof:exercise::
+
+   Let `L_1,L_2\in\mathbb{C}^{m\times m}` be lower triangular
+   matrices.  If we apply the usual formula for multiplying matrices,
+   we will waste computation time by multiplying numbers by zero and
+   then adding the result to other numbers. Describe a more efficient
+   algorithm as pseudo-code and compute the FLOP count, comparing with
+   the FLOP count for the standard algorithm.
+      
 Matrix norms for discussing stability
 -------------------------------------
 
@@ -151,9 +208,41 @@ Directly from the definition we can show
 
       \frac{\|Ax\|_{(m)}}{\|x\|_{(n)}} \leq \sup_{x\in\mathbb{C}^n, x\neq 0}
       \frac{\|Ax\|_{(m)}}
-      {\|x\|_{(n)} = \|A\|_{(m,n)}},
+      {\|x\|_{(n)}} = \|A\|_{(m,n)},
 
 and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
+
+.. proof:exercise::
+
+   We can reformulate the induced definition as a constrained optimisation
+   problem
+
+     .. math::
+      
+	\|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, \|x\|=1}\frac{\|Ax\|_{(m)}}.
+
+   Introduce a Lagrange multiplier `\lambda\in \mathbb{C}` to enforce
+   the constraint `\|x\|=1`.  Consider the case above where the norms
+   on `\mathbb{C}^m` and `\mathbb{C}^n` are both 2-norms. Show that
+   `\lambda` must be an eigenvalue of some matrix (which you should
+   compute). Hence, given those eigenvalues, provide an expression
+   for the operator norm of `A`.
+
+   The :func:`cla_utils.exercises4.operator_2_norm` function has been
+   left unimplemented. It takes in an `m\times n` matrix `A` and
+   returns the operator norm using the procedure in this exercise.
+   You may use the built in function :func:`numpy.linalg.eig` to
+   compute the eigenvalues of any matrices that you need. (We will
+   discuss algorithms to compute eigenvalues later in the course.) The
+   test script ``test_exercises4.py`` in the ``test`` directory will
+   test this function.
+
+.. proof:exercise::
+
+   Add a function to :mod:`cla_utils.exercises4` to verify the
+   inequality `\|Ax\|\leq \|A\|\|x\|` using
+   :func:`cla_utils.exercises4.operator_2_norm`, considering various
+   `m` and `n`.
 
 Norm inequalities
 -----------------
@@ -161,7 +250,7 @@ Norm inequalities
 Often it is difficult to find exact values for norms, so we compute upper
 bounds using inequalities instead. Here are a few useful inequalities.
 
-.. proof:definition:: H\"older inequality
+.. proof:definition:: Hölder inequality
 
    Let `x,y\in \mathbb{C}^m`, and `p,q \in \mathbb{R}+` such that
    `\frac{1}{p}+{1}{q} = 1`. Then

@@ -775,7 +775,22 @@ It turns out that the Householder method is backwards stable.
 .. proof:proof::
 
    See the textbook by Trefethen and Bau, Lecture 16.
-	 
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises4.backward_stability_householder`
+   function has been left unimplemented. It generates random `Q_1` and
+   `R_1` matrices of dimension `m` provided, and forms `A=QR`. It is
+   very important that the two matrices `Q_1` and `R_1` are
+   uncorrelated (in particular, computing them as the QR factorisation
+   of the same matrix would spoil the experiment). To complete the
+   function, pass `A` to the built-in QR factorisation function
+   :func:`numpy.linalg.qr` (which uses Householder transformations) to
+   get `Q_2` and `R_2`. Print out the value of `\|Q_2-Q_1`|`,
+   `\|R_2-R_1\|`, `\|A-Q_2R_2\|`. Explain what you see using what you
+   know about the stability of the Householder algorithm.
+
+   
 Backward stability for solving a linear system using QR
 -------------------------------------------------------
 
@@ -826,7 +841,7 @@ In each iteration, there are `m-i-1` multiplications and subtractions
 plus a division, so the total operation count is `\sim m^2` FLOPs.
 
 In comparison, the least bad way to form the inverse `Z` of `R` is to
-write `RZ = I`. Then, the `k`th column of this equation is
+write `RZ = I`. Then, the `k`-th column of this equation is
 
    .. math::
 

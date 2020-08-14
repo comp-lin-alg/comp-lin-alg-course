@@ -908,6 +908,12 @@ floating point implementation of backward substitution produces
 for some upper triangular perturbation such that `\|\delta
 \tilde{R}\|/\|\tilde{R}\|=\mathcal{O}(\varepsilon)`.
 
+.. proof:exercise::
+
+   Complete the function :func:`cla_utils.exercises5.back_stab_solve_R`
+   so that it verifies backward stability for back subsitution, using
+   :func:`cla_utils.exercises5.solve_R`.
+
 Using the individual backward stability of these three algorithms,
 we show the following result.
 
@@ -1016,3 +1022,9 @@ we show the following result.
 
    where `\kappa` is the condition number of the problem of solving
    `Ax=b`, which we have shown is bounded from above by `\kappa(A)`.
+
+.. proof:exercise::
+
+   Complete the function :func:`cla_utils.exercises5.back_stab_householder_solve`
+   so that it verifies backward stability for solving `m\times m` dimensional
+   square systems `Ax=b` using :func:`cla_utils.exercises3.householder_solve`.

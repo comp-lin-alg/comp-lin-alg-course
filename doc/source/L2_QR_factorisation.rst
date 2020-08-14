@@ -762,3 +762,8 @@ back-substitution (which we shall come to later.)
    system, before returning the solution `x`. The test script
    ``test_exercises3.py`` in the ``test`` directory will also test this
    function.
+
+.. hint::
+
+   You will need to do extract the appropriate submatrix to obtain the
+   square (and invertible) reduced matrix `\hat{R}`.

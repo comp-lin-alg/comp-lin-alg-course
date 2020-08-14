@@ -212,6 +212,8 @@ Directly from the definition we can show
 
 and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
 
+.. _o2norm:
+
 .. proof:exercise::
 
    We can reformulate the induced definition as a constrained optimisation
@@ -305,6 +307,11 @@ We can also compute bounds for `\|AB\|_2`.
 
    as required.
 
+.. proof:exercise::
+
+   Add a function to :mod:`cla_utils.exercises4` to verify this
+   theorem for various `l`, `m` and `n`.
+   
 Condition number
 ----------------
 
@@ -496,6 +503,22 @@ Then, we can compute the condition number
 having used the bound for `\delta x`. Hence the bound on the condition
 number for this problem is the condition number of `A`.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises4.cond` function has been left
+   unimplemented. It takes in an `m\times m` matrix `A` and returns
+   the condition number. You should use a method similar to that in
+   :numref:`Exercise {number}<o2norm>`, using the
+   :func:`numpy.linalg.eig` to compute the eigenvalues of any matrices
+   that you need. The test script ``test_exercises4.py`` in the
+   ``test`` directory will test this function.
+
+.. hint::
+
+   Having computed the eigenvalues of `A`, you do not separately need
+   to compute the eigenvalues of `A^{-1}`, so matrix inversion is not
+   necessary.
+   
 Floating point numbers and arithmetic
 -------------------------------------
 

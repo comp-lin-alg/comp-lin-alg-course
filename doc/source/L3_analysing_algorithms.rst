@@ -219,10 +219,10 @@ and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
 
      .. math::
       
-	\|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, \|x\|=1}\frac{\|Ax\|_{(m)}}.
+	\|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, \|x\|=1}\|Ax\|_{(m)}^2.
 
    Introduce a Lagrange multiplier `\lambda\in \mathbb{C}` to enforce
-   the constraint `\|x\|=1`.  Consider the case above where the norms
+   the constraint `\|x\|^2=1`.  Consider the case above where the norms
    on `\mathbb{C}^m` and `\mathbb{C}^n` are both 2-norms. Show that
    `\lambda` must be an eigenvalue of some matrix (which you should
    compute). Hence, given those eigenvalues, provide an expression

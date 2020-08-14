@@ -143,6 +143,16 @@ We now present the classical Gram-Schmidt algorithm as pseudo-code.
 uses indentation to terminate code blocks. We'll write END statements
 for code blocks in pseudo-code in these notes.)
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises2.GS_classical` function has been
+   left unimplemented. It should implement the classical Gram-Schmidt
+   algorithm above, using Numpy slice notation so that only one Python
+   for loop is used. The function should work "in place" by
+   and then changing the values in `A`, without introducing additional
+   intermediate arrays. The test script ``test_exercises2.py`` in the
+   ``test`` directory will test this function.
+
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
 
@@ -262,6 +272,31 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
 This algorithm can be applied "in place", overwriting the entries
 in `A` with the `v` s and eventually the `q` s.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises2.GS_modified` function has been
+   left unimplemented. It should implement the modified Gram-Schmidt
+   algorithm above, using Numpy slice notation so that only one Python
+   for loop is used. The function should work "in place" by making a
+   copy of `A` and then changing those values, without introducing
+   additional intermediate arrays. The test script
+   ``test_exercises2.py`` in the ``test`` directory will test this
+   function.
+
+.. proof:exercise::
+
+   Investigate the mutual orthogonality of the `Q` matrices that are
+   produced by your classical and modified Gram-Schmidt
+   implementations. Is there a way to test mutual orthogonality
+   without writing a loop? Round-off typically causes problems for
+   matrices with large condition numbers and large off-diagonal
+   values. You could also try the opposite of what was done in
+   ``test_GS_classical``: instead of ensuring that all of the entries
+   in the diagonal matrix `D` are `\mathcal{O}(1)`, try making some of
+   the values small and some large. See if you can find a matrix that
+   illustrates the differences in orthogonality between the two
+   algorithms.
+
 Modified Gram-Schmidt as triangular orthogonalisation
 -----------------------------------------------------
 
@@ -310,7 +345,7 @@ Similarly, the second iteration may be written as
       \begin{pmatrix}
       1 & 0 & 0 &
       \ldots & 0 \\
-      0 & r_{22} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{nn}} \\      0 & 0 & 1 & \ldots & 0 \\
+      0 & \frac{1}{r_{22}} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{nn}} \\      0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
       0 & 0 & 0 & \ldots & 1 \\
       \end{pmatrix}}_{R_2}
@@ -342,6 +377,28 @@ This is a powerful way to view the modified Gram-Schmidt process from
 the point of view of understanding and analysis, but of course we do not
 form the matrices `R_i` explicitly (we just follow the pseudo-code given
 above).
+
+.. proof:exercise::
+
+   In a break from the format so far, the
+   :func:`cla_utils.exercises2.GS_modified_R` function has been
+   implemented. It implements the modified Gram-Schmidt algorithm in
+   the form describe above using upper triangular matrices. This is
+   not a good way to implement the algorithm, because of the inversion
+   of `R` at the end, and the repeated multiplication by zeros in
+   multiplying entries of the `R_k` matrices, which is a
+   waste. However it is important as a conceptual tool for
+   understanding the modified Gram-Schmidt algorithm as a triangular
+   orthogonalisation process, and so it is good to see this in a code
+   implementation. Study this function to check that you understand
+   what is happening.
+
+   However, the :func:`cla_utils.exercises2.GS_modified_get_R`
+   function has not been implemented. This function computes the `R_k`
+   matrices at each step of the process. Complete this code. The test
+   script ``test_exercises2.py`` in the ``test`` directory will also
+   test this function.
+
 
 Householder triangulation
 -------------------------
@@ -511,8 +568,7 @@ memory on the computer for `A` which is eventually replaced with the
 values for `R`. To present the algorithm, we will use the "slice"
 notation to describe submatrices of `A`, with `A_{k:l,r:s}` being
 the submatrix of `A` consisting of the rows from `k` to `l` and
-columns from `r` to `s`. Be careful with Python implementations,
-where the numbering of rows and columns is from 0, and not 1.
+columns from `r` to `s`.
 
 * FOR `k = 1` TO `n`
 
@@ -521,6 +577,19 @@ where the numbering of rows and columns is from 0, and not 1.
   * `v_k \gets v_k/\|v_k\|`
   * `A_{k:m,k:n} \gets A_{k:m,k:m} - 2v_k(v_k^*A_{k:m,k:n})`.
 * END FOR
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises2.householder` function has been left
+   unimplemented. It should implement the algorithm above, using only
+   one loop over `k`. It should return the resulting `R` matrix. The
+   test script ``test_exercises3.py`` in the ``test`` directory will
+   test this function.
+
+.. hint::
+
+   Don't forget that Python numbers from zero, which will be important
+   when implementing the submatrices using Numpy slice notation. 
 
 Note that we have not explicitly formed the matrix `Q` or the product
 matrices `Q_i`. In some applications, such as solving least squares

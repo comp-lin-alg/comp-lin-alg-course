@@ -84,3 +84,89 @@ def orthog_space(V):
     raise NotImplementedError
 
     return Q
+
+
+def GS_classical(A):
+    """
+    Given an mxn matrix A, compute the QR factorisation by classical
+    Gram-Schmidt algorithm.
+
+    Inputs
+
+    :param A: mxn numpy array
+
+    Outputs
+
+    :param Q: mxn numpy array
+    :param R: nxn numpy array
+    """
+
+    raise NotImplementedError
+
+    return Q, R
+
+def GS_modified(A):
+    """
+    Given an mxn matrix A, compute the QR factorisation by modified
+    Gram-Schmidt algorithm, producing 
+
+    Inputs
+
+    :param A: mxn numpy array
+
+    Outputs
+
+    :param Q: mxn numpy array
+    :param R: nxn numpy array
+    """
+
+    raise NotImplementedError
+
+    return Q, R
+
+
+def GS_modified_get_R(A, k):
+    """
+    Given an mxn matrix A, with columns of A[:, 0:k] assumed orthonormal,
+    return upper triangular nxn matrix R such that
+    Ahat = A*R has the properties that
+    1) Ahat[:, 0:k] = A[:, 0:k],
+    2) A[:, k] is orthogonal to the columns of A[:, 0:k].
+
+    Inputs:
+
+    :param A: mxn numpy array
+    :param k: integer indicating the column that R should orthogonalise
+    
+    Outputs:
+
+    :param R: nxn numpy array
+    """
+
+    raise NotImplementedError
+
+    return R
+
+def GS_modified_R(A):
+    """
+    Implement the modified Gram Schmidt algorithm using the lower triangular
+    formulation with Rs provided from GS_modified_get_R.
+
+    Inputs:
+
+    :param A: mxn numpy array
+
+    Outputs:
+
+    :param Q: mxn numpy array
+    :param R: nxn numpy array
+    """
+
+    m, n = A.shape
+    R = np.eye(n)
+    for i in range(1,m):
+        Rk = GS_modified_get_R(A, i)
+        np.dot(A, Rk, out=A)
+        np.dot(R, Rk, out=R)
+    R = np.linalg.inv(R)
+    return A, R

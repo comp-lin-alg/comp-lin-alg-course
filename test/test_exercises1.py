@@ -1,4 +1,4 @@
-'''Test integration using the quadrature module.'''
+'''Tests for the first exercise set.'''
 import pytest
 from cla_utils import basic_matvec, column_matvec, rank2
 from cla_utils import rank1pert_inv

@@ -997,7 +997,7 @@ we show the following result.
       \underbrace{\|\delta Q\|}_{\mathcal{O}(\varepsilon)}
       \underbrace{\frac{\|\delta R\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
       \underbrace{\frac{\|\tilde{R}\|}
-      {\|A\|\}}}_{\mathcal{O}(1)} = \mathcal{O}(\epsilon^2),
+      {\|A\|}}_{\mathcal{O}(1)} = \mathcal{O}(\epsilon^2),
 
    hence `\|\delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 

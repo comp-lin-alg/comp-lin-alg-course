@@ -649,7 +649,7 @@ We call this procedure "implicit multiplication".
    argument. You may make use of the built-in tridiagonal solve
    algorithm :func:`numpy.linalg.solve_triangular` (we shall consider
    tridiagonal matrix algorithms briefly later). The test script
-   ``test_exercises3.py`` in the ``test`` directory will test this
+   ``test_exercises3.py`` in the ``test`` directory will also test this
    function.
 
 If we really need `Q`, we can get it by matrix-vector products with
@@ -690,12 +690,14 @@ with each column using the `Q` application algorithm described above.
    explaining how. Show how to implement this by applying Householder
    to an augmented matrix `\hat{A}` of some appropriate form.
 
-   The :func:`cla_utils.exercises3.householder_qr` function has
-   been left unimplemented. It takes in the `m\times n` array
-   `A` and returns `Q` and `R`. It should use the method of this
-   exercise to compute them by forming an appropriate `\hat{A}`,
-   calling :func:`cla_utils.exercises3.householder` and then extracting
-   appropriate subarrays using slice notation.
+   The :func:`cla_utils.exercises3.householder_qr` function has been
+   left unimplemented. It takes in the `m\times n` array `A` and
+   returns `Q` and `R`. It should use the method of this exercise to
+   compute them by forming an appropriate `\hat{A}`, calling
+   :func:`cla_utils.exercises3.householder` and then extracting
+   appropriate subarrays using slice notation. The test script
+   ``test_exercises3.py`` in the ``test`` directory will also test
+   this function.
    
 
 Application: Least squares problems
@@ -746,3 +748,17 @@ Left multiplication by `\hat{Q}^*` then gives
 
 This is an upper triangular system that can be solved efficiently using
 back-substitution (which we shall come to later.)
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises3.householder_ls` function has been
+   left unimplemented. It takes in the `m\times n` array `A` and a
+   right-hand side vector `b` and solves the least squares problem
+   minimising `\|Ax-b\|` over `x`. It should do this by forming an
+   appropriate augmented matrix `\hat{A}`, calling
+   :func:`cla_utils.exercises3.householder` and extracting appropriate
+   subarrays using slice notation, before using
+   :func:`numpy.linalg.qr` to solve the resulting upper triangular
+   system, before returning the solution `x`. The test script
+   ``test_exercises3.py`` in the ``test`` directory will also test this
+   function.

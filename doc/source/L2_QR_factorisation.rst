@@ -1,3 +1,5 @@
+
+
 .. default-role:: math
 
 QR Factorisation
@@ -520,7 +522,7 @@ as required, having checked that
 
    .. math::
 
-      \|\|x\|\pm e_1 - x\|^2 = -2\|x\|(\pm x_1 - \|x\|).
+      \|\pm \|x\|e_1 - x\|^2 = -2\|x\|(\pm x_1 - \|x\|).
 
 We can also check that `F` is unitary. First we check that `F`
 is Hermitian,
@@ -549,10 +551,11 @@ matrix `Q_k` that transforms the entries below the diagonal
 of the kth column of `A_k` to zero, and leaves the previous
 `k-1` columns alone.
 
-Earlier, we mentioned that there is a choice of sign in `v`.
-This choice gives us the opportunity to improve the numerical
-stability of the algorithm. To avoid unnecessary numerical round off,
-we choose the sign that makes `v` furthest from `x`, i.e.
+Earlier, we mentioned that there is a choice of sign in `v`.  This
+choice gives us the opportunity to improve the numerical stability of
+the algorithm. In the case of real matrices, to avoid unnecessary
+numerical round off, we choose the sign that makes `v` furthest from
+`x`, i.e.
 
    .. math::
 
@@ -580,7 +583,7 @@ columns from `r` to `s`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.householder` function has been left
+   The :func:`cla_utils.exercises3.householder` function has been left
    unimplemented. It should implement the algorithm above, using only
    one loop over `k`. It should return the resulting `R` matrix. The
    test script ``test_exercises3.py`` in the ``test`` directory will
@@ -605,12 +608,55 @@ apply the same operations to `b` that are applied to the columns of
 * END FOR
 
 We call this procedure "implicit multiplication".
-  
-If we really need `Q`, we can get it by matrix-vector products
-with each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.
-This means that first we need to compute a matrix-vector product
-`Qx` with a vector `x`. This is just done by applying the
-Householder reflections in reverse, since
+
+.. proof:exercise::
+
+   Show that the implicit midpoint procedure is equivalent to computing
+   an extended array
+
+      .. math::
+
+	 \hat{A} = \begin{pmatrix}
+	 a_1 & a_2 & \ldots & a_n & b
+	 \end{pmatrix}
+
+   and performing Householder on the first `n` rows. Transform the
+   equation `Ax=b` into `Rx=\hat{b}` where `QR=A`, and find the form
+   of `\hat{b}`, explaining how to get `\hat{b}` from Householder
+   applied to `\hat{A}` above. Solving systems with upper triangular
+   matrices is much cheaper than solving general matrix systems as
+   we shall discuss later.
+
+   Now, say that we want to solve multiple equations
+
+   .. math::
+
+      Ax_i =b_i, i=1,2,\ldots,k,
+
+   which have the same matrix `A` but different right hand sides
+   `b=b_i`, `i=1,2,\ldots,k`. Extend this idea above to the case
+   `k>1`, by describing an extended `\hat{A}` containing all the `b_i`
+   vectors.
+
+   The :func:`cla_utils.exercises3.householder_solve` function has
+   been left unimplemented. It takes in a set of right hand side
+   vectors `b_1,b_2,\ldots,b_k` and returns a set of solutions
+   `x_1,x_2,\ldots,x_k`.  It should construct an extended array
+   `\hat{A}`, and then pass it to
+   :func:`cla_utils.exercises3.householder`.  If you have not already
+   done so, you will need to modified
+   :func:`cla_utils.exercises3.householder` to use the ``kmax``
+   argument. You may make use of the built-in tridiagonal solve
+   algorithm :func:`numpy.linalg.solve_triangular` (we shall consider
+   tridiagonal matrix algorithms briefly later). The test script
+   ``test_exercises3.py`` in the ``test`` directory will test this
+   function.
+
+If we really need `Q`, we can get it by matrix-vector products with
+each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.  This
+means that first we need to compute a matrix-vector product `Qx` with
+a vector `x`. One way to do this is to apply the Householder
+reflections in reverse, since
 
    .. math::
 
@@ -636,6 +682,21 @@ needed and throwing them away. Then we can compute `Q` via
        \end{pmatrix},
 
 with each column using the `Q` application algorithm described above.
+
+.. proof:exercise::
+
+   Show that the implicit multiplication procedure applied to the
+   columns of `I` produces `Q^*`, from which we can easily obtain `Q`,
+   explaining how. Show how to implement this by applying Householder
+   to an augmented matrix `\hat{A}` of some appropriate form.
+
+   The :func:`cla_utils.exercises3.householder_qr` function has
+   been left unimplemented. It takes in the `m\times n` array
+   `A` and returns `Q` and `R`. It should use the method of this
+   exercise to compute them by forming an appropriate `\hat{A}`,
+   calling :func:`cla_utils.exercises3.householder` and then extracting
+   appropriate subarrays using slice notation.
+   
 
 Application: Least squares problems
 -----------------------------------

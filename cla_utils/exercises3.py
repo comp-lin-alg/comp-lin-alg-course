@@ -67,3 +67,23 @@ def householder_qr(A):
     raise NotImplementedError
 
     return Q, R
+
+
+def householder_ls(A, b):
+    """
+    Given a real mxn matrix A and an m dimensional vector b, find the
+    least squares solution to Ax = b.
+
+    Inputs
+
+    :param A: an mxn-dimensional numpy array
+    :param A: an m-dimensional numpy array
+
+    Outputs
+
+    :param x: an n-dimensional numpy array
+    """
+
+    raise NotImplementedError
+
+    return x

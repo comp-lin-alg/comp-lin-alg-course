@@ -33,6 +33,41 @@ avoid using polynomials finding eigenvalues. Instead, we should try to
 apply transformations to the matrix `A` to a form that means that the
 eigenvalues can be directly extracted.
 
+.. proof:example::
+
+   Consider the `m\times m` diagonal matrix
+
+      .. math::
+
+	 A = \begin{pmatrix}
+	 1 & 0 & \ldots & 0 \\
+	 0 & 2 & \ldots & 0 \\
+	 0 & 0 & \ddots & \vdots \\
+	 \vdots & \vdots & & ldots & \vdots \\
+	 0 & 0 & \ldots & m \\
+	 
+   The characteristic polynomial of `A` is
+
+      .. math::
+
+	 (\lambda-1)(\lambda-2)\ldots(\lambda-m),
+
+   and the eigenvalues are clearly `1,2,3,\ldots,m`. This is called
+   the Wilkinson Polynomial. Numpy has some tools for manipulating
+   polynomials which are useful here. When an `m\times m` array is
+   passed in to :func:`numpy.poly`, it returns an array of
+   coefficients of the polynomial. For `m=20`, obtain this array and
+   then perturb the coefficients `a_k \to \tilde{a}_k =
+   a_k(1+10^{-10}r_k)` where `r_k` are randomly sampled normally
+   distributed numbers with mean 0 and variance 1. :func:`numpy.roots`
+   will compute the roots of this perturbed polynomial. Plot these
+   roots as points in the complex plane. Repeat this 100 times,
+   superposing the root plots on the same graph. What do you observe?
+   What does it tell you about this problem and what should we
+   conclude about the wisdom of finding eigenvalues using
+   characteristic polynomials?
+
+	 
 The eigenvalue decomposition of a matrix `A` finds a nonsingular matrix
 `X` and a diagonal matrix `\Lambda` such that
 

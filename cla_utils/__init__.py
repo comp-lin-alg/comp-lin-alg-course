@@ -7,4 +7,4 @@ from cla_utils.exercises3 import householder, householder_solve
 from cla_utils.exercises3 import householder_qr, householder_ls
 from cal_utils.exercises4 import operator_2_norm, cond, randomQ, randomR
 from cla_utils.exercises5 import solve_R, backward_stability_householder
-from cla_utils.exercises6 import LU_inplace
+from cla_utils.exercises6 import LU_inplace, get_Lk

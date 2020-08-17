@@ -191,7 +191,22 @@ i.e.,
       \end{pmatrix}.
 
 In summary, we can compute entries of `L` during the Gaussian elimination
-process of transforming `A` to `U`.
+process of transforming `A` to `U`. Note that the matrices `L_1,L_2,\ldots`
+should not be explicitly formed during the elimination process, they are just
+a mathematical concept to translate from the row operations into the final
+`L` matrix.
+
+.. proof:exercise::
+
+   Having said that, let's take a moment to compute some examples
+   using the `L_1,L_2,\ldots` matrices (to help with understanding).
+   The :func:`cla_utils.exercises6.get_Lk` function has been left
+   unimplemented. It should return one of these matrices given the
+   `l_k` entries.  The test script ``test_exercises6.py`` in the
+   ``test`` directory will test this function.
+
+   Once it passes the tests, experiment with the inverse and
+   multiplication properties above, to verify that they work.
 
 So, what's the advantage of writing `A=LU`? Well, we can define
 `y=Ux`.  Then, we can solve `Ax=b` in two steps, first solving `Ly=b`
@@ -266,8 +281,10 @@ requires `m-k+1` multiplications and subtractions, and is iterated
    is modified until it contains the values for `L` and `U`.
 
    The :func:`cla_utils.exercises6.LU_inplace` function has been left
-   unimplemented. It should implement this in-place low-storage procedure,
-   applying the changes to the provided matrix `A`.
+   unimplemented. It should implement this in-place low-storage
+   procedure, applying the changes to the provided matrix `A`.  The
+   test script ``test_exercises6.py`` in the ``test`` directory will
+   test this function.
 
 Pivoting
 --------

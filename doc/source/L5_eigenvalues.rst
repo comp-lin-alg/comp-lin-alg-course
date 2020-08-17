@@ -40,11 +40,11 @@ eigenvalues can be directly extracted.
       .. math::
 
 	 A = \begin{pmatrix}
-	 1 & 0 & \ldots & 0 \\
-	 0 & 2 & \ldots & 0 \\
-	 0 & 0 & \ddots & \vdots \\
-	 \vdots & \vdots & \ldots & \vdots \\
-	 0 & 0 & \ldots & m \\
+	 1 & 0 & \ldots & \ldots & 0 \\
+	 0 & 2 & \ldots & \ldots &0 \\
+	 0 & 0 & \ddots & \ddots & \cdots \\
+	 \vdots & \vdots & \ldots & \ldots & \vdots \\
+	 0 & 0 & \ldots & \ldots & m \\
 	 \end{pmatrix}.
 	 
    The characteristic polynomial of `A` is

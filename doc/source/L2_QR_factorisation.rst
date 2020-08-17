@@ -758,7 +758,7 @@ back-substitution (which we shall come to later.)
    appropriate augmented matrix `\hat{A}`, calling
    :func:`cla_utils.exercises3.householder` and extracting appropriate
    subarrays using slice notation, before using
-   :func:`numpy.linalg.qr` to solve the resulting upper triangular
+   :func:`numpy.linalg.solve_triangular` to solve the resulting upper triangular
    system, before returning the solution `x`. The test script
    ``test_exercises3.py`` in the ``test`` directory will also test this
    function.

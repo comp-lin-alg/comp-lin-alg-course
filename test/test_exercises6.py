@@ -3,7 +3,7 @@ import pytest
 from cla_utils import LU_inplace
 from numpy import random
 import numpy as np
-from cla_utils import LU_inplace, get_Lk
+from cla_utils import LU_inplace, get_Lk, solve_L, solve_U
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
@@ -32,6 +32,30 @@ def test_LU_inplace(m):
     U = np.triu(A)
     A1 = np.dot(L, U)
     assert(np.abs(A1 - A0) < 1.0e-6)
+
+
+@pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
+def test_solve_L(m):
+    random.seed(1002*m + 2987*k)
+    b = random.randn(m, k)
+    L = np.tril(random.randn(m, m))
+    x = solve_L(L, b)
+    assert(np.abs(b - np.dot(L, x)) < 1.0e-6)
+    A = random.randn(m, m)
+    x = solve_L(A, b)
+    assert(np.abs(b - np.dot(A, x)) > 1.0e-6)
+
+
+@pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
+def test_solve_U(m):
+    random.seed(1002*m + 2987*k)
+    b = random.randn(m, k)
+    U = np.triu(random.randn(m, m))
+    x = solve_U(U, b)
+    assert(np.abs(b - np.dot(U, x)) < 1.0e-6)
+    A = random.randn(m, m)
+    x = solve_U(A, b)
+    assert(np.abs(b - np.dot(A, x)) > 1.0e-6)
 
 
 if __name__ == '__main__':

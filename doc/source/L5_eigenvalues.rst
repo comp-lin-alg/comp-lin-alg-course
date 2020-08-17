@@ -42,7 +42,7 @@ eigenvalues can be directly extracted.
 	 A = \begin{pmatrix}
 	 1 & 0 & \ldots & \ldots & 0 \\
 	 0 & 2 & \ldots & \ldots &0 \\
-	 0 & 0 & \ddots & \ddots & \cdots \\
+	 0 & 0 & \ddots & \ddots & \vdots \\
 	 \vdots & \vdots & \ldots & \ldots & \vdots \\
 	 0 & 0 & \ldots & \ldots & m \\
 	 \end{pmatrix}.

@@ -611,6 +611,14 @@ Further, because there are zeros above the diagonal of `A`, these do
 not need to be updated when applying the row operations to those
 zeros.
 
+.. proof:exercise::
+
+   Using your own LU factorisation, compute the LU factorisation of
+   the `10\times 10` matrix `A=I + e_3e_9^*`. What do you observe
+   about the number of non-zero entries in `L` and `U`? Explain this
+   using what you have just learned about banded matrices. Can the
+   situation be improved by pivoting?
+
 The Gaussian elimination algorithm (without pivoting) for a banded
 matrix is given as pseudo-code below.
 

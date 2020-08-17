@@ -8,16 +8,12 @@ def orthog_cpts(v, Q):
     for scalar coefficients u_1, u_2, ..., u_n and
     residual vector r
 
-    Inputs
-
     :param v: an m-dimensional numpy array
-    :param Q: an mxn-dimensional numpy array whose columns are the
+    :param Q: an mxn-dimensional numpy array whose columns are the \
     orthonormal vectors
 
-    Outputs
-
-    :param r: an m-dimensional numpy array containing the residual
-    :param u: an n-dimensional numpy array containing the coefficients
+    :return r: an m-dimensional numpy array containing the residual
+    :return u: an n-dimensional numpy array containing the coefficients
     """
 
     raise NotImplementedError
@@ -29,14 +25,10 @@ def solveQ(Q, b):
     """
     Given a unitary mxm matrix Q and a vector b, solve Qx=b for x.
 
-    Inputs
-
     :param Q: an mxm dimensional numpy array containing the unitary matrix
     :param b: the m dimensional array for the RHS
 
-    Outputs
-
-    :param x" m dimensional array containing the solution.
+    :return x: m dimensional array containing the solution.
     """
 
     raise NotImplementedError
@@ -50,14 +42,10 @@ def orthog_proj(Q):
     compute the orthogonal projector P that projects vectors onto
     the subspace spanned by those vectors.
 
-    Inputs
-
-    :param Q: an mxn-dimensional numpy array whose columns are the
+    :param Q: an mxn-dimensional numpy array whose columns are the \
     orthonormal vectors
 
-    Outputs
-
-    :param P: an mxm-dimensional numpy array containing the projector
+    :return P: an mxm-dimensional numpy array containing the projector
     """
 
     raise NotImplementedError
@@ -70,15 +58,11 @@ def orthog_space(V):
     Given set of vectors u_1,u_2,..., u_n, compute the
     orthogonal complement to the subspace U spanned by the vectors.
 
-    Inputs
-
-    :param U: an mxn-dimensional numpy array whose columns are the
+    :param U: an mxn-dimensional numpy array whose columns are the \
     vectors u_1,u_2,...,u_n.
 
-    Outputs
-
-    :param Q: an lxm-dimensional numpy array whose columns are an orthonormal
-    basis for the subspace orthogonal to U.
+    :return Q: an lxm-dimensional numpy array whose columns are an \
+    orthonormal basis for the subspace orthogonal to U.
     """
 
     raise NotImplementedError
@@ -91,14 +75,10 @@ def GS_classical(A):
     Given an mxn matrix A, compute the QR factorisation by classical
     Gram-Schmidt algorithm.
 
-    Inputs
-
     :param A: mxn numpy array
 
-    Outputs
-
-    :param Q: mxn numpy array
-    :param R: nxn numpy array
+    :return Q: mxn numpy array
+    :return R: nxn numpy array
     """
 
     raise NotImplementedError
@@ -110,14 +90,10 @@ def GS_modified(A):
     Given an mxn matrix A, compute the QR factorisation by modified
     Gram-Schmidt algorithm, producing 
 
-    Inputs
-
     :param A: mxn numpy array
 
-    Outputs
-
-    :param Q: mxn numpy array
-    :param R: nxn numpy array
+    :return Q: mxn numpy array
+    :return R: nxn numpy array
     """
 
     raise NotImplementedError
@@ -133,14 +109,10 @@ def GS_modified_get_R(A, k):
     1) Ahat[:, 0:k] = A[:, 0:k],
     2) A[:, k] is orthogonal to the columns of A[:, 0:k].
 
-    Inputs:
-
     :param A: mxn numpy array
     :param k: integer indicating the column that R should orthogonalise
     
-    Outputs:
-
-    :param R: nxn numpy array
+    :return R: nxn numpy array
     """
 
     raise NotImplementedError
@@ -152,14 +124,10 @@ def GS_modified_R(A):
     Implement the modified Gram Schmidt algorithm using the lower triangular
     formulation with Rs provided from GS_modified_get_R.
 
-    Inputs:
-
     :param A: mxn numpy array
 
-    Outputs:
-
-    :param Q: mxn numpy array
-    :param R: nxn numpy array
+    :return Q: mxn numpy array
+    :return R: nxn numpy array
     """
 
     m, n = A.shape

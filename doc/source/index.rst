@@ -17,6 +17,7 @@
    .. toctree::
 
       practicalities
+      exercises
 
    .. image:: _static/trefbau.jpg
       :align: right

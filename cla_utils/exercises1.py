@@ -18,6 +18,8 @@ def basic_matvec(A, x):
     returns an m-dimensional numpy array which is the product of A with x
 
     This should be implemented using a double loop over the entries of A
+
+    :return b: m-dimensional numpy array
     """
 
     raise NotImplementedError
@@ -33,7 +35,7 @@ def column_matvec(A, x):
     :param A: an mxn-dimensional numpy array
     :param x: an n-dimensional numpy array
 
-    returns an m-dimensional numpy array which is the product of A with x
+    :return b: an m-dimensional numpy array which is the product of A with x
 
     This should be implemented using a single loop over the entries of x
     """
@@ -116,16 +118,11 @@ def ABiC(Ahat, xr, xi):
     """Return the real and imaginary parts of z = A*x, where A = B + iC
     with
 
-    :param Ahat: an mxm-dimensional numpy array with
-    Ahat[i,j] = B[i,j] for i<=j and
-    Ahat[i,j] = C[i,j] for i>j.
+    :param Ahat: an mxm-dimensional numpy array with Ahat[i,j] = B[i,j] \
+    for i<=j and Ahat[i,j] = C[i,j] for i>j.
 
-    Returns
-
-    :param zr: m-dimensional numpy arrays containing the real part of
-    z.
-    :param zi: m-dimensional numpy arrays containing the imaginary part of
-    z.
+    :return zr: m-dimensional numpy arrays containing the real part of z.
+    :return zi: m-dimensional numpy arrays containing the imaginary part of z.
     """
 
     raise NotImplementedError

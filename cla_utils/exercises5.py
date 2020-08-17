@@ -2,7 +2,7 @@ import numpy as np
 
 
 def randomQ(m):
-    Q, R = linalg.qr(random.randn(m, m)
+    Q, R = linalg.qr(random.randn(m, m))
     return Q
 
 

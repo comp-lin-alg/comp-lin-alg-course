@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def getLk(m, lvec):
+def get_Lk(m, lvec):
     """Compute the lower triangular row operation mxm matrix L_k 
     which has ones on the diagonal, and below diagonal entries
     in column k given by lvec (k is inferred from the size of lvec).

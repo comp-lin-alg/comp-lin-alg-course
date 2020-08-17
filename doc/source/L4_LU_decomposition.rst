@@ -673,9 +673,8 @@ Further,
       0 & I \\
       \end{pmatrix}}_{(L_1^{-1})^*=L_1^{-*}},
 
-so that `A = L_1^{-1}A_1L_1^{-*}`.
-If `a_{11} neq 1`, we at least
-know that ``a_{11}= e_1^*Ae_1>0`, and the factorisation becomes
+so that `A = L_1^{-1}A_1L_1^{-*}`. If `a_{11} neq 1`, we at least
+know that `a_{11}= e_1^*Ae_1>0`, and the factorisation becomes
 
    .. math::
 

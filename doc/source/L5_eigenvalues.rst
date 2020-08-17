@@ -557,7 +557,7 @@ We can already see that this looks rather close to the QR algorithm.
 The following section confirms that they are in fact equivalent.
 
 The pure QR algorithm and simultaneous iteration are equivalent
-----------------------------------------------------------
+---------------------------------------------------------------
 
 To be precise, we will show that the pure QR algorithm is equivalent
 to simultaneous iteration when the initial independent set is the

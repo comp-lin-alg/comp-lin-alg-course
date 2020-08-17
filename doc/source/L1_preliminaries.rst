@@ -156,7 +156,7 @@ see in the next section that this matrix has rank 1.
    of matrix-vector multiplication, i.e., `b` is a weighted sum of the
    columns of `A` with coefficients given by the entries in `x`.  This
    should be implemented with a single for loop over the entries of
-   `x`. The test script :python:`test_exercises1.py` will also test
+   `x`. The test script ``test_exercises1.py`` will also test
    this function.
 
 .. hint::
@@ -661,14 +661,14 @@ To see that `I-P` is also a projector, we just calculate,
 
       (I-P)^2 = I^2 - 2P + P^2 = I - 2P + P = I - P.
 
- If `Pu=0`, then `(I-P)u = u`.
+If `Pu=0`, then `(I-P)u = u`.
 
- In other words, the nullspace
- of `P` is contained in the range of `I-P`.
+In other words, the nullspace
+of `P` is contained in the range of `I-P`.
 
- On the other hand, if `v` is in the range of `I-P`,  then
+On the other hand, if `v` is in the range of `I-P`,  then
 there exists some `w` such that
- 
+
    .. math::
 
       v = (I-P)w = w - Pw.

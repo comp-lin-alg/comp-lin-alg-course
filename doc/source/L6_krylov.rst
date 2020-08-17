@@ -74,7 +74,7 @@ i.e.
       \end{pmatrix}
 
 Then, `A\hat{Q}_n = \hat{Q}_{n-1}\tilde{H}_n`. Using the column space
-interpretation of matrix-matrix multiplication, we see that the `n`th
+interpretation of matrix-matrix multiplication, we see that the `n`-th
 column is
 
    .. math::

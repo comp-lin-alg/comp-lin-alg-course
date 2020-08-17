@@ -463,20 +463,39 @@ complete pivoting, `PAQ=LU`.
    matrix `P_{i,j}P` (also stored as a vector of indices) where
    `P_{i,j}` is the permutation matrix that exchanges the entries `i`
    and `j`. The test script ``test_exercises7.py`` in the ``test``
-   directory will test these functions.
+   directory will test this function.
 
 
 .. proof:exercise::
 
    The function :func:`cla_utils.exercises7.LUP` has been left
-   unimplemented. It should extend the in-place algorithm for
-   LU factorisation (with the outer-product formulation, if you
-   managed it) to the LUP factorisation. As well as computing
-   L and U "in place" in the array where the input A is stored,
-   it will compute a permutation matrix, which can should be
-   constructed using :func:`cla_utils.exercises7.perm`.
+   unimplemented. It should extend the in-place algorithm for LU
+   factorisation (with the outer-product formulation, if you managed
+   it) to the LUP factorisation. As well as computing L and U "in
+   place" in the array where the input A is stored, it will compute a
+   permutation matrix, which can should be constructed using
+   :func:`cla_utils.exercises7.perm`.The test script
+   ``test_exercises7.py`` in the ``test`` directory will test this
+   function.
 
-	 
+
+.. proof:exercise::
+
+   The function :func:`cla_utils.exercises7.solve_LUP` has been left
+   unimplemented. It should use the LUP code that you have written to
+   solve the equation `Ax=b` for `x` given inputs `A` and `b`.  The
+   test script ``test_exercises7.py`` in the ``test`` directory will
+   test this function.
+
+.. proof:exercise::
+
+   Show how to compute the determinant of `A` from the LUP
+   factorisation in `\mathcal{O}(m)` time (having already constructed
+   the LUP factorisation which costs `\mathcal{O}(m^3)`). Complete the
+   function :func:`cla_utils.exercises7.det_LUP` to implement this
+   computation. The test script ``test_exercises7.py`` in the ``test``
+   directory will test this function.
+   
 Stability of LU factorisation
 -----------------------------
 

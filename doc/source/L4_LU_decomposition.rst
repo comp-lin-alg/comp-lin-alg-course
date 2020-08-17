@@ -286,6 +286,17 @@ requires `m-k+1` multiplications and subtractions, and is iterated
    test script ``test_exercises6.py`` in the ``test`` directory will
    test this function.
 
+.. proof:exercise::
+
+   The LU factorisation requires 3 loops (this is why it has a cubic
+   FLOP count). In the algorithm above, there are two explicit loops
+   and one explicit one (in the slice notation). It is possible to
+   rewrite this in a single loop, using an outer product. Identify
+   this outer product, and update
+   :func:`cla_utils.exercises6.LU_inplace` to make use of this
+   reformulation (using :func:`numpy.outer`). Do you notice any
+   improvement in speed?
+
 Pivoting
 --------
 

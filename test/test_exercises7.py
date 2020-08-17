@@ -43,7 +43,7 @@ def test_solve_LUP(m):
     assert(np.abs(b - dot(A, x)) < 1.0e-6)
 
 
-@pytest.mark.parametrize('m', [20, 204, 18])
+@pytest.mark.parametrize('m', [3, 9, 18])
 def test_det_LUP(m):
     random.seed(1477*m)
     A = random.randn(m, m)

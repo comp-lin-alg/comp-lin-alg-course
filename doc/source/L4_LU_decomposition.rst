@@ -305,9 +305,19 @@ requires `m-k+1` multiplications and subtractions, and is iterated
    and upper triangular systems respectively. The interfaces are set
    so that multiple right hand sides can be provided and solved at the
    same time. The functions should only use one loop over the columns
-   of `L` (or `U`), to efficiently solve the multiple problems.  The
+   of `L` (or `U`), to efficiently solve the multiple problems. The
    test script ``test_exercises6.py`` in the ``test`` directory will
    test these functions.
+
+.. proof:exercise::
+
+   Propose an algorithm to use the LU factorisation to compute the
+   inverse of a matrix.  The functions
+   :func:`cla_utils.exercises6.inverse_LU` has been left unimplemented.
+   Complete it using your algorithm, using functions developed in the
+   previous exercises where possible. The test script
+   ``test_exercises6.py`` in the ``test`` directory will test these
+   functions.
 
 Pivoting
 --------
@@ -444,7 +454,29 @@ swap columns of `A_k` as well as the rows swapped by the permutations
 `P_k`. By similar arguments, one can obtain the LU factorisation with
 complete pivoting, `PAQ=LU`.
 
+.. proof:exercise::
 
+   The function :func:`cla_utils.exercises7.perm` has been left
+   unimplemented. It should take an `m\times m` permutation matrix
+   `P`, stored as a vector of indices `p\in\mathbb{N}^m` so that
+   `(Px)_i = x_{p_i}`, `i=1,2,\ldots, m`, and replace it with the
+   matrix `P_{i,j}P` (also stored as a vector of indices) where
+   `P_{i,j}` is the permutation matrix that exchanges the entries `i`
+   and `j`. The test script ``test_exercises7.py`` in the ``test``
+   directory will test these functions.
+
+
+.. proof:exercise::
+
+   The function :func:`cla_utils.exercises7.LUP` has been left
+   unimplemented. It should extend the in-place algorithm for
+   LU factorisation (with the outer-product formulation, if you
+   managed it) to the LUP factorisation. As well as computing
+   L and U "in place" in the array where the input A is stored,
+   it will compute a permutation matrix, which can should be
+   constructed using :func:`cla_utils.exercises7.perm`.
+
+	 
 Stability of LU factorisation
 -----------------------------
 

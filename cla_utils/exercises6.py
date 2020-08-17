@@ -15,8 +15,6 @@ def get_Lk(m, lvec):
                      
     raise NotImplementedError
 
-    return Lk
-
 
 def LU_inplace(A):
     """Compute the LU factorisation of A, using the in-place scheme so
@@ -47,8 +45,6 @@ def solve_L(L, b):
                      
     raise NotImplementedError
 
-    return x
-
 
 def solve_U(U, b):
     """
@@ -65,4 +61,15 @@ def solve_U(U, b):
                      
     raise NotImplementedError
 
-    return x
+
+def inverse_LU(A):
+    """
+    Form the inverse of A via LU factorisation.
+
+    :param A: an mxm-dimensional numpy array.
+
+    :return Ainv: an mxm-dimensional numpy array.
+
+    """
+                     
+    raise NotImplementedError

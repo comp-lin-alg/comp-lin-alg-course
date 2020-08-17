@@ -58,6 +58,16 @@ def test_solve_U(m):
     assert(np.abs(b - np.dot(A, x)) > 1.0e-6)
 
 
+@pytest.mark.parametrize('m', [20, 204, 18])
+def test_inverse_LU(m):
+    random.seed(5422*m)
+    A = random.randn(m, m)
+    A0 = 1.0*A
+
+    Ainv = inverse_LU(A0)
+    assert(np.abs(dot(Ainv, A) - eye(m)) < 1.0e-6)
+
+
 if __name__ == '__main__':
     import sys
     pytest.main(sys.argv)

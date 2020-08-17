@@ -254,6 +254,21 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 
       \sim 2m^3 -4\frac{m^3}{2} + \frac{2m^3}{3} = \frac{2m^3}{3}.
 
+.. proof:exercise::
+
+   Since the diagonal entires of `L` are all ones, the total amount of
+   combined memory required to store `L` and `U` is the same as the
+   amount of memory required to store `A`. Further, each iteration of
+   the LU factorisation algorithm computes one column of `L` and one
+   rows of `U`, and the corresponding column an row of `A` are not
+   needed for the rest of the algorithm. This creates the opportunity
+   for a memory-efficient 'in-place' algorithm in which the matrix `A`
+   is modified until it contains the values for `L` and `U`.
+
+   The :func:`cla_utils.exercises6.LU_inplace` function has been left
+   unimplemented. It should implement this in-place low-storage procedure,
+   applying the changes to the provided matrix `A`.
+
 Pivoting
 --------
 

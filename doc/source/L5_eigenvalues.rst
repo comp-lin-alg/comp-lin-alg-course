@@ -43,7 +43,7 @@ eigenvalues can be directly extracted.
 	 1 & 0 & \ldots & \ldots & 0 \\
 	 0 & 2 & \ldots & \ldots &0 \\
 	 0 & 0 & \ddots & \ddots & \vdots \\
-	 \vdots & \vdots & \ldots & \ldots & \vdots \\
+	 \vdots & \vdots & \ldots & \ddots & \vdots \\
 	 0 & 0 & \ldots & \ldots & m \\
 	 \end{pmatrix}.
 	 

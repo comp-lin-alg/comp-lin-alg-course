@@ -45,6 +45,7 @@ eigenvalues can be directly extracted.
 	 0 & 0 & \ddots & \vdots \\
 	 \vdots & \vdots & & ldots & \vdots \\
 	 0 & 0 & \ldots & m \\
+	 \end{pmatrix}.
 	 
    The characteristic polynomial of `A` is
 

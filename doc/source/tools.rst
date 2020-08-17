@@ -24,9 +24,9 @@ Using your own Windows machine
 In order to use your own Windows machine, you'll simply need Python 3
 (with the right packages) and git. One option is to install Anaconda, but other Windows Python distributions should also work.
 
-1. Download and install `Anaconda` from `here <https://www.anaconda.com>`_.
+1. Download and install `Anaconda` from `anaconda <https://www.anaconda.com>`_.
 
-2. Download and install `git` from `here <https://git-scm.com/download/win>`_.
+2. Download and install `git` from `git-scm.com <https://git-scm.com/download/win>`_.
      
 
 Using your own Linux machine
@@ -57,7 +57,7 @@ you'll need to use a Python-aware text editor. There are many such
 editors available and you can use any you like. One good option is
 called `atom` which is available on the `software hub
 <https://softwarehub.imperial.ac.uk/>`_ At Imperial or can be
-downloaded `here <http://atom.io>`_.
+downloaded from `atom <http://atom.io>`_.
 
 
 The command line
@@ -112,7 +112,7 @@ time and to submit your work for feedback and, eventually, marking.
 
 We will be using the revision control system `git
 <http://git-scm.com/>`_, which is the current state of the art and is
-widely adopted. We'll be combining git with the online hosting service `GitHub <http://github.org>`_.
+widely adopted. We'll be combining git with the online hosting service GitHub.
 
 Getting started with git and GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

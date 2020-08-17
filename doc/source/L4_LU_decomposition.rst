@@ -587,7 +587,7 @@ i.e.
       B_{1} & 0 & \ldots & 0 \\
       0 & B_{2} & \ldots & 0 \\
       \vdots & \vdots & \ddots & 0 \\
-      0 & 0 & \ldots B_{m}
+      0 & 0 & \ldots & B_{m}
       \end{pmatrix},
 
 where `B_{i}\in\mathcal{C}^{d\times d}` for `i=1,2,\ldots,m`. The inverse
@@ -599,7 +599,7 @@ of `A` is
       B_{1}^{-1} & 0 & \ldots & 0 \\
       0 & B_{2}^{-1} & \ldots & 0 \\
       \vdots & \vdots & \ddots & 0 \\
-      0 & 0 & \ldots B_{m}^{-1}
+      0 & 0 & \ldots & B_{m}^{-1}
       \end{pmatrix}.
 
 A generalisation of a diagonal matrix is a banded matrix, where

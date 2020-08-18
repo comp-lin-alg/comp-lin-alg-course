@@ -223,6 +223,20 @@ then we would be able to build a finite procedure for computing
 eigenvalues of the characteristic polynomial, which is impossible in
 general.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.Q1AQ1s` function has been left
+   uncompleted. It should apply the Householder transformation `Q_1`
+   to the input `A` (without forming `Q_1` of course) that transforms
+   the first column of `A` to have zeros below the diagonal, and then
+   apply a transformation equivalent to right multiplication by
+   `Q_1^*` (again without forming `Q_1`).  The test script
+   ``test_exercises8.py`` in the ``test`` directory will test this
+   function.
+
+   Experiment with the output of this function. What happens to the
+   first column?
+      
 A slight modification of this idea (and the reason that we can
 transform to upper Hessenberg form) is to use a Householder rotation
 `Q_1^*` to set all entries to zero below the *second* entry in the

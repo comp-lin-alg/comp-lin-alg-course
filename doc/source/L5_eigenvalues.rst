@@ -264,6 +264,14 @@ pseudo-code.
 Note the similarities and differences with the Householder algorithm
 for computing the QR factorisation.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.hessenberg` function has been left
+   unimplemented. It should implement the algorithm above, using only
+   one loop over `k`. It should return the resulting Hessenberg
+   matrix. The test script ``test_exercises8.py`` in the ``test``
+   directory will test this function.
+
 To calculate the operation count, we see that the algorithm is
 dominated by the two updates to `A`, the first of which applies a
 Householder reflection to rows from the left, and the second applies

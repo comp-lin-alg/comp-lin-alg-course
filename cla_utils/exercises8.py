@@ -12,3 +12,15 @@ def Q1AQ1s(A):
 
     raise NotImplementedError
 
+
+def hessenberg(A):
+    """
+    For a matrix A, transform to Hessenberg form H by Householder
+    similarity transformations.
+
+    :param A: an mxm numpy array
+
+    :return H: an mxm numpy array
+    """
+
+    raise NotImplementedError

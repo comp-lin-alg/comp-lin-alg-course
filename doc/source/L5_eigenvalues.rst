@@ -269,8 +269,11 @@ for computing the QR factorisation.
    The :func:`cla_utils.exercises8.hessenberg` function has been left
    unimplemented. It should implement the algorithm above, using only
    one loop over `k`. It should return the resulting Hessenberg
-   matrix. The test script ``test_exercises8.py`` in the ``test``
-   directory will test this function.
+   matrix. At the left multiplication, your implementation should
+   exploit the fact that zeros do not need to be recomputed where
+   there are already expected to be zeros. The test script
+   ``test_exercises8.py`` in the ``test`` directory will test this
+   function.
 
 To calculate the operation count, we see that the algorithm is
 dominated by the two updates to `A`, the first of which applies a
@@ -311,6 +314,27 @@ backwards stable, i.e. in a floating point implementation, it gives
       \frac{\|\delta A\|}{\|A\|}=\mathcal{O}(\varepsilon),
 
 for some `\delta A`.
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.hessenbergQ` function has been left
+   unimplemented. It should implement the Hessenberg algorithm again
+   (you can just copy paste the code from the previous exercise) but
+   it should also return the matrix `Q` such that `QHQ^*=A`. You need
+   to work out how to alter the algorithm to construct this. The test
+   script ``test_exercises8.py`` in the ``test`` directory will test
+   this function.
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.ev` function has been left
+   unimplemented. It should return the eigenvalues and eigenvectors of
+   `A` by first reducing to Hessenberg form, using the functions you
+   have already created, and then calling
+   :func:`cla_utils.exercises8.hessenberg_ev`, which computes the
+   eigenvectors and eigenvalues of upper Hessenberg matrices (do not
+   edit this function!). The test script ``test_exercises8.py`` in the
+   ``test`` directory will test this function.
 
 In the next few sections we develop the iterative part of the
 transformation to the upper triangular matrix `T`. This algorithm
@@ -368,6 +392,26 @@ i.e.
 The Rayleigh quotient gives a quadratically accurate estimate to the
 eigenvalues of `A`.
 
+.. proof:exercise::
+
+   Add a function to :mod:`cla_utils.exercises8` that investigates
+   this property by:
+
+   #. Forming a Hermitian matrix `A`,
+   #. Finding an eigenvector `v` of `A` with eigenvalue `\lambda` (you
+   can use :func:`numpy.linalg.eig` for this),
+   #. Choosing a perturbation vector `r`, and perturbation parameter
+      `\epsilon>0`,
+   #. Comparing the Rayleigh quotient of `v + \epsilon r` with `\lambda`,
+   #. Plotting (on a log-log graph, use :func:`matplotlib.pyplot.loglog`)
+      the error in estimating the eigenvalue as a function of `\epsilon`.
+
+   The best way to do this is to plot the computed data values as points,
+   and then superpose a line plot of `a\epsilon^k` for appropriate
+   value of `k` and `a` chosen so that the line appears not to far away
+   from the points on the same scale. This means that we can check
+   by eye if the error is scaling with `\epsilon` at the expected rate.
+   
 Power iteration
 ---------------
 

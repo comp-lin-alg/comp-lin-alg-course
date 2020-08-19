@@ -6,7 +6,7 @@ import numpy as np
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
-def test_householder_ls(m):
+def test_solve_R(m):
     random.seed(8323*m)
     A = random.randn(m, m)
     R = np.triu(A)

@@ -398,13 +398,10 @@ eigenvalues of `A`.
    this property by:
 
    #. Forming a Hermitian matrix `A`,
-   #. Finding an eigenvector `v` of `A` with eigenvalue `\lambda` (you
-   can use :func:`numpy.linalg.eig` for this),
-   #. Choosing a perturbation vector `r`, and perturbation parameter
-      `\epsilon>0`,
+   #. Finding an eigenvector `v` of `A` with eigenvalue `\lambda` (you can use :func:`numpy.linalg.eig` for this),
+   #. Choosing a perturbation vector `r`, and perturbation parameter `\epsilon>0`,
    #. Comparing the Rayleigh quotient of `v + \epsilon r` with `\lambda`,
-   #. Plotting (on a log-log graph, use :func:`matplotlib.pyplot.loglog`)
-      the error in estimating the eigenvalue as a function of `\epsilon`.
+   #. Plotting (on a log-log graph, use :func:`matplotlib.pyplot.loglog`) the error in estimating the eigenvalue as a function of `\epsilon`.
 
    The best way to do this is to plot the computed data values as points,
    and then superpose a line plot of `a\epsilon^k` for appropriate

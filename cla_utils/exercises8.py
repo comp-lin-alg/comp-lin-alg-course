@@ -64,13 +64,3 @@ def ev(A):
     """
 
     raise NotImplementedError
-
-
-def rq(A):
-    """
-    Given a Hermitian mxm matrix A, and m dimensional vector x, compute
-    the Rayleigh quotient x^*Ax.
-
-    :param A: an mxm numpy array
-
-    

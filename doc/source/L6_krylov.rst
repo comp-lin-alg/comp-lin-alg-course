@@ -141,7 +141,7 @@ Then, changing basis to the orthogonal basis gives
 
    .. math::
 
-      \hat{Q}_n^*(\hat{Q}_n\hat{Q}_n^*A)\hat{Q}_n = \hat{Q}_nA\hat{Q}_n
+      \hat{Q}_n^*(\hat{Q}_n\hat{Q}_n^*A)\hat{Q}_n = \hat{Q}_n^*A\hat{Q}_n
       = H_n.
 
 GMRES
@@ -155,7 +155,7 @@ one by one, and at each iteration we solve the projection of
 the residual `\|Ax-b\|` is below some desired tolerance.
 
 To avoid the numerical instabilities that would come from using the
-basis `(b,Ab,A^b,\ldots)`, we use the Arnoldi iteration to build an
+basis `(b,Ab,A^2b,\ldots)`, we use the Arnoldi iteration to build an
 orthonormal basis, and seek approximate solutions of the form `x_n =
 \hat{Q}_ny` for `y\in\mathbb{C}^n`. We then seek the value of `y`
 that minimises the residual

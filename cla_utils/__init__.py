@@ -9,3 +9,4 @@ from cla_utils.exercises4 import operator_2_norm, cond
 from cla_utils.exercises5 import randomQ, randomR
 from cla_utils.exercises5 import solve_R, backward_stability_householder
 from cla_utils.exercises6 import LU_inplace, get_Lk, solve_L, solve_U
+from cla_utils.exercises9 import pow_it

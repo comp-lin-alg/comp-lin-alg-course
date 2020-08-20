@@ -484,6 +484,10 @@ that the error is small. This is guided by the following result.
 The `\pm` feature is a bit annoying, and relates to the fact that the
 normalisation does not select `v^k` to have the direction as `q_1`.
 
+.. proof:exercise::
+
+   
+
 Inverse iteration
 -----------------
 

@@ -18,7 +18,7 @@ def get_B100():
     m = 100
     random.seed(1111*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
-    A[np.tril_indices[m, -2] = 0
+    A[np.tril_indices(m, -2)] = 0
     return A
 
 
@@ -41,8 +41,8 @@ def get_D100():
     random.seed(1111*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = 0.5*(A + np.conj(A).T)
-    A[np.tril_indices[m, -2] = 0
-    A[np.triu_indices[m, 2] = 0
+    A[np.tril_indices(m, -2)] = 0
+    A[np.triu_indices(m, 2)] = 0
     return A
 
 

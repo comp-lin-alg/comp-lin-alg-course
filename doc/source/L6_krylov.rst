@@ -333,6 +333,17 @@ scattered over a wide region of the complex plane: we need a very
 high degree polynomial to make `p(x)` small at all the eigenvalues and
 hence we need a very large number of iterations.
 
+.. proof:exercise::
+
+   Investigate the convergence of the matrices provided by the
+   functions :func:`cla_utils.exercises10.get_AA100`,
+   :func:`cla_utils.exercises10.get_BB100`, and
+   :func:`cla_utils.exercises10.get_CC100`, by looking at the residual
+   after each iteration (which should be provided by
+   :func:`cla_utils.exercises10.GMRES` as specified in the docstring).
+   What do you observe? What is it about the three matrices that
+   causes this different behaviour?
+
 Preconditioning
 ---------------
 
@@ -371,6 +382,11 @@ called preconditioned GMRES.
   * CHECK IF `\mathcal{R}_n <` TOL
 * END FOR
 
+.. proof:exercise::
+
+   Show that this algorithm is equivalent to GMRES applied to the
+   preconditioned system.
+  
 The art and science of finding preconditioning matrices `M` (or
 matrix-free procedures for solving `Mx=y`) for specific problems
 arising in data science, engineering, physics, biology etc. can

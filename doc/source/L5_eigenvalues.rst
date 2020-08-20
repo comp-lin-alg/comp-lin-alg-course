@@ -486,19 +486,19 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises8.pow_it` function has been left
+   The :func:`cla_utils.exercises9.pow_it` function has been left
    unimplemented. It should apply power iteration to a given matrix
    and initial vector, according to the docstring. Note that the
    docstring provides a different truncation criteria, not based on
    the Rayleigh quotient, so that it can be used for non-Hermitian
-   matrices too. The test script ``test_exercises8.py`` in the
+   matrices too. The test script ``test_exercises9.py`` in the
    ``test`` directory will test this function.
 
 .. proof:exercise::
 
-   The functions :func:`cla_utils.exercises8.A3` and
-   :func:`cla_utils.exercises8.B3` each return a 3x3 matrix, `A_3` and
-   `B_3` respectively. Apply :func:`cla_utils.exercises8.pow_it` to
+   The functions :func:`cla_utils.exercises9.A3` and
+   :func:`cla_utils.exercises9.B3` each return a 3x3 matrix, `A_3` and
+   `B_3` respectively. Apply :func:`cla_utils.exercises9.pow_it` to
    each of these functions. What differences in behaviour do you
    observe? What is it about `A_3` and `B_3` that causes this?
 
@@ -544,10 +544,10 @@ eigenvalues by choosing `\mu`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises8.inverse_it` function has been left
+   The :func:`cla_utils.exercises9.inverse_it` function has been left
    unimplemented. It should apply inverse iteration to a given matrix
    and initial vector, according to the docstring. The test script
-   ``test_exercises8.py`` in the ``test`` directory will test this
+   ``test_exercises9.py`` in the ``test`` directory will test this
    function.
 
 .. proof:exercise::
@@ -590,16 +590,16 @@ Thus we have cubic convergence, which is super fast!
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises8.rq_it` function has been left
+   The :func:`cla_utils.exercises9.rq_it` function has been left
    unimplemented. It should apply inverse iteration to a given matrix
    and initial vector, according to the docstring. The test script
-   ``test_exercises8.py`` in the ``test`` directory will test this
+   ``test_exercises9.py`` in the ``test`` directory will test this
    function.
 
 .. proof:exercise::
 
-   The interfaces to :func:`cla_utils.exercises8.inverse_it` and
-   :func:`cla_utils.exercises8.rq_it` have been designed to optionally
+   The interfaces to :func:`cla_utils.exercises9.inverse_it` and
+   :func:`cla_utils.exercises9.rq_it` have been designed to optionally
    provide the iterated values of the eigenvector and eigenvalue.  For
    a given initial condition (and choice of `mu` in the case of
    inverse iteration), compare the convergence speeds of the
@@ -622,8 +622,29 @@ written as pseudo-code.
   * FIND `Q^{(k)},R^{(k)}` such that `Q^{(k)}R^{(k)}=A^{(k-1)}` (USING QR FACTORISATION)
   * `A^{(k)} = R^{(k)}Q^{(k)}`
 
-Here we use indices in brackets to avoid confusion with powers of
-matrices (which will actually come in later).
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises9.pure_QR` function has been left
+   unimplemented. It should implement the pure QR algorithm as above,
+   using your previous code for finding the QR factorisation using
+   Householder transformations. You should think about avoiding
+   unecessary allocation of new numpy arrays inside the loop. The
+   method of testing for convergence has been left as well. Have a
+   think about how to do this and document your implementation. The
+   test script ``test_exercises9.py`` in the ``test`` directory will
+   test this function.
+
+.. proof:exercise::
+
+   Investigate the behaviour of the pure QR algorithm applied to the
+   functions provided by :func:`cla_utils.exercises9.get_A100`,
+   :func:`cla_utils.exercises9.get_B100`,
+   :func:`cla_utils.exercises9.get_C100`, and 
+   :func:`cla_utils.exercises9.get_D100`. You can use
+   :func:`matplotlib.pyplot.pcolor` to visualise the entries,
+   or compute norms of the components of the matrices below the diagonal,
+   for example. What do you observe? How does this relate to the structure
+   of the four matrices?
     
 The algorithm simply finds the QR factorisation of `A`, swaps Q and R,
 and repeats. We call this algorithm the "pure" QR algorithm, since it

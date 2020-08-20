@@ -1,4 +1,49 @@
 import numpy as np
+import numpy.random as random
+
+def get_A100():
+    """
+    Return A100 matrix for investigating QR factoration.
+    """
+    m = 100
+    random.seed(1111*m)
+    A = random.randn(m, m) + 1j*random.randn(m, m)
+    return A
+
+
+def get_B100():
+    """
+    Return B100 matrix for investigating QR factoration.
+    """
+    m = 100
+    random.seed(1111*m)
+    A = random.randn(m, m) + 1j*random.randn(m, m)
+    A[np.tril_indices[m, -2] = 0
+    return A
+
+
+def get_C100():
+    """
+    Return C100 matrix for investigating QR factoration.
+    """
+    m = 100
+    random.seed(1111*m)
+    A = random.randn(m, m) + 1j*random.randn(m, m)
+    A = 0.5*(A + np.conj(A).T)
+    return A
+
+
+def get_D100():
+    """
+    Return D100 matrix for investigating QR factoration.
+    """
+    m = 100
+    random.seed(1111*m)
+    A = random.randn(m, m) + 1j*random.randn(m, m)
+    A = 0.5*(A + np.conj(A).T)
+    A[np.tril_indices[m, -2] = 0
+    A[np.triu_indices[m, 2] = 0
+    return A
 
 
 def get_A3():
@@ -103,6 +148,20 @@ def rq_it(A, x0, tol, maxit, store_iterations = False):
     :return l: a floating point number containing the final eigenvalue \
     estimate, or if store_iterations, an m dimensional numpy array containing \
     all the iterates.
+    """
+
+    raise NotImplementedError
+
+
+def pure_QR(A, maxit, tol):
+    """
+    For matrix A, apply the QR algorithm and return the result.
+
+    :param A: an mxm numpy array
+    :param maxit: the maximum number of iterations
+    :param tol: termination tolerance
+
+    :return Ak: the result
     """
 
     raise NotImplementedError

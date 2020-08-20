@@ -499,14 +499,14 @@ Now take
 
    .. math::
 
-      r = v - (q_1^*v)q_1 - (q_2^*v)q_2 - \ldots (q_n^*v)q_n.
+      r = v - (q_1^*v)q_1 - (q_2^*v)q_2 - \ldots - (q_n^*v)q_n.
 
 Then, we can check that `r` is orthogonal to `S`, by calculating
 for each `1\leq i \leq n`,
 
    .. math::
 
-      q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots (q_n^*v)(q_i^*q_n)
+      q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots - (q_n^*v)(q_i^*q_n)
 
       = q_i^*v - q_i^*v = 0,
 
@@ -629,7 +629,7 @@ Projectors and projections
    A projector `P` is a square matrix that satisfies `P^2=P`.
 
 If `v \in \mbox{range}(P)`, then there exists `x` such that
-`Pv = x`. Then,
+`Px = v`. Then,
 
    .. math::
  

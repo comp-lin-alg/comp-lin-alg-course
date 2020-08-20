@@ -61,9 +61,10 @@ def test_pure_QR(m):
     assert(np.linalg.norm(A2 - np.conj(A2).T) < 1.0e-4)
     #check for orthogonality
     x0 = random.randn(m)
-    assert(np.linalg.norm(np.dot(A2, x0))-np.linalg(np.dot(A, x0)) < 1.0e-6)
+    assert(np.linalg.norm(np.dot(A2, x0))-np.linalg(np.dot(A0, x0)) < 1.0e-6)
     #check for conservation of trace
-    assert(np.abs(
+    assert(np.abs(np.tr(A0) - np.tr(A2)) < 1.0e-6)
+
 
 if __name__ == '__main__':
     import sys

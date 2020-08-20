@@ -98,6 +98,15 @@ provide as pseudo-code below.
   * `q_{n+1} \gets v/\|v\|`
 * END FOR
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises10.arnoldi` function has been left
+   unimplemented. It should implement the Arnoldi algorithm using one
+   loop over the iteration count, and return the `Q` and `H` matrices
+   after the requested number of iterations is complete. The test
+   script ``test_exercises10.py`` in the ``test`` directory will test
+   this function.
+  
 If we were to form the QR factorisation of the `m\times n` Krylov
 matrix
 
@@ -199,6 +208,55 @@ We are now in position to present the GMRES algorithm as pseudo-code.
   * `x_n \gets \hat{Q}_ny`
   * CHECK IF `\mathcal{R}_n <` TOL
 * END FOR
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises10.GMRES` function has been left
+   unimplemented. It should implement the basic GMRES algorithm above,
+   using one loop over the iteration count. You can paste code from
+   your :func:`cla_utils.exercises10.arnoldi` implementation, and you
+   should use your least squares code to solve the least squares
+   problem.  The test script ``test_exercises10.py`` in the ``test``
+   directory will test this function.
+
+.. proof:exercise::
+
+   The least squares problem in GMRES requires the QR factorisation of
+   `H_k`. It is wasteful to rebuild this from scratch given that we
+   just computed the QR factorisation of `H_{k-1}`. Modify your code
+   so that it recycles the QR factorisation, applying just one extra
+   Householder rotation per GMRES iteration. Don't forget to check
+   that it still passes the test.
+
+.. hint::
+
+   Don't get confused by the two Q matrices involved in GMRES! There
+   is the Q matrix for the Arnoldi iteration, and the Q matrix for
+   the least squares problem. These are not the same.
+
+.. proof:exercise::
+
+   We can also make GMRES more efficient by exploiting the upper
+   Hessenberg structure, since we only have one non-zero value below
+   the diagonal in each column. Instead of using a Householder
+   transformation, we can use a Givens rotation, which only alters
+   two rows (the row corresponding to the diagonal, and the row
+   below). The Givens rotation simply replaces these two rows
+   (call them `r_k` and `r_{k+1}`) by
+
+      .. math::
+
+	 \hat{r}_k = \cos(\theta) r_k + \sin(\theta) r_{k+1},
+
+	 \hat{r}_{k+1} = -\sin(\theta) r_k + \cos(\theta) r_{k+1}.
+
+   where the angle `\theta` is chosen so that `\hat{r}_{k+1,k}=0`.
+   This is cheaper, because we only update two rows, but still
+   corresponds to a unitary transformation. (Note that a slightly more
+   general formula is required for complex matrices, but the tests
+   have been set up for real matrices only.) Modify your code so it
+   uses Givens rotations to make it more efficient. Don't forget to
+   check that it still passes the test.
 
 Convergence of GMRES
 --------------------

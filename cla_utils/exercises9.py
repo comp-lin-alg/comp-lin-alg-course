@@ -49,27 +49,62 @@ def pow_it(A, x0, tol, maxit, store_iterations = False):
     of power iterates, instead of just the final iteration. Default is \
     False.
 
-    :return x0: an m dimensional numpy array, or \
-    if store_iterations, an mxmaxit dimensional numpy array.
+    :return x: an m dimensional numpy array containing the final iterate, or \
+    if store_iterations, an mxmaxit dimensional numpy array containing all \
+    the iterates.
     """
 
-    xi = 1.0*x0
-    m = x0.size
-    if store_iterations:
-        xt = np.zeros((m, maxit+1), dtype=np.float64)
-        xt[:, 0] = x0
-    for i in range(maxit):
-        xi = np.dot(A, xi)
-        xi /= np.linalg.norm(xi)
-        r = np.dot(A, xi)
-        r /= np.linalg.norm(r)
-        r -= xi
-        rmag = np.linalg.norm(r)
-        if store_iterations:
-            xt[:, i+1] = xi
-        if rmag < tol:
-            break
-    if store_iterations:
-        return xt
-    else:
-        return xi
+    raise NotImplementedError
+
+
+def inverse_it(A, x0, mu, tol, maxit, store_iterations = False):
+    """
+    For a Hermitian matrix A, apply the inverse iteration algorithm
+    with initial guess x0, using the same termination criteria as
+    for pow_it.
+
+    :param A: an mxm numpy array
+    :param mu: a floating point number, the shift parameter
+    :param x0: the starting vector for the power iteration
+    :param tol: a positive float, the tolerance
+    :param maxit: integer, max number of iterations
+    :param store_iterations: if True, then return the entire sequence \
+    of inverse iterates, instead of just the final iteration. Default is \
+    False.
+
+    :return x: an m dimensional numpy array containing the final iterate, or \
+    if store_iterations, an mxmaxit dimensional numpy array containing \
+    all the iterates.
+    :return l: a floating point number containing the final eigenvalue \
+    estimate, or if store_iterations, an m dimensional numpy array containing \
+    all the iterates.
+    """
+
+    raise NotImplementedError
+
+
+def rq_it(A, x0, tol, maxit, store_iterations = False):
+    """
+    For a Hermitian matrix A, apply the Rayleigh quotient algorithm
+    with initial guess x0, using the same termination criteria as
+    for pow_it.
+
+    :param A: an mxm numpy array
+    :param x0: the starting vector for the power iteration
+    :param tol: a positive float, the tolerance
+    :param maxit: integer, max number of iterations
+    :param store_iterations: if True, then return the entire sequence \
+    of inverse iterates, instead of just the final iteration. Default is \
+    False.
+
+    :return x: an m dimensional numpy array containing the final iterate, or \
+    if store_iterations, an mxmaxit dimensional numpy array containing \
+    all the iterates.
+    :return l: a floating point number containing the final eigenvalue \
+    estimate, or if store_iterations, an m dimensional numpy array containing \
+    all the iterates.
+    """
+
+    raise NotImplementedError
+
+

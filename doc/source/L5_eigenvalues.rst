@@ -486,8 +486,23 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 
 .. proof:exercise::
 
-   
+   The :func:`cla_utils.exercises8.pow_it` function has been left
+   unimplemented. It should apply power iteration to a given matrix
+   and initial vector, according to the docstring. Note that the
+   docstring provides a different truncation criteria, not based on
+   the Rayleigh quotient, so that it can be used for non-Hermitian
+   matrices too. The test script ``test_exercises8.py`` in the
+   ``test`` directory will test this function.
 
+.. proof:exercise::
+
+   The functions :func:`cla_utils.exercises8.A3` and
+   :func:`cla_utils.exercises8.B3` each return a 3x3 matrix, `A_3` and
+   `B_3` respectively. Apply :func:`cla_utils.exercises8.pow_it` to
+   each of these functions. What differences in behaviour do you
+   observe? What is it about `A_3` and `B_3` that causes this?
+
+   
 Inverse iteration
 -----------------
 
@@ -527,6 +542,19 @@ We conclude that the convergence rate is not improved relative
 to power iteration, but now we can "dial in" to different
 eigenvalues by choosing `\mu`.
 
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.inverse_it` function has been left
+   unimplemented. It should apply inverse iteration to a given matrix
+   and initial vector, according to the docstring. The test script
+   ``test_exercises8.py`` in the ``test`` directory will test this
+   function.
+
+.. proof:exercise::
+
+   Using the `A_3` and `B_3` matrices, explore the inverse iteration
+   using different values of `\mu`. What do you observe?
+
 Rayleigh quotient iteration
 ---------------------------
 
@@ -559,6 +587,24 @@ Then, inverse iteration gives an estimate
    \|v^k-q_J\|) = \mathcal{O}(\delta^3).
 
 Thus we have cubic convergence, which is super fast!
+
+.. proof:exercise::
+
+   The :func:`cla_utils.exercises8.rq_it` function has been left
+   unimplemented. It should apply inverse iteration to a given matrix
+   and initial vector, according to the docstring. The test script
+   ``test_exercises8.py`` in the ``test`` directory will test this
+   function.
+
+.. proof:exercise::
+
+   The interfaces to :func:`cla_utils.exercises8.inverse_it` and
+   :func:`cla_utils.exercises8.rq_it` have been designed to optionally
+   provide the iterated values of the eigenvector and eigenvalue.  For
+   a given initial condition (and choice of `mu` in the case of
+   inverse iteration), compare the convergence speeds of the
+   eigenvectors and eigenvalues, using some example matrices of
+   different sizes (don't forget to make them Hermitian).
 
 The pure QR algorithm
 ---------------------

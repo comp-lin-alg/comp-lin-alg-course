@@ -452,7 +452,7 @@ diagonal entries in column `k` to zero, we need the
       0 & F^{-1} \\
       \end{pmatrix}.
 
-We write the `k`th column `v_k^k` of `A_k` as
+We write the `k` th column `v_k^k` of `A_k` as
 
    .. math::
 

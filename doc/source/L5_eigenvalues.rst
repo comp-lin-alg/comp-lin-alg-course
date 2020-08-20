@@ -837,7 +837,7 @@ A sketch of the practical QR algorithm is as follows.
 * `A^{(0)} \gets` TRIDIAGONAL MATRIX
 * FOR `k=1,2,\ldots`
 
-  * PICK A SHIFT `mu^{(k)}` (discussed later)
+  * PICK A SHIFT `\mu^{(k)}` (discussed below)
   * `Q^{(k)}R^{(k)} = A^{(k-1)} - \mu^{(k)}I` (from QR factorisation)
   * `A^{(k)} = R^{(k)}Q^{(k)} + \mu^{(k)}I`
   * IF `A^{(k)}_{j,j+1}\approx 0` FOR SOME `j`

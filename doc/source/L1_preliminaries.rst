@@ -325,7 +325,7 @@ the unique left inverse of `A`, and show that `Z` is also the unique
 right inverse of `A`, satisfying `I = AZ`.) We write `Z=A^{-1}`.
 
 The first four parts of the next theorem are a consequence of what
-we have so far, and we shall quote the rest (see a linear algebra
+we have so far, and we shall quote the fifth and sixth (see a linear algebra
 course).
 
 .. proof:theorem::
@@ -337,7 +337,6 @@ course).
    #. `\mbox{range}(A)=\mathbb{C}^m`.
    #. `\mbox{null}(A)=\{0\}`.
    #. 0 is not an eigenvalue of `A`.
-   #. 0 is not a singular value of `A`.
    #. The determinant `\det(A)\neq 0`.
 
 Finding the inverse of a matrix can be seen as a change of basis. Considering

@@ -23,6 +23,11 @@ algorithms that we have seen so far.
 Operation count
 ---------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450203625>`_.
+
 Operation count is one aspect of evaluating how long algorithms take.
 Here we just note that this is not the only aspect, since transferring
 data between different levels of memory on chips can be a serious (and
@@ -164,6 +169,11 @@ Now we have to sum this over `k`, so the total operation count is
       
 Matrix norms for discussing stability
 -------------------------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450204495>`_.
 
 In the rest of this section we will discuss another important aspect
 of analysing computational linear algebra algorithms, stability. To do
@@ -315,6 +325,11 @@ We can also compute bounds for `\|AB\|_2`.
 Condition number
 ----------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450205296>`_.
+
 The key tool to understanding numerical stability of computational
 linear algebra algorithms is the condition number.  The condition
 number is a very general concept that measures the behaviour of a
@@ -394,6 +409,11 @@ condition numbers. If `\kappa` is small (`1-100`, say) then we say that
 a problem is well conditioned. If `\kappa` is large (`>10^6`, say),
 then we say that a problem is ill conditioned.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450211558>`_.
+
 As a first example, consider the problem of finding the square root,
 `f:x\mapsto \sqrt{x}`, a one dimensional problem. In this case,
 `J=x^{1/2}/2`. The (linear) condition number is
@@ -436,6 +456,11 @@ the conditioning of the roots of the Wilkinson polynomial.
 Conditioning of linear algebra computations
 -------------------------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450211706>`_.
+
 We now look at the condition number of problems from linear algebra.
 The first problem we examine is the problem of matrix-vector
 multiplication, i.e. for a fixed matrix `A\in \mathbb{C}^{m\times n}`,
@@ -460,6 +485,11 @@ so
       = \|A\|\|A^{-1}\|.
 
 We call this upper bound the condition number `\kappa(A)` of the matrix `A`.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450212408>`_.
 
 The next problem we consider is the condition number of solving
 `Ax=b`, with `b` fixed but considering perturbations to `A`. So, we
@@ -518,6 +548,11 @@ number for this problem is the condition number of `A`.
 Floating point numbers and arithmetic
 -------------------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450212648>`_.
+
 Floating point number systems on computers use a discrete and finite
 representation of the real numbers. One of the first things we can
 deduce from this fact is that there exists a largest and a smallest
@@ -552,6 +587,11 @@ in `\mathbb{F}`.
 
       \forall x \in \mathbb{R}, \, \exists x'\in \mathbb{F}
       \mbox{ such that } |x-x'| \leq \varepsilon |x|.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450213018>`_.
 
 .. proof:definition:: Floating point rounding function
 
@@ -615,6 +655,11 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 Stability
 ---------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450213263>`_.
+
 Stability describes the perturbation behaviour of a numerical algorithm
 when used to solve a problem on a computer. Now we have two problems
 `f:X\to Y` (the original problem implemented in the real numbers), and
@@ -677,6 +722,11 @@ we have to lower our aspirations depending on the condition number of `A`.
 We say that a stable algorithm gives nearly the right answer to nearly the
 right question.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450213664>`_.
+
 .. proof:definition:: Backward stability
 
    An algorithm `\tilde{f}` for `f` is backward stable if for each `x\in X`,
@@ -737,6 +787,11 @@ tally of errors committed during each step of the algorithm.
 Backward stability of the Householder algorithm
 -----------------------------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450214127>`_.
+
 We now consider the example of the problem of finding the QR
 factorisation of a matrix `A`, implemented in floating point
 arithmetic using the Householder method. The input is `A`, and the
@@ -790,6 +845,11 @@ It turns out that the Householder method is backwards stable.
    
 Backward stability for solving a linear system using QR
 -------------------------------------------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450214601>`_.
 
 The QR factorisation provides a method for solving systems of
 equations `Ax=b` for `x` given `b`, where `A` is an invertible
@@ -1004,6 +1064,12 @@ we show the following result.
 
    hence `\|\delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450215261>`_.
+
+   
 .. proof:Corollary::
 
    When solving `Ax=b` using the QR factorisation procedure above, the

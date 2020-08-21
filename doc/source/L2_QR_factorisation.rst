@@ -430,6 +430,11 @@ above).
 Householder triangulation
 -------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450199222>`_.
+
 This view of the modified Gram-Schmidt process as triangular
 orthogonalisation gives an idea to build an alternative algorithm.
 Instead of right multiplying by upper triangular matrices to transform
@@ -442,6 +447,11 @@ matrices to transform `A` to `R`,
 
 Multiplying unitary matrices produces unitary matrices, so we obtain
 `A=QR` as a full factorisation of `A`.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450199366>`_.
 
 To do this, we need to work on the columns of `A`, from left to right,
 transforming them so that each column has zeros below the
@@ -577,6 +587,11 @@ matrix `Q_k` that transforms the entries below the diagonal
 of the kth column of `A_k` to zero, and leaves the previous
 `k-1` columns alone.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450200163>`_.
+
 Earlier, we mentioned that there is a choice of sign in `v`.  This
 choice gives us the opportunity to improve the numerical stability of
 the algorithm. In the case of real matrices, to avoid unnecessary
@@ -620,6 +635,11 @@ columns from `r` to `s`.
    Don't forget that Python numbers from zero, which will be important
    when implementing the submatrices using Numpy slice notation. 
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450201578>`_.
+
 Note that we have not explicitly formed the matrix `Q` or the product
 matrices `Q_i`. In some applications, such as solving least squares
 problems, we don't explicitly need `Q`, just the matrix-vector product
@@ -634,6 +654,11 @@ apply the same operations to `b` that are applied to the columns of
 * END FOR
 
 We call this procedure "implicit multiplication".
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450202242>`_.
 
 .. proof:exercise::
 
@@ -728,6 +753,11 @@ with each column using the `Q` application algorithm described above.
 
 Application: Least squares problems
 -----------------------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450202726>`_.
 
 Least square problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern

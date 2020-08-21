@@ -385,7 +385,7 @@ size of `f` itself.
 
    .. math::
 
-      \kappa = \frac{\|J\|/\|f\|}{\|x\|} = \frac{\|J\|\|x\|}{\|f\|}.
+      \kappa = \frac{\|J\|/\|f\|}{1/\|x\|} = \frac{\|J\|\|x\|}{\|f\|}.
 
 Since we use floating point numbers on computers, it makes more sense
 to consider relative condition numbers in computational linear

@@ -195,10 +195,10 @@ when `A_k` is sufficiently close to being upper triangular (which
 can be measured by checking some norm on the lower triangular part
 of `A` and stopping when it is below a tolerance).
 
-We should not be surprised by this news, since if the successive
-sequence were finite, we would have derived an explicit formula for
-computing the eigenvalues of the characteristic polynomial of `A`
-which is explicit in general. 
+We should not be surprised by the news that the method needs to be
+iterative, since if the successive sequence were finite, we would have
+derived an explicit formula for computing the eigenvalues of the
+characteristic polynomial of `A` which is explicit in general.
 
 In fact, there are two stages to this process. The first stage, which
 is finite (takes `m-1` steps) is to use similarity transformations to

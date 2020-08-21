@@ -549,6 +549,11 @@ Orthogonality will emerge as an early key concept in this course.
 Orthogonal components of a vector
 =================================
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450184086>`_.
+
 Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
 Now take
@@ -590,6 +595,11 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 
 Unitary matrices
 ================
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450184373>`_.
 
 .. proof:definition:: Unitary matrices
 
@@ -649,6 +659,11 @@ given by the orthonormal columns of `Q`.
 Vector norms
 ============
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450184674>`_.
+
 Various vector norms are useful to measure the size of a vector.
 In computational linear algebra we need them for quantifying errors
 etc.
@@ -679,6 +694,11 @@ where `W` is a matrix.
 
 Projectors and projections
 ==========================
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450185110>`_.
 
 .. proof:definition:: Projector
    
@@ -746,6 +766,11 @@ converse is also true: given two subspaces `S_1` and `S_2`
 of `\mathbb{C}^m` with `S_1 \cap S_2 = \{0\}`, then there
 exists a projector `P` whose range is `S_1` and whose nullspace
 is `S_2`.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450185494>`_.
 
 Now we introduce orthogonality into the concept of projectors.
 

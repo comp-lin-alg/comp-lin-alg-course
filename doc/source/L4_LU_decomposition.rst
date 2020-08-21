@@ -55,7 +55,7 @@ After repeated left multiplications we have
 
    .. math::
 
-      A_n = \underbrace{L_n\ldots L_2L_1}A = U.
+      A_n = {L_n\ldots L_2L_1}A = U.
 
 This process of transforming `A` to `U` is called Gaussian elimination.
       

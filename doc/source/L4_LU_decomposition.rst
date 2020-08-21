@@ -572,7 +572,7 @@ When `A` is a lower or upper triangular matrix then we can use
 forwards or back substitution, with `\mathcal{O}(m^2)` operation count
 as previously discussed.
 
-symmetric When `A` is a diagonal matrix, i.e. `A_{ij}=0` for `i\ne j`, it only
+When `A` is a diagonal matrix, i.e. `A_{ij}=0` for `i\ne j`, it only
 has `m` nonzero entries, that can be stored as a vector,
 `(A_{11},A_{22},\ldots,A_{mm})`. In this case, `Ax=b` can be solved in
 `m` operations, just by setting `x_i=b_i/A_{ii}`, for

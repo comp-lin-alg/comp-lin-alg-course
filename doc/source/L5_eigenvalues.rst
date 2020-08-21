@@ -603,7 +603,7 @@ Thus we have cubic convergence, which is super fast!
    The interfaces to :func:`cla_utils.exercises9.inverse_it` and
    :func:`cla_utils.exercises9.rq_it` have been designed to optionally
    provide the iterated values of the eigenvector and eigenvalue.  For
-   a given initial condition (and choice of `mu` in the case of
+   a given initial condition (and choice of `\mu` in the case of
    inverse iteration), compare the convergence speeds of the
    eigenvectors and eigenvalues, using some example matrices of
    different sizes (don't forget to make them Hermitian).

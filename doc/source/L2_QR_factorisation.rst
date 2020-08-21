@@ -474,16 +474,16 @@ gets transformed according to
 
 and our goal is that `Fx` is zero, except for the first entry (which
 becomes the diagonal entry of `Q_kv_k^k`). Since `F` is unitary, we must
-have `\|Fx\|=\|x\|`, so we choose to have
+have `\|Fx\|=\|x\|`. For now we shall specialise to
+real matrices, so we choose to have
 
    .. math::
 
       Fx = \pm\|x\|e_1,
 
-where we shall consider the sign later. Here we have chosen for `Fx`
-to be real. We could alternatively pick another value of the same
-magnitude but different complex argument (but that would lead to a
-slightly different `QR` factorisation).
+where we shall consider the sign later. Complex matrices have a more
+general formula for Householder transformations which we shall not
+discuss here.
 
 We can achieve this by using a Householder reflector for `F`, which is
 a unitary transformation that does precisely what we
@@ -518,11 +518,12 @@ We can check that this does what we want,
 
 	 = x + (\pm\|x\|e_1 - x) = \pm\|x\|e_1,
 
-as required, having checked that
+as required, having checked that (assuming `x` is real)
 
    .. math::
 
-      \|\pm \|x\|e_1 - x\|^2 = -2\|x\|(\pm x_1 - \|x\|).
+      \|\pm \|x\|e_1 - x\|^2 = \|x\|^2 - 2x_1 + \|x\|^2
+      = -2\|x\|(\pm x_1 - \|x\|).
 
 We can also check that `F` is unitary. First we check that `F`
 is Hermitian,

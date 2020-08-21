@@ -510,7 +510,7 @@ result.
 
       .. math::
 
-	 `\tilde{L}\tilde{U} = A + \delta A
+	 \tilde{L}\tilde{U} = A + \delta A
 
    where
 

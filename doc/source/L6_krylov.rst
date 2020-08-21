@@ -295,7 +295,7 @@ where `p(z) = 1 - zp'(z)`. Thus, the residual is a matrix polynomial
    .. math::
 
       \mathcal{P}_n = \{\mbox{degree }\leq n\mbox{ polynomials with }
-      _np(0)=1\}.
+      p(0)=1\}.
 
 Hence, we can recast iteration `n` of GMRES as a polynomial
 optimisation problem: find `p_n\in \mathcal{P}_n` such that

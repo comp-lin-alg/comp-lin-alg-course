@@ -704,7 +704,7 @@ that:
    eigenvalues must be distinct.
 #. The `v` vectors can be expressed as a linear sum of the first `n`
    eigenvectors `q_1,\ldots,q_n` in a non-degenerate way. This turns
-   out (we won't show it here) the be equivalent to the condition that
+   out  to be equivalent (we won't show it here) to the condition that
    `\hat{Q}^TV^{(0)}` has an LU factorisation (where `\hat{Q}` is the
    matrix whose columns of the first `n` eigenvectors.
 

@@ -488,7 +488,7 @@ slightly different `QR` factorisation).
 We can achieve this by using a Householder reflector for `F`, which is
 a unitary transformation that does precisely what we
 need. Geometrically, the idea is that we consider a line joining `x`
-and `Fx=\|x\|e_1`, which points in the direction `v=\|x\|e_1-x`. We can
+and `Fx=\pm\|x\|e_1`, which points in the direction `v=\pm\|x\|e_1-x`. We can
 transform `x` to `Fx` by a reflection in the hyperplane `H` that is
 orthogonal to `v`. Since reflections are norm preserving, `F` must be
 unitary. Applying the projector `P` given by

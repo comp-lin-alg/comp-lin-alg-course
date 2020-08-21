@@ -1,6 +1,6 @@
 '''Tests for the fifth exercise set.'''
 import pytest
-from cla_utils import perm
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -13,7 +13,7 @@ def test_perm(m):
         i, j = random.choice(np.arange(m), 2, replace=False)
         p0 = 1.0*p
         x = random.randn(m)
-        perm(p0, i, j)
+        cla_utils.perm(p0, i, j)
         assert(np.abs(x[p0[i]]-x[p[j]]) < 1.0e-6)
         assert(np.abs(x[p0[j]]-x[p[i]]) < 1.0e-6)
 
@@ -23,7 +23,7 @@ def test_LUP_inplace(m):
     random.seed(8364*m)
     A = random.randn(m, m)
     A0 = 1.0*A
-    p = LUP_inplace(A)
+    p = cla_utils.LUP_inplace(A)
     L = np.eye(m)
     i1 = np.tril_indices(m, k=-1)]
     L[i1] = A[i1]
@@ -39,7 +39,7 @@ def test_solve_LUP(m):
     A = random.randn(m, m)
     A0 = 1.0*A
     b = random.randn(m)
-    x = solve_LUP(A, b)
+    x = cla_utils.solve_LUP(A, b)
     assert(np.abs(b - dot(A, x)) < 1.0e-6)
 
 
@@ -47,7 +47,7 @@ def test_solve_LUP(m):
 def test_det_LUP(m):
     random.seed(1477*m)
     A = random.randn(m, m)
-    detA = det_LUP(A)
+    detA = cla_utils.det_LUP(A)
     _, s, _ = np.linalg.svd(A)
     assert(np.abs(detA - np.prod(s)) < 1.0e-6)
 

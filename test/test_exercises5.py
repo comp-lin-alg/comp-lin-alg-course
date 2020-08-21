@@ -1,6 +1,6 @@
 '''Tests for the fifth exercise set.'''
 import pytest
-from cla_utils import solve_R
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -11,7 +11,7 @@ def test_solve_R(m):
     A = random.randn(m, m)
     R = np.triu(A)
     b = random.randn(m)
-    x0 = solve_R(R, b)
+    x0 = cla_utils.solve_R(R, b)
     x1 = np.linalg.solve(R, b)
 
     assert(np.abs(x0 - x1) < 1.0e-6)

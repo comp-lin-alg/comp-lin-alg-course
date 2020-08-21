@@ -1,6 +1,6 @@
 '''Tests for the eighth exercise set.'''
 import pytest
-from cla_utils import pow_it
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -10,7 +10,7 @@ def test_pow_it(m):
     random.seed(1302*m)
     A = random.randn(m, m)
     x0 = random.randn(m)
-    xi = pow_it(A, x0, tol=1.0e-4, maxit=10000)
+    xi = cla_utils.pow_it(A, x0, tol=1.0e-4, maxit=10000)
     r = np.dot(A, xi)
     r /= np.linalg.norm(r)
     r -= xi/np.linalg.norm(xi)
@@ -25,7 +25,7 @@ def test_inverse_it(m):
     e, _ = np.linalg.eig(A)
     x0 = random.randn(m)
     mu = e[m//2] + random.randn() + 1j*random.randn()
-    xi, li = inverse_it(A, x0, mu, tol=1.0e-8, maxit=10000)
+    xi, li = cla_utils.inverse_it(A, x0, mu, tol=1.0e-8, maxit=10000)
     es = np.abs(e - mu)
     i1 = np.argsort(es)
     ll = e[i1[0]]
@@ -44,7 +44,7 @@ def test_rq_it(m):
     e, _ = np.linalg.eig(A)
     x0 = random.randn(m)
     mu = e[m//2] + random.randn() + 1j*random.randn()
-    xi, li = rq_it(A, x0, tol=1.0e-8, maxit=10000)
+    xi, li = cla_utils.rq_it(A, x0, tol=1.0e-8, maxit=10000)
     r = np.dot(A, xi)
     r /= np.linalg.norm(r)
     r -= xi/np.linalg.norm(xi)
@@ -56,7 +56,7 @@ def test_pure_QR(m):
     random.seed(1302*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A0 = 1.0*A
-    A2 = pure_QR(QR, maxit=10, tol=1.0e-100)
+    A2 = cla_utils.pure_QR(QR, maxit=10, tol=1.0e-100)
     #check it is still Hermitian
     assert(np.linalg.norm(A2 - np.conj(A2).T) < 1.0e-4)
     #check for orthogonality

@@ -803,8 +803,14 @@ gives
 The solution of this equation is `x=R^{-1}y`, but if there is one
 message to take home from this course, it is that you should *never*
 form the inverse of a matrix. It is especially disasterous to use
-Kramer's rule, which has an operation count scaling like
-`\mathcal{O}(m!)` and is numerically unstable. There are some better
+Kramer's rule, which the `m` dimensional extension of the formula for
+the inverse of `2\times 2` matrices that you learned at
+school. Kramer's rule has an operation count scaling like
+`\mathcal{O}(m!)` and is numerically unstable. Hence it is so
+disasterous that we won't even show the formula for Kramer's rule
+here.
+
+There are some better
 algorithms for finding the inverse of a matrix if you really need it,
 but in almost every situation it is better to *solve* a matrix system
 rather than forming the inverse of the matrix and multiplying it.  It

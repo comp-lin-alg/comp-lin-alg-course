@@ -706,7 +706,8 @@ Application: Least squares problems
 
 Least square problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern
-massively parallel linear system solver algorithms. They are a way of
+massively parallel linear system solver algorithms such as GMRES,
+which we shall encounter later in the course. They are a way of
 solving "long thin" matrix vector problems `Ax=b` where we want to
 obtain `x\in \mathbb{C}^n` from `b\in\mathbb{C}^m` with `A` an
 `m\times n` matrix.  Often the problem does not have a solution as it

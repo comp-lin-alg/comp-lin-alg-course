@@ -579,7 +579,7 @@ below.
      * `\lambda^{(k)} \gets (v^k)^TAv^k`
 
 This dramatically improves the convergence since if
-`\|v^(k)-q_J\|=\mathcal{O}(\delta)` for some small `\delta`, then the
+`\|v^k-q_J\|=\mathcal{O}(\delta)` for some small `\delta`, then the
 Rayleigh quotient gives `|\lambda^{(k)}-q_J|=\mathcal{O}(\delta^2)`.
 Then, inverse iteration gives an estimate
 

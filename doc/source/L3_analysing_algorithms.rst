@@ -86,7 +86,7 @@ transformation
       A_{k:m,k:n} \gets A_{k:m,k:n} -
       \underbrace{2v_k\underbrace{(v_k^*A_{k:m,k:n})}_{1}}_{2},
 
-which must be done for each 'k' iteration. To evaluate the part marked
+which must be done for each `k` iteration. To evaluate the part marked
 1 requires `n-k` inner products of vectors in `\mathbb{C}^{m-k}`, at a
 total cost of `\sim 2(n-k)(m-k)` (we already examined inner products
 in the previous example). To evaluate the part marked 2 then requires

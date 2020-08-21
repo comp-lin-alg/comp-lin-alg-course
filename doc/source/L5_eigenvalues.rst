@@ -766,7 +766,7 @@ matrices, and a running product of all of the `R` matrices (again).
 
    The two processes above generate identical sequences of matrices
    `{R'}^{(k)}`, `{Q'}^{(k)}` and `A^{(k)}`, which are related by
-   `A^{k} = {Q'}^{(k)}{R'}^{(k)}` (the `k`th power of `A`, not
+   `A^{k} = {Q'}^{(k)}{R'}^{(k)}` (the `k`-th power of `A`, not
    `A^{(k)}`!), and `A^{(k)}=({Q'}^{(k)})^TA{Q'}^{(k)}`.
 
 

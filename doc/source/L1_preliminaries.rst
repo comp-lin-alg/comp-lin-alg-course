@@ -293,11 +293,6 @@ interpretation of matrix-vector multiplication.
 
    An `m\times n` matrix `A` is full rank if and only if it maps no two
    distinct vectors to the same vector.
-
-.. hint::
-   
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450171203>`_.
    
 .. proof:definition::
 
@@ -327,7 +322,12 @@ interpretation of matrix-vector multiplication.
    
 Invertibility and inverses
 ==========================
+
+.. hint::
    
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450171203>`_.
+
 This means that an invertible matrix has columns that form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
 
@@ -380,6 +380,11 @@ course).
    #. 0 is not an eigenvalue of `A`.
    #. The determinant `\det(A)\neq 0`.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450172407>`_.
+
 Finding the inverse of a matrix can be seen as a change of basis. Considering
 the equation `Ax= b`, we have `x = A^{-1}b` for invertible `A`. We have
 seen already that `b` can be written as
@@ -420,6 +425,11 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
 
 Adjoints and Hermitian matrices
 ===============================
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450173092>`_.
 
 .. proof:definition:: Adjoint
 
@@ -483,6 +493,11 @@ The following identity is very important when dealing with adjoints.
 
 Inner products and orthogonality
 ================================
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450172520>`_.
 
 The inner product is a critical tool in computational linear algebra.
 

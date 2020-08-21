@@ -706,7 +706,7 @@ that:
    eigenvectors `q_1,\ldots,q_n` in a non-degenerate way. This turns
    out  to be equivalent (we won't show it here) to the condition that
    `\hat{Q}^TV^{(0)}` has an LU factorisation (where `\hat{Q}` is the
-   matrix whose columns of the first `n` eigenvectors.
+   matrix whose columns are the first `n` eigenvectors of `A`).
 
 One problem with this idea is that it is not numerically stable.  The
 columns of `V^{(k)}` rapidly become a very ill-conditioned basis for the

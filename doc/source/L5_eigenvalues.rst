@@ -192,6 +192,8 @@ i.e. `A` is similar to `A_k`. Second, the successive sequence is
 infinite, i.e. we will develop an iterative method that converges in
 the limit `k\to\infty`.  We should terminate the iterative method
 when `A_k` is sufficiently close to being upper triangular (which
+can be measured by checking some norm on the lower triangular part
+of `A` and stopping when it is below a tolerance).
 
 We should not be surprised by this news, since if the successive
 sequence were finite, we would have derived an explicit formula for

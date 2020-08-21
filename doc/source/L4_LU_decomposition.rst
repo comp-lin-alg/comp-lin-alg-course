@@ -538,7 +538,7 @@ in the following result (which we also do not prove).
 
       .. math::
 
-	 `\tilde{L}\tilde{U} = A + \delta A
+	 \tilde{L}\tilde{U} = A + \delta A
 
    where
 

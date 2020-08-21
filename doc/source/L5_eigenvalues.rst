@@ -772,9 +772,9 @@ matrices, and a running product of all of the `R` matrices (again).
 
 .. proof:proof::
 
-   We prove by induction. At `k=0`, `A_k={R'}^{(k)}={Q'}^{(k)}=0`. Now we assume
-   that the inductive hypothesis is true for 'k', and aim to deduce that
-   it is true for `k+1`.
+   We prove by induction. At `k=0`, `A_k={R'}^{(k)}={Q'}^{(k)}=0`. Now
+   we assume that the inductive hypothesis is true for `k`, and aim to
+   deduce that it is true for `k+1`.
 
    For simultaneous iteration, we immediately have the simularity
    formula for `A^{(k)}` by definition, and we just need to verify the QR

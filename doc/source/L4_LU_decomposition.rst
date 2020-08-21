@@ -73,7 +73,7 @@ matrices are invertible, we can define
 Then we have `L^{-1}A = U`, i.e. `A=LU`.
 
 So, we need to find lower triangular matrices `L_k` that do not change
-the first `k-1` rows, and transforms the kth column 'x_k' of `A_k`
+the first `k-1` rows, and transforms the `k`-th column `x_k` of `A_k`
 as follows.
 
    .. math::

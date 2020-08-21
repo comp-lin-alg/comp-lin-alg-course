@@ -1,7 +1,6 @@
 '''Tests for the first exercise set.'''
 import pytest
-from cla_utils import basic_matvec, column_matvec, rank2
-from cla_utils import rank1pert_inv
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -14,7 +13,7 @@ def test_basic_matvec(m, n):
     x = random.randn(n)
 
     b0 = A.dot(x)
-    b = basic_matvec(A, x)
+    b = cla_utils.basic_matvec(A, x)
 
     assert(np.linalg.norm(b-b0) < 1.0e-6)
 
@@ -27,7 +26,7 @@ def test_column_matvec(m, n):
     x = random.randn(n)
 
     b0 = A.dot(x)
-    b = column_matvec(A, x)
+    b = cla_utils.column_matvec(A, x)
 
     assert(np.linalg.norm(b-b0) < 1.0e-6)
 
@@ -40,7 +39,7 @@ def test_rank2_matrix(m, n):
     v1 = 1/np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
     v2 = 1/np.sqrt(2)*(random.randn(n) + 1j*random.randn(n))
 
-    A = rank2(u1, u2, v1, v2)
+    A = cla_utils.rank2(u1, u2, v1, v2)
     a1 = random.randn(m)
     a2 = random.randn(n)
 
@@ -58,7 +57,7 @@ def test_rank1pert_inv(m):
     v = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 
     A = np.eye(m) + np.outer(u, v.conj())
-    Ainv = rank1pert_inv(u, v)
+    Ainv = cla_utils.rank1pert_inv(u, v)
 
     x = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 
@@ -79,7 +78,7 @@ def test_ABiC(m):
 
     Ahat = B
     Ahat[np.triu_indices(m, 1)] = C[np.tri_indices(m, 1)]
-    zr, zi = test_ABiC(Ahat, xr, xi)
+    zr, zi = cla_utils.ABiC(Ahat, xr, xi)
 
     z = zr + 1j*zi
     x = xr + 1j*xi

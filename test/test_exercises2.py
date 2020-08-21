@@ -1,7 +1,6 @@
 '''Tests for the second exercise set.'''
 import pytest
-from cla_utils import orthog_cpts, solveQ, orthog_proj, orthog_space
-from cla_utils import GS_classical, GS_modified, GS_modified_L
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -14,7 +13,7 @@ def test_orthog_cpts(m, n):
     Q, R = np.linalg.qr(A)
     Q = Q[:, 0:n]
 
-    r, u = orthog_cpts(v, Q)
+    r, u = cla_utils.orthog_cpts(v, Q)
     err = v - r - Q.dot(u)
 
     assert(np.linalg.norm(err) < 1.0e-6)
@@ -27,7 +26,7 @@ def test_solveQ(m):
     v = random.randn(m) + 1j*random.randn(m)
     Q, R = np.linalg.qr(A)
 
-    x = solveQ(Q, v)
+    x = cla_utils.solveQ(Q, v)
     x0 = np.linalg.solve(Q, v)
     err = x - x0
 
@@ -41,7 +40,7 @@ def test_orthog_proj(m, n):
     Q, R = np.linalg.qr(A)
     Q = Q[:, 0:n]
 
-    P = orthog_proj(Q)
+    P = cla_utils.orthog_proj(Q)
 
     for i in range(n):
         q1 = Q[:, i]
@@ -79,8 +78,8 @@ def test_GS_classical(m, n):
     D = np.diag(1.0 + 0.1*random.rand(m))
     A = np.dot(U, np.dot(D, V))
     A = A[:, 1:n]
-
-    Q, R = GS_classical(A)
+    
+    Q, R = cla_utils.GS_classical(A)
 
     err = A - np.dot(Q, R)
 
@@ -108,7 +107,7 @@ def test_GS_modified_L(m, n):
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = A[:, 1:n]
 
-    Q, R = GS_modified_L(A)
+    Q, R = cla_utils.GS_modified_L(A)
 
     err = A - np.dot(Q, R)
 

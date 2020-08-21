@@ -1,6 +1,6 @@
 '''Tests for the third exercise set.'''
 import pytest
-from cla_utils import householder, householder_solve, householder_solve_qr
+import cla_utils
 from numpy import random
 import numpy as np
 
@@ -10,7 +10,7 @@ def test_householder(m):
     random.seed(1878*m)
     A = random.randn(m, m)
     A0 = 1.0*A  # make a deep copy
-    R = householder(A0)
+    R = cla_utils.householder(A0)
     assert(np.allclose(mat, np.triu(R))  # check R is upper triangular
     assert(np.linalg.norm(np.dot(R.T, R) - np.dot(A.T, A)) < 1.0e-6)
 
@@ -21,7 +21,7 @@ def test_householder_solve(m):
     A = random.randn(m, m)
     x0 = random.randn(m, k)
     b = np.dot(A, x0)
-    x = householder_solve(A, b)
+    x = cla_utils.householder_solve(A, b)
     assert(np.linalg.norm(x - x0) < 1.0e-6)
 
 
@@ -30,7 +30,7 @@ def test_householder_qr(m, n):
     random.seed(4732*m + 1238*k)
     A = random.randn(m, n)
     A0 = 1*A
-    Q, R = householder_solve_qr(A0)
+    Q, R = cla_utils.householder_solve_qr(A0)
 
     # check orthogonality
     assert(linalg.norm(np.dot(Q.T, Q) - np.eye(m)) < 1.0e-6)
@@ -46,7 +46,7 @@ def test_householder_ls(m, n):
     A = random.randn(m, n)
     b = random.randn(m)
            
-    x = householder_ls(A, b)
+    x = cla_utils.householder_ls(A, b)
 
     #check normal equation residual
     assert( np.linalg.norm(np.dot(A.T, np.dot(A, x) - b) < 1.0e-6))

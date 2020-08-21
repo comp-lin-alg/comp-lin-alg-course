@@ -914,7 +914,7 @@ for some upper triangular perturbation such that `\|\delta
 .. proof:exercise::
 
    Complete the function :func:`cla_utils.exercises5.back_stab_solve_R`
-   so that it verifies backward stability for back subsitution, using
+   so that it verifies backward stability for back substitution, using
    :func:`cla_utils.exercises5.solve_R`.
 
 Using the individual backward stability of these three algorithms,

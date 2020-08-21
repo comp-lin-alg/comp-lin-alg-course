@@ -188,7 +188,7 @@ At each stage, we have a similarity transformation,
 
       A = \underbrace{Q_1Q_2\ldots Q_k}_{=Q}A_k\underbrace{Q_k^*\ldots Q_2^*Q_1^*}_{=Q^*},
 
-\emph{i.e.} `A` is similar to `A_k`. Second, the successive sequence is
+i.e. `A` is similar to `A_k`. Second, the successive sequence is
 infinite, i.e. we will develop an iterative method that converges in
 the limit `k\to\infty`.  We should terminate the iterative method
 when `A_k` is sufficiently close to being upper triangular (which

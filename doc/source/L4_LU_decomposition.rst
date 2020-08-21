@@ -764,7 +764,7 @@ Hence, `K-{ww^*}/{a_{11}}` is positive definite, since
 
    .. math::
 
-      r^*(K-\frac{ww^*}{a_{11}})r = \begin{pmatrix} 0 \\ r \\ \end{pmatrix}^*
+      r^*\left(K-\frac{ww^*}{a_{11}}\right)r = \begin{pmatrix} 0 \\ r \\ \end{pmatrix}^*
       A_1 \begin{pmatrix} 0 \\ r \\ \end{pmatrix} > 0,
 
 and hence we can now perform the same procedure all over again to `K -

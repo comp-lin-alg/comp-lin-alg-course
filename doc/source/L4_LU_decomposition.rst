@@ -521,7 +521,7 @@ result.
    for some perturbation `\delta A`.
 
 The algorithm is backward stable if `\|L\|\|U\|=\mathcal{O}(\|A\|)`,
-but there will be problems is `|L\|\|U\|\gg \|A\|`. For a proof of this
+but there will be problems if `|L\|\|U\|\gg \|A\|`. For a proof of this
 result, see the textbook by Golub and van Loan.
 
 A similar result exists for pivoted LU. The main extra issue is that

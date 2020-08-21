@@ -510,14 +510,10 @@ number for this problem is the condition number of `A`.
    the condition number. You should use a method similar to that in
    :numref:`Exercise {number}<o2norm>`, using the
    :func:`numpy.linalg.eig` to compute the eigenvalues of any matrices
-   that you need. The test script ``test_exercises4.py`` in the
-   ``test`` directory will test this function.
-
-.. hint::
-
-   Having computed the eigenvalues of `A`, you do not separately need
-   to compute the eigenvalues of `A^{-1}`, so matrix inversion is not
-   necessary.
+   that you need. Try to think about minimising the number of
+   eigenvalue calculations you need to do. The test script
+   ``test_exercises4.py`` in the ``test`` directory will test this
+   function.
    
 Floating point numbers and arithmetic
 -------------------------------------
@@ -540,7 +536,7 @@ scale with the number size. We call this set of numbers the (double
 precision) floating point numbers `\mathbb{F}\subset \mathbb{R}`.
 
 A key aspect of a floating point number system is "machine epsilon"
-(`\varepsilon`), which measures the larges relative distance between
+(`\varepsilon`), which measures the largest relative distance between
 two numbers. Considering the description above, we see that
 `\varepsilon` is the the distance between 1 and the adjacent number, i.e.
 

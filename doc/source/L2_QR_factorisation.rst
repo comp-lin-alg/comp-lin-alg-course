@@ -708,9 +708,9 @@ Least square problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern
 massively parallel linear system solver algorithms. They are a way of
 solving "long thin" matrix vector problems `Ax=b` where we want to
-obtain `x\in \mathbb{C}^m` from `b\in\mathbb{C}^n` with `A` an
-`n\times m` matrix.  Often the problem does not have a solution as it
-is overdetermined for `n>m`. Instead we just seek `x` that minimises
+obtain `x\in \mathbb{C}^n` from `b\in\mathbb{C}^m` with `A` an
+`m\times n` matrix.  Often the problem does not have a solution as it
+is overdetermined for `m>n`. Instead we just seek `x` that minimises
 the 2-norm of the residual `r=b-Ax`, i.e. `x` is the minimiser of
 
    .. math::

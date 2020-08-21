@@ -12,8 +12,10 @@ that should be found in an undergraduate linear algebra course.
 Matrices, vectors and matrix-vector multiplication
 ==================================================
 
-A video recording of this section is available `here
-<https://vimeo.com/450145459>`_.
+.. hint::
+
+   A video recording of this section is available `here
+   <https://vimeo.com/450145459>`_.
 
 We will consider the multiplication of a vector
 
@@ -57,8 +59,10 @@ in data analysis, curve fitting etc. We will usually state generalities
 in this course for vectors over the field `\mathbb{C}`, noting where things
 specialise to `\mathbb{R}`.
 
-A video recording of this section is available `here
-<https://vimeo.com/450156255>`_.
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://vimeo.com/450156255>`_.
 
 We can quickly check that the map `x \to Ax` given by matrix
 multiplication is a linear map from `\mathbb{C}^n \to \mathbb{C}^m`, since
@@ -71,8 +75,10 @@ it is straightforward to check from the definition that
 for all `x,y \in \mathbb{C}^n` and `\alpha\in \mathbb{C}`. (Exercise:
 show this for yourself.)
 
-A video recording of this section is available `here
-<https://vimeo.com/450157385>`_.
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://vimeo.com/450157385>`_.
 
 It is very useful to interpret matrix-vector multiplication as a linear
 combination of the columns of `A` with coefficients taken from the entries
@@ -98,6 +104,11 @@ then
 
 i.e. a linear combination of the columns of `A` as described above.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://vimeo.com/450161699>`_.
+
 We can extend this idea to matrix-matrix multiplication. Taking 
 `A\in \mathbb{C}^{m\times l}`, `C\in \mathbb{C}^{l\times n}`,
 `B\in \mathbb{C}^{m\times n}`, with `B=AC`, then the components of
@@ -119,6 +130,11 @@ we see that
 This means that the jth column of `B` is the matrix-vector product of
 `A` with the jth column of `C`. This kind of "column thinking" is very
 useful in understanding computational linear algebra algorithms.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://vimeo.com/450162431>`_.
 
 An important example is the outer product of two vectors, `u \in
 \mathbb{C}^m` and `v \in \mathbb{C}^n`. Here it is useful to see these
@@ -213,6 +229,11 @@ see in the next section that this matrix has rank 1.
    
 Range, nullspace and rank
 =========================
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://vimeo.com/450162984>`_.
 
 In this section we'll quickly rattle through some definitions and results.
 

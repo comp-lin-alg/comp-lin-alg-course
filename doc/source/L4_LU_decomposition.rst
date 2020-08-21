@@ -271,7 +271,7 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 
 .. proof:exercise::
 
-   Since the diagonal entires of `L` are all ones, the total amount of
+   Since the diagonal entries of `L` are all ones, the total amount of
    combined memory required to store `L` and `U` is the same as the
    amount of memory required to store `A`. Further, each iteration of
    the LU factorisation algorithm computes one column of `L` and one

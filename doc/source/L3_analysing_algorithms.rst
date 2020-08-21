@@ -657,7 +657,8 @@ by which we mean that `\exists C>0` such that
 
       \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} \leq C\varepsilon,
 
-for sufficiently small `\varepsilon`.
+for sufficiently small `\varepsilon`. We shall see below that
+we have to lower our aspirations depending on the condition number of `A`.
 
 .. proof:definition:: Stability
 

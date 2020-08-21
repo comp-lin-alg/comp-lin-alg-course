@@ -733,7 +733,7 @@ The pure QR algorithm and simultaneous iteration are equivalent
 
 To be precise, we will show that the pure QR algorithm is equivalent
 to simultaneous iteration when the initial independent set is the
-canonical basis `I`, i.e. `Q^(0)=I`. The convergence condition becomes
+canonical basis `I`, i.e. `Q^{(0)}=I`. The convergence condition becomes
 that `Q^T` has an LU decomposition, where `Q` is the limiting unitary
 matrix that simultaneous iteration is converging to.  To show that the
 two algorithms are equivalent, we append them with some auxiliary

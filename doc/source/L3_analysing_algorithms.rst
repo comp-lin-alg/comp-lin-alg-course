@@ -221,7 +221,7 @@ and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
 
      .. math::
       
-	\|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, \|x\|=1}\|Ax\|_{(m)}^2.
+	\|A\|_{(m,n)} = \sqrt{\sup_{x\in\mathbb{C}^n, \|x\|^2=1}\|Ax\|_{(m)}^2}.
 
    Introduce a Lagrange multiplier `\lambda\in \mathbb{C}` to enforce
    the constraint `\|x\|^2=1`.  Consider the case above where the norms
@@ -255,7 +255,7 @@ bounds using inequalities instead. Here are a few useful inequalities.
 .. proof:definition:: Hölder inequality
 
    Let `x,y\in \mathbb{C}^m`, and `p,q \in \mathbb{R}+` such that
-   `\frac{1}{p}+{1}{q} = 1`. Then
+   `\frac{1}{p}+\frac{1}{q} = 1`. Then
 
       .. math::
 

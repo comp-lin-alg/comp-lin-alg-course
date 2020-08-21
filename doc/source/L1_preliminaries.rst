@@ -235,6 +235,7 @@ Range, nullspace and rank
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450162984>`_.
 
+
 In this section we'll quickly rattle through some definitions and results.
 
 .. proof:definition:: Range
@@ -257,6 +258,11 @@ interpretation of matrix-vector multiplication.
    .. math::
 
       \mbox{null}(A) = \{x \in \mathbb{C}^n: Ax=0\}.
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450166119>`_.
 
 .. proof:definition:: Rank
 
@@ -288,6 +294,11 @@ interpretation of matrix-vector multiplication.
    An `m\times n` matrix `A` is full rank if and only if it maps no two
    distinct vectors to the same vector.
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450171203>`_.
+   
 .. proof:definition::
 
    A matrix `A` is called nonsingular, or invertible, if it is a square

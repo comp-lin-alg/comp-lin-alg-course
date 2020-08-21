@@ -17,6 +17,11 @@ good and bad algorithms to compute it.
 What is the QR factorisation?
 -----------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450191857>`_.
+
 We start with another definition.
 
 .. proof:definition:: Upper triangular matrix
@@ -72,6 +77,11 @@ better ones.
 
 QR factorisation by classical Gram-Schmidt algorithm
 ----------------------------------------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450192200>`_.
 
 The classical Gram-Schmidt algorithm for QR factorisation is motivated
 by the column space interpretation of the matrix-matrix multiplication
@@ -158,6 +168,11 @@ for code blocks in pseudo-code in these notes.)
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
 
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450192723>`_.
+
 At each step of the Gram-Schmidt algorithm, a projector is applied to
 a column of `A`. We have
 
@@ -186,6 +201,11 @@ Hence, `P_j` is the complementary projector, `P_j=I -
 
 Modified Gram-Schmidt
 ---------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450193303>`_.
 
 There is a big problem with the classical Gram-Schmidt algorithm. It
 is unstable, which means that when it is implemented in inexact
@@ -301,6 +321,11 @@ in `A` with the `v` s and eventually the `q` s.
 
 Modified Gram-Schmidt as triangular orthogonalisation
 -----------------------------------------------------
+
+.. hint::
+   
+   A video recording of this section is available `here
+   <https://player.vimeo.com/video/450193575>`_.
 
 This iterative transformation process can be written as
 right-multiplication by an upper triangular matrix. For

@@ -15,6 +15,11 @@ secondary school.
 An algorithm for LU decomposition
 ---------------------------------
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454095315>`_.
+
 The computational way to view Gaussian elimination is through the LU
 decomposition of an invertible matrix, `A=LU`, where `L` is lower
 triangular (`l_{ij}=0` for `j<i`) and `U` is upper triangular
@@ -71,6 +76,43 @@ matrices are invertible, we can define
       L^{-1} = L_n\ldots L_2L_1.
 
 Then we have `L^{-1}A = U`, i.e. `A=LU`.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454096015>`_.
+
+So, what's the advantage of writing `A=LU`? Well, we can define
+`y=Ux`.  Then, we can solve `Ax=b` in two steps, first solving `Ly=b`
+for `y`, and then solving `Ux=y` for `x`. The latter equation is an
+upper triangular system that can be solved by the back
+substitution algorithm we introduced for QR factorisation. The former
+equation can be solved by forward substitution, derived in an analogous
+way, written in pseudo-code as follows.
+
+* `x_1 \gets b_1/L_{11}`
+* FOR `i= 2` TO `m`
+  
+  * `x_i \gets (b_i - \sum_{k=1}^iL_{ik}x_k)/L_{ii}`
+
+Forward substitution has an operation count that is identical to back
+substitution, by symmetry, i.e. `\mathcal{O}(m^2)`. In contrast, we
+shall see shortly that the Gaussian elimination process has an
+operation count `\mathcal{O}(m^3)`. Hence, it is much cheaper to solve
+a linear system with a given `LU` factorisation than it is to form `L`
+and `U` in the first place. We can take advantage of this in the
+situation where we have to solve a whole sequence of linear systems
+`Ax=b_i`, `i=1,2,\ldots,K`, with the same matrix `A` but different
+right hand side vectors. In this case we can pay the cost of forming
+`LU` once, and then use forward and back substitution to cheaply solve
+each system. This is particularly useful when we need to repeatedly
+solve systems as part of larger iterative algorithms, such as time
+integration methods or Monte Carlo methods.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454096580>`_.
 
 So, we need to find lower triangular matrices `L_k` that do not change
 the first `k-1` rows, and transforms the `k`-th column `x_k` of `A_k`
@@ -141,6 +183,11 @@ multiplication by `L_k` implements the row operations that are performed
 to transform below diagonal elements of `A_k` to zero during Gaussian
 elimination.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454097320>`_.
+
 The determinant of a lower triangular matrix is equal to the trace
 (product of diagonal entries), so `\det(L_k)=1`, and consequently
 `L_k` is invertible, enabling us to define `L^{-1}` as above.
@@ -208,32 +255,10 @@ a mathematical concept to translate from the row operations into the final
    Once it passes the tests, experiment with the inverse and
    multiplication properties above, to verify that they work.
 
-So, what's the advantage of writing `A=LU`? Well, we can define
-`y=Ux`.  Then, we can solve `Ax=b` in two steps, first solving `Ly=b`
-for `y`, and then solving `Ux=y` for `x`. The latter equation is an
-upper triangular system that can be solved by the back
-substitution algorithm we introduced for QR factorisation. The former
-equation can be solved by forward substitution, derived in an analogous
-way, written in pseudo-code as follows.
-
-* `x_1 \gets b_1/L_{11}`
-* FOR `i= 2` TO `m`
-  
-  * `x_i \gets (b_i - \sum_{k=1}^iL_{ik}x_k)/L_{ii}`
-
-Forward substitution has an operation count that is identical to back
-substitution, by symmetry, i.e. `\mathcal{O}(m^2)`. In contrast, we
-shall see shortly that the Gaussian elimination process has an
-operation count `\mathcal{O}(m^3)`. Hence, it is much cheaper to solve
-a linear system with a given `LU` factorisation than it is to form `L`
-and `U` in the first place. We can take advantage of this in the
-situation where we have to solve a whole sequence of linear systems
-`Ax=b_i`, `i=1,2,\ldots,K`, with the same matrix `A` but different
-right hand side vectors. In this case we can pay the cost of forming
-`LU` once, and then use forward and back substitution to cheaply solve
-each system. This is particularly useful when we need to repeatedly
-solve systems as part of larger iterative algorithms, such as time
-integration methods or Monte Carlo methods.
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454098164>`_.
 
 The Gaussian elimination algorithm is written in pseudo-code as
 follows. We start by copying `A` into `U`, and setting `L` to
@@ -321,6 +346,11 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 
 Pivoting
 --------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454098919>`_.
 
 Gaussian elimination will fail if a zero appears on the diagonal,
 i.e. we get `x_{kk}=0` (since then we can't divide by it). Similarly,

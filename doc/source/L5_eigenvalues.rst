@@ -3,6 +3,11 @@
 Finding eigenvalues of matrices
 ===============================
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454117340>`_.
+
 We start with some preliminary terminology.  A vector `x\in
 \mathbb{C}^m` is an *eigenvector* of a square matrix `A\in
 \mathbb{C}^{m\times m}` with *eigenvalue* `\lambda` if `Ax=\lambda
@@ -68,7 +73,11 @@ eigenvalues can be directly extracted.
    conclude about the wisdom of finding eigenvalues using
    characteristic polynomials?
 
-	 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454118485>`_.
+
 The eigenvalue decomposition of a matrix `A` finds a nonsingular matrix
 `X` and a diagonal matrix `\Lambda` such that
 
@@ -103,6 +112,11 @@ decomposition is not possible.
 This all motivates the search for other eigenvalue revealing
 decompositions of `A`.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454122744>`_.
+
 .. proof:definition:: Similarity transformations
 
    For `X\in \mathbb{C}^{m\times m}` a nonsingular matrix, the map
@@ -128,6 +142,11 @@ eigenvalues can be easily computed (with the diagonal matrix of the
 eigenvalue decomposition being one example).
 
 One such transformation comes from the Schur factorisation.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454122918>`_.
 
 .. proof:definition:: Schur factorisation
 
@@ -172,6 +191,11 @@ obtain an eigenvalue decomposition as a bonus.
 Transformations to Schur factorisation
 --------------------------------------
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454123177>`_.
+
 Just as for the QR factorisations, we will compute the Schur
 factorisation successively, with multiplication by a sequence of
 unitary matrices `Q_1,Q_2,\ldots`. There are two differences for the
@@ -208,6 +232,11 @@ the second, iterative, stage much faster.
 
 Similarity transformation to upper Hessenberg form
 --------------------------------------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454123306>`_.
 
 We already know how to use a unitary matrix to set all entries to zero
 below the diagonal in the first column of `A` by left multiplication
@@ -250,6 +279,11 @@ leaves the first two rows unchanged and puts zeros below the third
 entry in the second column, which are not spoiled by right
 multiplication by `Q_2`. Hence, we can transform `A` to a similar
 upper Hessenberg matrix `H` in `m-2` iterations.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454123643>`_.
 
 This reduction to Hessenberg form can be expressed in the following
 pseudo-code.
@@ -302,6 +336,11 @@ zeros to take advantage of, so all `m` entries in the each of the last
 
       4\times \sum_{k=1}^{m-1} m(m-k) \sim \frac{10}{3}m^3 FLOPs.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454123926>`_.
+      
 In the Hermitian case, the Hessenberg matrix becomes tridiagonal, and
 these extra zeros can be exploited, leading to an operation count
 `\sim 4m^3/3`.
@@ -338,6 +377,11 @@ for some `\delta A`.
    edit this function!). The test script ``test_exercises8.py`` in the
    ``test`` directory will test this function.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454124279>`_.
+
 In the next few sections we develop the iterative part of the
 transformation to the upper triangular matrix `T`. This algorithm
 works for a broad class of matrices, but the explanation is much
@@ -365,11 +409,17 @@ If `x` is an eigenvector of `A`, then
 
       r(x) = \frac{x^T\lambda x}{x^Tx} = \lambda,
 
-i.e. the Rayleigh quotient gives the corresponding eigenvalue.  If `x`
-is not exactly an eigenvector of `A`, but is just close to one, we
-might hope that `r(x)` is close to being an eigenvalue. To investigate
-this we will consider the Taylor series expansion of `r(x)` about
-an eigenvector `q_J` of `A`. We have
+i.e. the Rayleigh quotient gives the corresponding eigenvalue.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454124455>`_.
+
+If `x` is not exactly an eigenvector of `A`, but is just close to one,
+we might hope that `r(x)` is close to being an eigenvalue. To
+investigate this we will consider the Taylor series expansion of
+`r(x)` about an eigenvector `q_J` of `A`. We have
 
    .. math::
 
@@ -413,6 +463,11 @@ eigenvalues of `A`.
    
 Power iteration
 ---------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454124710>`_.
 
 Power iteration is a simple method for finding the eigenvalue of
 `A` with largest eigenvalue (in magnitude). It is based on the following
@@ -508,6 +563,11 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 Inverse iteration
 -----------------
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454124799>`_.
+
 Inverse iteration is a modification of power iteration so that we can
 find eigenvalues other than `\lambda_1`. To do this, we use the fact
 that eigenvectors `q_j` of `A` are also eigenvectors of `(A - \mu
@@ -560,6 +620,11 @@ eigenvalues by choosing `\mu`.
 Rayleigh quotient iteration
 ---------------------------
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454303115>`_.
+
 Since we can use the Rayleigh quotient to find an approximation of an
 eigenvalue, and we can use an approximation of an eigenvalue to find
 the nearest eigenvalue using inverse iteration, we can combine them
@@ -610,6 +675,11 @@ Thus we have cubic convergence, which is super fast!
 
 The pure QR algorithm
 ---------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454124953>`_.
 
 We now describe the QR algorithm, which will turn out to be an
 iterative algorithm that converges to the diagonal matrix (upper
@@ -666,6 +736,11 @@ another algorithm called simultaneous iteration.
 
 Simultaneous iteration
 ----------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454125180>`_.
 
 One problem with power iteration is that it only finds one
 eigenvector/eigenvalue pair at a time. Simultaneous iteration is a
@@ -730,6 +805,11 @@ The following section confirms that they are in fact equivalent.
 
 The pure QR algorithm and simultaneous iteration are equivalent
 ---------------------------------------------------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454125393>`_.
 
 To be precise, we will show that the pure QR algorithm is equivalent
 to simultaneous iteration when the initial independent set is the
@@ -820,6 +900,11 @@ it relates to power iteration.
 
 The practical QR algorithm
 --------------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454125822>`_.
 
 The practical QR algorithm for real symmetric matrices has a number of
 extra elements that make it fast. First, recall that we start by

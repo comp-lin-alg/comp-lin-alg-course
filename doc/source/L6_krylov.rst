@@ -3,6 +3,11 @@
 Iterative Krylov methods for `Ax=b`
 ===================================
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454126320>`_.
+
 In the previous section we saw how iterative methods are necessary
 (but can also be fast) for eigenvalue problems `Ax=\lambda x`.
 Iterative methods can also be useful for solving linear systems
@@ -25,6 +30,11 @@ matrix-vector multiplication in some way; this is called a
 
 Krylov subspace methods
 -----------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454126582>`_.
 
 In this section we will introduce Krylov subspace methods for solving
 `Ax=b` (we will not specialise to real or symmetric matrices
@@ -73,9 +83,15 @@ i.e.
       0 & 0 & h_{n+1,n} \\
       \end{pmatrix}
 
-Then, `A\hat{Q}_n = \hat{Q}_{n-1}\tilde{H}_n`. Using the column space
-interpretation of matrix-matrix multiplication, we see that the `n`-th
-column is
+Then, `A\hat{Q}_n = \hat{Q}_{n-1}\tilde{H}_n`.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454127181>`_.
+
+Using the column space interpretation of matrix-matrix multiplication,
+we see that the `n`-th column is
 
    .. math::
 
@@ -120,6 +136,11 @@ then we would get `Q=Q_n`. Importantly, in the Arnoldi iteration, we
 never form `K_n` or `R_n` explicitly, since these are very
 ill-conditioned and not useful numerically.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454136990>`_.
+   
 But what is the use of the `\tilde{H}_n` matrix? Applying
 `\hat{Q}_n^*` to `A\hat{Q}_n = \hat{Q}_{n+1}\tilde{H}_n` gives
 
@@ -138,6 +159,11 @@ But what is the use of the `\tilde{H}_n` matrix? Applying
 
 where `H_n` is the `n\times n` top left-hand corner of `H`.
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454171516>`_.
+
 The intrepretation of this is that `H_n` is the orthogonal projection
 of `A` onto the Krylov subspace `K_n`. To see this, take any vector `v`,
 and project `Av` onto the the Krylov subspace `K_n`.
@@ -155,6 +181,11 @@ Then, changing basis to the orthogonal basis gives
 
 GMRES
 -----
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454171559>`_.
 
 The Generalised Minimum Residual method (GMRES), due to Saad (1986),
 exploits these properties of the Arnoldi iteration. The idea is
@@ -197,6 +228,11 @@ the norm of the residual due to the orthonormality.
 Finding `y` to minimise `\mathcal{R}_n` requires the solution of a
 least squares problem, which can be computed via QR factorisation
 as we saw much earlier in the course.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454171921>`_.
 
 We are now in position to present the GMRES algorithm as pseudo-code.
 
@@ -260,6 +296,11 @@ We are now in position to present the GMRES algorithm as pseudo-code.
 
 Convergence of GMRES
 --------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454198706>`_.
 
 The algorithm presented as pseudocode is the way to implement GMRES
 efficiently. However, we can make an alternative formulation
@@ -347,7 +388,12 @@ hence we need a very large number of iterations.
 Preconditioning
 ---------------
 
-This final topic has been a real focus of computational linear algebra
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454218547>`_.
+
+This final topic has been a strong focus of computational linear algebra
 over the last 30 years. Typically, the matrices that we want to solve
 do not have eigenvalues clustered in a small number of groups, and so
 GMRES is slow. The solution (and the challenge) is to find a matrix

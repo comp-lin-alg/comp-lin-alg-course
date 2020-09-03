@@ -349,9 +349,11 @@ Pivoting
 
 .. hint::
    
-   A video recording for this material is available `here
-   <https://player.vimeo.com/video/454098919>`_.
-
+   Video recordings for this material is available `here
+   <https://player.vimeo.com/video/454098919>`_, and then
+   `here
+   <https://player.vimeo.com/video/454108809>`_.
+   
 Gaussian elimination will fail if a zero appears on the diagonal,
 i.e. we get `x_{kk}=0` (since then we can't divide by it). Similarly,
 Gaussian elimination will amplify rounding errors if `x_{kk}` is very
@@ -395,6 +397,11 @@ with pivoting,
    .. math::
 
       L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1 = U.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454109227>`_.
 
 This looks like it has totally messed up the LU factorisation, because
 `LP` is not lower triangular for general lower triangular matrix `L`
@@ -454,6 +461,11 @@ finding the LU factorisation using the basic algorithm (except we
 can't implement it like that because we only decide how to build `P`
 during the Gaussian elimination process).
 
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454109660>`_.
+
 The LU factorisation with pivoting can be expressed in the following
 pseudo-code.
 
@@ -472,6 +484,11 @@ pseudo-code.
     * `u_{j,k:m} \gets u_{j,k:m} - l_{jk}u_{k,k:m}`
   * END FOR
 * END FOR
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454110324>`_.
 
 To solve a system `Ax=b` given the a pivoted LU factorisation `PA=LU`,
 we left multiply the equation by `P` and use the factorisation get
@@ -528,6 +545,11 @@ complete pivoting, `PAQ=LU`.
    
 Stability of LU factorisation
 -----------------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454110810>`_.
 
 To characterise the stability of LU factorisation, we quote the following
 result.
@@ -590,6 +612,11 @@ leading to large `\rho` and unstable computations.
 	 
 Taking advantage of matrix structure
 ------------------------------------
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454111577>`_.
 
 The cost of the standard Gaussian elimination algorithm to form `L`
 and `U` is `\mathcal{O}(m^3)`, which grows rather quickly as `m`
@@ -680,6 +707,11 @@ is given as pseudo-code below.
 
 This has an operation count `\mathcal{O}(mp)`. The story is
 very similar for the back substitution.
+
+.. hint::
+   
+   A video recording for this material is available `here
+   <https://player.vimeo.com/video/454112153>`_.
 
 Another example that we have already encountered is unitary matrices
 `Q`. Since `Q^{-1}=Q^*`, solving the system `Qx=b` is just the cost of

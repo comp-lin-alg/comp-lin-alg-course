@@ -5,7 +5,11 @@ Lecturer
 --------
 
 The module is led by `Prof Colin Cotter
-<http://www.imperial.ac.uk/people/colin.cotter>`_.
+<http://www.imperial.ac.uk/people/colin.cotter>`_, a Professor of
+Computational Mathematics who uses and researches computational linear
+algebra tools in the course of his work on computational methods for
+partial differential equations, computational image registration and
+data assimilation.
 
 Accreditation
 -------------
@@ -15,8 +19,8 @@ mathematics and JMC undergraduates. It is also approved for the `MSc
 in Applied Mathematics
 <http://www.imperial.ac.uk/study/pg/courses/mathematics/applied-mathematics/>`_,
 `MRes in Mathematics of Planet Earth <http://mpecdt.org>`_, and for
-second and third year PhD students in the `CDT in Fluid Dymanics
-Accross Scales <http://www3.imperial.ac.uk/fluidscdt>`_. Other masters
+second and third year PhD students in the `CDT in Fluid Dynamics
+Across Scales <http://www3.imperial.ac.uk/fluidscdt>`_. Other masters
 and PhD students wishing to take the module should contact the
 course lecturer in the first instance.
 

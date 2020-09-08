@@ -21,7 +21,7 @@ def test_basic_matvec(m, n):
 # Test the basic matvec
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
 def test_column_matvec(m, n):
-    random.seed(1878*m + 1950*n)  
+    random.seed(1878*m + 1950*n)
     A = random.randn(m, n)
     x = random.randn(n)
 
@@ -64,7 +64,7 @@ def test_rank1pert_inv(m):
     y = A.dot(x)
     err = x - Ainv.dot(y)
 
-    assert(np.abs(err) < 1.0e-7)
+    assert(np.linalg.norm(err)<1.0e-7)
 
 
 @pytest.mark.parametrize('m', [7, 20, 43])
@@ -77,14 +77,14 @@ def test_ABiC(m):
     xi = random.randn(m)
 
     Ahat = B
-    Ahat[np.triu_indices(m, 1)] = C[np.tri_indices(m, 1)]
+    Ahat[np.triu_indices(m, 1)] = C[np.triu_indices(m, 1)]
     zr, zi = cla_utils.ABiC(Ahat, xr, xi)
 
     z = zr + 1j*zi
     x = xr + 1j*xi
     err = z - np.dot(A, x)
 
-    assert(np.abs(err) < 1.0e-7)
+    assert(np.linalg.norm(err)<1.0e-7)
 
 
 if __name__ == '__main__':

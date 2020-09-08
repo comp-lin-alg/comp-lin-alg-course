@@ -52,7 +52,7 @@ produces `b \in \mathbb{C}^m`, defined by
       :label: matvec
 
       b_i = \sum_{j=1}^n a_{ij}x_j, \, i=1,2,\ldots,m.
-      
+
 In this course it is important to
 consider the general case where `m \neq n`, which has many applications
 in data analysis, curve fitting etc. We will usually state generalities
@@ -60,7 +60,7 @@ in this course for vectors over the field `\mathbb{C}`, noting where things
 specialise to `\mathbb{R}`.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450156255?autoplay=1>`_.
 
@@ -76,7 +76,7 @@ for all `x,y \in \mathbb{C}^n` and `\alpha\in \mathbb{C}`. (Exercise:
 show this for yourself.)
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450157385?autoplay=1>`_.
 
@@ -105,11 +105,11 @@ then
 i.e. a linear combination of the columns of `A` as described above.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450161699?autoplay=1>`_.
 
-We can extend this idea to matrix-matrix multiplication. Taking 
+We can extend this idea to matrix-matrix multiplication. Taking
 `A\in \mathbb{C}^{m\times l}`, `C\in \mathbb{C}^{l\times n}`,
 `B\in \mathbb{C}^{m\times n}`, with `B=AC`, then the components of
 `B` are given by
@@ -126,13 +126,13 @@ we see that
    .. math::
 
       b_j = Ac_j.
-      
+
 This means that the jth column of `B` is the matrix-vector product of
 `A` with the jth column of `C`. This kind of "column thinking" is very
 useful in understanding computational linear algebra algorithms.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450162431?autoplay=1>`_.
 
@@ -170,6 +170,10 @@ see in the next section that this matrix has rank 1.
    from the Bash command line. Make sure you commit your modifications
    and push them to your fork of the course repository.
 
+.. hint::
+
+  Don't forget to activate the virtual environment before running the tests to make sure that you have access to all the necessary packages
+
 .. _ex-column-matvec:
 
 .. proof:exercise::
@@ -188,13 +192,13 @@ see in the next section that this matrix has rank 1.
 
    It will be useful to use the Python "slice" notation, for
    example::
-     
+
      A[:, 3]
-     
+
    will return the 4th (since Python numbers from zero) column of `A`.
    For more information, see the `Numpy documentation on slicing.
    <https://numpy.org/doc/stable/reference/arrays.indexing.html>`_
-   
+
 .. proof:exercise::
 
    The :func:`cla_utils.exercises1.time_matvecs` function computes
@@ -226,12 +230,12 @@ see in the next section that this matrix has rank 1.
    In these exercises you should consider the best way to make use of
    Numpy built-in operations (which will often make the code more maths-like
    and readable, as well as potentially faster).
-   
+
 Range, nullspace and rank
 =========================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450162984>`_.
 
@@ -245,7 +249,7 @@ In this section we'll quickly rattle through some definitions and results.
 
 The next theorem follows as a result of the column space
 interpretation of matrix-vector multiplication.
-   
+
 .. proof:theorem::
 
    `\mbox{range}(A)` is the vector space spanned by the columns of `A`.
@@ -260,7 +264,7 @@ interpretation of matrix-vector multiplication.
       \mbox{null}(A) = \{x \in \mathbb{C}^n: Ax=0\}.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450166119>`_.
 
@@ -293,7 +297,7 @@ interpretation of matrix-vector multiplication.
 
    An `m\times n` matrix `A` is full rank if and only if it maps no two
    distinct vectors to the same vector.
-   
+
 .. proof:definition::
 
    A matrix `A` is called nonsingular, or invertible, if it is a square
@@ -319,12 +323,12 @@ interpretation of matrix-vector multiplication.
    and we should find that the rank is equal to 2. Can you explain why
    this should be the case (use the column space interpretation of
    matrix-matrix multiplication)?
-   
+
 Invertibility and inverses
 ==========================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450171203>`_.
 
@@ -381,7 +385,7 @@ course).
    #. The determinant `\det(A)\neq 0`.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450172407>`_.
 
@@ -427,7 +431,7 @@ Adjoints and Hermitian matrices
 ===============================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450173092>`_.
 
@@ -448,12 +452,12 @@ Adjoints and Hermitian matrices
    is symmetric.
 
 The following identity is very important when dealing with adjoints.
-   
+
 .. proof:theorem::
 
    For matrices `A`, `B` with compatible dimensions (so that they can
    be multiplied),
-   
+
    .. math::
 
       (AB)^* = B^*A^*.
@@ -476,14 +480,14 @@ The following identity is very important when dealing with adjoints.
    using the column space interpretation of matrix-vector
    multiplication. The test script ``test_exercises1.py`` in the
    ``test`` directory will also test this function.
-   
+
 .. hint::
 
    You can use the Python "slice" notation, to assign into a slice
    of an array, for example::
-     
+
      x[3:5] = y[3:5]
-     
+
    will copy the 4th and 5th entries of `y` (Python numbers from zero,
    and the upper limit of the slice is the first index value not to
    use.  For more information, see the `Numpy documentation on
@@ -495,7 +499,7 @@ Inner products and orthogonality
 ================================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450172520>`_.
 
@@ -511,10 +515,10 @@ The inner product is a critical tool in computational linear algebra.
 
 (Exercise: check that the inner product is bilinear, i.e. linear in
 both of the arguments.)
-      
+
 We will frequently use the natural norm derived from the inner product
 to define size of vectors.
-      
+
 .. proof:definition:: 2-Norm
 
    Let `x\in \mathbb{C}^m`. Then the 2-norm of `x` is
@@ -524,7 +528,7 @@ to define size of vectors.
       \|x\| = \sqrt{\sum_{i=1}^m |x_i|^2} = \sqrt{x^*x}.
 
 Orthogonality will emerge as an early key concept in this course.
-      
+
 .. proof:definition:: Orthogonal vectors
 
    Let `x,y\in \mathbb{C}^m`. The two vectors are orthogonal if
@@ -538,7 +542,7 @@ Orthogonality will emerge as an early key concept in this course.
       x^*y = 0,\quad \forall x\in X, \, y\in Y.
 
    A set `S` of vectors is itself orthogonal if
-      
+
    .. math::
 
       x^*y = 0,\quad\forall x,y \in S.
@@ -550,7 +554,7 @@ Orthogonal components of a vector
 =================================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450184086>`_.
 
@@ -597,7 +601,7 @@ Unitary matrices
 ================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450184373>`_.
 
@@ -630,7 +634,7 @@ Unitary matrices
       1 & \mbox{if} & i=j, \\
       0 & \mbox{otherwise} & \\
       \end{array}\right. .
-   
+
 Extending a theme from earlier, we can interpret `Q^*=Q^{-1}` as
 representing a change of orthogonal basis. If `Qx = b`, then
 `x=Q^*b` contains the coefficients of `b` expanded in the basis
@@ -660,7 +664,7 @@ Vector norms
 ============
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450184674>`_.
 
@@ -696,19 +700,19 @@ Projectors and projections
 ==========================
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450185110>`_.
 
 .. proof:definition:: Projector
-   
+
    A projector `P` is a square matrix that satisfies `P^2=P`.
 
 If `v \in \mbox{range}(P)`, then there exists `x` such that
 `Px = v`. Then,
 
    .. math::
- 
+
       Pv = P(Px) = P^2x = Px = v,
 
 and hence multiplying by `P` does not change `v`.
@@ -723,7 +727,7 @@ Then,
 which means that `Pv-v` is the nullspace of `P`. We have
 
    .. math::
- 
+
       Pv -v = -(I-P)v.
 
 .. proof:definition:: Complementary projector
@@ -768,7 +772,7 @@ exists a projector `P` whose range is `S_1` and whose nullspace
 is `S_2`.
 
 .. hint::
-   
+
    A video recording of this section is available `here
    <https://player.vimeo.com/video/450185494>`_.
 
@@ -783,7 +787,7 @@ Now we introduce orthogonality into the concept of projectors.
       (Pv)^*(Pv-v) = 0, \, \forall v \in \mathbb{C}^m.
 
 In this case, `P` separates the space into two orthogonal subspaces.
-   
+
 Constructing orthogonal projectors from sets of orthonormal vectors
 ===================================================================
 

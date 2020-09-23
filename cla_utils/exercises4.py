@@ -5,13 +5,9 @@ def operator_2_norm(A):
     """
     Given a real mxn matrix A, return the operator 2-norm.
 
-    Inputs
-
     :param A: an mxn-dimensional numpy array
 
-    Outputs
-
-    :param o2norm: the norm
+    :return o2norm: the norm
     """
 
     raise NotImplementedError
@@ -23,11 +19,7 @@ def cond(A):
     """
     Given a real mxn matrix A, return the condition number in the 2-norm.
 
-    Inputs
-
-    :param A: an mxn-dimensional numpy array
-
-    Outputs
+    :return A: an mxn-dimensional numpy array
 
     :param ncond: the condition number
     """

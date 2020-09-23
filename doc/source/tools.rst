@@ -11,6 +11,8 @@ The core requirements are Python 3, git, and a Python-aware text editor.
 Using the Windows machines in the computer labs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+(Not currently available under covid19 restrictions.)
+
 Imperial's lab machines have the software you need installed, in some
 cases via the `Software Hub`. To get started, double click the
 `Software Hub` icon on the desktop or `click here
@@ -18,36 +20,12 @@ cases via the `Software Hub`. To get started, double click the
 which will give you a terminal to run git and Python commands, and
 `atom`, which will provide you with an editor.
 
-Using your own Windows machine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using your own machine
+~~~~~~~~~~~~~~~~~~~~~~
 
-In order to use your own Windows machine, you'll simply need Python 3
-(with the right packages) and git. One option is to install Anaconda, but other Windows Python distributions should also work.
-
-1. Download and install `Anaconda` from `anaconda <https://www.anaconda.com>`_.
-
-2. Download and install `git` from `git-scm.com <https://git-scm.com/download/win>`_.
-     
-
-Using your own Linux machine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you plan to use your own machine for the module, you will need a
-basic  Python toolchain. On Ubuntu and its relatives, this can be achieved with::
-
-  sudo apt-get install python3 git
-
-Using your own Mac
-~~~~~~~~~~~~~~~~~~
-
-We recommend using `Homebrew <http://brew.sh>`__ as a package manager
-for the required packages on Mac OS systems, however other ways of getting Python 3 may well work.
-
-1. Install homebrew, following the instructions at http://brew.sh.
-
-2. Install an up-to-date Python via homebrew::
-
-     brew install python3
+Up to date information on how to install Python, Git, etc on a
+Windows, Linux or Mac machine is available `here
+<https://imperial-fons-computing.github.io/>`_.
 
 Editing code
 ~~~~~~~~~~~~
@@ -56,7 +34,7 @@ In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
 editors available and you can use any you like. One good option is
 called `atom` which is available on the `software hub
-<https://softwarehub.imperial.ac.uk/>`_ At Imperial or can be
+<https://softwarehub.imperial.ac.uk/>`_ at Imperial or can be
 downloaded from `atom <http://atom.io>`_.
 
 

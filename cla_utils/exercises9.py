@@ -4,6 +4,8 @@ import numpy.random as random
 def get_A100():
     """
     Return A100 matrix for investigating QR factoration.
+
+    :return A: The 100x100 numpy array
     """
     m = 100
     random.seed(1111*m)
@@ -14,6 +16,8 @@ def get_A100():
 def get_B100():
     """
     Return B100 matrix for investigating QR factoration.
+
+    :return A: The 100x100 numpy array
     """
     m = 100
     random.seed(1111*m)
@@ -25,6 +29,8 @@ def get_B100():
 def get_C100():
     """
     Return C100 matrix for investigating QR factoration.
+
+    :return A: The 100x100 numpy array
     """
     m = 100
     random.seed(1111*m)
@@ -36,6 +42,8 @@ def get_C100():
 def get_D100():
     """
     Return D100 matrix for investigating QR factoration.
+
+    :return A: The 100x100 numpy array
     """
     m = 100
     random.seed(1111*m)

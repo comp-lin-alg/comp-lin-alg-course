@@ -48,18 +48,33 @@ def GMRES(A, b, maxit, tol, x0=None, return_residual_norms=False,
 
 
 def get_AA100():
+    """
+    Get the AA100 matrix.
+
+    :return A: a 100x100 numpy array used in exercises 10.
+    """
     AA100 = np.fromfile('AA100.dat', sep=' ')
     AA100 = AA100.reshape((100, 100))
     return AA100
 
 
 def get_BB100():
+    """
+    Get the BB100 matrix.
+
+    :return B: a 100x100 numpy array used in exercises 10.
+    """
     BB100 = np.fromfile('BB100.dat', sep=' ')
     BB100 = BB100.reshape((100, 100))
     return BB100
 
 
 def get_CC100():
+    """
+    Get the CC100 matrix.
+
+    :return C: a 100x100 numpy array used in exercises 10.
+    """
     CC100 = np.fromfile('CC100.dat', sep=' ')
     CC100 = CC100.reshape((100, 100))
     return CC100

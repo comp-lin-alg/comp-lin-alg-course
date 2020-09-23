@@ -2,17 +2,47 @@ import numpy as np
 
 
 def randomQ(m):
+    """
+    Produce a random orthogonal mxm matrix.
+
+    Inputs 
+
+    :param m: the matrix dimension parameter.
+    
+    Outputs
+
+    :return Q: the mxm numpy array containing the orthogonal matrix.
+    """
     Q, R = linalg.qr(random.randn(m, m))
     return Q
 
 
 def randomR(m):
+    """
+    Produce a random upper triangular mxm matrix.
+
+    Inputs 
+
+    :param m: the matrix dimension parameter.
+    
+    Outputs
+
+    :return R: the mxm numpy array containing the upper triangular matrix.
+    """
+    
     A = random.randn(m, m)
     return numpy.triu(A)
 
 
 def backward_stability_householder(m):
+    """
+    Verify backward stability for QR factorisation using Householder for
+    real mxm matrices.
 
+    Inputs
+
+    :param m: the matrix dimension parameter.
+    """
     # repeat the experiment a few times to capture typical behaviour
     for k in range(20):
         Q1 = randomQ(m)

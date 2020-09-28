@@ -285,11 +285,11 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
   * `r_{ii} \gets \|v_i\|_2`
   * `q_i = v_i/r_{ii}`
     
-    * FOR `j = i+1` TO `n`
+  * FOR `j = i+1` TO `n`
 
-      * `r_{ij} \gets q_i^*a_j`
-      * `v_j \gets v_j - r_{ij}q_i`
-    * END FOR
+    * `r_{ij} \gets q_i^*a_j`
+    * `v_j \gets v_j - r_{ij}q_i`
+  * END FOR
 * END FOR
 
 This algorithm can be applied "in place", overwriting the entries

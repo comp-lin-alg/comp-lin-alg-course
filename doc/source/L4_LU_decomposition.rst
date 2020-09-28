@@ -685,8 +685,7 @@ matrix is given as pseudo-code below.
 
   * `l_{jk} \gets u_{jk}/u_{kk}`
   * `n \gets \min(k+q, m)`
-
-    * `u_{j,k:n} \gets u_{j,k:n}- l_{jk}u_{k,k:n}`
+  * `u_{j,k:n} \gets u_{j,k:n}- l_{jk}u_{k,k:n}`
   * END FOR
 * END FOR
 

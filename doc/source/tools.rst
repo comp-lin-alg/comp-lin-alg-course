@@ -96,6 +96,7 @@ Getting started with git and GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The very first thing you'll need is a GitHub account. Navigate to `GitHub <https://github.com/>`_ and sign up.
+
 .. note::
 
    Make sure you use your Imperial College email address on

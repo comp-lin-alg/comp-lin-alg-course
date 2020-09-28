@@ -60,9 +60,9 @@ def test_orthog_space(m, n, k):
     Qphat = Q[:, k:m]
 
     A = random.randn(m, n)
-    U = np.dot(Qhat, A)
+    U = np.dot(Qhat.transpose(), A) #is this the appropriate fix to the index mismatch?
 
-    Qphat2 = orthog_space(U)
+    Qphat2 = cla_utils.orthog_space(U)
     assert(np.linalg.norm(np.dot(Qphat2.conj().T, Qphat)) < 1.0e-6)
 
 
@@ -78,7 +78,7 @@ def test_GS_classical(m, n):
     D = np.diag(1.0 + 0.1*random.rand(m))
     A = np.dot(U, np.dot(D, V))
     A = A[:, 1:n]
-    
+
     Q, R = cla_utils.GS_classical(A)
 
     err = A - np.dot(Q, R)
@@ -101,7 +101,7 @@ def test_GS_modified(m, n):
 
 
 @pytest.mark.parametrize('m, n', [(20, 17), (40, 3), (20, 12)])
-def test_GS_modified_L(m, n):
+def test_GS_modified_L(m, n): #Is this testing GS_modified_R or GS_modified_get_R?
     random.seed(1312*m + 2020*n)
 
     A = random.randn(m, m) + 1j*random.randn(m, m)

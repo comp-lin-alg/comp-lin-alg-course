@@ -77,7 +77,7 @@ def householder_ls(A, b):
     Inputs
 
     :param A: an mxn-dimensional numpy array
-    :param A: an m-dimensional numpy array
+    :param b: an m-dimensional numpy array
 
     Outputs
 

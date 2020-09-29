@@ -20,7 +20,7 @@ def test_get_Lk(m, k):
         assert(np.abs(x[i] - b[i] - np.dot(b[i+1:], lk)) < 1.0e-6)
 
 
-@pytest.mark.parametrize('m', [3, 20, 204, 18])
+@pytest.mark.parametrize('m', [20, 204, 18])
 def test_LU_inplace(m):
     random.seed(8564*m)
     A = random.randn(m, m)
@@ -29,11 +29,9 @@ def test_LU_inplace(m):
     L = np.eye(m)
     i1 = np.tril_indices(m, k=-1)
     L[i1] = A[i1]
-    #print(L)
     U = np.triu(A)
     A1 = np.dot(L, U)
-    print(A1)
-    err = (A1 - A0)
+    err = A1 - A0
     assert(np.linalg.norm(err) < 1.0e-6)
 
 

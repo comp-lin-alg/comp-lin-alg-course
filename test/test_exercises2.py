@@ -51,19 +51,17 @@ def test_orthog_proj(m, n):
             assert(np.linalg.norm(q2) < 1.0e-6)
 
 
-@pytest.mark.parametrize('m, n, k', [(20, 211, 17), (40, 3, 3), (20, 354, 12)])
-def test_orthog_space(m, n, k):
+@pytest.mark.parametrize('m, n, k', [(20, 211, 17), (40, 3, 3)])
+def test_orthog_space(m, n):
     random.seed(1321*m + 1765*n)
-    A = random.randn(m, m) + 1j*random.randn(m, m)
-    Q, R = np.linalg.qr(A)
-    Qhat = Q[:, 0:k]
-    Qphat = Q[:, k:m]
-
-    A = random.randn(m, n)
-    U = np.dot(Qhat.transpose(), A) #is this the appropriate fix to the index mismatch?
-
-    Qphat2 = cla_utils.orthog_space(U)
-    assert(np.linalg.norm(np.dot(Qphat2.conj().T, Qphat)) < 1.0e-6)
+    U = random.randn(m, n) + 1j*random.randn(m, n)
+    Qhat = cla_utils.orthog_space(U)
+    #check that the dimensions are correct
+    assert(Qhat.shape == (m, m-n))
+    #Check the orthogonality
+    assert(np.linalg.norm(np.dot(Qhat.conj().T, U)) < 1.0e-6)
+    #Check full rank
+    assert(np.linalg.matrix_rank(Qhat) == m-n)
 
 
 @pytest.mark.parametrize('m, n', [(20, 17), (40, 3), (20, 12)])

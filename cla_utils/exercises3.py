@@ -63,7 +63,7 @@ def householder_ls(A, b):
     least squares solution to Ax = b.
 
     :param A: an mxn-dimensional numpy array
-    :param A: an m-dimensional numpy array
+    :param b: an m-dimensional numpy array
 
     :return x: an n-dimensional numpy array
     """

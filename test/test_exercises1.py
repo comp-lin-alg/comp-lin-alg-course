@@ -67,24 +67,26 @@ def test_rank1pert_inv(m):
     assert(np.linalg.norm(err)<1.0e-7)
 
 
-@pytest.mark.parametrize('m', [7, 20, 43])
+@pytest.mark.parametrize('m', [3, 7, 20, 43])
 def test_ABiC(m):
     random.seed(1348*m)
     B = random.randn(m, m)
+    B_sym = B + B.T
     C = random.randn(m, m)
-    A = B + 1j*C
+    C_ssym = C - C.T
+    A = B_sym + 1j*C_ssym
     xr = random.randn(m)
     xi = random.randn(m)
 
-    Ahat = B
-    Ahat[np.triu_indices(m, 1)] = C[np.triu_indices(m, 1)]
+    Ahat = B_sym
+    Ahat[np.triu_indices(m, 1)] = C_ssym[np.triu_indices(m, 1)]
     zr, zi = cla_utils.ABiC(Ahat, xr, xi)
 
     z = zr + 1j*zi
     x = xr + 1j*xi
     err = z - np.dot(A, x)
 
-    assert(np.linalg.norm(err)<1.0e-7)
+    assert(np.linalg.norm(err) < 1.0e-7)
 
 
 if __name__ == '__main__':

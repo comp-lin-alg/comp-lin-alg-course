@@ -7,7 +7,7 @@ from cla_utils import LU_inplace, get_Lk, solve_L, solve_U
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
-def test_get_Lk(m):
+def test_get_Lk(m, k):
     random.seed(9752*m)
     lk = random.randn(k)
     Lk = cla_utils.get_Lk(m, lk)
@@ -27,35 +27,39 @@ def test_LU_inplace(m):
     A0 = 1.0*A
     cla_utils.LU_inplace(A)
     L = np.eye(m)
-    i1 = np.tril_indices(m, k=-1)]
+    i1 = np.tril_indices(m, k=-1)
     L[i1] = A[i1]
     U = np.triu(A)
     A1 = np.dot(L, U)
-    assert(np.abs(A1 - A0) < 1.0e-6)
+    err = A1 - A0
+    assert(np.linalg.norm(err) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
-def test_solve_L(m):
+def test_solve_L(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
     L = np.tril(random.randn(m, m))
     x = cla_utils.solve_L(L, b)
-    assert(np.abs(b - np.dot(L, x)) < 1.0e-6)
+    err1 = b - np.dot(L, x)
+    assert(np.linalg.norm(err1) < 1.0e-6)
     A = random.randn(m, m)
     x = solve_L(A, b)
-    assert(np.abs(b - np.dot(A, x)) > 1.0e-6)
+    err2 = b - np.dot(A, x)
+    assert(np.linalg.norm(err2) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
-def test_solve_U(m):
+def test_solve_U(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
     U = np.triu(random.randn(m, m))
     x = cla_utils.solve_U(U, b)
-    assert(np.abs(b - np.dot(U, x)) < 1.0e-6)
+    err1 = b - np.dot(U, x)
+    assert(np.linalg.norm(err1) < 1.0e-6)
     A = random.randn(m, m)
-    x = cla_utils.solve_U(A, b)
-    assert(np.abs(b - np.dot(A, x)) > 1.0e-6)
+    err2 = b - np.dot(A, x)
+    assert(np.linalg.norm(err2) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -65,7 +69,8 @@ def test_inverse_LU(m):
     A0 = 1.0*A
 
     Ainv = cla_utils.inverse_LU(A0)
-    assert(np.abs(dot(Ainv, A) - eye(m)) < 1.0e-6)
+    err = np.dot(Ainv, A) - np.eye(m)
+    assert(np.linalg.norm(err) < 1.0e-6)
 
 
 if __name__ == '__main__':

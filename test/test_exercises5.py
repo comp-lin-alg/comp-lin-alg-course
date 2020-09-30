@@ -13,8 +13,11 @@ def test_solve_R(m):
     b = random.randn(m)
     x0 = cla_utils.solve_R(R, b)
     x1 = np.linalg.solve(R, b)
+    err = x0 - x1
 
-    assert(np.abs(x0 - x1) < 1.0e-6)
+    assert(np.linalg.norm(err) < 1.0e-6)
+
+    #does this test everything we want to exercise 5?
 
 
 if __name__ == '__main__':

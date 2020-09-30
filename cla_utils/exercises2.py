@@ -58,7 +58,7 @@ def orthog_space(V):
     Given set of vectors u_1,u_2,..., u_n, compute the
     orthogonal complement to the subspace U spanned by the vectors.
 
-    :param U: an mxn-dimensional numpy array whose columns are the \
+    :param V: an mxn-dimensional numpy array whose columns are the \
     vectors u_1,u_2,...,u_n.
 
     :return Q: an lxm-dimensional numpy array whose columns are an \
@@ -88,7 +88,7 @@ def GS_classical(A):
 def GS_modified(A):
     """
     Given an mxn matrix A, compute the QR factorisation by modified
-    Gram-Schmidt algorithm, producing 
+    Gram-Schmidt algorithm, producing
 
     :param A: mxn numpy array
 
@@ -111,7 +111,7 @@ def GS_modified_get_R(A, k):
 
     :param A: mxn numpy array
     :param k: integer indicating the column that R should orthogonalise
-    
+
     :return R: nxn numpy array
     """
 

@@ -9,6 +9,11 @@ concepts that will be used in the rest of the course, emphasising
 the column space of matrices. We will quote some standard results
 that should be found in an undergraduate linear algebra course.
 
+.. hint::
+
+   Before you attempt any exercises, you need to make sure that you
+   have everything you need set up on your computer.
+
 Matrices, vectors and matrix-vector multiplication
 ==================================================
 

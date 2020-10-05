@@ -16,7 +16,7 @@ An algorithm for LU decomposition
 ---------------------------------
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454095315>`_.
 
@@ -63,7 +63,7 @@ After repeated left multiplications we have
       A_n = {L_n\ldots L_2L_1}A = U.
 
 This process of transforming `A` to `U` is called Gaussian elimination.
-      
+
 If we assume (we will show this later) that all these lower triangular
 matrices are invertible, we can define
 
@@ -78,7 +78,7 @@ matrices are invertible, we can define
 Then we have `L^{-1}A = U`, i.e. `A=LU`.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454096015>`_.
 
@@ -92,7 +92,7 @@ way, written in pseudo-code as follows.
 
 * `x_1 \gets b_1/L_{11}`
 * FOR `i= 2` TO `m`
-  
+
   * `x_i \gets (b_i - \sum_{k=1}^iL_{ik}x_k)/L_{ii}`
 
 Forward substitution has an operation count that is identical to back
@@ -110,7 +110,7 @@ solve systems as part of larger iterative algorithms, such as time
 integration methods or Monte Carlo methods.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454096580>`_.
 
@@ -184,7 +184,7 @@ to transform below diagonal elements of `A_k` to zero during Gaussian
 elimination.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454097320>`_.
 
@@ -210,7 +210,7 @@ matrices from two consecutive iterations, we get
 
       L_k^{-1}L_{k+1}^{-1} = (I + l_ke_k^*)(I + l_{k+1}e_{k+1}^*)
       = I + l_ke_k^* + l_{k+1}e_{k+1}^* + l_k\underbrace{(e_k^*l_{k+1})}_{=0}e_{k+1}^*
-      
+
       = I + l_ke_k^* + l_{k+1}e_{k+1}^*,
 
 since `e_k^*l_{k+1}=0` too, as `l_{k+1}` is zero in the only place
@@ -256,7 +256,7 @@ a mathematical concept to translate from the row operations into the final
    multiplication properties above, to verify that they work.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454098164>`_.
 
@@ -348,12 +348,12 @@ Pivoting
 --------
 
 .. hint::
-   
+
    Video recordings for this material is available `here
    <https://player.vimeo.com/video/454098919>`_, and then
    `here
    <https://player.vimeo.com/video/454108809>`_.
-   
+
 Gaussian elimination will fail if a zero appears on the diagonal,
 i.e. we get `x_{kk}=0` (since then we can't divide by it). Similarly,
 Gaussian elimination will amplify rounding errors if `x_{kk}` is very
@@ -399,7 +399,7 @@ with pivoting,
       L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1 = U.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454109227>`_.
 
@@ -462,7 +462,7 @@ can't implement it like that because we only decide how to build `P`
 during the Gaussian elimination process).
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454109660>`_.
 
@@ -486,7 +486,7 @@ pseudo-code.
 * END FOR
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454110324>`_.
 
@@ -515,12 +515,12 @@ complete pivoting, `PAQ=LU`.
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises7.LUP` has been left
+   The function :func:`cla_utils.exercises7.LUP_inplace` has been left
    unimplemented. It should extend the in-place algorithm for LU
    factorisation (with the outer-product formulation, if you managed
    it) to the LUP factorisation. As well as computing L and U "in
    place" in the array where the input A is stored, it will compute a
-   permutation matrix, which can should be constructed using
+   permutation matrix, which can and should be constructed using
    :func:`cla_utils.exercises7.perm`.The test script
    ``test_exercises7.py`` in the ``test`` directory will test this
    function.
@@ -542,12 +542,12 @@ complete pivoting, `PAQ=LU`.
    function :func:`cla_utils.exercises7.det_LUP` to implement this
    computation. The test script ``test_exercises7.py`` in the ``test``
    directory will test this function.
-   
+
 Stability of LU factorisation
 -----------------------------
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454110810>`_.
 
@@ -609,12 +609,12 @@ Thus, partial pivoting (and complete pivoting turns out not to help
 much extra) can keep the entries in `L` under control, but there can
 still be pathological cases where entries in `U` can get large,
 leading to large `\rho` and unstable computations.
-	 
+
 Taking advantage of matrix structure
 ------------------------------------
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454111577>`_.
 
@@ -709,7 +709,7 @@ This has an operation count `\mathcal{O}(mp)`. The story is
 very similar for the back substitution.
 
 .. hint::
-   
+
    A video recording for this material is available `here
    <https://player.vimeo.com/video/454112153>`_.
 
@@ -742,7 +742,7 @@ When `A` is Hermitian positive definite, it is possible to find an
 upper triangular matrix `R` such that `A=R^*R`, which is called the
 Cholesky factorisation. To show that it is possible to compute
 the Cholesky factorisation, we start by assuming that `A` has
-a 1 in the top-left hand corner, so that 
+a 1 in the top-left hand corner, so that
 
    .. math::
 
@@ -769,7 +769,7 @@ After one stage of Gaussian elimination, we have
       1 & w^* \\
       w & K \\
       \end{pmatrix}}_{A}
-      = 
+      =
       \begin{pmatrix}
       1 & w^* \\
       0 & K - ww^* \\
@@ -843,7 +843,7 @@ We can then present the Cholesky factorisation as pseudo-code.
 
     * `R_{j,j:m} \gets R_{j,j:m} - R_{k,j:m}\bar{R}_{kj}/R_{kk}`
   * `R_{k,k:m} \gets R_{k,k:m}/\sqrt{R_{k:k}}`
-      
+
 The operation count of the Cholesky factorisation is dominated
 by the operation inside the `j` loop, which has one division,
 `m-j+1` multiplications, and `m-j+1` subtractions, giving

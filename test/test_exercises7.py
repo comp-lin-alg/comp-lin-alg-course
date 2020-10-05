@@ -14,8 +14,8 @@ def test_perm(m):
         p0 = 1.0*p
         x = random.randn(m)
         cla_utils.perm(p0, i, j)
-        assert(np.abs(x[p0[i]]-x[p[j]]) < 1.0e-6)
-        assert(np.abs(x[p0[j]]-x[p[i]]) < 1.0e-6)
+        assert(np.abs(x[int(p0[i])]-x[int(p[j])]) < 1.0e-6)
+        assert(np.abs(x[int(p0[j])]-x[int(p[i])]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

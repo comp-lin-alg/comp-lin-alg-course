@@ -30,7 +30,8 @@ def test_LUP_inplace(m):
     U = np.triu(A)
     A1 = np.dot(L, U)
     A0 = A0[p, :]
-    assert(np.abs(A1 - A0) < 1.0e-6)
+    err = A1 - A0
+    assert(np.linalg.norm(err) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

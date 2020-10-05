@@ -32,7 +32,7 @@ def test_hessenberg(m):
     # check transformation was via unitary transformations
     assert(np.abs(np.linalg.norm(x0) - np.linalg.norm(xh)) < 1.0e-6)
     # check Hessenberg structure
-    assert(np.linalg.norm(A[np.tril_indices(m, -1)]) < 1.0e-6)
+    assert(np.linalg.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -47,11 +47,11 @@ def test_hessenbergQ(m):
     xh = np.dot(A, b)
     assert(np.abs(np.linalg.norm(x0) - np.linalg.norm(xh)) < 1.0e-6)
     # check Hessenberg structure
-    assert(np.linalg.norm(A[np.tril_indices(m, -1)]) < 1.0e-6)
+    assert(np.linalg.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
     # check the Schur factorisation
     assert(np.linalg.norm(A - np.dot(Q, np.dot(A, np.conj(Q).T))))
 
-    
+
 @pytest.mark.parametrize('m', [20, 204, 18])
 def test_ev(m):
     random.seed(3213*m)

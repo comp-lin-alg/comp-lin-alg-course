@@ -56,14 +56,14 @@ def test_pure_QR(m):
     random.seed(1302*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A0 = 1.0*A
-    A2 = cla_utils.pure_QR(QR, maxit=10, tol=1.0e-100)
+    A2 = cla_utils.pure_QR(A0, maxit=10, tol=1.0e-100)
     #check it is still Hermitian
     assert(np.linalg.norm(A2 - np.conj(A2).T) < 1.0e-4)
     #check for orthogonality
     x0 = random.randn(m)
-    assert(np.linalg.norm(np.dot(A2, x0))-np.linalg(np.dot(A0, x0)) < 1.0e-6)
+    assert(np.linalg.norm(np.dot(A2, x0))-np.linalg.norm(np.dot(A0, x0)) < 1.0e-6)
     #check for conservation of trace
-    assert(np.abs(np.tr(A0) - np.tr(A2)) < 1.0e-6)
+    assert(np.abs(np.trace(A0) - np.trace(A2)) < 1.0e-6)
 
 
 if __name__ == '__main__':

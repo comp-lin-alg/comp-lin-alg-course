@@ -13,10 +13,10 @@ def test_arnoldi(m, k):
     Q, H = cla_utils.arnoldi(A, b, k)
     assert(Q.shape == (m, k))
     assert(H.shape == (k+1, k))
-    assert(np.abs(np.dot(Q, np.conj(Q).T) - np.eye(m)) < 1.0e-6)
+    assert(np.linalg.norm(np.dot(Q, np.conj(Q).T) - np.eye(m)) < 1.0e-6)
     assert(np.linalg.norm(np.dot(A, Q) - np.dot(Q[:,:-1], H)) < 1.0e-6)
 
-    
+
 @pytest.mark.parametrize('m', [20, 204, 18])
 def test_GMRES(m):
     A = random.randn(m, m)

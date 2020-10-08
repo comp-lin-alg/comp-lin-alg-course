@@ -20,7 +20,7 @@ Setting up your repository
 
 We're using a tool called `GitHub classroom <https://classroom.github.com>`_ to automate the creation of your
 copies of the repository.
-To create your repository, XXXX.
+To create your repository, click `here <https://classroom.github.com/a/OY_NHMeU>`_.
 
 
 Cloning a local copy
@@ -75,45 +75,13 @@ condition so we can compare to it later, and collect any updates which
 occur during the term. Instead, we'll create an solutions branch
 to actually work on::
 
-  cd comp-lin-alg
+  cd comp-lin-alg-course
   git checkout -b solutions
 
 Your working directory is now a current checkout of your
 solutions branch. You'll also want to push this branch to GitHub::
 
   git push --set-upstream origin solutions
-
-Watching for updates and issues
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should make sure you are notified of all updates on the main
-repository and all issues anyone raises. For this, you should navigate
-to `the main repository
-<https://github.com/comp-lin-alg/comp-lin-alg-course>`_. On the
-top right there is an eye icon. Select the drop-down box and switch to
-``watching``.
-
-Updating your fork
-~~~~~~~~~~~~~~~~~~
-
-When you see that the main repository has been updated, you'll need to
-update your repository to incorporate those changes. *Just this once*,
-you need to tell your local git repo about the main repository::
-
-  git remote add upstream https://github.com/comp-lin-alg/comp-lin-alg-course.git
-
-Now, *every time* you want to update you do the following:
-  
-#. Make sure you have commited all your local changes **and** pushed
-   them to GitHub.
-#. Execute the following commands::
-   
-     git checkout master          # Switch to the master branch.
-     git pull upstream master     # Update from the main repository.
-     git push                     # Push the updated master branch to GitHub.
-     git checkout implementation  # Switch back to the implementation branch.
-     git merge master             # Merge the new changes from master into implementation.
-     git push                     # Push the updated implementation branch to GitHub.
    
 Skeleton code documentation
 ---------------------------

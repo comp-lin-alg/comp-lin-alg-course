@@ -357,7 +357,7 @@ write
 
    .. math::
 
-      e_j = \sum_{k=1}^m z_{ik} a_k, \quad 1\leq j \leq m.
+      e_j = \sum_{k=1}^m z_{jk} a_k, \quad 1\leq j \leq m.
 
 In other words,
 

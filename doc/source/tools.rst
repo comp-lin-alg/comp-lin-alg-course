@@ -33,9 +33,8 @@ Editing code
 In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
 editors available and you can use any you like. One good option is
-called `atom` which is available on the `software hub
-<https://softwarehub.imperial.ac.uk/>`_ at Imperial or can be
-downloaded from `atom <http://atom.io>`_.
+called `Visual Studio Code`, with installation instructions `here
+<https://imperial-fons-computing.github.io/vscode.html>`_.
 
 
 The command line

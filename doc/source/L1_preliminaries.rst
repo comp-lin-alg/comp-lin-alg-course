@@ -156,7 +156,10 @@ we see
       \end{pmatrix},
 
 which means that all the columns of `uv^T` are multiples of `u`. We will
-see in the next section that this matrix has rank 1.
+see in the next section that this matrix has rank 1. In the complex
+number case, the transpose $^T$ is replaced by the adjoint $^*$ which
+is the complex conjugate of the transpose. There will be more about this
+later.
 
 .. _ex-basic-matvec:
 

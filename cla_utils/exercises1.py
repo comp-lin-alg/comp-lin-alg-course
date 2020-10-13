@@ -88,7 +88,7 @@ def rank2(u1, u2, v1, v2):
     Return the rank2 matrix A = u1*v2^* + u2*v2^*.
 
     :param u1: m-dimensional numpy array
-    :param u1: m-dimensional numpy array
+    :param u2: m-dimensional numpy array
     :param v1: n-dimensional numpy array
     :param v2: n-dimensional numpy array
     """

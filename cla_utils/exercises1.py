@@ -119,7 +119,7 @@ def ABiC(Ahat, xr, xi):
     with
 
     :param Ahat: an mxm-dimensional numpy array with Ahat[i,j] = B[i,j] \
-    for i<=j and Ahat[i,j] = C[i,j] for i>j.
+    for i>=j and Ahat[i,j] = C[i,j] for i<j.
 
     :return zr: m-dimensional numpy arrays containing the real part of z.
     :return zi: m-dimensional numpy arrays containing the imaginary part of z.

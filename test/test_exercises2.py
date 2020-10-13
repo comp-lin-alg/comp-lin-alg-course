@@ -51,7 +51,7 @@ def test_orthog_proj(m, n):
             assert(np.linalg.norm(q2) < 1.0e-6)
 
 
-@pytest.mark.parametrize('m, n, k', [(20, 211, 17), (40, 3, 3)])
+@pytest.mark.parametrize('m, n', [(211, 17), (40, 3)])
 def test_orthog_space(m, n):
     random.seed(1321*m + 1765*n)
     U = random.randn(m, n) + 1j*random.randn(m, n)

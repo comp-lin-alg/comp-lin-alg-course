@@ -319,14 +319,14 @@ interpretation of matrix-vector multiplication.
    `u_1,u_2\in \mathbb{C}^m` and `v_1,v_2 \in \mathbb{C}^n`. As you
    can see, the function needs to implement this rank-2 matrix by
    first forming two matrices `B` and `C` from the inputs,
-   matrix-vector product `b=Ax` from inputs `A` and `x`. The
+   and then forming `A` as the product of `B` and `C`. The
    test script ``test_exercises1.py`` in the ``test`` directory will also test this function.
 
    To measure the rank of `A`, we first need to cast it from a numpy
    array class to a numpy matrix class, and then use the built-in rank
    function::
 
-     r = numpy.linalg.rank(numpy.matrix(A))
+     r = numpy.linalg.matrix_rank(A)
 
    and we should find that the rank is equal to 2. Can you explain why
    this should be the case (use the column space interpretation of
@@ -476,8 +476,8 @@ The following identity is very important when dealing with adjoints.
    and `A` is Hermitian. Show that `B=B^T` and `C=-C^T`. To save
    memory, instead of storing values of `A` (`m\times m` complex
    numbers to store), consider equivalently storing a real-valued
-   `m\times m` array `\hat{A}` with `\hat{A}_{ij}=B_{ij}` for `i\leq j`
-   and `\hat{A}_{ij}=C_{ij}` for `i>j`.
+   `m\times m` array `\hat{A}` with `\hat{A}_{ij}=B_{ij}` for `i\geq j`
+   and `\hat{A}_{ij}=C_{ij}` for `i<j`.
 
    The :func:`cla_utils.exercises1.ABiC` function has been left
    unimplemented. It should implement matrix vector multiplication

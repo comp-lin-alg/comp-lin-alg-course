@@ -129,7 +129,9 @@ lot easier to read::
    are `here
    <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
-Now go and do the `git tutorial <https://swcarpentry.github.io/git-novice/>`_ over at Software Carpentry.
+Now go and do the `git tutorial
+<https://swcarpentry.github.io/git-novice/>`_ over at Software
+Carpentry.
 
 
 Sharing your problems with gists

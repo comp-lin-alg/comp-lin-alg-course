@@ -4,7 +4,7 @@
  Preliminaries
 ===============
 
-In this preliminary section we revise a few key linear algebra
+In this preliminary section, we revise a few key linear algebra
 concepts that will be used in the rest of the course, emphasising
 the column space of matrices. We will quote some standard results
 that should be found in an undergraduate linear algebra course.

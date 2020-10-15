@@ -20,7 +20,8 @@
       tools
       exercises
       cla_utils
-
+      errata
+      
    .. image:: _static/trefbau.jpg
       :align: right
       :width: 20ex

@@ -25,3 +25,4 @@ repositories for Autumn 2020. An up to date version is in the
    various things). Finally, we have updated the parameterised `m` and
    `n` values to smaller ones, as this construction for `R` is
    numerically unstable.
+#. Exercise 2.10. Added a .conj() to the orthonormality test.

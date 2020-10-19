@@ -17,7 +17,7 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 2.4. Updated the text to indicate that a copy should be made.
    Replaced ``GS_modified`` `\to`
    ``cla_utils.GS_modified`` in ``test_exercises2.py``.
-#. Exercise 2.7. Don't use ``out==` in `GS_modified_R` as this relies
+#. Exercise 2.7. Don't use ``out==`` in ``GS_modified_R`` as this relies
    on structure in the numpy array that may not be the
    same. ``test_GS_modified_R`` has been updated in
    ``test/test_exercises2.py`` (there were previously ``_L`` where

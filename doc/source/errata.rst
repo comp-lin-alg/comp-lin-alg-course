@@ -14,3 +14,5 @@ repositories for Autumn 2020. An up to date version is in the
    fixed now in the notes.
 #. Exercise 2.3. There was an error in the parameterisation of the
    test, which is fixed in the public repository.
+#. Exercise 2.4. Replaced ``GS_modified`` `\to`
+   ``cla_utils.GS_modified`` in ``test_exercises2.py``.

@@ -91,7 +91,7 @@ def test_GS_modified(m, n):
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = A[:, 1:n]
 
-    Q, R = GS_modified(A)
+    Q, R = cla_utils.GS_modified(A)
 
     err = A - np.dot(Q, R)
 

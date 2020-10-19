@@ -160,11 +160,11 @@ for code blocks in pseudo-code in these notes.)
    The :func:`cla_utils.exercises2.GS_classical` function has been
    left unimplemented. It should implement the classical Gram-Schmidt
    algorithm above, using Numpy slice notation so that only one Python
-   for loop is used. The function should work "in place" by and then
-   changing the values in `A`, without introducing additional
-   intermediate arrays (you will need to create a new array to store
-   `Q`). The test script ``test_exercises2.py`` in the ``test``
-   directory will test this function.
+   for loop is used. The function should work "in place" by making a
+   copy of `A` and then changing the values in the copy, without
+   introducing additional intermediate arrays (you will need to create
+   a new array to store `Q`). The test script ``test_exercises2.py``
+   in the ``test`` directory will test this function.
 
 Projector interpretation of Gram-Schmidt
 ----------------------------------------

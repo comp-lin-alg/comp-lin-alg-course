@@ -131,10 +131,10 @@ def GS_modified_R(A):
     """
 
     m, n = A.shape
-    R = np.eye(n)
+    R = np.eye(n, dtype=A.dtype)
     for i in range(1,m):
         Rk = GS_modified_get_R(A, i)
-        np.dot(A, Rk, out=A)
-        np.dot(R, Rk, out=R)
+        A[:,:] = np.dot(A, Rk)
+        R[:,:] = np.dot(R, Rk)
     R = np.linalg.inv(R)
     return A, R

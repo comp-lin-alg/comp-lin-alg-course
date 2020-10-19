@@ -99,13 +99,13 @@ def test_GS_modified(m, n):
 
 
 @pytest.mark.parametrize('m, n', [(20, 17), (40, 3), (20, 12)])
-def test_GS_modified_L(m, n): #Is this testing GS_modified_R or GS_modified_get_R?
+def test_GS_modified_R(m, n):
     random.seed(1312*m + 2020*n)
 
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = A[:, 1:n]
 
-    Q, R = cla_utils.GS_modified_L(A)
+    Q, R = cla_utils.GS_modified_R(A)
 
     err = A - np.dot(Q, R)
 

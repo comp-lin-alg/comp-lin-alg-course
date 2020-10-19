@@ -27,7 +27,7 @@ We start with another definition.
 .. proof:definition:: Upper triangular matrix
 
    An `m\times n` upper triangular matrix `R` has coefficients satisfying
-   `r_{ij}=0` when `i\geq j`.
+   `r_{ij}=0` when `i > j`.
 
    It is called upper triangular because the nonzero rows form a triangle
    on and above the main diagonal of `R`.

@@ -98,7 +98,7 @@ def test_GS_modified(m, n):
     assert(np.linalg.norm(err) < 1.0e-6)
 
 
-@pytest.mark.parametrize('m, n', [(20, 17), (40, 3), (20, 12)])
+@pytest.mark.parametrize('m, n', [(4, 3), (5, 3), (6, 3)])
 def test_GS_modified_R(m, n):
     random.seed(1312*m + 2020*n)
 

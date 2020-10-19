@@ -22,4 +22,6 @@ repositories for Autumn 2020. An up to date version is in the
    same. ``test_GS_modified_R`` has been updated in
    ``test/test_exercises2.py`` (there were previously ``_L`` where
    there shouldn't have been, due to failing to merge a PR fixing
-   various things).
+   various things). Finally, we have updated the parameterised `m` and
+   `n` values to smaller ones, as this construction for `R` is
+   numerically unstable.

@@ -117,7 +117,7 @@ Hence we have to find `R` coefficients such that
 
    \vdots
 
-   q_n = \frac{q_n - \sum_{i=1}^{n-1}r_{in}q_i}{r_{nn}},
+   q_n = \frac{a_n - \sum_{i=1}^{n-1}r_{in}q_i}{r_{nn}},
    
 with `(q_1,q_2,\ldots,q_n)` an orthonormal set. The non-diagonal
 entries of `R` are found by inner products, i.e.,

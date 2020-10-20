@@ -278,9 +278,11 @@ interpretation of matrix-vector multiplication.
 
 .. proof:definition:: Rank
 
-   The rank `\mbox{rank}(A)` of `A`
-   is the dimension of the column space
-   of `A`.
+   The column rank `\mbox{rank}(A)` of `A` is the dimension of the
+   column space of `A`.  The row rank `\mbox{rank}(A)` of `A` is the
+   dimension of the row space of `A`. It can be shown that the column
+   rank and row rank of a matrix are equal, so we shall just refer
+   to the rank.
 
 If
 

@@ -76,10 +76,11 @@ def test_GS_classical(m, n):
     D = np.diag(1.0 + 0.1*random.rand(m))
     A = np.dot(U, np.dot(D, V))
     A = A[:, 1:n]
+    A0 = 1.0*A
 
-    Q, R = cla_utils.GS_classical(A)
+    Q, R = cla_utils.GS_classical(A0)
 
-    err = A - np.dot(Q, R)
+    err = A0 - np.dot(Q, R)
 
     assert(np.linalg.norm(err) < 1.0e-6)
 
@@ -90,10 +91,11 @@ def test_GS_modified(m, n):
 
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = A[:, 1:n]
+    A0 = 1.0*A
+    
+    Q, R = cla_utils.GS_modified(A0)
 
-    Q, R = cla_utils.GS_modified(A)
-
-    err = A - np.dot(Q, R)
+    err = A0 - np.dot(Q, R)
 
     assert(np.linalg.norm(err) < 1.0e-6)
 
@@ -105,9 +107,10 @@ def test_GS_modified_R(m, n):
     A = random.randn(m, m) + 1j*random.randn(m, m)
     A = A[:, 1:n]
 
-    Q, R = cla_utils.GS_modified_R(A)
+    A0 = 1.0*A
+    Q, R = cla_utils.GS_modified_R(A0)
 
-    err = A - np.dot(Q, R)
+    err = A0 - np.dot(Q, R)
 
     assert(np.linalg.norm(err) < 1.0e-6)
 

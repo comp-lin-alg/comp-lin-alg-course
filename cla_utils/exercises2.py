@@ -61,8 +61,8 @@ def orthog_space(V):
     :param V: an mxn-dimensional numpy array whose columns are the \
     vectors u_1,u_2,...,u_n.
 
-    :return Q: an lxm-dimensional numpy array whose columns are an \
-    orthonormal basis for the subspace orthogonal to U.
+    :return Q: an mxl-dimensional numpy array whose columns are an \
+    orthonormal basis for the subspace orthogonal to U, for appropriate l.
     """
 
     raise NotImplementedError

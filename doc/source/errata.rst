@@ -13,7 +13,8 @@ repositories for Autumn 2020. An up to date version is in the
    but the lower triangular part was specified instead. This has been
    fixed now in the notes.
 #. Exercise 2.3. There was an error in the parameterisation of the
-   test, which is fixed in the public repository.
+   test, which is fixed in the public repository. The docstring has
+   also been updated (dimensions of Q were transposed).
 #. Exercise 2.4. Updated the text to indicate that a copy should be made.
    Replaced ``GS_modified`` `\to`
    ``cla_utils.GS_modified`` in ``test_exercises2.py``.
@@ -26,3 +27,4 @@ repositories for Autumn 2020. An up to date version is in the
    `n` values to smaller ones, as this construction for `R` is
    numerically unstable.
 #. Exercise 2.10. Added a .conj() to the orthonormality test.
+#. Exercises 2, made copies to allow comparison with in-place work.

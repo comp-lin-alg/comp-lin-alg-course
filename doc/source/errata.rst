@@ -26,6 +26,7 @@ repositories for Autumn 2020. An up to date version is in the
    various things). Finally, we have updated the parameterised `m` and
    `n` values to smaller ones, as this construction for `R` is
    numerically unstable.
-#. Exercise 2.10. Added a .conj() to the orthonormality test. And
-   edited the docstring to clarify that it is the reduced QR.
+#. Exercise 2.10. Added a .conj() to the orthonormality test. Changed
+   `n` to `m` in testing orthogonality for `Q`. And edited the
+   docstring to clarify that it is the full QR.
 #. Exercises 2, made copies to allow comparison with in-place work.

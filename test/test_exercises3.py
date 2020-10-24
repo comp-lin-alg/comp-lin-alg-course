@@ -33,7 +33,7 @@ def test_householder_qr(m, n):
     Q, R = cla_utils.householder_qr(A0)
 
     # check orthonormality
-    assert(np.linalg.norm(np.dot(np.conj(Q.T), Q) - np.eye(n)) < 1.0e-6)
+    assert(np.linalg.norm(np.dot(np.conj(Q.T), Q) - np.eye(m)) < 1.0e-6)
     # check upper triangular
     assert(np.allclose(R, np.triu(R)))
     # check QR factorisation

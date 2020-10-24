@@ -44,12 +44,12 @@ def householder_solve(A, b):
 def householder_qr(A):
     """
     Given a real mxn matrix A, use the Householder transformation to find
-    the reduced QR factorisation of A.
+    the full QR factorisation of A.
 
     :param A: an mxn-dimensional numpy array
 
-    :return Q: an mxn-dimensional numpy array
-    :return R: an nxn-dimensional numpy array
+    :return Q: an mxm-dimensional numpy array
+    :return R: an mxn-dimensional numpy array
     """
 
     raise NotImplementedError

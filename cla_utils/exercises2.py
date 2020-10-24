@@ -131,6 +131,7 @@ def GS_modified_R(A):
     """
 
     m, n = A.shape
+    A = 1.0*A
     R = np.eye(n, dtype=A.dtype)
     for i in range(1,m):
         Rk = GS_modified_get_R(A, i)

@@ -31,3 +31,7 @@ repositories for Autumn 2020. An up to date version is in the
    `n` to `m` in testing orthogonality for `Q`. And edited the
    docstring to clarify that it is the full QR.
 #. Exercises 2, made copies to allow comparison with in-place work.
+#. Exercise 3.26. Taking the upper triangular part of a random
+   matrix makes a very badly conditioned matrix that is hard to
+   compare with the result of linalg.solve. Instead, compute the
+   Q, R factorisation of a random matrix - the test was updated.

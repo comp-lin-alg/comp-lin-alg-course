@@ -9,7 +9,7 @@ import numpy as np
 def test_solve_R(m):
     random.seed(8323*m)
     A = random.randn(m, m)
-    R = np.triu(A)
+    Q, R = np.linalg.qr(A)
     b = random.randn(m)
     x0 = cla_utils.solve_R(R, b)
     x1 = np.linalg.solve(R, b)

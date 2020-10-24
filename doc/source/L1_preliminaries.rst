@@ -669,6 +669,12 @@ given by the orthonormal columns of `Q`.
 
    What did you expect and was it observed?
 
+   A quick way to get an orthogonal matrix is to take a general matrix $A$
+   and find the QR factorisation, which we will cover in the next section.
+
+     Q, R = numpy.linalg.qr(A)
+
+   returns two matrices, of which `Q` is orthogonal.
 
 Vector norms
 ============

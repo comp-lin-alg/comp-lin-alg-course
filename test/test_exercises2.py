@@ -75,7 +75,7 @@ def test_GS_classical(m, n):
     V, _ = np.linalg.qr(A)
     D = np.diag(1.0 + 0.1*random.rand(m))
     A = np.dot(U, np.dot(D, V))
-    A = A[:, 1:n]
+    A = A[:, 0:n]
     A0 = 1.0*A
 
     Q, R = cla_utils.GS_classical(A0)
@@ -105,7 +105,7 @@ def test_GS_modified_R(m, n):
     random.seed(1312*m + 2020*n)
 
     A = random.randn(m, m) + 1j*random.randn(m, m)
-    A = A[:, 1:n]
+    A = A[:, 0:n]
 
     A0 = 1.0*A
     Q, R = cla_utils.GS_modified_R(A0)

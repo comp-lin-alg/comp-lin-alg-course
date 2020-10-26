@@ -324,8 +324,7 @@ interpretation of matrix-vector multiplication.
    and then forming `A` as the product of `B` and `C`. The
    test script ``test_exercises1.py`` in the ``test`` directory will also test this function.
 
-   To measure the rank of `A`, we first need to cast it from a numpy
-   array class to a numpy matrix class, and then use the built-in rank
+   To measure the rank of `A`, we can use the built-in rank
    function::
 
      r = numpy.linalg.matrix_rank(A)

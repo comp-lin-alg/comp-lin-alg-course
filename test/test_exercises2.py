@@ -108,7 +108,7 @@ def test_GS_modified_R(m, n):
     A = A[:, 0:n]
 
     A0 = 1.0*A
-    Q, R = cla_utils.GS_modified_R(A0)
+    Q, R = cla_utils.GS_modified_R(A)
 
     err = A0 - np.dot(Q, R)
 

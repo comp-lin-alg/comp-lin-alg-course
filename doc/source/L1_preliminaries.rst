@@ -416,7 +416,7 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
 
    For matrices of the form, `A = I + uv^*`, where `I` is the `m\times
    m` identity matrix, and `u,v \in \mathbb{C}^m`, show that whenever
-   `A` is invertible, the inverse is of the form `A = I + \alpha uv^*`
+   `A` is invertible, the inverse is of the form `A^{-1} = I + \alpha uv^*`
    where `\alpha \in \mathbb{C}`, and calculate the form of `\alpha`.
 
    The :func:`cla_utils.exercises1.rank1pert_inv` function has been

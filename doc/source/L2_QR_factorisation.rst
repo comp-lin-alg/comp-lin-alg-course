@@ -346,7 +346,7 @@ example, at the first iteration,
       0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
       0 & 0 & 0 & \ldots & 1 \\
-      \end{pmatrix}}_{A_1}
+      \end{pmatrix}}_{R_1}
       =
       \underbrace{
       \begin{pmatrix}
@@ -558,7 +558,7 @@ as required, having checked that (assuming `x` is real)
 
    .. math::
 
-      \|\pm \|x\|e_1 - x\|^2 = \|x\|^2 - 2x_1 + \|x\|^2
+      \|\pm \|x\|e_1 - x\|^2 = \|x\|^2 - 2\|x\|x_1 + \|x\|^2
       = -2\|x\|(\pm x_1 - \|x\|).
 
 We can also check that `F` is unitary. First we check that `F`
@@ -698,9 +698,9 @@ We call this procedure "implicit multiplication".
    :func:`cla_utils.exercises3.householder`.  If you have not already
    done so, you will need to modified
    :func:`cla_utils.exercises3.householder` to use the ``kmax``
-   argument. You may make use of the built-in tridiagonal solve
-   algorithm :func:`numpy.linalg.solve_triangular` (we shall consider
-   tridiagonal matrix algorithms briefly later). The test script
+   argument. You may make use of the built-in triangular solve
+   algorithm :func:`scipy.linalg.solve_triangular` (we shall consider
+   triangular matrix algorithms briefly later). The test script
    ``test_exercises3.py`` in the ``test`` directory will also test this
    function.
 

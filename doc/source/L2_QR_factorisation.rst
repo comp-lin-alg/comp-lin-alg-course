@@ -603,7 +603,15 @@ numerical round off, we choose the sign that makes `v` furthest from
 
       v = \mbox{sign}(x_1)\|x\|e_1 + x.
 
-(Exercise, show that this choice of sign achieves this.)
+(Exercise, show that this choice of sign achieves this.) It is critical
+that we use a definition of `\mbox{sign}` that always returns a number
+that has magnitude 1, so we conventionally choose `\mbox{sign}(0)=1`.
+
+.. hint::
+
+   Note that the ``numpy.sign`` function has `\mbox{sign}(0)=0`, so
+   you need to take care of this case separately in your Python
+   implementation.
 
 We are now in a position to describe the algorithm in
 pseudo-code. Here it is described an "in-place" algorithm, where the

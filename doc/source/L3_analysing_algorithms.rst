@@ -144,7 +144,7 @@ Now we have to sum this over `k`, so the total operation count is
 
    .. math::
 
-      w_{ij} = \sum_{p=1}^n\left(\sum_{q=1}^nx_{ip}y_{pq}z_{qj}\right),
+      w_{ij} = \sum_{p=1}^nx_{ip}\left(\sum_{q=1}^ny_{pq}z_{qj}\right),
 
    computes the bracket contents first for all `p,j`, before doing
    the sum over `p`. What is the FLOP count for this alternative

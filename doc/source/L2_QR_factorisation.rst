@@ -558,7 +558,7 @@ as required, having checked that (assuming `x` is real)
 
    .. math::
 
-      \|\pm \|x\|e_1 - x\|^2 = \|x\|^2 - 2\|x\|x_1 + \|x\|^2
+      \|\pm \|x\|e_1 - x\|^2 = \|x\|^2 \mp 2\|x\|x_1 + \|x\|^2
       = -2\|x\|(\pm x_1 - \|x\|).
 
 We can also check that `F` is unitary. First we check that `F`

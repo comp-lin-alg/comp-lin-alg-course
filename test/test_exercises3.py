@@ -50,7 +50,7 @@ def test_householder_ls(m, n):
     #!!!change test param to b
 
     #check normal equation residual
-    assert(np.linalg.norm(np.dot(A.T, np.dot(A, x) - b) < 1.0e-6))
+    assert(np.linalg.norm(np.dot(A.T, np.dot(A, x) - b)) < 1.0e-6)
 
 
 if __name__ == '__main__':

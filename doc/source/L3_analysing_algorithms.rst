@@ -645,7 +645,7 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 
       .. math::
 
-	 x = \frac{q}{p + \sqrt{p^2 + q}}.
+	 x = -\frac{q}{p + \sqrt{p^2 + q}}.
 
    In the case `p=12345678` and `q=1`, compare the result of these two
    methods for computing the smallest root when using double floating

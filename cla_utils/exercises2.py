@@ -107,7 +107,7 @@ def GS_modified_get_R(A, k):
     return upper triangular nxn matrix R such that
     Ahat = A*R has the properties that
     1) Ahat[:, 0:k] = A[:, 0:k],
-    2) A[:, k] is orthogonal to the columns of A[:, 0:k].
+    2) A[:, k] is normalised and orthogonal to the columns of A[:, 0:k].
 
     :param A: mxn numpy array
     :param k: integer indicating the column that R should orthogonalise
@@ -133,7 +133,7 @@ def GS_modified_R(A):
     m, n = A.shape
     A = 1.0*A
     R = np.eye(n, dtype=A.dtype)
-    for i in range(1,m):
+    for i in range(n):
         Rk = GS_modified_get_R(A, i)
         A[:,:] = np.dot(A, Rk)
         R[:,:] = np.dot(R, Rk)

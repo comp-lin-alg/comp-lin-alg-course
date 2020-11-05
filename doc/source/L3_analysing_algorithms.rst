@@ -51,7 +51,7 @@ Operation count for modified Gram-Schmidt
 
 We shall discuss operation counts through the example of the modified
 Gram-Schmidt algorithm. We shall find that the operation count
-is `\sim mn^2` to compute the QR factorisation, where the `\sim` symbol
+is `\sim 2mn^2` to compute the QR factorisation, where the `\sim` symbol
 means
 
    .. math::

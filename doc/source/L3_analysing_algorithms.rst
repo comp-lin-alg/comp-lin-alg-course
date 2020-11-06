@@ -75,8 +75,8 @@ over `j`, which we can estimate by approximating the sum as an integral,
    .. math::
 
       N_{\mbox{FLOPS}} \sim \sum_{i=1}^n \sum_{j=i+1}^n 4m
-      \sim 4m \sum_{i=1}^n i\int_1^n x\,d x
-      \sim 4m\frac{n^2}{2} = 2mn^2,
+      \sim 4m \int_0^n \int_{x}^n x'\,d x' \,d x
+      = 4m\frac{n^2}{2} = 2mn^2,
 
 as suggested above.
 

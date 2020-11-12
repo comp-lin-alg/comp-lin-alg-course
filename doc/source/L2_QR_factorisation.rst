@@ -287,7 +287,7 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
     
   * FOR `j = i+1` TO `n`
 
-    * `r_{ij} \gets q_i^*a_j`
+    * `r_{ij} \gets q_i^*v_j`
     * `v_j \gets v_j - r_{ij}q_i`
   * END FOR
 * END FOR

@@ -1004,7 +1004,7 @@ we show the following result.
 
 	 b = (\tilde{Q}+\delta Q)\tilde{y},
 
-	 = (\tilde{Q} + \delta Q)(\tilde{R} + \delta R)x,
+	 = (\tilde{Q} + \delta Q)(\tilde{R} + \delta R)\tilde{x},
 
    having substituted the backward stability formula for back
    substitution in the second line. Multiplying out the brackets
@@ -1015,9 +1015,9 @@ we show the following result.
 	 b = (\tilde{Q}\tilde{R} + (\delta Q)\tilde{R} + \tilde{Q}\delta R
 	 + (\delta Q)\delta R)\tilde{x},
 
-	 = \underbrace{(A + \delta A + (\delta Q)\tilde{R} +
+	 = (A + \underbrace{\delta A + (\delta Q)\tilde{R} +
 	 \tilde{Q}\delta R
-	   + (\delta Q)\delta R)}_{=\Delta A}\tilde{x}.
+	   + (\delta Q)\delta R}_{=\Delta A}\tilde{x}).
 
    This defines `\Delta A` and it remains to estimate each of these
    terms. We immediately have `\|\delta A\|=\mathcal{O}(\varepsilon)`
@@ -1067,7 +1067,7 @@ we show the following result.
       \underbrace{\frac{\|\tilde{R}\|}
       {\|A\|}}_{\mathcal{O}(1)} = \mathcal{O}(\epsilon^2),
 
-   hence `\|\delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
+   hence `\|\Delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 
 .. hint::
    

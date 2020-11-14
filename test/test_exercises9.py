@@ -1,4 +1,4 @@
-'''Tests for the eighth exercise set.'''
+'''Tests for the nine exercise set.'''
 import pytest
 import cla_utils
 from numpy import random

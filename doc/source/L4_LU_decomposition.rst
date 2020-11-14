@@ -475,9 +475,9 @@ pseudo-code.
 * FOR `k=1` TO `m-1`
 
   * Choose `i\geq k` to maximise `|u_{ik}|`
-  * `u_{k,k:m} \leftrightarrow u_{i,k:m}` (column swaps)
-  * `l_{k,1:k-1} \leftrightarrow l_{i,1:k-1}` (column swaps)
-  * `p_{k,1:m} \leftrightarrow p_{i,1:m}` (column swaps)
+  * `u_{k,k:m} \leftrightarrow u_{i,k:m}` (row swaps)
+  * `l_{k,1:k-1} \leftrightarrow l_{i,1:k-1}` (row swaps)
+  * `p_{k,1:m} \leftrightarrow p_{i,1:m}`
   * FOR `j=k+1` TO `m`
 
     * `l_{ik} \gets u_{jk}/u_{kk}`

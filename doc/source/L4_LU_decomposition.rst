@@ -480,7 +480,7 @@ pseudo-code.
   * `p_{k,1:m} \leftrightarrow p_{i,1:m}`
   * FOR `j=k+1` TO `m`
 
-    * `l_{ik} \gets u_{jk}/u_{kk}`
+    * `l_{jk} \gets u_{jk}/u_{kk}`
     * `u_{j,k:m} \gets u_{j,k:m} - l_{jk}u_{k,k:m}`
   * END FOR
 * END FOR

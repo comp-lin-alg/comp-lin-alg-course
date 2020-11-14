@@ -39,27 +39,28 @@ def test_LU_inplace(m):
 def test_solve_L(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
-    L = np.tril(random.randn(m, m))
+    Q, R = np.linalg.qr(random.randn(m,m))
+    L = R.T
     x = cla_utils.solve_L(L, b)
     err1 = b - np.dot(L, x)
     assert(np.linalg.norm(err1) < 1.0e-6)
     A = random.randn(m, m)
     x = solve_L(A, b)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) < 1.0e-6)
+    assert(np.linalg.norm(err2) > 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
 def test_solve_U(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
-    U = np.triu(random.randn(m, m))
+    _, U = np.linalg.qr(random.randn(m,m))
     x = cla_utils.solve_U(U, b)
     err1 = b - np.dot(U, x)
     assert(np.linalg.norm(err1) < 1.0e-6)
     A = random.randn(m, m)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) < 1.0e-6)
+    assert(np.linalg.norm(err2) > 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

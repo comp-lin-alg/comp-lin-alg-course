@@ -25,7 +25,7 @@ def test_LUP_inplace(m):
     A0 = 1.0*A
     p = cla_utils.LUP_inplace(A)
     L = np.eye(m)
-    i1 = np.tril_indices(m, k=-1)]
+    i1 = np.tril_indices(m, k=-1)
     L[i1] = A[i1]
     U = np.triu(A)
     A1 = np.dot(L, U)

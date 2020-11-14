@@ -40,3 +40,4 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 3.20, fixed a sign.
 #. Exercise 4.1. Clarified the docstring and fixed the corresponding test.
 #. Exercise 4.4. Fixed the tests for solve_L and solve_U.
+#. Exercise 4.8. There was a spurious ] in the test.

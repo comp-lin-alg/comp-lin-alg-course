@@ -7,7 +7,7 @@ def get_Lk(m, lvec):
     in column k given by lvec (k is inferred from the size of lvec).
 
     :param m: integer giving the dimensions of L.
-    :param lvec: a k-1 dimensional numpy array.
+    :param lvec: a m-k-1 dimensional numpy array.
 
     :return Lk: an mxm dimensional numpy array.
 

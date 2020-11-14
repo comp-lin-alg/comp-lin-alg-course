@@ -9,15 +9,15 @@ from cla_utils import LU_inplace, get_Lk, solve_L, solve_U
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
 def test_get_Lk(m, k):
     random.seed(9752*m)
-    lk = random.randn(k)
+    lk = random.randn(m-k-1)
     Lk = cla_utils.get_Lk(m, lk)
-    assert(np.count_nonzero(Lk) == m + k - 1)
+    assert(np.count_nonzero(Lk) == 2*m - k - 1)
 
     b = random.randn(m)
     x = np.dot(Lk, b)
-    assert(np.abs(x[0:k-1]-b[0:k-1]) < 1.0e-6)
-    for i in range(k,m):
-        assert(np.abs(x[i] - b[i] - np.dot(b[i+1:], lk)) < 1.0e-6)
+    assert(np.linalg.norm(x[0:k+1]-b[0:k+1]) < 1.0e-6)
+    for i in range(k+1,m):
+        assert(np.linalg.norm(x[i] - b[i] - lk[i-k-1]*b[k]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

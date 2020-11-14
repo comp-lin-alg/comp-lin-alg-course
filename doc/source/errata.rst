@@ -38,3 +38,4 @@ repositories for Autumn 2020. An up to date version is in the
    compare with the result of linalg.solve. Instead, compute the
    Q, R factorisation of a random matrix - the test was updated.
 #. Exercise 3.20, fixed a sign.
+#. Exercise 4.1. Clarified the docstring and fixed the corresponding test.

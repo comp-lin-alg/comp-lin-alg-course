@@ -628,7 +628,7 @@ columns from `r` to `s`.
   * `x = A_{k:m,k}`
   * `v_k \gets \mbox{sign}(x_1)\|x\|_2e_1 + x`
   * `v_k \gets v_k/\|v_k\|`
-  * `A_{k:m,k:n} \gets A_{k:m,k:m} - 2v_k(v_k^*A_{k:m,k:n})`.
+  * `A_{k:m,k:n} \gets A_{k:m,k:n} - 2v_k(v_k^*A_{k:m,k:n})`.
 * END FOR
 
 .. proof:exercise::

@@ -12,10 +12,6 @@ def test_Q1AQ1s(m):
     A0 = 1.0*A
     Ah = cla_utils.Q1AQ1s(A)
     assert(np.abs(np.trace(A0) - np.trace(Ah)) < 1.0e-6)
-    b = random.randn(m)
-    x0 = np.dot(A0, b)
-    xh = np.dot(Ah, b)
-    assert(np.abs(np.linalg.norm(x0) - np.linalg.norm(xh)) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

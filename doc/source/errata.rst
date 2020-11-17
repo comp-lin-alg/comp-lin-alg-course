@@ -42,4 +42,6 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 4.4. Fixed the tests for solve_L and solve_U.
 #. Exercise 4.8. There was a spurious ] in the test.
 #. Exercise 4.9 and 4.10. Use linalg.norm in the test.
-#. Exercise 5.9. I removed the last condition as it isn't correct.
+#. Exercise 5.9. I removed the last test condition as it isn't correct.
+#. Exercise 5.10. I updated one of the test conditions.
+#. Exercise 5.11. I updated one of the test conditions.

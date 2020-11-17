@@ -47,6 +47,7 @@ def hessenberg_ev(H):
     :return V: an mxm numpy array whose columns are the eigenvectors of H
     """
     assert(np.linalg.norm(H[np.tril_indices(m, -1)]) < 1.0e-6)
+    _, V = np.linalg.eig(H)
     return V
 
 

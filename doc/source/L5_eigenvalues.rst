@@ -304,7 +304,7 @@ for computing the QR factorisation.
 
    The :func:`cla_utils.exercises8.hessenberg` function has been left
    unimplemented. It should implement the algorithm above, using only
-   one loop over `k`. It should return the resulting Hessenberg
+   one loop over `k`. It should work "in-place", changing the input
    matrix. At the left multiplication, your implementation should
    exploit the fact that zeros do not need to be recomputed where
    there are already expected to be zeros. The test script

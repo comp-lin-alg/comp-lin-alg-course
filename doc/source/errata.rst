@@ -45,4 +45,4 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 5.9. I removed the last test condition as it isn't correct.
 #. Exercise 5.10. I updated one of the test conditions.
 #. Exercise 5.11. I updated one of the test conditions.
-#. Exercise 5.12. Needed to get m in hessenberg_ev
+#. Exercise 5.12. Needed to get m in hessenberg_ev, and fixed the assertion.

@@ -48,7 +48,7 @@ def hessenberg_ev(H):
     """
     m, n = H.shape
     assert(m==n)
-    assert(np.linalg.norm(H[np.tril_indices(m, -1)]) < 1.0e-6)
+    assert(np.linalg.norm(H[np.tril_indices(m, -2)]) < 1.0e-6)
     _, V = np.linalg.eig(H)
     return V
 

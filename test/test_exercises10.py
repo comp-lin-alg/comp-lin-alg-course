@@ -11,10 +11,10 @@ def test_arnoldi(m, k):
     b = random.randn(m) + 1j*random.randn(m)
 
     Q, H = cla_utils.arnoldi(A, b, k)
-    assert(Q.shape == (m, k))
+    assert(Q.shape == (m, k+1))
     assert(H.shape == (k+1, k))
-    assert(np.linalg.norm(np.dot(Q, np.conj(Q).T) - np.eye(m)) < 1.0e-6)
-    assert(np.linalg.norm(np.dot(A, Q) - np.dot(Q[:,:-1], H)) < 1.0e-6)
+    assert(np.linalg.norm((Q.conj().T)@Q - np.eye(k+1)) < 1.0e-6)
+    assert(np.linalg.norm(A@Q[:,:-1] - Q@H) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

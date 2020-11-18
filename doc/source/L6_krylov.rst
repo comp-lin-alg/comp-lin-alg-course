@@ -202,7 +202,7 @@ that minimises the residual
 
    .. math::
 
-   \mathcal{R}_n = \|AQ_ny - b\|.
+      \mathcal{R}_n = \|AQ_ny - b\|.
 
 This explains the Minimum Residual part of the name. We also see from
 this definition that the residual cannot increase with iterations,

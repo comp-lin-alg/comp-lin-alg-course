@@ -42,25 +42,22 @@ def test_rq_it(m):
     mu = e[m//2] + random.randn() + 1j*random.randn()
     xi, li = cla_utils.rq_it(A, x0, tol=1.0e-8, maxit=10000)
     r = np.dot(A, xi)
-    r /= np.linalg.norm(r)
-    r -= xi/np.linalg.norm(xi)
-    assert(np.linalg.norm(r) < 1.0e-4)
+    assert(np.linalg.norm(r - li*xi) < 1.0e-4)
 
 
-@pytest.mark.parametrize('m', [20, 204, 18])
+@pytest.mark.parametrize('m', [20, 30, 18])
 def test_pure_QR(m):
     random.seed(1302*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
+    A = 0.5*(A + A.conj().T)
     A0 = 1.0*A
-    A2 = cla_utils.pure_QR(A0, maxit=10, tol=1.0e-100)
+    A2 = cla_utils.pure_QR(A0, maxit=10000, tol=1.0e-5)
     #check it is still Hermitian
     assert(np.linalg.norm(A2 - np.conj(A2).T) < 1.0e-4)
-    #check for orthogonality
-    x0 = random.randn(m)
-    assert(np.linalg.norm(np.dot(A2, x0))-np.linalg.norm(np.dot(A0, x0)) < 1.0e-6)
+    #check for upper triangular
+    assert(np.linalg.norm(A2[np.tril_indices(m, -1)])/m**2 < 1.0e-5)
     #check for conservation of trace
     assert(np.abs(np.trace(A0) - np.trace(A2)) < 1.0e-6)
-
 
 if __name__ == '__main__':
     import sys

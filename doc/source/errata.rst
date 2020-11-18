@@ -50,3 +50,5 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 5.15. I changed the description of termination criteria, changed
    the arguments, and updated the test.
 #. Exercise 5.17. I updated the test.
+#. Exercise 5.19. I updated the test.
+#. Exercise 5.21. I updated the test.

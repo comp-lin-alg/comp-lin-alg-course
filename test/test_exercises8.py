@@ -49,12 +49,13 @@ def test_hessenbergQ(m):
 def test_ev(m):
     random.seed(3213*m)
     A = random.randn(m, m)
-    A = 0.5*(A + np.conj(A).T)
     A0 = 1.0*A
-    ee, V = cla_utils.ev(A)
+    V = cla_utils.ev(A)
+    #check that V and AV are aligned
     for i in range(m):
-        ee1 = np.dot(V[:, i], np.dot(A, V[:, i]))
-        assert(np.abs(ee[i] - ee1) < 1.0e-6)
+        v = V[:, i]
+        assert(np.abs(np.linalg(v + A0@v)
+                      - np.linalg(v) - np.linalg(A0@v))<1.0e-6)
 
 
 if __name__ == '__main__':

@@ -46,3 +46,4 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 5.10. I updated one of the test conditions.
 #. Exercise 5.11. I updated one of the test conditions.
 #. Exercise 5.12. Needed to get m in hessenberg_ev, and fixed the assertion.
+   I also removed the eigenvalue requirement, it is better to wait for this.

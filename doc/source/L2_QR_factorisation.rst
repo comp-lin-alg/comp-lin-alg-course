@@ -163,7 +163,7 @@ for code blocks in pseudo-code in these notes.)
    for loop is used. The function should work "in place" by making a
    copy of `A` and then changing the values in the copy, without
    introducing additional intermediate arrays (you will need to create
-   a new array to store `Q`). The test script ``test_exercises2.py``
+   a new array to store `R`). The test script ``test_exercises2.py``
    in the ``test`` directory will test this function.
 
 Projector interpretation of Gram-Schmidt

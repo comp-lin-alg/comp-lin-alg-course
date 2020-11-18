@@ -55,13 +55,12 @@ def hessenberg_ev(H):
 
 def ev(A):
     """
-    Given a matrix A, return the eigenvalues and eigenvectors. This should
+    Given a matrix A, return the eigenvectors of A. This should
     be done by using your functions to reduce to upper Hessenberg
     form, before calling hessenberg_ev (which you should not edit!).
 
     :param A: an mxm numpy array
 
-    :return ee: an m dimensional numpy array containing the eigenvalues of A
     :return V: an mxm numpy array whose columns are the eigenvectors of A
     """
 

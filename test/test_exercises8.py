@@ -52,10 +52,13 @@ def test_ev(m):
     A0 = 1.0*A
     V = cla_utils.ev(A)
     #check that V and AV are aligned
+    norm = np.linalg.norm
     for i in range(m):
         v = V[:, i]
-        assert(np.abs(np.linalg(v + A0@v)
-                      - np.linalg(v) - np.linalg(A0@v))<1.0e-6)
+        Av = A0@v
+        v /= v[0]
+        Av /= Av[0]
+        assert(norm(Av - v) < 1.0e-6)
 
 
 if __name__ == '__main__':

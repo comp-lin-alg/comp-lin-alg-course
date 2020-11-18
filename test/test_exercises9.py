@@ -29,9 +29,7 @@ def test_inverse_it(m):
     ll = e[i1[0]]
     assert(np.abs(ll - li) < 1.0e-6)
     r = np.dot(A, xi)
-    r /= np.linalg.norm(r)
-    r -= xi/np.linalg.norm(xi)
-    assert(np.linalg.norm(r) < 1.0e-4)
+    assert(np.linalg.norm(r - li*xi) < 1.0e-4)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

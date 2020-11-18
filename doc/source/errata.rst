@@ -49,3 +49,4 @@ repositories for Autumn 2020. An up to date version is in the
    I fixed the test to properly test for eigenvectors.
 #. Exercise 5.15. I changed the description of termination criteria, changed
    the arguments, and updated the test.
+#. Exercise 5.17. I updated the test.

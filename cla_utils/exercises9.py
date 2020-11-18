@@ -90,7 +90,7 @@ def pow_it(A, x0, tol, maxit, store_iterations = False):
 
     ||r|| < tol where
 
-    r = Ax/||x|| - x/||x||,
+    r = Ax - lambda*x,
 
     or the number of iterations exceeds maxit.
 
@@ -105,9 +105,11 @@ def pow_it(A, x0, tol, maxit, store_iterations = False):
     :return x: an m dimensional numpy array containing the final iterate, or \
     if store_iterations, an mxmaxit dimensional numpy array containing all \
     the iterates.
+    :return lambda0: the final eigenvalue.
     """
 
-    raise NotImplementedError
+    Raise(NotImplementedError)
+    return x, lambda0
 
 
 def inverse_it(A, x0, mu, tol, maxit, store_iterations = False):

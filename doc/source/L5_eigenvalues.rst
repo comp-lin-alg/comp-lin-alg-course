@@ -545,11 +545,9 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 
    The :func:`cla_utils.exercises9.pow_it` function has been left
    unimplemented. It should apply power iteration to a given matrix
-   and initial vector, according to the docstring. Note that the
-   docstring provides a different truncation criteria, not based on
-   the Rayleigh quotient, so that it can be used for non-Hermitian
-   matrices too. The test script ``test_exercises9.py`` in the
-   ``test`` directory will test this function.
+   and initial vector, according to the docstring. The test script
+   ``test_exercises9.py`` in the ``test`` directory will test this
+   function.
 
 .. proof:exercise::
 

@@ -41,15 +41,16 @@ def test_solve_LUP(m):
     A0 = 1.0*A
     b = random.randn(m)
     x = cla_utils.solve_LUP(A, b)
-    assert(np.linalg.norm(b - np.dot(A, x)) < 1.0e-6)
+    assert(np.linalg.norm(b - np.dot(A0, x)) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [3, 9, 18])
 def test_det_LUP(m):
     random.seed(1477*m)
     A = random.randn(m, m)
+    A0 = 1.0*A
     detA = cla_utils.det_LUP(A)
-    _, s, _ = np.linalg.svd(A)
+    _, s, _ = np.linalg.svd(A0)
     assert(np.linalg.norm(detA - np.prod(s)) < 1.0e-6)
 
 if __name__ == '__main__':

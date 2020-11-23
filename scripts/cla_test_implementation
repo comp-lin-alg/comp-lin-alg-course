@@ -12,9 +12,7 @@ parser = ArgumentParser(description="""Helper script to mark computational linea
 
 parser.add_argument("--update", action="store_true", help="Update all student repositories.")
 parser.add_argument("--checkout", type=str, action="store", metavar=("REPO"),
-                        help="checkout comp_lin_alg/cla-%d-REPO." % year)
-parser.add_argument("--test", action="store_true", help="Execute tests")
-parser.add_argument("-x", action="store_true", help="Stop on first test fail")
+                        help="checkout Imperial-MATH96063/clacourse-%d-REPO." % year)
 args = parser.parse_args()
 
 repo = git.Repo(".")
@@ -24,7 +22,7 @@ if args.update:
     org = g.get_organization("comp-lin-alg")
 
     for r in org.get_repos():
-        if r.name.startswith("fe-%d" % year):
+        if r.name.startswith("clacourse-%d" % year):
             uname = r.name[8:]
             print("Looking for remote %s" % uname)
             try:
@@ -43,11 +41,3 @@ if args.checkout:
     repo.head.reference = head
     repo.head.reset(working_tree=True)
     print("success")
-
-if args.test:
-    os.environ["PYTHONPATH"] = repo.working_tree_dir
-    test_args = ["-x"] if args.x else []
-    try:
-        subprocess.check_output(["py.test"] + test_args)
-    except subprocess.CalledProcessError as e:
-        sys.stdout.write(e.output.decode("utf8"))

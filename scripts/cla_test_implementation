@@ -23,7 +23,8 @@ if args.update:
 
     for r in org.get_repos():
         if r.name.startswith("clacourse-%d" % year):
-            uname = r.name[8:]
+            print(r.name)
+            uname = r.name[15:]
             print("Looking for remote %s" % uname)
             try:
                 remote = repo.remote(uname)

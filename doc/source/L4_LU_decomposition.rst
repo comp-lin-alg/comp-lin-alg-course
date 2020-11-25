@@ -671,8 +671,8 @@ zeros.
 .. proof:exercise::
 
    Construct the `100\times 100` matrix `A` as follows: take `A=3I`,
-   then set `A_{1,i}=1`, for `i=1,\ldots,10`. Then set `A_{i,1}=i` for
-   `i=1,\ldots,10`.  Using your own LU factorisation, compute the LU
+   then set `A_{1,i}=1`, for `i=1,\ldots,100`. Then set `A_{i,1}=i` for
+   `i=1,\ldots,100`.  Using your own LU factorisation, compute the LU
    factorisation of `A`. What
    do you observe about the number of non-zero entries in `L` and `U`?
    Explain this using what you have just learned about banded

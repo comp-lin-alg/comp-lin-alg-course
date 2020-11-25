@@ -43,6 +43,8 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 4.8. There was a spurious ] in the test.
 #. Exercise 4.9 and 4.10. Use linalg.norm in the test, and make
    a copy in ``test_solve_LUP`` and ``test_det_LUP``.
+#. Exercise 4.13. I modified the example so it actually does what I wanted it
+   to do.
 #. Exercise 5.9. I removed the last test condition as it isn't correct.
 #. Exercise 5.10. I updated one of the test conditions.
 #. Exercise 5.11. I updated one of the test conditions.

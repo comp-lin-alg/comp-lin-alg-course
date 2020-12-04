@@ -41,8 +41,9 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 4.1. Clarified the docstring and fixed the corresponding test.
 #. Exercise 4.4. Fixed the tests for ``solve_L and solve_U``.
 #. Exercise 4.8. There was a spurious ] in the test.
-#. Exercise 4.9 and 4.10. Use linalg.norm in the test, and make
-   a copy in ``test_solve_LUP`` and ``test_det_LUP``.
+#. Exercise 4.9 and 4.10. Use linalg.norm in the test, and make a copy
+   in ``test_solve_LUP`` and ``test_det_LUP``, and use linalg.det
+   (updated 4th Dec 2020).
 #. Exercise 4.13. I modified the example so it actually does what I wanted it
    to do.
 #. Exercise 5.9. I removed the last test condition as it isn't correct.

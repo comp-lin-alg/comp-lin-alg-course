@@ -684,7 +684,7 @@ matrix is given as pseudo-code below.
 
 * `U \gets A`
 * `L \gets I`
-* FOR `k=1` TO `\min(k+p,m)`
+* FOR `k=j+1` TO `\min(k+p,m)`
 
   * `l_{jk} \gets u_{jk}/u_{kk}`
   * `n \gets \min(k+q, m)`

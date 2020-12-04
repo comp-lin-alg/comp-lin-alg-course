@@ -885,7 +885,7 @@ matrices, and a running product of all of the `R` matrices (again).
 
       .. math::
 
-	 A^{(k)} = R^{(k)}Q^{(k)} = (Q^{(k)})^TR^{(k)}Q^{(k)}
+	 A^{(k)} = R^{(k)}Q^{(k)} = (Q^{(k)})^TQ^{(k)}R^{(k)}Q^{(k)}
 	 = ({Q'}^{(k)})^TA({Q'})^{(k)},
 
    as required.

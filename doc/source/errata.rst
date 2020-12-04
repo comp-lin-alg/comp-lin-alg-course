@@ -48,7 +48,7 @@ repositories for Autumn 2020. An up to date version is in the
    to do.
 #. Exercise 5.9. I removed the last test condition as it isn't correct.
 #. Exercise 5.10. I updated one of the test conditions.
-#. Exercise 5.11. I updated one of the test conditions.
+#. Exercise 5.11. I updated one of the test conditions (updated 4th Dec 2020).
 #. Exercise 5.12. Needed to get m in hessenberg_ev, and fixed the assertion.
    I fixed the test to properly test for eigenvectors.
 #. Exercise 5.15. I changed the description of termination criteria, changed

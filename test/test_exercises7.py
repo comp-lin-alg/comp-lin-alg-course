@@ -50,8 +50,9 @@ def test_det_LUP(m):
     A = random.randn(m, m)
     A0 = 1.0*A
     detA = cla_utils.det_LUP(A)
-    _, s, _ = np.linalg.svd(A0)
-    assert(np.linalg.norm(detA - np.prod(s)) < 1.0e-6)
+    detA0 = np.linalg.det(A0)
+    assert(np.abs(detA - detA0) < 1.0e-6)
+
 
 if __name__ == '__main__':
     import sys

@@ -32,13 +32,13 @@ def LU_inplace(A):
 
 def solve_L(L, b):
     """
-    Solve systems Lx_i=b_i for x_i with L lower triangular, i=1,2,\ldots,k
+    Solve systems Lx_i=b_i for x_i with L lower triangular, i=1,2,...,k
 
     :param L: an mxm-dimensional numpy array, assumed lower triangular
-    :param b: an mxk-dimensional numpy array, with ith column containing \
+    :param b: an mxk-dimensional numpy array, with ith column containing 
     b_i
 
-    :return x: an mxk-dimensional numpy array, with ith column containing \
+    :return x: an mxk-dimensional numpy array, with ith column containing 
     the solution x_i
 
     """
@@ -48,13 +48,13 @@ def solve_L(L, b):
 
 def solve_U(U, b):
     """
-    Solve systems Ux_i=b_i for x_i with U upper triangular, i=1,2,\ldots,k
+    Solve systems Ux_i=b_i for x_i with U upper triangular, i=1,2,...,k
 
     :param U: an mxm-dimensional numpy array, assumed upper triangular
-    :param b: an mxk-dimensional numpy array, with ith column containing \
+    :param b: an mxk-dimensional numpy array, with ith column containing 
     b_i
 
-    :return x: an mxk-dimensional numpy array, with ith column containing \
+    :return x: an mxk-dimensional numpy array, with ith column containing 
     the solution x_i
 
     """

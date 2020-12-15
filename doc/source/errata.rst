@@ -56,4 +56,4 @@ repositories for Autumn 2020. An up to date version is in the
 #. Exercise 5.17. I updated the test.
 #. Exercise 5.19. I updated the test.
 #. Exercise 5.21. I updated the test.
-#. Exercise 6.1. I updated the test.
+#. Exercise 6.1. I updated the test. And then the docstring for ``Q``.

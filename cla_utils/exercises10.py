@@ -11,7 +11,7 @@ def arnoldi(A, b, k):
     :param b: m dimensional numpy array, the starting vector
     :param k: integer, the number of iterations
 
-    :return Q: an mxk dimensional numpy array containing the orthonormal basis
+    :return Q: an mx(k+1) dimensional numpy array containing the orthonormal basis
     :return H: a (k+1)xk dimensional numpy array containing the upper \
     Hessenberg matrix
     """

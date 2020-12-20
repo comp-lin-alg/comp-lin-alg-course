@@ -613,6 +613,9 @@ that has magnitude 1, so we conventionally choose `\mbox{sign}(0)=1`.
    you need to take care of this case separately in your Python
    implementation.
 
+For complex valued matrices, the Householder reflection uses `x_1/|x_1|`
+(except for `x_1=0` where we use 1 as above).
+   
 We are now in a position to describe the algorithm in
 pseudo-code. Here it is described an "in-place" algorithm, where the
 successive transformations to the columns of `A` are implemented as

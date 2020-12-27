@@ -294,7 +294,7 @@ pseudo-code.
   * `v_k\gets \mbox{sign}(x_1)\|x\|_2e_1 + x`
   * `v_k\gets v_k/\|v\|_2`
   * `A_{k+1:m,k:m} \gets A_{k+1:m,k:m}- 2v_k(v_k^*A_{k+1:m,k:m})`
-  * `A_{1:m,k+1:m} \gets A_{1:m,k+1:m}- 2(A_{1:m,k+1:m,k:m}v_k)v_k^*`
+  * `A_{k:m,k+1:m} \gets A_{k:m,k+1:m}- 2(A_{k:m,k+1:m,k:m}v_k)v_k^*`
 * END FOR
 
 Note the similarities and differences with the Householder algorithm

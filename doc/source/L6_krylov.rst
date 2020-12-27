@@ -165,8 +165,8 @@ where `H_n` is the `n\times n` top left-hand corner of `H`.
    <https://player.vimeo.com/video/454171516>`_.
 
 The intrepretation of this is that `H_n` is the orthogonal projection
-of `A` onto the Krylov subspace `K_n`. To see this, take any vector `v`,
-and project `Av` onto the the Krylov subspace `K_n`.
+of `A` onto the Krylov subspace `\mathrm{span}(K_n)`. To see this, take any vector `v`,
+and project `Av` onto the the Krylov subspace `\mathrm{span}(K_n)`.
 
    .. math::
 
@@ -306,7 +306,7 @@ The algorithm presented as pseudocode is the way to implement GMRES
 efficiently. However, we can make an alternative formulation
 of GMRES using matrix polynomials.
 
-We know that `x_n\in K_n`, so we can write
+We know that `x_n\in \mathrm{span}(K_n)`, so we can write
 
    .. math::
 

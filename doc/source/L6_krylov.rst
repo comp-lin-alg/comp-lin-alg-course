@@ -317,7 +317,7 @@ where
 
    .. math::
 
-      p'(z) = c_0 + c_1z + c_2z^@ + \ldots + \ldots c_{n-1}z^{n-1} \implies
+      p'(z) = c_0 + c_1z + c_2z^2 + \ldots + \ldots c_{n-1}z^{n-1} \implies
       p'(A) = c_0I + c_1A + c_2A^2 + \ldots + c_{n-1}A^{n-1}.
 
 Here we have introduced the idea of a matrix polynomial, where the

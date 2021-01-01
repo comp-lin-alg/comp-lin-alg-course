@@ -369,11 +369,11 @@ for some `\delta A`.
 .. proof:exercise::
 
    The :func:`cla_utils.exercises8.ev` function has been left
-   unimplemented. It should return the eigenvalues and eigenvectors of
+   unimplemented. It should return the eigenvectors of
    `A` by first reducing to Hessenberg form, using the functions you
    have already created, and then calling
    :func:`cla_utils.exercises8.hessenberg_ev`, which computes the
-   eigenvectors and eigenvalues of upper Hessenberg matrices (do not
+   eigenvectors of upper Hessenberg matrices (do not
    edit this function!). The test script ``test_exercises8.py`` in the
    ``test`` directory will test this function.
 

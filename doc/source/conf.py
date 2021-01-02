@@ -37,6 +37,8 @@ extensions = [
     'sphinxcontrib.proof',
     'sphinxcontrib.bibtex'
 ]
+bibtex_bibfiles = ['refs.bib']
+
 # Both the class’ and the __init__ method’s docstring are concatenated and
 # inserted into the class definition
 autoclass_content = 'both'

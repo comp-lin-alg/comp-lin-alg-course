@@ -83,7 +83,7 @@ i.e.
       0 & 0 & h_{n+1,n} \\
       \end{pmatrix}
 
-Then, `A\hat{Q}_n = \hat{Q}_{n-1}\tilde{H}_n`.
+Then, `A\hat{Q}_n = \hat{Q}_{n+1}\tilde{H}_n`.
 
 .. hint::
    

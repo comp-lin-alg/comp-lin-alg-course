@@ -689,7 +689,7 @@ matrix is given as pseudo-code below.
   * FOR `j=k+1` TO `\min(k+p,m)`
 
      * `l_{jk} \gets u_{jk}/u_{kk}`
-     * `n \gets \min(k+q, m)`
+     * `n \gets \min(k+q+1, m)`
      * `u_{j,k:n} \gets u_{j,k:n}- l_{jk}u_{k,k:n}`
   * END FOR
 * END FOR

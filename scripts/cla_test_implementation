@@ -9,7 +9,6 @@ import sys
 year = 2020
 
 parser = ArgumentParser(description="""Helper script to mark computational linear algebra assignments.""")
-
 parser.add_argument("--update", action="store_true", help="Update all student repositories.")
 parser.add_argument("--checkout", type=str, action="store", metavar=("REPO"),
                         help="checkout Imperial-MATH96063/clacourse-%d-REPO." % year)
@@ -25,6 +24,18 @@ if args.update:
         if r.name.startswith("clacourse-%d" % year):
             print(r.name)
             uname = r.name[15:]
+            print("Looking for remote %s" % uname)
+            try:
+                remote = repo.remote(uname)
+                print("Found")
+            except ValueError:
+                print("Not found. Creating")
+                remote = repo.create_remote(uname, r.ssh_url)
+            print("Fetching")
+            remote.fetch()
+        if r.name.startswith("cla-%d" % year):
+            print(r.name)
+            uname = r.name[9:]
             print("Looking for remote %s" % uname)
             try:
                 remote = repo.remote(uname)

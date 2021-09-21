@@ -299,8 +299,11 @@ in `A` with the `v` s and eventually the `q` s.
 
    The :func:`cla_utils.exercises2.GS_modified` function has been
    left unimplemented. It should implement the modified Gram-Schmidt
-   algorithm above, using Numpy slice notation so that only one Python
-   for loop is used. The function should work "in place" by making a
+   algorithm above, using Numpy slice notation where possible.
+   What is the minimal number of Python
+   for loops possible?
+
+   The function should work "in place" by making a
    copy of `A` and then changing those values, without introducing
    additional intermediate arrays. The test script
    ``test_exercises2.py`` in the ``test`` directory will test this

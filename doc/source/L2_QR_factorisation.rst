@@ -677,7 +677,7 @@ We call this procedure "implicit multiplication".
 
 .. proof:exercise::
 
-   Show that the implicit midpoint procedure is equivalent to computing
+   Show that the implicit multiplication procedure is equivalent to computing
    an extended array
 
       .. math::

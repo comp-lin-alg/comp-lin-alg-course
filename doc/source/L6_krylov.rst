@@ -117,9 +117,12 @@ provide as pseudo-code below.
 .. proof:exercise::
 
    The :func:`cla_utils.exercises10.arnoldi` function has been left
-   unimplemented. It should implement the Arnoldi algorithm using one
-   loop over the iteration count, and return the `Q` and `H` matrices
-   after the requested number of iterations is complete. The test
+   unimplemented. It should implement the Arnoldi algorithm using
+   Numpy array operations where possible, and return the `Q` and `H`
+   matrices after the requested number of iterations is complete.
+   What is the minimal number of Python for loops possible?
+
+   The test
    script ``test_exercises10.py`` in the ``test`` directory will test
    this function.
   

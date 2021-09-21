@@ -73,11 +73,10 @@ def orthog_space(V):
 def GS_classical(A):
     """
     Given an mxn matrix A, compute the QR factorisation by classical
-    Gram-Schmidt algorithm.
+    Gram-Schmidt algorithm, transforming A to Q in place and returning R.
 
     :param A: mxn numpy array
 
-    :return Q: mxn numpy array
     :return R: nxn numpy array
     """
 
@@ -88,17 +87,17 @@ def GS_classical(A):
 def GS_modified(A):
     """
     Given an mxn matrix A, compute the QR factorisation by modified
-    Gram-Schmidt algorithm, producing
+    Gram-Schmidt algorithm, transforming A to Q in place and returning
+    R.
 
     :param A: mxn numpy array
 
-    :return Q: mxn numpy array
     :return R: nxn numpy array
     """
 
     raise NotImplementedError
 
-    return Q, R
+    return R
 
 
 def GS_modified_get_R(A, k):

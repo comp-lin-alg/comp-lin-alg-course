@@ -3,7 +3,7 @@ if [[ $VIRTUAL_ENV ]];
 then
     pip install sphinx sphinxcontrib-bibtex sphinxcontrib-proof
     pip install sphinxcontrib-youtube
-    pip install https://github.com/dham/sphinxcontrib-details-directive.git
+    pip install git+https://github.com/dham/sphinxcontrib-details-directive.git
 else
     echo ERROR: please activate the computational linear algebra course venv
     exit 1

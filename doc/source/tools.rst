@@ -56,10 +56,7 @@ Python language. But don't panic! Python is a very easy language to
 work with. This module will use Python 3. 
 
 If you haven't done any Python before, then go through `the official
-Python tutorial <https://docs.python.org/3/tutorial/index.html>`_. If
-you have done a little Python, one feature we will be using a lot is
-classes, so if that is new to you you should at least review `the
-classes chapter <https://docs.python.org/3/tutorial/classes.html>`_.
+Python tutorial <https://docs.python.org/3/tutorial/index.html>`_.
 
 The Matlab-like array features of Python are provided by `Numpy
 <http://www.numpy.org/>`_ for which there is a `helpful tutorial
@@ -160,7 +157,7 @@ some tips which will help get your problem fixed:
 
 Be precise 
   "It didn't work" is useless. "I typed ``import cla_utils`` and
-  recieved the following error." is much better.
+  received the following error." is much better.
 
 Provide a minimal failing example
   Post the smallest piece of code which exhibits the problem. This

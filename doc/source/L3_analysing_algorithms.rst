@@ -697,11 +697,8 @@ right question.
 
 .. vimeo:: 450213664
 
-.. hint::
-   
-   A video recording of some additional material is available `here
-   <https://player.vimeo.com/video/454094432>`_.
-   
+.. vimeo:: 454094432
+
 .. proof:definition:: Backward stability
 
    An algorithm `\tilde{f}` for `f` is backward stable if for each `x\in X`,

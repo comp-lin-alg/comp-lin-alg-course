@@ -332,12 +332,8 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 Pivoting
 --------
 
-.. hint::
-
-   Video recordings for this material is available `here
-   <https://player.vimeo.com/video/454098919>`_, and then
-   `here
-   <https://player.vimeo.com/video/454108809
+.. vimeo:: 454098919
+.. vimeo:: 454108809
 
 Gaussian elimination will fail if a zero appears on the diagonal,
 i.e. we get `x_{kk}=0` (since then we can't divide by it). Similarly,

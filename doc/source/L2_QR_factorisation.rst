@@ -17,9 +17,6 @@ good and bad algorithms to compute it.
 What is the QR factorisation?
 -----------------------------
 
-
-   
-
 .. vimeo:: 450191857
 
 We start with another definition.

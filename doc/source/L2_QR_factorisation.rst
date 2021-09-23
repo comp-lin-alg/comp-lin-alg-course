@@ -17,10 +17,10 @@ good and bad algorithms to compute it.
 What is the QR factorisation?
 -----------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450191857>`_.
+
+.. vimeo:: 450191857
 
 We start with another definition.
 
@@ -78,10 +78,10 @@ better ones.
 QR factorisation by classical Gram-Schmidt algorithm
 ----------------------------------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450192200>`_.
+
+.. vimeo:: 450192200
 
 The classical Gram-Schmidt algorithm for QR factorisation is motivated
 by the column space interpretation of the matrix-matrix multiplication
@@ -169,10 +169,10 @@ for code blocks in pseudo-code in these notes.)
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450192723>`_.
+
+.. vimeo:: 450192723
 
 At each step of the Gram-Schmidt algorithm, a projector is applied to
 a column of `A`. We have
@@ -203,10 +203,10 @@ Hence, `P_j` is the complementary projector, `P_j=I -
 Modified Gram-Schmidt
 ---------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450193303>`_.
+
+.. vimeo:: 450193303
 
 There is a big problem with the classical Gram-Schmidt algorithm. It
 is unstable, which means that when it is implemented in inexact
@@ -326,10 +326,10 @@ in `A` with the `v` s and eventually the `q` s.
 Modified Gram-Schmidt as triangular orthogonalisation
 -----------------------------------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450193575>`_.
+
+.. vimeo:: 450193575
 
 This iterative transformation process can be written as
 right-multiplication by an upper triangular matrix. For
@@ -434,10 +434,10 @@ above).
 Householder triangulation
 -------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450199222>`_.
+
+.. vimeo:: 450199222
 
 This view of the modified Gram-Schmidt process as triangular
 orthogonalisation gives an idea to build an alternative algorithm.
@@ -452,10 +452,10 @@ matrices to transform `A` to `R`,
 Multiplying unitary matrices produces unitary matrices, so we obtain
 `A=QR` as a full factorisation of `A`.
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450199366>`_.
+
+.. vimeo:: 450199366
 
 To do this, we need to work on the columns of `A`, from left to right,
 transforming them so that each column has zeros below the
@@ -591,10 +591,10 @@ matrix `Q_k` that transforms the entries below the diagonal
 of the kth column of `A_k` to zero, and leaves the previous
 `k-1` columns alone.
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450200163>`_.
+
+.. vimeo:: 450200163
 
 Earlier, we mentioned that there is a choice of sign in `v`.  This
 choice gives us the opportunity to improve the numerical stability of
@@ -650,10 +650,10 @@ columns from `r` to `s`.
    Don't forget that Python numbers from zero, which will be important
    when implementing the submatrices using Numpy slice notation. 
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450201578>`_.
+
+.. vimeo:: 450201578
 
 Note that we have not explicitly formed the matrix `Q` or the product
 matrices `Q_i`. In some applications, such as solving least squares
@@ -670,10 +670,10 @@ apply the same operations to `b` that are applied to the columns of
 
 We call this procedure "implicit multiplication".
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450202242>`_.
+
+.. vimeo:: 450202242
 
 .. proof:exercise::
 
@@ -769,10 +769,10 @@ with each column using the `Q` application algorithm described above.
 Application: Least squares problems
 -----------------------------------
 
-.. hint::
+
    
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450202726>`_.
+
+.. vimeo:: 450202726
 
 Least square problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern

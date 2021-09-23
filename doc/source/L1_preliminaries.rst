@@ -61,10 +61,7 @@ in data analysis, curve fitting etc. We will usually state generalities
 in this course for vectors over the field `\mathbb{C}`, noting where things
 specialise to `\mathbb{R}`.
 
-.. hint::
-
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450156255?autoplay=1>`_.
+.. vimeo:: 450156255
 
 We can quickly check that the map `x \to Ax` given by matrix
 multiplication is a linear map from `\mathbb{C}^n \to \mathbb{C}^m`, since
@@ -77,10 +74,7 @@ it is straightforward to check from the definition that
 for all `x,y \in \mathbb{C}^n` and `\alpha\in \mathbb{C}`. (Exercise:
 show this for yourself.)
 
-.. hint::
-
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450157385?autoplay=1>`_.
+.. vimeo:: 450157385
 
 It is very useful to interpret matrix-vector multiplication as a linear
 combination of the columns of `A` with coefficients taken from the entries
@@ -106,10 +100,10 @@ then
 
 i.e. a linear combination of the columns of `A` as described above.
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450161699?autoplay=1>`_.
+
+   
+.. vimeo:: 450161699
 
 We can extend this idea to matrix-matrix multiplication. Taking
 `A\in \mathbb{C}^{m\times l}`, `C\in \mathbb{C}^{l\times n}`,
@@ -133,10 +127,10 @@ This means that the jth column of `B` is the matrix-vector product of
 `A` with the jth column of `C`. This kind of "column thinking" is very
 useful in understanding computational linear algebra algorithms.
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450162431?autoplay=1>`_.
+
+   
+.. vimeo:: 450162431
 
 An important example is the outer product of two vectors, `u \in
 \mathbb{C}^m` and `v \in \mathbb{C}^n`. Here it is useful to see these
@@ -239,10 +233,10 @@ later.
 Range, nullspace and rank
 =========================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450162984>`_.
+
+   
+.. vimeo:: 450162984
 
 
 In this section we'll quickly rattle through some definitions and results.
@@ -268,10 +262,10 @@ interpretation of matrix-vector multiplication.
 
       \mbox{null}(A) = \{x \in \mathbb{C}^n: Ax=0\}.
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450166119>`_.
+
+   
+.. vimeo:: 450166119
 
 .. proof:definition:: Rank
 
@@ -333,10 +327,10 @@ interpretation of matrix-vector multiplication.
 Invertibility and inverses
 ==========================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450171203>`_.
+
+   
+.. vimeo:: 450171203
 
 This means that an invertible matrix has columns that form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
@@ -390,10 +384,10 @@ course).
    #. 0 is not an eigenvalue of `A`.
    #. The determinant `\det(A)\neq 0`.
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450172407>`_.
+
+   
+.. vimeo:: 450172407
 
 Finding the inverse of a matrix can be seen as a change of basis. Considering
 the equation `Ax= b`, we have `x = A^{-1}b` for invertible `A`. We have
@@ -436,10 +430,10 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
 Adjoints and Hermitian matrices
 ===============================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450173092>`_.
+
+   
+.. vimeo:: 450173092
 
 .. proof:definition:: Adjoint
 
@@ -504,10 +498,10 @@ The following identity is very important when dealing with adjoints.
 Inner products and orthogonality
 ================================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450172520>`_.
+
+   
+.. vimeo:: 450172520
 
 The inner product is a critical tool in computational linear algebra.
 
@@ -559,10 +553,10 @@ Orthogonality will emerge as an early key concept in this course.
 Orthogonal components of a vector
 =================================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450184086>`_.
+
+   
+.. vimeo:: 450184086
 
 Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
@@ -606,10 +600,10 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 Unitary matrices
 ================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450184373>`_.
+
+   
+.. vimeo:: 450184373
 
 .. proof:definition:: Unitary matrices
 
@@ -675,10 +669,10 @@ given by the orthonormal columns of `Q`.
 Vector norms
 ============
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450184674>`_.
+
+   
+.. vimeo:: 450184674
 
 Various vector norms are useful to measure the size of a vector.
 In computational linear algebra we need them for quantifying errors
@@ -711,10 +705,10 @@ where `W` is a matrix.
 Projectors and projections
 ==========================
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450185110>`_.
+
+   
+.. vimeo:: 450185110
 
 .. proof:definition:: Projector
 
@@ -783,10 +777,10 @@ of `\mathbb{C}^m` with `S_1 \cap S_2 = \{0\}`, then there
 exists a projector `P` whose range is `S_1` and whose nullspace
 is `S_2`.
 
-.. hint::
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450185494>`_.
+
+   
+.. vimeo:: 450185494
 
 Now we introduce orthogonality into the concept of projectors.
 

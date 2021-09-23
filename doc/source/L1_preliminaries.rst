@@ -17,10 +17,9 @@ that should be found in an undergraduate linear algebra course.
 Matrices, vectors and matrix-vector multiplication
 ==================================================
 
-.. hint::
+.. details:: A video recording of this section is available here
 
-   A video recording of this section is available `here
-   <https://player.vimeo.com/video/450145459?autoplay=1>`_.
+   .. vimeo::450145459
 
 We will consider the multiplication of a vector
 

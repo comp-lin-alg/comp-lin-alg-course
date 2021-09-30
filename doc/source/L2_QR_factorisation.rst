@@ -17,7 +17,9 @@ good and bad algorithms to compute it.
 What is the QR factorisation?
 -----------------------------
 
-.. vimeo:: 450191857
+.. details:: Supplementary video
+
+   .. vimeo:: 450191857
 
 We start with another definition.
 
@@ -78,7 +80,9 @@ QR factorisation by classical Gram-Schmidt algorithm
 
    
 
-.. vimeo:: 450192200
+.. details:: Supplementary video
+
+   .. vimeo:: 450192200
 
 The classical Gram-Schmidt algorithm for QR factorisation is motivated
 by the column space interpretation of the matrix-matrix multiplication
@@ -169,7 +173,9 @@ Projector interpretation of Gram-Schmidt
 
    
 
-.. vimeo:: 450192723
+.. details:: Supplementary video
+
+   .. vimeo:: 450192723
 
 At each step of the Gram-Schmidt algorithm, a projector is applied to
 a column of `A`. We have
@@ -203,7 +209,9 @@ Modified Gram-Schmidt
 
    
 
-.. vimeo:: 450193303
+.. details:: Supplementary video
+
+   .. vimeo:: 450193303
 
 There is a big problem with the classical Gram-Schmidt algorithm. It
 is unstable, which means that when it is implemented in inexact
@@ -326,7 +334,9 @@ Modified Gram-Schmidt as triangular orthogonalisation
 
    
 
-.. vimeo:: 450193575
+.. details:: Supplementary video
+
+   .. vimeo:: 450193575
 
 This iterative transformation process can be written as
 right-multiplication by an upper triangular matrix. For
@@ -434,7 +444,9 @@ Householder triangulation
 
    
 
-.. vimeo:: 450199222
+.. details:: Supplementary video
+
+   .. vimeo:: 450199222
 
 This view of the modified Gram-Schmidt process as triangular
 orthogonalisation gives an idea to build an alternative algorithm.
@@ -452,7 +464,9 @@ Multiplying unitary matrices produces unitary matrices, so we obtain
 
    
 
-.. vimeo:: 450199366
+.. details:: Supplementary video
+
+   .. vimeo:: 450199366
 
 To do this, we need to work on the columns of `A`, from left to right,
 transforming them so that each column has zeros below the
@@ -591,7 +605,9 @@ of the kth column of `A_k` to zero, and leaves the previous
 
    
 
-.. vimeo:: 450200163
+.. details:: Supplementary video
+
+   .. vimeo:: 450200163
 
 Earlier, we mentioned that there is a choice of sign in `v`.  This
 choice gives us the opportunity to improve the numerical stability of
@@ -650,7 +666,9 @@ columns from `r` to `s`.
 
    
 
-.. vimeo:: 450201578
+.. details:: Supplementary video
+
+   .. vimeo:: 450201578
 
 Note that we have not explicitly formed the matrix `Q` or the product
 matrices `Q_i`. In some applications, such as solving least squares
@@ -670,7 +688,9 @@ We call this procedure "implicit multiplication".
 
    
 
-.. vimeo:: 450202242
+.. details:: Supplementary video
+
+   .. vimeo:: 450202242
 
 .. proof:exercise::
 
@@ -769,7 +789,9 @@ Application: Least squares problems
 
    
 
-.. vimeo:: 450202726
+.. details:: Supplementary video
+
+   .. vimeo:: 450202726
 
 Least square problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern

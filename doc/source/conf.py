@@ -33,6 +33,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinxcontrib.youtube',
+    'sphinxcontrib.details.directive',
     'sphinx.ext.viewcode',
     'sphinxcontrib.proof',
     'sphinxcontrib.bibtex'

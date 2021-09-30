@@ -15,7 +15,9 @@ secondary school.
 An algorithm for LU decomposition
 ---------------------------------
 
-.. vimeo:: 454095315
+.. details:: Supplementary video
+
+   .. vimeo:: 454095315
 
 The computational way to view Gaussian elimination is through the LU
 decomposition of an invertible matrix, `A=LU`, where `L` is lower
@@ -74,7 +76,9 @@ matrices are invertible, we can define
 
 Then we have `L^{-1}A = U`, i.e. `A=LU`.
 
-.. vimeo:: 454096015
+.. details:: Supplementary video
+
+   .. vimeo:: 454096015
 
 So, what's the advantage of writing `A=LU`? Well, we can define
 `y=Ux`.  Then, we can solve `Ax=b` in two steps, first solving `Ly=b`
@@ -103,7 +107,9 @@ each system. This is particularly useful when we need to repeatedly
 solve systems as part of larger iterative algorithms, such as time
 integration methods or Monte Carlo methods.
 
-.. vimeo:: 454096580
+.. details:: Supplementary video
+
+   .. vimeo:: 454096580
 
 So, we need to find lower triangular matrices `L_k` that do not change
 the first `k-1` rows, and transforms the `k`-th column `x_k` of `A_k`
@@ -174,7 +180,9 @@ multiplication by `L_k` implements the row operations that are performed
 to transform below diagonal elements of `A_k` to zero during Gaussian
 elimination.
 
-.. vimeo:: 454097320
+.. details:: Supplementary video
+
+   .. vimeo:: 454097320
 
 The determinant of a lower triangular matrix is equal to the trace
 (product of diagonal entries), so `\det(L_k)=1`, and consequently
@@ -243,7 +251,9 @@ a mathematical concept to translate from the row operations into the final
    Once it passes the tests, experiment with the inverse and
    multiplication properties above, to verify that they work.
 
-.. vimeo:: 454098164
+.. details:: Supplementary video
+
+   .. vimeo:: 454098164
 
 The Gaussian elimination algorithm is written in pseudo-code as
 follows. We start by copying `A` into `U`, and setting `L` to
@@ -332,8 +342,13 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 Pivoting
 --------
 
-.. vimeo:: 454098919
-.. vimeo:: 454108809
+.. details:: Supplementary video
+
+   .. vimeo:: 454098919
+
+.. details:: Supplementary video
+
+   .. vimeo:: 454108809
 
 Gaussian elimination will fail if a zero appears on the diagonal,
 i.e. we get `x_{kk}=0` (since then we can't divide by it). Similarly,
@@ -379,7 +394,9 @@ with pivoting,
 
       L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1 = U.
 
-.. vimeo:: 454109227
+.. details:: Supplementary video
+
+   .. vimeo:: 454109227
 
 This looks like it has totally messed up the LU factorisation, because
 `LP` is not lower triangular for general lower triangular matrix `L`
@@ -439,7 +456,9 @@ finding the LU factorisation using the basic algorithm (except we
 can't implement it like that because we only decide how to build `P`
 during the Gaussian elimination process).
 
-.. vimeo:: 454109660
+.. details:: Supplementary video
+
+   .. vimeo:: 454109660
 
 The LU factorisation with pivoting can be expressed in the following
 pseudo-code.
@@ -460,7 +479,9 @@ pseudo-code.
   * END FOR
 * END FOR
 
-.. vimeo:: 454110324
+.. details:: Supplementary video
+
+   .. vimeo:: 454110324
 
 To solve a system `Ax=b` given the a pivoted LU factorisation `PA=LU`,
 we left multiply the equation by `P` and use the factorisation get
@@ -518,7 +539,9 @@ complete pivoting, `PAQ=LU`.
 Stability of LU factorisation
 -----------------------------
 
-.. vimeo:: 454110810
+.. details:: Supplementary video
+
+   .. vimeo:: 454110810
 
 To characterise the stability of LU factorisation, we quote the following
 result.
@@ -582,7 +605,9 @@ leading to large `\rho` and unstable computations.
 Taking advantage of matrix structure
 ------------------------------------
 
-.. vimeo:: 454111577
+.. details:: Supplementary video
+
+   .. vimeo:: 454111577
 
 The cost of the standard Gaussian elimination algorithm to form `L`
 and `U` is `\mathcal{O}(m^3)`, which grows rather quickly as `m`
@@ -678,7 +703,9 @@ is given as pseudo-code below.
 This has an operation count `\mathcal{O}(mp)`. The story is
 very similar for the back substitution.
 
-.. vimeo:: 454112153
+.. details:: Supplementary video
+
+   .. vimeo:: 454112153
 
 Another example that we have already encountered is unitary matrices
 `Q`. Since `Q^{-1}=Q^*`, solving the system `Qx=b` is just the cost of

@@ -23,7 +23,9 @@ algorithms that we have seen so far.
 Operation count
 ---------------
 
-.. vimeo:: 450203625
+.. details:: Supplementary video
+
+   .. vimeo:: 450203625
 
 Operation count is one aspect of evaluating how long algorithms take.
 Here we just note that this is not the only aspect, since transferring
@@ -167,7 +169,9 @@ Now we have to sum this over `k`, so the total operation count is
 Matrix norms for discussing stability
 -------------------------------------
 
-.. vimeo:: 450204495
+.. details:: Supplementary video
+
+   .. vimeo:: 450204495
 
 In the rest of this section we will discuss another important aspect
 of analysing computational linear algebra algorithms, stability. To do
@@ -319,7 +323,9 @@ We can also compute bounds for `\|AB\|_2`.
 Condition number
 ----------------
 
-.. vimeo:: 450205296
+.. details:: Supplementary video
+
+   .. vimeo:: 450205296
 
 The key tool to understanding numerical stability of computational
 linear algebra algorithms is the condition number.  The condition
@@ -400,7 +406,9 @@ condition numbers. If `\kappa` is small (`1-100`, say) then we say that
 a problem is well conditioned. If `\kappa` is large (`>10^6`, say),
 then we say that a problem is ill conditioned.
 
-.. vimeo:: 450211558
+.. details:: Supplementary video
+
+   .. vimeo:: 450211558
 
 As a first example, consider the problem of finding the square root,
 `f:x\mapsto \sqrt{x}`, a one dimensional problem. In this case,
@@ -444,7 +452,9 @@ the conditioning of the roots of the Wilkinson polynomial.
 Conditioning of linear algebra computations
 -------------------------------------------
 
-.. vimeo:: 450211706
+.. details:: Supplementary video
+
+   .. vimeo:: 450211706
 
 We now look at the condition number of problems from linear algebra.
 The first problem we examine is the problem of matrix-vector
@@ -471,7 +481,9 @@ so
 
 We call this upper bound the condition number `\kappa(A)` of the matrix `A`.
 
-.. vimeo:: 450212408
+.. details:: Supplementary video
+
+   .. vimeo:: 450212408
 
 The next problem we consider is the condition number of solving
 `Ax=b`, with `b` fixed but considering perturbations to `A`. So, we
@@ -530,7 +542,9 @@ number for this problem is the condition number of `A`.
 Floating point numbers and arithmetic
 -------------------------------------
 
-.. vimeo:: 450212648
+.. details:: Supplementary video
+
+   .. vimeo:: 450212648
 
 Floating point number systems on computers use a discrete and finite
 representation of the real numbers. One of the first things we can
@@ -567,7 +581,9 @@ in `\mathbb{F}`.
       \forall x \in \mathbb{R}, \, \exists x'\in \mathbb{F}
       \mbox{ such that } |x-x'| \leq \varepsilon |x|.
 
-.. vimeo:: 450213018
+.. details:: Supplementary video
+
+   .. vimeo:: 450213018
 
 .. proof:definition:: Floating point rounding function
 
@@ -631,7 +647,9 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 Stability
 ---------
 
-.. vimeo:: 450213263
+.. details:: Supplementary video
+
+   .. vimeo:: 450213263
 
 Stability describes the perturbation behaviour of a numerical algorithm
 when used to solve a problem on a computer. Now we have two problems
@@ -695,9 +713,13 @@ we have to lower our aspirations depending on the condition number of `A`.
 We say that a stable algorithm gives nearly the right answer to nearly the
 right question.
 
-.. vimeo:: 450213664
+.. details:: Supplementary video
 
-.. vimeo:: 454094432
+   .. vimeo:: 450213664
+
+.. details:: Supplementary video
+
+   .. vimeo:: 454094432
 
 .. proof:definition:: Backward stability
 
@@ -759,7 +781,9 @@ tally of errors committed during each step of the algorithm.
 Backward stability of the Householder algorithm
 -----------------------------------------------
 
-.. vimeo:: 450214127
+.. details:: Supplementary video
+
+   .. vimeo:: 450214127
 
 We now consider the example of the problem of finding the QR
 factorisation of a matrix `A`, implemented in floating point
@@ -815,7 +839,9 @@ It turns out that the Householder method is backwards stable.
 Backward stability for solving a linear system using QR
 -------------------------------------------------------
 
-.. vimeo:: 450214601
+.. details:: Supplementary video
+
+   .. vimeo:: 450214601
 
 The QR factorisation provides a method for solving systems of
 equations `Ax=b` for `x` given `b`, where `A` is an invertible
@@ -1030,7 +1056,9 @@ we show the following result.
 
    hence `\|\Delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 
-.. vimeo:: 450215261
+.. details:: Supplementary video
+
+   .. vimeo:: 450215261
 
    
 .. proof:Corollary::

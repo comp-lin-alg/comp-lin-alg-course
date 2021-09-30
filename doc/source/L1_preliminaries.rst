@@ -17,7 +17,9 @@ that should be found in an undergraduate linear algebra course.
 Matrices, vectors and matrix-vector multiplication
 ==================================================
 
-.. vimeo:: 450145459
+.. details:: Supplementary video
+
+   .. vimeo:: 450145459
 
 We will consider the multiplication of a vector
 
@@ -61,7 +63,9 @@ in data analysis, curve fitting etc. We will usually state generalities
 in this course for vectors over the field `\mathbb{C}`, noting where things
 specialise to `\mathbb{R}`.
 
-.. vimeo:: 450156255
+.. details:: Supplementary video
+
+   .. vimeo:: 450156255
 
 We can quickly check that the map `x \to Ax` given by matrix
 multiplication is a linear map from `\mathbb{C}^n \to \mathbb{C}^m`, since
@@ -74,7 +78,9 @@ it is straightforward to check from the definition that
 for all `x,y \in \mathbb{C}^n` and `\alpha\in \mathbb{C}`. (Exercise:
 show this for yourself.)
 
-.. vimeo:: 450157385
+.. details:: Supplementary video
+
+   .. vimeo:: 450157385
 
 It is very useful to interpret matrix-vector multiplication as a linear
 combination of the columns of `A` with coefficients taken from the entries
@@ -103,7 +109,9 @@ i.e. a linear combination of the columns of `A` as described above.
 
 
    
-.. vimeo:: 450161699
+.. details:: Supplementary video
+
+   .. vimeo:: 450161699
 
 We can extend this idea to matrix-matrix multiplication. Taking
 `A\in \mathbb{C}^{m\times l}`, `C\in \mathbb{C}^{l\times n}`,
@@ -130,7 +138,9 @@ useful in understanding computational linear algebra algorithms.
 
 
    
-.. vimeo:: 450162431
+.. details:: Supplementary video
+
+   .. vimeo:: 450162431
 
 An important example is the outer product of two vectors, `u \in
 \mathbb{C}^m` and `v \in \mathbb{C}^n`. Here it is useful to see these
@@ -236,7 +246,9 @@ Range, nullspace and rank
 
 
    
-.. vimeo:: 450162984
+.. details:: Supplementary video
+
+   .. vimeo:: 450162984
 
 
 In this section we'll quickly rattle through some definitions and results.
@@ -265,7 +277,9 @@ interpretation of matrix-vector multiplication.
 
 
    
-.. vimeo:: 450166119
+.. details:: Supplementary video
+
+   .. vimeo:: 450166119
 
 .. proof:definition:: Rank
 
@@ -330,7 +344,9 @@ Invertibility and inverses
 
 
    
-.. vimeo:: 450171203
+.. details:: Supplementary video
+
+   .. vimeo:: 450171203
 
 This means that an invertible matrix has columns that form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
@@ -387,7 +403,9 @@ course).
 
 
    
-.. vimeo:: 450172407
+.. details:: Supplementary video
+
+   .. vimeo:: 450172407
 
 Finding the inverse of a matrix can be seen as a change of basis. Considering
 the equation `Ax= b`, we have `x = A^{-1}b` for invertible `A`. We have
@@ -433,7 +451,9 @@ Adjoints and Hermitian matrices
 
 
    
-.. vimeo:: 450173092
+.. details:: Supplementary video
+
+   .. vimeo:: 450173092
 
 .. proof:definition:: Adjoint
 
@@ -501,7 +521,9 @@ Inner products and orthogonality
 
 
    
-.. vimeo:: 450172520
+.. details:: Supplementary video
+
+   .. vimeo:: 450172520
 
 The inner product is a critical tool in computational linear algebra.
 
@@ -556,7 +578,9 @@ Orthogonal components of a vector
 
 
    
-.. vimeo:: 450184086
+.. details:: Supplementary video
+
+   .. vimeo:: 450184086
 
 Let `S=\{q_1,q_2,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`, and take another arbitrary vector `v\in \mathbb{C}^m`.
@@ -603,7 +627,9 @@ Unitary matrices
 
 
    
-.. vimeo:: 450184373
+.. details:: Supplementary video
+
+   .. vimeo:: 450184373
 
 .. proof:definition:: Unitary matrices
 
@@ -672,7 +698,9 @@ Vector norms
 
 
    
-.. vimeo:: 450184674
+.. details:: Supplementary video
+
+   .. vimeo:: 450184674
 
 Various vector norms are useful to measure the size of a vector.
 In computational linear algebra we need them for quantifying errors
@@ -708,7 +736,9 @@ Projectors and projections
 
 
    
-.. vimeo:: 450185110
+.. details:: Supplementary video
+
+   .. vimeo:: 450185110
 
 .. proof:definition:: Projector
 
@@ -780,7 +810,9 @@ is `S_2`.
 
 
    
-.. vimeo:: 450185494
+.. details:: Supplementary video
+
+   .. vimeo:: 450185494
 
 Now we introduce orthogonality into the concept of projectors.
 

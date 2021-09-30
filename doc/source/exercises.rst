@@ -66,22 +66,6 @@ while on Windows the command is::
 
 Obviously if you are typing this in a directory other than the one
 containing the venv, you need to modify the path accordingly.
-
-Setting up a solutions branch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We'll keep the master branch of your repository in the original
-condition so we can compare to it later, and collect any updates which
-occur during the term. Instead, we'll create an solutions branch
-to actually work on::
-
-  cd comp-lin-alg-course
-  git checkout -b solutions
-
-Your working directory is now a current checkout of your
-solutions branch. You'll also want to push this branch to GitHub::
-
-  git push --set-upstream origin solutions
    
 Skeleton code documentation
 ---------------------------

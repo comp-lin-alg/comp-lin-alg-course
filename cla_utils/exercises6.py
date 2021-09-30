@@ -8,11 +8,10 @@ def get_Lk(m, lvec):
 
     :param m: integer giving the dimensions of L.
     :param lvec: a m-k-1 dimensional numpy array.
-
     :return Lk: an mxm dimensional numpy array.
 
     """
-                     
+
     raise NotImplementedError
 
 
@@ -36,13 +35,12 @@ def solve_L(L, b):
 
     :param L: an mxm-dimensional numpy array, assumed lower triangular
     :param b: an mxk-dimensional numpy array, with ith column containing 
-    b_i
-
+       b_i
     :return x: an mxk-dimensional numpy array, with ith column containing 
-    the solution x_i
+       the solution x_i
 
     """
-                     
+
     raise NotImplementedError
 
 
@@ -52,10 +50,9 @@ def solve_U(U, b):
 
     :param U: an mxm-dimensional numpy array, assumed upper triangular
     :param b: an mxk-dimensional numpy array, with ith column containing 
-    b_i
-
+       b_i
     :return x: an mxk-dimensional numpy array, with ith column containing 
-    the solution x_i
+       the solution x_i
 
     """
                      

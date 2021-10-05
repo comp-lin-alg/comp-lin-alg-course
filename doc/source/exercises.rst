@@ -20,7 +20,7 @@ Setting up your repository
 
 We're using a tool called `GitHub classroom <https://classroom.github.com>`_ to automate the creation of your
 copies of the repository.
-To create your repository, click `here <https://classroom.github.com/a/OY_NHMeU>`_.
+To create your repository, click `here <https://classroom.github.com/a/RDyDLTSf>`_.
 
 
 Cloning a local copy

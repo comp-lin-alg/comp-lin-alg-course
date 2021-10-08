@@ -88,21 +88,9 @@ build the :doc:`cla_utils` web documentation.
 As you do the exercises, **commit your code** to your repository. This
 will build up your computational exercise solution sets. You should
 commit code early and often - small commits are easier to understand
-and debug than large ones.
-
-Pull requests for feedback
---------------------------
-
-#. Click on the ``New pull request`` button at the top of your
-   repository page on GitHub.
-#. Make sure **left** dropdown box ("base") is set to ``master``.
-#. Make sure **right** dropdown box ("compare") is set to ``implementation``.
-#. Type a suitable title in the title box. For example 
-   ``Request for feedback 30/1/19``.
-#. If you have any comments you would like to pass on to the lecturer
-   (for example questions about how you should have done a particular
-   exercise) then type these in the ``Description`` box.
-#. Click ``Create pull request``.
+and debug than large ones. **Do not commit to the feedback branch**
+This branch is just there so that we can provide feedback on your
+changes to the main branch.
 
 
 Testing your work

@@ -88,9 +88,7 @@ build the :doc:`cla_utils` web documentation.
 As you do the exercises, **commit your code** to your repository. This
 will build up your computational exercise solution sets. You should
 commit code early and often - small commits are easier to understand
-and debug than large ones. **Never** commit back to the ``master``
-branch of your fork, that should always remain a clean copy of the
-main repository.
+and debug than large ones.
 
 Pull requests for feedback
 --------------------------

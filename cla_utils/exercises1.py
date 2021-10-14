@@ -85,7 +85,7 @@ def time_matvecs():
 
 def rank2(u1, u2, v1, v2):
     """
-    Return the rank2 matrix A = u1*v2^* + u2*v2^*.
+    Return the rank2 matrix A = u1*v1^* + u2*v2^*.
 
     :param u1: m-dimensional numpy array
     :param u2: m-dimensional numpy array

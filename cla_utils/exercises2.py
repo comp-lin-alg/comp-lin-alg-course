@@ -82,7 +82,7 @@ def GS_classical(A):
 
     raise NotImplementedError
 
-    return Q, R
+    return R
 
 def GS_modified(A):
     """

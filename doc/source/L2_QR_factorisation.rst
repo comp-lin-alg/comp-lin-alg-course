@@ -125,7 +125,7 @@ entries of `R` are found by inner products, i.e.,
 
 .. math::
 
-   r_{ij} = q_i^*a_j, \, i > j,
+   r_{ij} = q_i^*a_j, \, i < j,
 
 and the diagonal entries are chosen so that `\|q_i\|=1`, for
 `i=1,2,\ldots,n`, i.e.

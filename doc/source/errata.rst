@@ -12,3 +12,6 @@ repositories for Autumn 2021. An up to date version is in the
    correct indices. Now reads: "Return the rank2 matrix A = u_1v_1^* +
    u_2*v_2^*." See the code on the course website for the up-to-date
    version.
+
+2. The skeleton code for exercises2.GS_classical was amended as the
+   function should just return R, not Q and R.

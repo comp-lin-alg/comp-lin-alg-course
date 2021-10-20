@@ -15,3 +15,5 @@ repositories for Autumn 2021. An up to date version is in the
 
 2. The skeleton code for exercises2.GS_classical was amended as the
    function should just return R, not Q and R.
+
+3. Updated the sign of the inequality in the formula for $r$ in Section 2.2.

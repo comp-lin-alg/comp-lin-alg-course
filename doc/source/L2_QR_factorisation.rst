@@ -350,7 +350,7 @@ example, at the first iteration,
       \underbrace{
       \begin{pmatrix}
       \frac{1}{r_{11}} & -\frac{r_{12}}{r_{11}} & \ldots &
-      \ldots & -\frac{r_{11}}{r_{11}} \\
+      \ldots & -\frac{r_{1n}}{r_{11}} \\
       0 & 1 & 0 & \ldots & 0 \\    
       0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\

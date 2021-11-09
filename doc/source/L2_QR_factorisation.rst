@@ -125,7 +125,7 @@ entries of `R` are found by inner products, i.e.,
 
 .. math::
 
-   r_{ij} = q_i^*a_j, \, i < j,
+   r_{ij} = q_i^*a_j, \, i > j,
 
 and the diagonal entries are chosen so that `\|q_i\|=1`, for
 `i=1,2,\ldots,n`, i.e.
@@ -146,6 +146,9 @@ We now present the classical Gram-Schmidt algorithm as pseudo-code.
   * FOR `i = 1` TO `j-1`
     
     * `r_{ij} \gets q_i^*a_j`
+  * END FOR
+  * FOR `i = 1` TO `j-1`
+    
     * `v_j \gets v_j - r_{ij}q_i`
   * END FOR
   * `r_{jj} \gets \|v_j\|_2`
@@ -161,11 +164,11 @@ for code blocks in pseudo-code in these notes.)
    The :func:`cla_utils.exercises2.GS_classical` function has been
    left unimplemented. It should implement the classical Gram-Schmidt
    algorithm above, using Numpy slice notation so that only one Python
-   for loop is used. The function should work "in place" by changing
-   the values in `A`, without introducing additional intermediate
-   arrays (you will need to create a new array to store `R`). The test
-   script ``test_exercises2.py`` in the ``test`` directory will test
-   this function.
+   for loop is used. The function should work "in place" by making a
+   copy of `A` and then changing the values in the copy, without
+   introducing additional intermediate arrays (you will need to create
+   a new array to store `R`). The test script ``test_exercises2.py``
+   in the ``test`` directory will test this function.
 
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
@@ -289,7 +292,7 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
   
   * `r_{ii} \gets \|v_i\|_2`
   * `q_i = v_i/r_{ii}`
-    
+
   * FOR `j = i+1` TO `n`
 
     * `r_{ij} \gets q_i^*v_j`
@@ -308,8 +311,9 @@ in `A` with the `v` s and eventually the `q` s.
    What is the minimal number of Python
    for loops possible?
 
-   The function should work "in place" by changing the values of `A`,
-   without introducing additional intermediate arrays. The test script
+   The function should work "in place" by making a
+   copy of `A` and then changing those values, without introducing
+   additional intermediate arrays. The test script
    ``test_exercises2.py`` in the ``test`` directory will test this
    function.
 
@@ -350,7 +354,7 @@ example, at the first iteration,
       \underbrace{
       \begin{pmatrix}
       \frac{1}{r_{11}} & -\frac{r_{12}}{r_{11}} & \ldots &
-      \ldots & -\frac{r_{1n}}{r_{11}} \\
+      \ldots & -\frac{r_{11}}{r_{11}} \\
       0 & 1 & 0 & \ldots & 0 \\    
       0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\

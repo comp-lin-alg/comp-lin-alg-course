@@ -16,10 +16,10 @@ repositories for Autumn 2021. An up to date version is in the
 2. The skeleton code for exercises2.GS_classical was amended as the
    function should just return R, not Q and R.
 
-3. Updated the sign of the inequality in the formula for $r$ in Section 2.2.
+3. Updated the sign of the inequality in the formula for `r` in Section 2.2.
 
-4. Replaced $r_{11}/r_{11}$ by $r_{1n}/r_{11}$ in the final column of the
-   right-multiplied $R$ matrix in Section 2.5.
+4. Replaced `r_{11}/r_{11}` by `r_{1n}/r_{11}` in the final column of the
+   right-multiplied `R` matrix in Section 2.5.
 
 5. Updated docstring in :code:`cla_utils:get_Lk` and the corresponding
    test so that `k` corresponds to the column being operated on.

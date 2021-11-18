@@ -17,10 +17,12 @@ def test_get_Lk(m, k):
 
     b = random.randn(m)
     x = np.dot(Lk, b)
-    #should leave the first k entries the same
+    # should leave the first k entries the same
     assert(np.linalg.norm(x[0:k]-b[0:k]) < 1.0e-6)
-    for i in range(k+1,m):
-        assert(np.linalg.norm(x[i] - b[i] - lk[i-k-1]*b[k]) < 1.0e-6)
+    lfull = 0.*b
+    lfull[k:m] = lk
+    # last m-k entries should have had l*bk subtracted from them
+    assert(np.linalg.norm(x[k:]-b[k:]+lfull[k:]*b[k]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

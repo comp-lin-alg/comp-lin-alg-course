@@ -91,7 +91,7 @@ way, written in pseudo-code as follows.
 * `x_1 \gets b_1/L_{11}`
 * FOR `i= 2` TO `m`
 
-  * `x_i \gets (b_i - \sum_{k=1}^iL_{ik}x_k)/L_{ii}`
+  * `x_i \gets (b_i - \sum_{k=1}^{i-1}L_{ik}x_k)/L_{ii}`
 
 Forward substitution has an operation count that is identical to back
 substitution, by symmetry, i.e. `\mathcal{O}(m^2)`. In contrast, we

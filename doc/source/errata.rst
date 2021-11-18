@@ -23,3 +23,6 @@ repositories for Autumn 2021. An up to date version is in the
 
 5. Updated docstring in :code:`cla_utils:get_Lk` and the corresponding
    test so that `k` corresponds to the column being operated on.
+
+6. Corrected the upper limit of the sum in the algorithm for forward
+   substitution.

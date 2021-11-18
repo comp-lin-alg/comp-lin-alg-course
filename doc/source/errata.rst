@@ -20,3 +20,6 @@ repositories for Autumn 2021. An up to date version is in the
 
 4. Replaced $r_{11}/r_{11}$ by $r_{1n}/r_{11}$ in the final column of the
    right-multiplied $R$ matrix in Section 2.5.
+
+5. Updated docstring in :code:`cla_utils:get_Lk` and the corresponding
+   test so that `k` corresponds to the column being operated on.

@@ -52,7 +52,7 @@ def test_solve_L(m, k):
     A = random.randn(m, m)
     x = solve_L(A, b)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) > 1.0e-6)
+    assert(np.linalg.norm(err2) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
@@ -65,7 +65,7 @@ def test_solve_U(m, k):
     assert(np.linalg.norm(err1) < 1.0e-6)
     A = random.randn(m, m)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) > 1.0e-6)
+    assert(np.linalg.norm(err2) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

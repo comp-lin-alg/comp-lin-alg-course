@@ -22,7 +22,7 @@ def test_get_Lk(m, k):
     lfull = 0.*b
     lfull[k:m] = lk
     # last m-k entries should have had l*bk subtracted from them
-    assert(np.linalg.norm(x[k:]-b[k:]+lfull[k:]*b[k]) < 1.0e-6)
+    assert(np.linalg.norm(x[k:]-b[k:]+lfull[k:]*b[k-1]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])

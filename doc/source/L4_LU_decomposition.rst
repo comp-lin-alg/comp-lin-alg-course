@@ -498,12 +498,13 @@ complete pivoting, `PAQ=LU`.
 
    The function :func:`cla_utils.exercises7.perm` has been left
    unimplemented. It should take an `m\times m` permutation matrix
-   `P`, stored as a vector of indices `p\in\mathbb{N}^m` so that
-   `(Px)_i = x_{p_i}`, `i=1,2,\ldots, m`, and replace it with the
-   matrix `P_{i,j}P` (also stored as a vector of indices) where
-   `P_{i,j}` is the permutation matrix that exchanges the entries `i`
-   and `j`. The test script ``test_exercises7.py`` in the ``test``
-   directory will test this function.
+   `P`, stored as an (integer-valued) array of indices
+   `p\in\mathbb{N}^m` so that `(Px)_i = x_{p_i}`, `i=1,2,\ldots, m`,
+   and replace it with the matrix `P_{i,j}P` (also stored as a array
+   of indices) where `P_{i,j}` is the permutation matrix that
+   exchanges the entries `i` and `j`. The test script
+   ``test_exercises7.py`` in the ``test`` directory will test this
+   function.
 
 
 .. proof:exercise::

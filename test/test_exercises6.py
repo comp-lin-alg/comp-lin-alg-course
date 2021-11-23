@@ -45,10 +45,12 @@ def test_solve_L(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
     Q, R = np.linalg.qr(random.randn(m,m))
+    #check that the solver works
     L = R.T
     x = cla_utils.solve_L(L, b)
     err1 = b - np.dot(L, x)
     assert(np.linalg.norm(err1) < 1.0e-6)
+    #check that a lower triangular solver is being used
     A = random.randn(m, m)
     x = solve_L(A, b)
     err2 = b - np.dot(A, x)
@@ -60,9 +62,11 @@ def test_solve_U(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
     _, U = np.linalg.qr(random.randn(m,m))
+    #check that the solver works
     x = cla_utils.solve_U(U, b)
     err1 = b - np.dot(U, x)
     assert(np.linalg.norm(err1) < 1.0e-6)
+    #check that an upper triangular solver is being used
     A = random.randn(m, m)
     err2 = b - np.dot(A, x)
     assert(np.linalg.norm(err2) < 1.0e-6)

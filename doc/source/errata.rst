@@ -27,4 +27,6 @@ repositories for Autumn 2021. An up to date version is in the
 6. Corrected the upper limit of the sum in the algorithm for forward
    substitution.
 
-7. Corrected the sign of inequalities in :code:`test_solve_U` and :code:`test_solve_L`.
+7. Corrected the sign of inequalities in :code:`test_solve_U` and
+   :code:`test_solve_L`. And then uncorrected them again, they were right
+   in the first place.

@@ -34,3 +34,5 @@ repositories for Autumn 2021. An up to date version is in the
 8. Fixed the sign of the inequalities in the discussion of $L$ and $U$ matrices.
 
 9. Loop over rows, not columns in solve_U and solve_L.
+
+10. Use integers for permutations in test_perm.

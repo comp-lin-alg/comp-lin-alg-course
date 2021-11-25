@@ -8,10 +8,10 @@ import numpy as np
 @pytest.mark.parametrize('m', [20, 204, 18])
 def test_perm(m):
     random.seed(4533*m)
-    p = random.permutation(np.arange(m))
+    p = random.permutation(np.arange(m, dtype=int))
     for k in range(20):
-        i, j = random.choice(np.arange(m), 2, replace=False)
-        p0 = 1.0*p
+        i, j = random.choice(np.arange(m, dtype=int), 2, replace=False)
+        p0 = 1*p
         x = random.randn(m)
         cla_utils.perm(p0, i, j)
         assert(np.abs(x[int(p0[i])]-x[int(p[j])]) < 1.0e-6)

@@ -21,8 +21,8 @@ An algorithm for LU decomposition
 
 The computational way to view Gaussian elimination is through the LU
 decomposition of an invertible matrix, `A=LU`, where `L` is lower
-triangular (`l_{ij}=0` for `j<i`) and `U` is upper triangular
-(`u_{ij}=0` for `j>i`). Here we use the symbol `U` instead of `R` to
+triangular (`l_{ij}=0` for `j>i`) and `U` is upper triangular
+(`u_{ij}=0` for `j<i`). Here we use the symbol `U` instead of `R` to
 emphasise that we are looking as square matrices.  The process of
 obtaining the `LU` decomposition is very similar to the Householder
 algorithm, in that we repeatedly left multiply `A` by matrices to

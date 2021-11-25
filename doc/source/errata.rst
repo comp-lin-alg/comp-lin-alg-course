@@ -30,3 +30,5 @@ repositories for Autumn 2021. An up to date version is in the
 7. Corrected the sign of inequalities in :code:`test_solve_U` and
    :code:`test_solve_L`. And then uncorrected them again, they were right
    in the first place.
+
+8. Fixed the sign of the inequalities in the discussion of $L$ and $U$ matrices.

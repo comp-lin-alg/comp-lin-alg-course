@@ -704,7 +704,7 @@ we have to lower our aspirations depending on the condition number of `A`.
 
 	 \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
 
-   for all `\tilde{x}` with
+   there exists `\tilde{x}` with
 
       .. math::
 

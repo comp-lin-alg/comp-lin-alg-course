@@ -652,8 +652,8 @@ of `A` is
       \end{pmatrix}.
 
 A generalisation of a diagonal matrix is a banded matrix, where
-`A_{ij}=0` for `i>j+p` and for `i<j-q`. We call `p` the upper
-bandwidth of `A`; `q` is the lower bandwidth. When the matrix is
+`A_{ij}=0` for `i>j+p` and for `i<j-q`. We call `p` the lower
+bandwidth of `A`; `q` is the upper bandwidth. When the matrix is
 banded, there are already zeros below the diagonal of `A`, so we know
 that the corresponding entries in the `L_k` matrices will be zero.
 Further, because there are zeros above the diagonal of `A`, these do

@@ -39,12 +39,13 @@ def hessenbergQ(A):
 
 def hessenberg_ev(H):
     """
-    Given a Hessenberg matrix, return the eigenvalues and eigenvectors.
+    Given a Hessenberg matrix, return the eigenvectors.
 
     :param H: an mxm numpy array
 
-    :return ee: an m dimensional numpy array containing the eigenvalues of H
     :return V: an mxm numpy array whose columns are the eigenvectors of H
+
+    Do not change this function.
     """
     m, n = H.shape
     assert(m==n)

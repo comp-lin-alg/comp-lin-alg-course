@@ -38,3 +38,6 @@ repositories for Autumn 2021. An up to date version is in the
 10. Use integers for permutations in test_perm.
 
 11. Remove line break from description in setup.py for compatibility with release v59.0.0 of setuptools.
+
+12. Corrected the docstring in :code:`hessenberg_ev`, as it only returns
+the eigenvectors.

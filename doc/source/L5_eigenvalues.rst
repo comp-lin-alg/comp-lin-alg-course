@@ -456,7 +456,7 @@ Power iteration
 
 .. details:: Supplementary video
 
-   .. vimeo:: 454124710
+   .. vimeo:: 454124701
 
 Power iteration is a simple method for finding the eigenvalue of
 `A` with largest eigenvalue (in magnitude). It is based on the following

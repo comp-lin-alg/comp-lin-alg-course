@@ -131,7 +131,7 @@ def inverse_it(A, x0, mu, tol, maxit, store_iterations = False):
     if store_iterations, an mxmaxit dimensional numpy array containing \
     all the iterates.
     :return l: a floating point number containing the final eigenvalue \
-    estimate, or if store_iterations, an m dimensional numpy array containing \
+    estimate, or if store_iterations, a maxit dimensional numpy array containing \
     all the iterates.
     """
 

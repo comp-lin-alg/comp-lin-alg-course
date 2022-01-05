@@ -57,7 +57,7 @@ def test_pure_QR(m):
     #check for upper triangular
     assert(np.linalg.norm(A2[np.tril_indices(m, -1)])/m**2 < 1.0e-5)
     #check for conservation of trace
-    assert(np.abs(np.trace(A0) - np.trace(A2)) < 1.0e-6)
+    assert(np.abs(np.trace(A) - np.trace(A2)) < 1.0e-6)
 
 if __name__ == '__main__':
     import sys

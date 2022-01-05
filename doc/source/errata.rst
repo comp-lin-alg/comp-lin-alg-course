@@ -41,3 +41,7 @@ repositories for Autumn 2021. An up to date version is in the
 
 12. Corrected the docstring in :code:`hessenberg_ev`, as it only returns
 the eigenvectors.
+
+13. Corrected the docstring in :code:`inverse_it`, as the dimension of the eigenvalue iterates should be :code:`maxit`.
+
+14. Replaced :code:`A0` with :code:`A` in :code:`test_pure_QR`, in case the implementation is in place.

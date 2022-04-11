@@ -19,9 +19,8 @@ Setting up your repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We're using a tool called `GitHub classroom <https://classroom.github.com>`_ to automate the creation of your
-copies of the repository.
-To create your repository, click `here <https://classroom.github.com/a/RDyDLTSf>`_.
-
+copies of the repository. This classroom will be updated for the 2022/23
+academic year.
 
 Cloning a local copy
 ~~~~~~~~~~~~~~~~~~~~

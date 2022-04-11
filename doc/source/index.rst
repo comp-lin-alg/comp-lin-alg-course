@@ -28,7 +28,10 @@
 
    This module is led by `Prof. Colin Cotter
    <http://www.imperial.ac.uk/people/colin.cotter>`_.
-	      
+
+   IMPORTANT: This is the 2021/22 version of the course. There will be
+   updates and a new Github Classroom project for 2022/23 academic year.
+   
    A PDF version of the course notes is `available here
    <Computationallinearalgebracourse.pdf>`_.  The lecture material for this
    course is available as videos linked from the web version of the

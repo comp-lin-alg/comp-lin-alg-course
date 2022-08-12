@@ -45,8 +45,7 @@
 
       cla_utils
    
-   We provide a complete set of notes for the course below, based on
-   this material.
+   We provide a complete set of notes for the course below.
 	      
    Lecture notes:
    ~~~~~~~~~~~~~~

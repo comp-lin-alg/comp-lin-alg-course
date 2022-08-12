@@ -17,9 +17,7 @@
    .. toctree::
 
       practicalities
-      tools
       exercises
-      cla_utils
       errata
       
    .. image:: _static/trefbau.jpg

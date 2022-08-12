@@ -5,8 +5,9 @@ Access to computers
 -------------------
 
 You'll need access to a suitable computer for the implementation
-work. You can either use the machines in the maths department labs, or you can use your own laptop running Windows, Linux, or macOS.
-The core requirements are Python 3, git, and a Python-aware text editor.
+work. You can either use the machines in the maths department labs, or
+you can use your own laptop running Windows, Linux, or macOS.  The
+core requirements are Python 3, git, and a Python-aware text editor.
 
 Using the Windows machines in the computer labs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

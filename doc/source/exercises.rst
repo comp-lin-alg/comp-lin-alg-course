@@ -241,13 +241,13 @@ Obviously if you are typing this in a folder other than the one
 containing the venv, you need to modify the path accordingly.
    
 Skeleton code documentation
----------------------------
+===========================
 
 There is web documentation for the complete :doc:`cla_utils`. There is
 also an :ref:`alphabetical index <genindex>` and a :ref:`search page<search>`.
 
 How to do the computational exercises
--------------------------------------
+=====================================
 
 For the computational exercises, quite a lot of the coding
 infrastructure you will need is provided already. Your task is to
@@ -267,7 +267,7 @@ changes to the main branch.
 
 
 Testing your work
------------------
+=================
 
 As you complete the exercises, there will often be test scripts which
 exercise the code you have just written. These are located in the
@@ -292,7 +292,7 @@ failing test::
 
 
 Coding style and commenting
----------------------------
+===========================
 
 Computer code is not just functional, it also conveys information to
 the reader. It is important to write clear, intelligible code. **The

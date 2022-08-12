@@ -56,7 +56,8 @@ Python language. But don't panic! Python is a very easy language to
 work with. This module will use Python 3. 
 
 If you haven't done any Python before, then go through `the official
-Python tutorial <https://docs.python.org/3/tutorial/index.html>`_.
+Python tutorial <https://docs.python.org/3/tutorial/index.html>`_
+(Sections 1 to 5 are a good start).
 
 The Matlab-like array features of Python are provided by `Numpy
 <http://www.numpy.org/>`_ for which there is a `helpful tutorial
@@ -65,7 +66,6 @@ handy `guide for Matlab users
 <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
 code provided in this course will always use Numpy arrays, and never
 Numpy matrices.
-
 
 .. _bitbucket-git:
 
@@ -126,7 +126,7 @@ lot easier to read::
    are `here
    <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
-Now go and do the `git tutorial
+There is an excellent `git tutorial
 <https://swcarpentry.github.io/git-novice/>`_ over at Software
 Carpentry.
 

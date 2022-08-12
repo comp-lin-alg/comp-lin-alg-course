@@ -25,7 +25,7 @@ Using your own machine
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Up to date information on how to install Python, Git, etc on a
-Windows, Linux or Mac machine is available `here
+Windows, Linux or Mac machine is available `at this location
 <https://imperial-fons-computing.github.io/>`_.
 
 Editing code
@@ -67,8 +67,6 @@ handy `guide for Matlab users
 <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
 code provided in this course will always use Numpy arrays, and never
 Numpy matrices.
-
-.. _bitbucket-git:
 
 GitHub and git
 --------------

@@ -39,6 +39,12 @@
    *Numerical Linear Algebra*. Another very useful reference is
    Golub and van Loan *Matrix Computations*.
 
+   The automated documentation for the skeleton code is below.
+
+   .. toctree::
+
+      cla_utils
+   
    We provide a complete set of notes for the course below, based on
    this material.
 	      

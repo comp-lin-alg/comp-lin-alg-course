@@ -22,8 +22,8 @@ Using the Windows machines in the computer labs
 
 Imperial's lab machines have the software you need installed, in some
 cases via the `Software Hub`. To get started, double click the
-`Software Hub` icon on the desktop or `click here
-<https://softwarehub.imperial.ac.uk/>`_. If you haven't used Python
+`Software Hub` icon on the desktop or visit the `Software Hub
+<https://softwarehub.imperial.ac.uk/>`_ page. If you haven't used Python
 and/or Git before, it is a good idea to use Visual Studio Code (VSCode)
 which is a Python-aware text editor, since VSCode also provides a command
 line and an interface to Git.
@@ -36,8 +36,7 @@ Using your own machine (recommended)
 ====================================
 
 Up to date information on how to install Python, Git and VSCode on a
-Windows, Linux or Mac machine is available `here
-<https://imperial-fons-computing.github.io/>`_.
+Windows, Linux or Mac machine is available at the `FONS Computing <https://imperial-fons-computing.github.io/>`_ page.
 
 Editing code
 ============
@@ -45,7 +44,8 @@ Editing code
 In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
 editors available and you can use any you like. One good option is
-called `Visual Studio Code`, with installation instructions `here
+called `Visual Studio Code`. This is the link to the `installation
+instructions
 <https://imperial-fons-computing.github.io/vscode.html>`_.
 
 The command line
@@ -55,7 +55,7 @@ A lot of the routine activity involved in this module revolves around
 executing commands on the Bash terminal (sometimes referred to as the
 "command line"). For example you use the terminal to work with the
 revision control system. If you're not familiar with the Linux
-terminal, then a brief guide `is available here
+terminal, then you can read this `brief guide to the terminal
 <http://www.tuxarena.com/static/intro_linux_cli.php>`_. That guide
 focusses on the Bash shell, which is the one we will use.
 
@@ -89,6 +89,7 @@ Numpy matrices.
 .. hint::
 
    In VSCode, to ensure you are using the correct Python interpreter,
+
    1. Go to the View menu and select the Command Palette.
    2. Start typing "Python: Select Interpreter", and click on it when it
       comes up.
@@ -152,8 +153,7 @@ lot easier to read::
    If you are a more confident computer user, you could go ahead and
    set up git to work with ssh, the secure shell. This will save a lot
    of password typing but it's not essential so if you are not so
-   confident with computers, you can skip this bit. The instructions
-   are `here
+   confident with computers, you can skip this bit. You can follow these `ssh key generating instructions
    <https://help.github.com/articles/generating-an-ssh-key/>`_.
    
 If you haven't used Git before, it might be a good idea to look at the
@@ -196,7 +196,7 @@ of the repository, and it may be necessary to set up "ssh keys" for this.
 
 .. hint::
 
-   If you get stuck cloning your repository, try reading `this
+   If you get stuck cloning your repository, try reading the `FONS help on git
    <https://imperial-fons-computing.github.io/git.html>`_.
 
 Setting up your venv
@@ -222,7 +222,7 @@ activated.
 
 .. hint::
 
-   If you get stuck with your venv, try reading `this
+   If you get stuck with your venv, try reading the `FONS help on venvs
    <https://imperial-fons-computing.github.io/python.html#python-virtual-environments>`_.
 
 Activating your venv

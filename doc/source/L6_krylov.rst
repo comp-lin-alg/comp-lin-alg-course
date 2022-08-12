@@ -266,30 +266,6 @@ We are now in position to present the GMRES algorithm as pseudo-code.
    is the Q matrix for the Arnoldi iteration, and the Q matrix for
    the least squares problem. These are not the same.
 
-.. proof:exercise::
-
-   We can also make GMRES more efficient by exploiting the upper
-   Hessenberg structure, since we only have one non-zero value below
-   the diagonal in each column. Instead of using a Householder
-   transformation, we can use a Givens rotation, which only alters
-   two rows (the row corresponding to the diagonal, and the row
-   below). The Givens rotation simply replaces these two rows
-   (call them `r_k` and `r_{k+1}`) by
-
-      .. math::
-
-	 \hat{r}_k = \cos(\theta) r_k + \sin(\theta) r_{k+1},
-
-	 \hat{r}_{k+1} = -\sin(\theta) r_k + \cos(\theta) r_{k+1}.
-
-   where the angle `\theta` is chosen so that `\hat{r}_{k+1,k}=0`.
-   This is cheaper, because we only update two rows, but still
-   corresponds to a unitary transformation. (Note that a slightly more
-   general formula is required for complex matrices, but the tests
-   have been set up for real matrices only.) Modify your code so it
-   uses Givens rotations to make it more efficient. Don't forget to
-   check that it still passes the test.
-
 Convergence of GMRES
 --------------------
 

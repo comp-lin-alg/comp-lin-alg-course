@@ -16,6 +16,19 @@ computational exercises.
 You can either use the machines in the maths department labs, or
 you can use your own laptop running Windows, Linux, or macOS. 
 
+There is a lot of information below, but here is a summary checklist to
+check that you have everything ready to do your work.
+
+   1. Install Python, Git and a text editor using the instructions below.
+   2. Check out your course repository from Github Classroom.
+   3. Create a virtual environment (venv) in your course repository.
+   4. Activate the venv.
+   5. Install the course module to the venv.
+   6. Install `numpy` to the venv.
+   7. Remember to activate the venv every time you work on the course module.
+      
+To follow these steps read the information below.
+   
 Editing code
 ============
 
@@ -355,6 +368,10 @@ activated). You may need to install it first using `python -m install
 ipython`. Then you can import `cla_utils` interactively using `from
 cla_utils import *`. To exit IPython type Ctrl-D.
 
+.. hint::
+
+   Here is some `Information about IPython <https://object-oriented-python.github.io/2_programs_in_files.html#ipython>`_.
+
 If you also import `numpy` then you can create
 example `numpy` arrays and pass them to `cla_utils` functions to try
 them out. You can also do this in a script, e.g.::
@@ -366,8 +383,8 @@ them out. You can also do this in a script, e.g.::
 		  [0.0,0.0,1.,0.,0.],
 		  [0.0,0.0,0.,1.,0.],
 		  [0.0,0.0,0.,0.,1.]])
-  xr = numpy.array([1.,2.,1.,0.5,0.,0.3])
-  xi = numpy.array([1.1,0.2,0.,1.5,0.,-0.7])
+  xr = numpy.array([1.,2.,1.,0.5,0.3])
+  xi = numpy.array([1.1,0.2,0.,1.5,-0.7])
   ABiC(A, xr, xi)
 
 After saving your text to a script with a filename ending in `.py`,
@@ -375,6 +392,10 @@ e.g.  `run_ABiC.py`, you can execute the script in the Terminal by
 typing `python run_ABiC.py` (remember to change to the folder where
 the file is located). Scripts are better because you can run the whole
 thing again more easily if you make a mistake, and you can save them.
+
+.. hint::
+
+   Here is some `information about Python scripts <https://object-oriented-python.github.io/2_programs_in_files.html#python-scripts-and-text-editors>`_.
 
 .. warning::
 

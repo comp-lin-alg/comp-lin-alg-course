@@ -14,9 +14,12 @@
    <http://www.imperial.ac.uk/maths>`_  module
    MATH96023/MATH97032/MATH97140 - Computational Linear Algebra.
 
-.. warning:: This course is still under construction. There will be
-   updates and a new Github Classroom project for 2022/23 academic
-   year. Do not attempt to clone the exercises repository yet.
+   .. warning::
+
+      This course is still under construction. There will be
+      updates and a new Github Classroom project for 2022/23
+      academic year. Do not attempt to clone the exercises
+      repository yet.
    
    .. toctree::
 

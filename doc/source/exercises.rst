@@ -14,42 +14,48 @@ In this section, we will explain how to get set up to do the
 computational exercises.
 
 You can either use the machines in the maths department labs, or
-you can use your own laptop running Windows, Linux, or macOS.  The
-core requirements are Python 3, git, and a Python-aware text editor.
-
-Using the Windows machines in the computer labs
-===============================================
-
-Imperial's lab machines have the software you need installed, in some
-cases via the `Software Hub`. To get started, double click the
-`Software Hub` icon on the desktop or visit the `Software Hub
-<https://softwarehub.imperial.ac.uk/>`_ page. If you haven't used Python
-and/or Git before, it is a good idea to use Visual Studio Code (VSCode)
-which is a Python-aware text editor, since VSCode also provides a command
-line and an interface to Git.
-
-Alternatively, from Software Hub you can run `git`, which will give
-you a terminal to run git and Python commands, and `atom`, which will
-provide you with an editor.
-
-Using your own machine (recommended)
-====================================
-
-Up to date information on how to install Python, Git and VSCode on a
-Windows, Linux or Mac machine is available at the `FONS Computing <https://imperial-fons-computing.github.io/>`_ page.
+you can use your own laptop running Windows, Linux, or macOS. 
 
 Editing code
 ============
 
 In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
-editors available and you can use any you like. One good option is
-called `Visual Studio Code`. This is the link to the `installation
-instructions
+editors available and you can use any you like, but you haven't used
+Python and/or Git before, it is a good idea to use Visual Studio Code
+(VSCode) which is a Python-aware text editor, since VSCode also
+provides a command line and an interface to Git.
+
+Getting the software that you need
+==================================
+
+The
+core requirements are Python 3, git, and a Python-aware text editor.
+
+Using your own machine (recommended)
+------------------------------------
+
+Up to date information on how to install Python, Git and VSCode on a
+Windows, Linux or Mac machine is available at the `FONS Computing
+<https://imperial-fons-computing.github.io/>`_ page.
+
+
+Using the Windows machines in the computer labs
+-----------------------------------------------
+
+Imperial's lab machines have the software you need installed, in some
+cases via the `Software Hub`. To get started, double click the
+`Software Hub` icon on the desktop or visit the `Software Hub
+<https://softwarehub.imperial.ac.uk/>`_ page.
+
+Alternatively, from Software Hub you can run `git`, which will give
+you a terminal to run git and Python commands, and `atom`, which will
+provide you with an editor. This is the link to the `VSCode
+installation instructions
 <https://imperial-fons-computing.github.io/vscode.html>`_.
 
 The command line
-----------------
+================
 
 A lot of the routine activity involved in this module revolves around
 executing commands on the Bash terminal (sometimes referred to as the
@@ -67,7 +73,7 @@ focusses on the Bash shell, which is the one we will use.
    select the interpreter, which needs to be Bash.
 
 Python
-------
+======
 
 Your implementation will be written in Python based on a code skeleton
 provided. This means that you'll need a certain familiarity with the
@@ -91,7 +97,7 @@ Numpy matrices.
    In VSCode, to ensure you are using the correct Python interpreter,
 
    1. Go to the View menu and select the Command Palette.
-   2. Start typing "Python: Select Interpreter", and click on it when it
+   2. Start typing `Python: Select Interpreter`, and click on it when it
       comes up.
    3. Select the correct Python interpreter from the pulldown menu (on
       Mac, the one you installed from Homebrew or Anaconda, on
@@ -100,7 +106,7 @@ Numpy matrices.
 .. _bitbucket-git:
 
 GitHub and git
---------------
+==============
 
 Revision control is a mechanism for recording and managing different
 versions of changing software. This enables changes to be tracked and
@@ -119,7 +125,7 @@ We will be using the revision control system `git
 widely adopted. We'll be combining git with the online hosting service GitHub.
 
 Getting started with git and GitHub
-===================================
+-----------------------------------
 
 The very first thing you'll need is a GitHub account. Navigate to
 `GitHub <https://github.com/>`_ and sign up.
@@ -160,9 +166,6 @@ If you haven't used Git before, it might be a good idea to look at the
 excellent `git tutorial <https://swcarpentry.github.io/git-novice/>`_
 over at Software Carpentry.
 
-Obtaining the skeleton code
----------------------------
-
 Setting up your repository
 ==========================
 
@@ -172,7 +175,7 @@ copies of the repository. This classroom will be updated for the
 2022/23 academic year.
 
 Cloning a local copy
-====================
+--------------------
 
 At the Terminal on your working machine type::
 
@@ -200,7 +203,7 @@ of the repository, and it may be necessary to set up "ssh keys" for this.
    <https://imperial-fons-computing.github.io/git.html>`_.
 
 Setting up your venv
-====================
+--------------------
 
 We're going to use a Python Virtual Environment (venv). This is a
 private Python environment in which we'll install the packages we
@@ -209,8 +212,9 @@ interference between this project and anything else which might be
 using Python on the system.  You need to get this right or we won't be
 able to mark your code correctly.
 
-In your Terminal, change folder to the repository that you just checked
-out. Then, create the venv by typing::
+In your Terminal, change folder to the repository that you just
+checked out (this should contain folders called `doc`, `cla_utils`,
+`test`, etc.). Then, create the venv by typing::
 
   python3 -m venv clavenv
 
@@ -222,24 +226,55 @@ activated.
 
 .. hint::
 
+   To change folder in the terminal, type `cd <path>` where `<path>`
+   is the path to the folder you want to change to. Paths can be
+   "absolute" e.g. `/home/users/jbloggs/comp-lin-alg/` or "relative"
+   e.g. if you are currently in `/home/users/jbloggs` then you can use
+   `comp-lin-alg`.  Typing `pwd` shows the current path, and typing
+   `ls` shows the contents of the current folder.  Typing `cd ..`
+   changes to the enclosing folder, and typing `cd -` changes back to
+   the previous folder. For more information see the "brief guide to
+   the terminal" linked above.
+
+.. hint::
+
    If you get stuck with your venv, try reading the `FONS help on venvs
    <https://imperial-fons-computing.github.io/python.html#python-virtual-environments>`_.
 
 Activating your venv
-====================
+--------------------
 
 **Every time** you want to work on the implementation exercise, you need
-to activate the venv. On Linux or Mac do this with::
+to activate the venv. On Linux or Mac do this in the Terminal with::
 
   source venv/bin/activate
 
-while on Windows the command is::
+This assumes that you have already changed folder to the repository
+that you just checked out (this should contain folders called `doc`,
+`cla_utils`, `test`, etc.). Otherwise, you need to provide the full
+path to `venv/bin/activate`.
+  
+On Windows the command is::
 
   source venv/Scripts/activate
 
 Obviously if you are typing this in a folder other than the one
 containing the venv, you need to modify the path accordingly.
-   
+
+Installing the course package to the venv
+-----------------------------------------
+
+In this course we will be working on skeleton code stored as a Python
+package in the repository. This means that we will be able to import
+everything as a module using `from cla_utils import *` without needing
+to be in a particular directory. This is what makes the tests work,
+for example.
+
+To do this:
+   1. Activate the venv as above.
+   2. Change folder to the repository that you just checked out (this
+should contain folders called `doc`, `cla_utils`, `test`, etc.).
+
 Skeleton code documentation
 ===========================
 

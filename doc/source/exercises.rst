@@ -237,7 +237,8 @@ checked out (this should contain folders called `doc`, `cla_utils`,
 
   python3 -m venv clavenv
 
-This creates a venv called "clavenv" (you can choose another name).
+This creates a venv called "clavenv" (it is recommended you keep this
+name to avoid spuriously committing venv files to the git repository).
 
 In VSCode, you will be asked if you want to make this venv the default
 for your project. Select "yes" as this will help to ensure that it is

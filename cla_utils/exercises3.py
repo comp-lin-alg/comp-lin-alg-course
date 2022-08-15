@@ -4,7 +4,8 @@ import numpy as np
 def householder(A, kmax=None):
     """
     Given a real mxn matrix A, find the reduction to upper triangular matrix R
-    using Householder transformations.
+    using Householder transformations. The reduction should be done "in-place",
+    so that A is transformed to R.
 
     :param A: an mxn-dimensional numpy array
     :param kmax: an integer, the number of columns of A to reduce \
@@ -19,8 +20,6 @@ def householder(A, kmax=None):
         kmax = n
 
     raise NotImplementedError
-
-    return R
 
 
 def householder_solve(A, b):

@@ -198,12 +198,13 @@ for the course <https://classroom.github.com/a/_2R-riXF>`_.
 
 .. warning::
 
-   When you follow the link, you will be asked to select your "school's
-   identifier" from a list. This will be your user ID that you use to log
-   into Outlook (e.g., sbc21). If you don't find your name on the list,
-   *do not* click "Skip to the next step". Instead, contact Professor
-   Cotter and ask to have your user ID added. We need to do this so that
-   we can grade your work.
+   When you follow the link, you will be asked to select your
+   "school's identifier" from a list. This will be your user ID that
+   you use to log into Outlook (e.g., sbc21). If you don't find your
+   ID on the list, *do not* click "Skip to the next step". And, *do
+   not* click someone else's ID! Instead, contact Professor Cotter
+   and ask to have your user ID added. We need to do this so that we
+   can grade your work.
 
 Cloning a local copy
 --------------------

@@ -170,6 +170,16 @@ for code blocks in pseudo-code in these notes.)
    a new array to store `R`). The test script ``test_exercises2.py``
    in the ``test`` directory will test this function.
 
+.. tip::
+
+   The $(\ddagger)$ symbol in an exercise indicates that the code for
+   that exercise is in scope for use in the coursework. When the code
+   is used in the coursework, we will grade the code quality, for
+   appropriate use of Numpy slice operations, efficient use of array
+   memory, loop minimisation, and avoiding computation inside loops
+   that could be done beforehand.
+
+
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
 

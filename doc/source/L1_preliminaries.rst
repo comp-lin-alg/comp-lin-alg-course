@@ -485,6 +485,9 @@ The following identity is very important when dealing with adjoints.
 
 .. proof:exercise::
 
+   (This is an advanced exercise if the other exercises are complete.
+   If you are behind on the exercises please skip this one.)
+   
    Consider a matrix `A=B + iC` where `B,C\in\mathbb{R}^{m\times m}`
    and `A` is Hermitian. Show that `B=B^T` and `C=-C^T`. To save
    memory, instead of storing values of `A` (`m\times m` complex

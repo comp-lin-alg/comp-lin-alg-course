@@ -1,3 +1,5 @@
+.. _comp_exercises:
+
 =========================
  Computational exercises
 =========================

@@ -12,7 +12,8 @@ that should be found in an undergraduate linear algebra course.
 .. hint::
 
    Before you attempt any exercises, you need to make sure that you
-   have everything you need set up on your computer.
+   have everything you need set up on your computer. See the checklist
+   in :ref:`the exercises section <comp_exercises>`.
 
 Matrices, vectors and matrix-vector multiplication
 ==================================================

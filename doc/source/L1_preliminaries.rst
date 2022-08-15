@@ -382,9 +382,14 @@ In other words,
 
       = ZA.
 
-We call `Z` a (left) inverse of `A`. (Exercises: show that `Z` is
-the unique left inverse of `A`, and show that `Z` is also the unique
-right inverse of `A`, satisfying `I = AZ`.) We write `Z=A^{-1}`.
+We call `Z` a (left) inverse of `A`.
+
+.. exercise::
+
+   Prove that `Z` is the unique left inverse of `A`, and prove that `Z`
+   is also the unique right inverse of `A`, satisfying `I = AZ`.
+
+We write `Z=A^{-1}`.
 
 The first four parts of the next theorem are a consequence of what
 we have so far, and we shall quote the fifth and sixth (see a linear algebra

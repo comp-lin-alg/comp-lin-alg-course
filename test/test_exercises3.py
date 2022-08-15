@@ -10,7 +10,8 @@ def test_householder(m):
     random.seed(1878*m)
     A = random.randn(m, m)
     A0 = 1.0*A  # make a deep copy
-    R = cla_utils.householder(A0)
+    cla_utils.householder(A0)
+    R = A0
     assert(np.allclose(R, np.triu(R)))  # check R is upper triangular
     assert(np.linalg.norm(np.dot(R.T, R) - np.dot(A.T, A)) < 1.0e-6)
 

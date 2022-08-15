@@ -300,41 +300,41 @@ requires `m-k+1` multiplications and subtractions, and is iterated
    for a memory-efficient 'in-place' algorithm in which the matrix `A`
    is modified until it contains the values for `L` and `U`.
 
-   The :func:`cla_utils.exercises6.LU_inplace` function has been left
-   unimplemented. It should implement this in-place low-storage
-   procedure, applying the changes to the provided matrix `A`.  The
-   test script ``test_exercises6.py`` in the ``test`` directory will
-   test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises6.LU_inplace` function
+   has been left unimplemented. It should implement this in-place
+   low-storage procedure, applying the changes to the provided matrix
+   `A`.  The test script ``test_exercises6.py`` in the ``test``
+   directory will test this function.
 
 .. proof:exercise::
 
-   The LU factorisation requires 3 loops (this is why it has a cubic
-   FLOP count). In the algorithm above, there are two explicit loops
-   and one explicit one (in the slice notation). It is possible to
-   rewrite this in a single loop, using an outer product. Identify
-   this outer product, and update
+   `(\ddagger)` The LU factorisation requires 3 loops (this is why it
+   has a cubic FLOP count). In the algorithm above, there are two
+   explicit loops and one explicit one (in the slice notation). It is
+   possible to rewrite this in a single loop, using an outer
+   product. Identify this outer product, and update
    :func:`cla_utils.exercises6.LU_inplace` to make use of this
    reformulation (using :func:`numpy.outer`). Do you notice any
    improvement in speed?
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises6.solve_L` has been left
-   unimplemented.  It should use forward substitution to solve lower
-   triangular systems. The interfaces are set so that multiple right
-   hand sides can be provided and solved at the same time. The
-   functions should only use one loop over the rows of `L`, to
-   efficiently solve the multiple problems. The test script
+   `(\ddagger)` The function :func:`cla_utils.exercises6.solve_L` has
+   been left unimplemented.  It should use forward substitution to
+   solve lower triangular systems. The interfaces are set so that
+   multiple right hand sides can be provided and solved at the same
+   time. The functions should only use one loop over the rows of `L`,
+   to efficiently solve the multiple problems. The test script
    ``test_exercises6.py`` in the ``test`` directory will test these
    functions.
 
 .. proof:exercise::
 
-   Propose an algorithm to use the LU factorisation to compute the
-   inverse of a matrix.  The functions
-   :func:`cla_utils.exercises6.inverse_LU` has been left unimplemented.
-   Complete it using your algorithm, using functions developed in the
-   previous exercises where possible. The test script
+   `(\ddagger)` Propose an algorithm to use the LU factorisation to
+   compute the inverse of a matrix.  The functions
+   :func:`cla_utils.exercises6.inverse_LU` has been left
+   unimplemented.  Complete it using your algorithm, using functions
+   developed in the previous exercises where possible. The test script
    ``test_exercises6.py`` in the ``test`` directory will test these
    functions.
 
@@ -495,9 +495,9 @@ complete pivoting, `PAQ=LU`.
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises7.perm` has been left
-   unimplemented. It should take an `m\times m` permutation matrix
-   `P`, stored as an (integer-valued) array of indices
+   `(\ddagger)` The function :func:`cla_utils.exercises7.perm` has
+   been left unimplemented. It should take an `m\times m` permutation
+   matrix `P`, stored as an (integer-valued) array of indices
    `p\in\mathbb{N}^m` so that `(Px)_i = x_{p_i}`, `i=1,2,\ldots, m`,
    and replace it with the matrix `P_{i,j}P` (also stored as a array
    of indices) where `P_{i,j}` is the permutation matrix that
@@ -508,31 +508,32 @@ complete pivoting, `PAQ=LU`.
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises7.LUP_inplace` has been left
-   unimplemented. It should extend the in-place algorithm for LU
-   factorisation (with the outer-product formulation, if you managed
-   it) to the LUP factorisation. As well as computing L and U "in
-   place" in the array where the input A is stored, it will compute a
-   permutation matrix, which can and should be constructed using
-   :func:`cla_utils.exercises7.perm`.The test script
+   `(\ddagger)` The function :func:`cla_utils.exercises7.LUP_inplace`
+   has been left unimplemented. It should extend the in-place
+   algorithm for LU factorisation (with the outer-product formulation,
+   if you managed it) to the LUP factorisation. As well as computing L
+   and U "in place" in the array where the input A is stored, it will
+   compute a permutation matrix, which can and should be constructed
+   using :func:`cla_utils.exercises7.perm`.The test script
    ``test_exercises7.py`` in the ``test`` directory will test this
    function.
 
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises7.solve_LUP` has been left
-   unimplemented. It should use the LUP code that you have written to
-   solve the equation `Ax=b` for `x` given inputs `A` and `b`.  The
-   test script ``test_exercises7.py`` in the ``test`` directory will
-   test this function.
+   `(\ddagger)` The function :func:`cla_utils.exercises7.solve_LUP`
+   has been left unimplemented. It should use the LUP code that you
+   have written to solve the equation `Ax=b` for `x` given inputs `A`
+   and `b`.  The test script ``test_exercises7.py`` in the ``test``
+   directory will test this function.
 
 .. proof:exercise::
 
-   Show how to compute the determinant of `A` from the LUP
-   factorisation in `\mathcal{O}(m)` time (having already constructed
-   the LUP factorisation which costs `\mathcal{O}(m^3)`). Complete the
-   function :func:`cla_utils.exercises7.det_LUP` to implement this
+   `(\ddagger)` Show how to compute the determinant of `A` from the
+   LUP factorisation in `\mathcal{O}(m)` time (having already
+   constructed the LUP factorisation which costs
+   `\mathcal{O}(m^3)`). Complete the function
+   :func:`cla_utils.exercises7.det_LUP` to implement this
    computation. The test script ``test_exercises7.py`` in the ``test``
    directory will test this function.
 

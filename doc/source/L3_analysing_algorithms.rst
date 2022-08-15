@@ -238,14 +238,14 @@ and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
    compute). Hence, given those eigenvalues, provide an expression
    for the operator norm of `A`.
 
-   The :func:`cla_utils.exercises4.operator_2_norm` function has been
-   left unimplemented. It takes in an `m\times n` matrix `A` and
-   returns the operator norm using the procedure in this exercise.
-   You may use the built in function :func:`numpy.linalg.eig` to
-   compute the eigenvalues of any matrices that you need. (We will
-   discuss algorithms to compute eigenvalues later in the course.) The
-   test script ``test_exercises4.py`` in the ``test`` directory will
-   test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises4.operator_2_norm`
+   function has been left unimplemented. It takes in an `m\times n`
+   matrix `A` and returns the operator norm using the procedure in
+   this exercise.  You may use the built in function
+   :func:`numpy.linalg.eig` to compute the eigenvalues of any matrices
+   that you need. (We will discuss algorithms to compute eigenvalues
+   later in the course.) The test script ``test_exercises4.py`` in the
+   ``test`` directory will test this function.
 
 .. proof:exercise::
 
@@ -529,10 +529,10 @@ number for this problem is the condition number of `A`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises4.cond` function has been left
-   unimplemented. It takes in an `m\times m` matrix `A` and returns
-   the condition number. You should use a method similar to that in
-   :numref:`Exercise {number}<o2norm>`, using the
+   `(\ddagger)` The :func:`cla_utils.exercises4.cond` function has
+   been left unimplemented. It takes in an `m\times m` matrix `A` and
+   returns the condition number. You should use a method similar to
+   that in :numref:`Exercise {number}<o2norm>`, using the
    :func:`numpy.linalg.eig` to compute the eigenvalues of any matrices
    that you need. Try to think about minimising the number of
    eigenvalue calculations you need to do. The test script

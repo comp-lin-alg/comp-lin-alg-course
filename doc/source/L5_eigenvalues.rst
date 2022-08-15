@@ -295,14 +295,14 @@ for computing the QR factorisation.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises8.hessenberg` function has been left
-   unimplemented. It should implement the algorithm above, using only
-   one loop over `k`. It should work "in-place", changing the input
-   matrix. At the left multiplication, your implementation should
-   exploit the fact that zeros do not need to be recomputed where
-   there are already expected to be zeros. The test script
-   ``test_exercises8.py`` in the ``test`` directory will test this
-   function.
+   `(\ddagger)` The :func:`cla_utils.exercises8.hessenberg` function
+   has been left unimplemented. It should implement the algorithm
+   above, using only one loop over `k`. It should work "in-place",
+   changing the input matrix. At the left multiplication, your
+   implementation should exploit the fact that zeros do not need to be
+   recomputed where there are already expected to be zeros. The test
+   script ``test_exercises8.py`` in the ``test`` directory will test
+   this function.
 
 To calculate the operation count, we see that the algorithm is
 dominated by the two updates to `A`, the first of which applies a
@@ -350,13 +350,13 @@ for some `\delta A`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises8.hessenbergQ` function has been left
-   unimplemented. It should implement the Hessenberg algorithm again
-   (you can just copy paste the code from the previous exercise) but
-   it should also return the matrix `Q` such that `QHQ^*=A`. You need
-   to work out how to alter the algorithm to construct this. The test
-   script ``test_exercises8.py`` in the ``test`` directory will test
-   this function.
+   `(\ddagger)` The :func:`cla_utils.exercises8.hessenbergQ` function
+   has been left unimplemented. It should implement the Hessenberg
+   algorithm again (you can just copy paste the code from the previous
+   exercise) but it should also return the matrix `Q` such that
+   `QHQ^*=A`. You need to work out how to alter the algorithm to
+   construct this. The test script ``test_exercises8.py`` in the
+   ``test`` directory will test this function.
 
 .. proof:exercise::
 
@@ -532,11 +532,11 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises9.pow_it` function has been left
-   unimplemented. It should apply power iteration to a given matrix
-   and initial vector, according to the docstring. The test script
-   ``test_exercises9.py`` in the ``test`` directory will test this
-   function.
+   `(\ddagger)` The :func:`cla_utils.exercises9.pow_it` function has
+   been left unimplemented. It should apply power iteration to a given
+   matrix and initial vector, according to the docstring. The test
+   script ``test_exercises9.py`` in the ``test`` directory will test
+   this function.
 
 .. proof:exercise::
 
@@ -592,11 +592,11 @@ eigenvalues by choosing `\mu`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises9.inverse_it` function has been left
-   unimplemented. It should apply inverse iteration to a given matrix
-   and initial vector, according to the docstring. The test script
-   ``test_exercises9.py`` in the ``test`` directory will test this
-   function.
+   `(\ddagger)` The :func:`cla_utils.exercises9.inverse_it` function
+   has been left unimplemented. It should apply inverse iteration to a
+   given matrix and initial vector, according to the docstring. The
+   test script ``test_exercises9.py`` in the ``test`` directory will
+   test this function.
 
 .. proof:exercise::
 
@@ -642,11 +642,11 @@ Thus we have cubic convergence, which is super fast!
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises9.rq_it` function has been left
-   unimplemented. It should apply inverse iteration to a given matrix
-   and initial vector, according to the docstring. The test script
-   ``test_exercises9.py`` in the ``test`` directory will test this
-   function.
+   `(\ddagger)` The :func:`cla_utils.exercises9.rq_it` function has
+   been left unimplemented. It should apply inverse iteration to a
+   given matrix and initial vector, according to the docstring. The
+   test script ``test_exercises9.py`` in the ``test`` directory will
+   test this function.
 
 .. proof:exercise::
 
@@ -680,10 +680,10 @@ written as pseudo-code.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises9.pure_QR` function has been left
-   unimplemented. It should implement the pure QR algorithm as above,
-   using your previous code for finding the QR factorisation using
-   Householder transformations. You should think about avoiding
+   `(\ddagger)` The :func:`cla_utils.exercises9.pure_QR` function has
+   been left unimplemented. It should implement the pure QR algorithm
+   as above, using your previous code for finding the QR factorisation
+   using Householder transformations. You should think about avoiding
    unecessary allocation of new numpy arrays inside the loop. The
    method of testing for convergence has been left as well. Have a
    think about how to do this and document your implementation. The

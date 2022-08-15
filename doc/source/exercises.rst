@@ -280,6 +280,19 @@ To do this:
    1. Activate the venv as above.
    2. Change folder to the repository that you just checked out (this
 should contain folders called `doc`, `cla_utils`, `test`, etc.).
+   3. Type `python -m pip install -e .`
+
+The package has a dependency on Numpy (Numeric Python). To install
+Numpy, follow steps 1-2 above and then type `python -m pip install
+numpy`.
+
+.. hint::
+
+   Here is some useful information on `Modules
+   <https://object-oriented-python.github.io/2_programs_in_files.html#modules>`_
+   and `Packages
+   <https://object-oriented-python.github.io/2_programs_in_files.html#packages>`_
+   that might be useful later.
 
 How to do the computational exercises
 =====================================
@@ -329,12 +342,51 @@ and debug than large ones.
    Do not commit to the feedback branch.  This branch is just there so
    that we can provide feedback on your changes to the main branch,
    and if you commit there, it will mess up our marking system.
-   
+
+Running your work
+=================
+
+If you want to execute your code written in `cla_utils`, this can be
+imported into IPython (in the terminal, or using a Jupyter notebook),
+or in a script.
+
+To use IPython, type `ipython` in the Terminal (when the venv is
+activated). You may need to install it first using `python -m install
+ipython`. Then you can import `cla_utils` interactively using `from
+cla_utils import *`. To exit IPython type Ctrl-D.
+
+If you also import `numpy` then you can create
+example `numpy` arrays and pass them to `cla_utils` functions to try
+them out. You can also do this in a script, e.g.::
+
+  from cla_utils import *
+  from numpy import *
+  A = numpy.array([[1.0,2.0,0.,0.,1.0+1.0j],
+                  [0.0,1.0,3.,0.,0.],
+		  [0.0,0.0,1.,0.,0.],
+		  [0.0,0.0,0.,1.,0.],
+		  [0.0,0.0,0.,0.,1.]])
+  xr = numpy.array([1.,2.,1.,0.5,0.,0.3])
+  xi = numpy.array([1.1,0.2,0.,1.5,0.,-0.7])
+  ABiC(A, xr, xi)
+
+After saving your text to a script with a filename ending in `.py`,
+e.g.  `run_ABiC.py`, you can execute the script in the Terminal by
+typing `python run_ABiC.py` (remember to change to the folder where
+the file is located). Scripts are better because you can run the whole
+thing again more easily if you make a mistake, and you can save them.
+
+.. warning::
+
+   Don't clutter up your repository by adding these experimental scripts
+   with `git add`. If you want to store them it is best to use another
+   separate git repository for that.
+
 Testing your work
 =================
 
 As you complete the exercises, there will often be test scripts which
-exercise the code you have just written. These are located in the
+check the code you have just written. These are located in the
 ``test`` folder and employ the `pytest <http://pytest.org/>`_
 testing framework. You run the tests with:: 
 
@@ -354,6 +406,8 @@ failing test::
 
   py.test -x tests/
 
+You should make sure that your code passes tests before moving on
+to the next exercise.
 
 Coding style and commenting
 ===========================

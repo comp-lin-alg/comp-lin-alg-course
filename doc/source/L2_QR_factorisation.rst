@@ -161,7 +161,7 @@ for code blocks in pseudo-code in these notes.)
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.GS_classical` function has been
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function has been
    left unimplemented. It should implement the classical Gram-Schmidt
    algorithm above, using Numpy slice notation so that only one Python
    for loop is used. The function should work "in place" by making a
@@ -170,9 +170,9 @@ for code blocks in pseudo-code in these notes.)
    a new array to store `R`). The test script ``test_exercises2.py``
    in the ``test`` directory will test this function.
 
-.. tip::
+.. hint::
 
-   The $(\ddagger)$ symbol in an exercise indicates that the code for
+   The `(\ddagger)` symbol in an exercise indicates that the code for
    that exercise is in scope for use in the coursework. When the code
    is used in the coursework, we will grade the code quality, for
    appropriate use of Numpy slice operations, efficient use of array
@@ -315,7 +315,7 @@ in `A` with the `v` s and eventually the `q` s.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.GS_modified` function has been
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_modified` function has been
    left unimplemented. It should implement the modified Gram-Schmidt
    algorithm above, using Numpy slice notation where possible.
    What is the minimal number of Python
@@ -665,11 +665,11 @@ columns from `r` to `s`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises3.householder` function has been left
-   unimplemented. It should implement the algorithm above, using only
-   one loop over `k`. It should return the resulting `R` matrix. The
-   test script ``test_exercises3.py`` in the ``test`` directory will
-   test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises3.householder` function
+   has been left unimplemented. It should implement the algorithm
+   above, using only one loop over `k`. It should return the resulting
+   `R` matrix. The test script ``test_exercises3.py`` in the ``test``
+   directory will test this function.
 
 .. hint::
 
@@ -708,11 +708,11 @@ We call this procedure "implicit multiplication".
 
 .. proof:exercise::
 
-   The function :func:`cla_utils.exercises3.solve_U` has been left
-   unimplemented.  It should use backward substitution to solve upper
-   triangular systems. The interfaces are set so that multiple right
-   hand sides can be provided and solved at the same time. The
-   functions should only use one loop over the rows of `U`,
+   `(\ddagger)` The function :func:`cla_utils.exercises3.solve_U` has
+   been left unimplemented.  It should use backward substitution to
+   solve upper triangular systems. The interfaces are set so that
+   multiple right hand sides can be provided and solved at the same
+   time. The functions should only use one loop over the rows of `U`,
    to efficiently solve the multiple problems. The test script
    ``test_exercises3.py`` in the ``test`` directory will test these
    functions.
@@ -720,8 +720,8 @@ We call this procedure "implicit multiplication".
 
 .. proof:exercise::
 
-   Show that the implicit multiplication procedure is equivalent to computing
-   an extended array
+   `(\ddagger)` Show that the implicit multiplication procedure is
+   equivalent to computing an extended array
 
       .. math::
 
@@ -794,10 +794,11 @@ with each column using the `Q` application algorithm described above.
 
 .. proof:exercise::
 
-   Show that the implicit multiplication procedure applied to the
-   columns of `I` produces `Q^*`, from which we can easily obtain `Q`,
-   explaining how. Show how to implement this by applying Householder
-   to an augmented matrix `\hat{A}` of some appropriate form.
+   `(\ddagger)` Show that the implicit multiplication procedure
+   applied to the columns of `I` produces `Q^*`, from which we can
+   easily obtain `Q`, explaining how. Show how to implement this by
+   applying Householder to an augmented matrix `\hat{A}` of some
+   appropriate form.
 
    The :func:`cla_utils.exercises3.householder_qr` function has been
    left unimplemented. It takes in the `m\times n` array `A` and
@@ -891,17 +892,17 @@ pseudo-code.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises3.householder_ls` function has been
-   left unimplemented. It takes in the `m\times n` array `A` and a
-   right-hand side vector `b` and solves the least squares problem
-   minimising `\|Ax-b\|` over `x`. It should do this by forming an
-   appropriate augmented matrix `\hat{A}`, calling
+   `(\ddagger)` The :func:`cla_utils.exercises3.householder_ls`
+   function has been left unimplemented. It takes in the `m\times n`
+   array `A` and a right-hand side vector `b` and solves the least
+   squares problem minimising `\|Ax-b\|` over `x`. It should do this
+   by forming an appropriate augmented matrix `\hat{A}`, calling
    :func:`cla_utils.exercises3.householder` and extracting appropriate
    subarrays using slice notation, before using
-   :func:`scipy.linalg.solve_triangular` to solve the resulting upper triangular
-   system, before returning the solution `x`. The test script
-   ``test_exercises3.py`` in the ``test`` directory will also test this
-   function.
+   :func:`scipy.linalg.solve_triangular` to solve the resulting upper
+   triangular system, before returning the solution `x`. The test
+   script ``test_exercises3.py`` in the ``test`` directory will also
+   test this function.
 
 .. hint::
 

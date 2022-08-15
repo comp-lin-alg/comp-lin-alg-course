@@ -319,15 +319,14 @@ requires `m-k+1` multiplications and subtractions, and is iterated
 
 .. proof:exercise::
 
-   The functions :func:`cla_utils.exercises6.solve_L` and
-   :func:`cla_utils.exercises6.solve_U` have been left unimplemented.
-   They should use forward and backward substitution to solve lower
-   and upper triangular systems respectively. The interfaces are set
-   so that multiple right hand sides can be provided and solved at the
-   same time. The functions should only use one loop over the rows
-   of `L` (or `U`), to efficiently solve the multiple problems. The
-   test script ``test_exercises6.py`` in the ``test`` directory will
-   test these functions.
+   The function :func:`cla_utils.exercises6.solve_L` has been left
+   unimplemented.  It should use forward substitution to solve lower
+   triangular systems. The interfaces are set so that multiple right
+   hand sides can be provided and solved at the same time. The
+   functions should only use one loop over the rows of `L`, to
+   efficiently solve the multiple problems. The test script
+   ``test_exercises6.py`` in the ``test`` directory will test these
+   functions.
 
 .. proof:exercise::
 

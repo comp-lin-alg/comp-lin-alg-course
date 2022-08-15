@@ -862,30 +862,12 @@ school. Kramer's rule has an operation count scaling like
 disasterous that we won't even show the formula for Kramer's rule
 here.
 
-There are some better
-algorithms for finding the inverse of a matrix if you really need it,
-but in almost every situation it is better to *solve* a matrix system
-rather than forming the inverse of the matrix and multiplying it.  It
-is particularly easy to solve an equation formed from an upper
-triangular matrix.  Written in components, this equation is
-
-  .. math::
-
-     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
-
-     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
-     
-     \vdots
-
-     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
-     
-      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
-
-The last equation yields `x_m` directly by dividing by `R_{mm}`, then
-we can use this value to directly compute `x_{m-1}`. This is repeated
-for all of the entries of `x` from `m` down to 1. This procedure is
-called back substitution, which we summarise in the following
-pseudo-code.
+There are some better algorithms for finding the inverse of a matrix
+if you really need it, but in almost every situation it is better to
+*solve* a matrix system rather than forming the inverse of the matrix
+and multiplying it.  As we have already seen, it is particularly easy
+to solve an equation formed from an upper triangular matrix.  We
+recall the backward substitution algorithm below.
 
 * `x_m  \gets y_m/R_{mm}`
 * FOR `i= m-1` TO 1 (BACKWARDS)
@@ -907,16 +889,6 @@ independently using back substitution leads to an operation count of
 `\sim m^3` FLOPs, much slower than applying back substitution directly
 to `b`. Hopefully this should convince you to always seek an
 alternative to forming the inverse of a matrix.
-
-.. proof:exercise::
-
-   The :func:`cla_utils.exercises5.solve_R` function has been left
-   unimplemented. It should implement the `\mathcal{O}(m^2)`
-   back-substitution algorithm to solve `Rx=b`, with a single loop
-   over the columns.
-   The test script ``test_exercises5.py`` in the ``test`` directory
-   will test this function.
-
 
 There are then three steps to solving `Ax=b` using QR factorisation.
 

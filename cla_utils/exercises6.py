@@ -44,21 +44,6 @@ def solve_L(L, b):
     raise NotImplementedError
 
 
-def solve_U(U, b):
-    """
-    Solve systems Ux_i=b_i for x_i with U upper triangular, i=1,2,...,k
-
-    :param U: an mxm-dimensional numpy array, assumed upper triangular
-    :param b: an mxk-dimensional numpy array, with ith column containing 
-       b_i
-    :return x: an mxk-dimensional numpy array, with ith column containing 
-       the solution x_i
-
-    """
-                     
-    raise NotImplementedError
-
-
 def inverse_LU(A):
     """
     Form the inverse of A via LU factorisation.

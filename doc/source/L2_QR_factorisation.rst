@@ -695,6 +695,19 @@ We call this procedure "implicit multiplication".
 
    .. vimeo:: 450202242
 
+
+.. proof:exercise::
+
+   The function :func:`cla_utils.exercises3.solve_U` has been left
+   unimplemented.  It should use backward substitution to solve upper
+   triangular systems. The interfaces are set so that multiple right
+   hand sides can be provided and solved at the same time. The
+   functions should only use one loop over the rows of `U`,
+   to efficiently solve the multiple problems. The test script
+   ``test_exercises3.py`` in the ``test`` directory will test these
+   functions.
+
+
 .. proof:exercise::
 
    Show that the implicit multiplication procedure is equivalent to computing
@@ -840,8 +853,31 @@ Left multiplication by `\hat{Q}^*` then gives
 
       \hat{R}x = \hat{Q}^*b.
 
-This is an upper triangular system that can be solved efficiently using
-back-substitution (which we shall come to later.)
+This is an upper triangular system that can be solved efficiently
+using back-substitution. Written in components, this equation is
+
+  .. math::
+
+     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
+
+     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
+     
+     \vdots
+
+     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
+     
+      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
+
+The last equation yields `x_m` directly by dividing by `R_{mm}`, then
+we can use this value to directly compute `x_{m-1}`. This is repeated
+for all of the entries of `x` from `m` down to 1. This procedure is
+called back substitution, which we summarise in the following
+pseudo-code.
+
+* `x_m  \gets y_m/R_{mm}`
+* FOR `i= m-1` TO 1 (BACKWARDS)
+  
+  * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
 
 .. proof:exercise::
 

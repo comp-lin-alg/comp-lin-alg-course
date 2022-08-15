@@ -16,6 +16,21 @@ def test_householder(m):
     assert(np.linalg.norm(np.dot(R.T, R) - np.dot(A.T, A)) < 1.0e-6)
 
 
+@pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
+def test_solve_U(m, k):
+    random.seed(1002*m + 2987*k)
+    b = random.randn(m, k)
+    _, U = np.linalg.qr(random.randn(m,m))
+    #check that the solver works
+    x = cla_utils.solve_U(U, b)
+    err1 = b - np.dot(U, x)
+    assert(np.linalg.norm(err1) < 1.0e-6)
+    #check that an upper triangular solver is being used
+    A = random.randn(m, m)
+    err2 = b - np.dot(A, x)
+    assert(np.linalg.norm(err2) > 1.0e-6)
+
+    
 @pytest.mark.parametrize('m, n', [(20, 7), (40, 13), (87, 9)])
 def test_householder_solve(m, n):
     random.seed(2432*m + 7438*n)

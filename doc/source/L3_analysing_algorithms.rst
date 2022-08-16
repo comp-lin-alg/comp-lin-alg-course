@@ -693,18 +693,21 @@ by which we mean that `\exists C>0` such that
 
       \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} \leq C\varepsilon,
 
-for sufficiently small `\varepsilon`. We shall see below that
-we have to lower our aspirations depending on the condition number of `A`.
+for sufficiently small `\varepsilon` (assuming, albeit
+unrealistically, that we have a sequence of computers with smaller and
+smaller $\varepsilon$). We shall see below that we have to lower our
+aspirations depending on the condition number of `A`.
 
 .. proof:definition:: Stability
 
    An algorithm `\tilde{f}` for `f` is stable if for each `x\in X`,
+   there exists `\tilde{x}` with
 
       .. math::
 
 	 \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
 
-   there exists `\tilde{x}` with
+	 and
 
       .. math::
 

@@ -5,8 +5,9 @@ Access to computers
 -------------------
 
 You'll need access to a suitable computer for the implementation
-work. You can either use the machines in the maths department labs, or you can use your own laptop running Windows, Linux, or macOS.
-The core requirements are Python 3, git, and a Python-aware text editor.
+work. You can either use the machines in the maths department labs, or
+you can use your own laptop running Windows, Linux, or macOS.  The
+core requirements are Python 3, git, and a Python-aware text editor.
 
 Using the Windows machines in the computer labs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,7 +25,7 @@ Using your own machine
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Up to date information on how to install Python, Git, etc on a
-Windows, Linux or Mac machine is available `here
+Windows, Linux or Mac machine is available `at this location
 <https://imperial-fons-computing.github.io/>`_.
 
 Editing code
@@ -56,7 +57,8 @@ Python language. But don't panic! Python is a very easy language to
 work with. This module will use Python 3. 
 
 If you haven't done any Python before, then go through `the official
-Python tutorial <https://docs.python.org/3/tutorial/index.html>`_.
+Python tutorial <https://docs.python.org/3/tutorial/index.html>`_
+(Sections 1 to 5 are a good start).
 
 The Matlab-like array features of Python are provided by `Numpy
 <http://www.numpy.org/>`_ for which there is a `helpful tutorial
@@ -65,9 +67,6 @@ handy `guide for Matlab users
 <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
 code provided in this course will always use Numpy arrays, and never
 Numpy matrices.
-
-
-.. _bitbucket-git:
 
 GitHub and git
 --------------
@@ -126,7 +125,7 @@ lot easier to read::
    are `here
    <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
-Now go and do the `git tutorial
+There is an excellent `git tutorial
 <https://swcarpentry.github.io/git-novice/>`_ over at Software
 Carpentry.
 

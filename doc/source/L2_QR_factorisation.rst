@@ -161,7 +161,7 @@ for code blocks in pseudo-code in these notes.)
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.GS_classical` function has been
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function has been
    left unimplemented. It should implement the classical Gram-Schmidt
    algorithm above, using Numpy slice notation so that only one Python
    for loop is used. The function should work "in place" by making a
@@ -169,6 +169,16 @@ for code blocks in pseudo-code in these notes.)
    introducing additional intermediate arrays (you will need to create
    a new array to store `R`). The test script ``test_exercises2.py``
    in the ``test`` directory will test this function.
+
+.. hint::
+
+   The `(\ddagger)` symbol in an exercise indicates that the code for
+   that exercise is in scope for use in the coursework. When the code
+   is used in the coursework, we will grade the code quality, for
+   appropriate use of Numpy slice operations, efficient use of array
+   memory, loop minimisation, and avoiding computation inside loops
+   that could be done beforehand.
+
 
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
@@ -305,7 +315,7 @@ in `A` with the `v` s and eventually the `q` s.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.GS_modified` function has been
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_modified` function has been
    left unimplemented. It should implement the modified Gram-Schmidt
    algorithm above, using Numpy slice notation where possible.
    What is the minimal number of Python
@@ -655,11 +665,11 @@ columns from `r` to `s`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises3.householder` function has been left
-   unimplemented. It should implement the algorithm above, using only
-   one loop over `k`. It should return the resulting `R` matrix. The
-   test script ``test_exercises3.py`` in the ``test`` directory will
-   test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises3.householder` function
+   has been left unimplemented. It should implement the algorithm
+   above, using only one loop over `k`. It should return the resulting
+   `R` matrix. The test script ``test_exercises3.py`` in the ``test``
+   directory will test this function.
 
 .. hint::
 
@@ -695,10 +705,23 @@ We call this procedure "implicit multiplication".
 
    .. vimeo:: 450202242
 
+
 .. proof:exercise::
 
-   Show that the implicit multiplication procedure is equivalent to computing
-   an extended array
+   `(\ddagger)` The function :func:`cla_utils.exercises3.solve_U` has
+   been left unimplemented.  It should use backward substitution to
+   solve upper triangular systems. The interfaces are set so that
+   multiple right hand sides can be provided and solved at the same
+   time. The functions should only use one loop over the rows of `U`,
+   to efficiently solve the multiple problems. The test script
+   ``test_exercises3.py`` in the ``test`` directory will test these
+   functions.
+
+
+.. proof:exercise::
+
+   `(\ddagger)` Show that the implicit multiplication procedure is
+   equivalent to computing an extended array
 
       .. math::
 
@@ -771,10 +794,11 @@ with each column using the `Q` application algorithm described above.
 
 .. proof:exercise::
 
-   Show that the implicit multiplication procedure applied to the
-   columns of `I` produces `Q^*`, from which we can easily obtain `Q`,
-   explaining how. Show how to implement this by applying Householder
-   to an augmented matrix `\hat{A}` of some appropriate form.
+   `(\ddagger)` Show that the implicit multiplication procedure
+   applied to the columns of `I` produces `Q^*`, from which we can
+   easily obtain `Q`, explaining how. Show how to implement this by
+   applying Householder to an augmented matrix `\hat{A}` of some
+   appropriate form.
 
    The :func:`cla_utils.exercises3.householder_qr` function has been
    left unimplemented. It takes in the `m\times n` array `A` and
@@ -840,22 +864,45 @@ Left multiplication by `\hat{Q}^*` then gives
 
       \hat{R}x = \hat{Q}^*b.
 
-This is an upper triangular system that can be solved efficiently using
-back-substitution (which we shall come to later.)
+This is an upper triangular system that can be solved efficiently
+using back-substitution. Written in components, this equation is
+
+  .. math::
+
+     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
+
+     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
+     
+     \vdots
+
+     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
+     
+      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
+
+The last equation yields `x_m` directly by dividing by `R_{mm}`, then
+we can use this value to directly compute `x_{m-1}`. This is repeated
+for all of the entries of `x` from `m` down to 1. This procedure is
+called back substitution, which we summarise in the following
+pseudo-code.
+
+* `x_m  \gets y_m/R_{mm}`
+* FOR `i= m-1` TO 1 (BACKWARDS)
+  
+  * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises3.householder_ls` function has been
-   left unimplemented. It takes in the `m\times n` array `A` and a
-   right-hand side vector `b` and solves the least squares problem
-   minimising `\|Ax-b\|` over `x`. It should do this by forming an
-   appropriate augmented matrix `\hat{A}`, calling
+   `(\ddagger)` The :func:`cla_utils.exercises3.householder_ls`
+   function has been left unimplemented. It takes in the `m\times n`
+   array `A` and a right-hand side vector `b` and solves the least
+   squares problem minimising `\|Ax-b\|` over `x`. It should do this
+   by forming an appropriate augmented matrix `\hat{A}`, calling
    :func:`cla_utils.exercises3.householder` and extracting appropriate
    subarrays using slice notation, before using
-   :func:`scipy.linalg.solve_triangular` to solve the resulting upper triangular
-   system, before returning the solution `x`. The test script
-   ``test_exercises3.py`` in the ``test`` directory will also test this
-   function.
+   :func:`scipy.linalg.solve_triangular` to solve the resulting upper
+   triangular system, before returning the solution `x`. The test
+   script ``test_exercises3.py`` in the ``test`` directory will also
+   test this function.
 
 .. hint::
 

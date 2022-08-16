@@ -6,10 +6,12 @@ Lecturer
 
 The module is led by `Prof Colin Cotter
 <http://www.imperial.ac.uk/people/colin.cotter>`_, a Professor of
-Computational Mathematics who uses and researches computational linear
-algebra tools in the course of his work on computational methods for
-partial differential equations, computational image registration and
-data assimilation.
+Computational Mathematics. He researches computational methods for
+atmosphere and ocean modelling (as well as other geophysical fluid
+models), computational image registration, data assimilation and
+a collection of other things that require numerical algorithms and
+discretisations. Computational linear algebra tools form part of
+his day-to-day research work.
 
 Accreditation
 -------------
@@ -17,11 +19,8 @@ Accreditation
 This module is an accredited elective for third and fourth year
 mathematics and JMC undergraduates. It is also approved for the `MSc
 in Applied Mathematics
-<http://www.imperial.ac.uk/study/pg/courses/mathematics/applied-mathematics/>`_,
-`MRes in Mathematics of Planet Earth <http://mpecdt.org>`_, and for
-second and third year PhD students in the `CDT in Fluid Dynamics
-Across Scales <http://www3.imperial.ac.uk/fluidscdt>`_. Other masters
-and PhD students wishing to take the module should contact the
+<http://www.imperial.ac.uk/study/pg/courses/mathematics/applied-mathematics/>`_. Other
+masters and PhD students wishing to take the module should contact the
 course lecturer in the first instance.
 
 Assumed knowledge
@@ -32,16 +31,17 @@ undergraduate linear algebra. The implementation will be in Python, a
 very high level and simple language with similarities to
 Matlab. Students who are not familiar with Python will need to acquire
 some familiarity with the language, for example by doing one of the
-suggested tutorials.
+suggested tutorials. We won't use that many features of Python though,
+mainly just functions and loops.
 
 
 Assessment
 ----------
 
-The module will be assessed by submission of two courseworks, each
+The module will be assessed by submission of three courseworks, each
 comprising a pdf report and a code submission. The first will be worth
 20%, with feedback provided to students that they can use to help with
-the second coursework, worth 80%.
+the second and third courseworks, worth 40% each.
 
 Mastery
 .......

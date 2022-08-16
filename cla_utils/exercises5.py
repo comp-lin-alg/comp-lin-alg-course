@@ -41,20 +41,6 @@ def backward_stability_householder(m):
         raise NotImplementedError
 
 
-def solve_R(R, b):
-    """
-    Solve the system Rx=b where R is an mxm upper triangular matrix 
-    and b is an m dimensional vector.
-
-    :param A: an mxm-dimensional numpy array
-    :param b: an m-dimensional numpy array
-
-    :param x: an m-dimensional numpy array
-    """
-                     
-    raise NotImplementedError
-
-
 def back_stab_solve_R(m):
     """
     Verify backward stability for back substitution for

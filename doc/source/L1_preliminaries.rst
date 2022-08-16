@@ -12,7 +12,8 @@ that should be found in an undergraduate linear algebra course.
 .. hint::
 
    Before you attempt any exercises, you need to make sure that you
-   have everything you need set up on your computer.
+   have everything you need set up on your computer. See the checklist
+   in :ref:`the exercises section <comp_exercises>`.
 
 Matrices, vectors and matrix-vector multiplication
 ==================================================
@@ -381,9 +382,9 @@ In other words,
 
       = ZA.
 
-We call `Z` a (left) inverse of `A`. (Exercises: show that `Z` is
-the unique left inverse of `A`, and show that `Z` is also the unique
-right inverse of `A`, satisfying `I = AZ`.) We write `Z=A^{-1}`.
+We call `Z` a (left) inverse of `A`. It can be shown that `Z` is the
+   unique left inverse of `A`, and that `Z` is also the unique right
+   inverse of `A`, satisfying `I = AZ`. We write `Z=A^{-1}`.
 
 The first four parts of the next theorem are a consequence of what
 we have so far, and we shall quote the fifth and sixth (see a linear algebra
@@ -484,6 +485,9 @@ The following identity is very important when dealing with adjoints.
 
 .. proof:exercise::
 
+   (This is an advanced exercise if the other exercises are complete.
+   If you are behind on the exercises please skip this one.)
+   
    Consider a matrix `A=B + iC` where `B,C\in\mathbb{R}^{m\times m}`
    and `A` is Hermitian. Show that `B=B^T` and `C=-C^T`. To save
    memory, instead of storing values of `A` (`m\times m` complex

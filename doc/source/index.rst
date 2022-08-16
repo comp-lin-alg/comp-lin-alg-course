@@ -13,13 +13,11 @@
    This is the webpage for the `Imperial College London Mathematics
    <http://www.imperial.ac.uk/maths>`_  module
    MATH96023/MATH97032/MATH97140 - Computational Linear Algebra.
-
+   
    .. toctree::
 
       practicalities
-      tools
       exercises
-      cla_utils
       errata
       
    .. image:: _static/trefbau.jpg
@@ -28,7 +26,7 @@
 
    This module is led by `Prof. Colin Cotter
    <http://www.imperial.ac.uk/people/colin.cotter>`_.
-	      
+   
    A PDF version of the course notes is `available here
    <Computationallinearalgebracourse.pdf>`_.  The lecture material for this
    course is available as videos linked from the web version of the
@@ -38,8 +36,13 @@
    *Numerical Linear Algebra*. Another very useful reference is
    Golub and van Loan *Matrix Computations*.
 
-   We provide a complete set of notes for the course below, based on
-   this material.
+   The automated documentation for the skeleton code is below.
+
+   .. toctree::
+
+      cla_utils
+   
+   We provide a complete set of notes for the course below.
 	      
    Lecture notes:
    ~~~~~~~~~~~~~~

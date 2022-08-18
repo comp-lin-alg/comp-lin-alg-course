@@ -596,7 +596,7 @@ in the following result (which we also do not prove).
 
       .. math::
 
-	 \rho = \frac{\max_{ij}|u_{ij}|}{|a_{ij}|}.
+	 \rho = \frac{\max_{ij}|u_{ij}|}{\max_{ij}|a_{ij}|}.
 
 Thus, partial pivoting (and complete pivoting turns out not to help
 much extra) can keep the entries in `L` under control, but there can

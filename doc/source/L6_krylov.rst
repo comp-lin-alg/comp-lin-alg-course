@@ -338,13 +338,15 @@ Hence we see that GMRES will converge quickly if `V` is
 well-conditioned, and `p(x)` is small for all `x\in \Lambda(A)`.  This
 latter condition is not trivial due to the `p(0)=1` requirement. One
 way it can happen is if `A` has all eigenvalues clustered in a small
-number of groups. Then we can find a low degree polynomial that passes
-through 1 at `x=0`, and 0 near each of the clusters. Then GMRES will
-essentially converge in a small number of iterations (equal to the
-degree of the polynomial). There are problems if the eigenvalues are
-scattered over a wide region of the complex plane: we need a very
-high degree polynomial to make `p(x)` small at all the eigenvalues and
-hence we need a very large number of iterations.
+number of groups, away from $0$. Then we can find a low degree
+polynomial that passes through 1 at `x=0`, and 0 near each of the
+clusters. Then GMRES will essentially converge in a small number of
+iterations (equal to the degree of the polynomial). There are problems
+if the eigenvalues are scattered over a wide region of the complex
+plane: we need a very high degree polynomial to make `p(x)` small at
+all the eigenvalues and hence we need a very large number of
+iterations. Similarly there are problems if eigenvalues are very close
+to zero.
 
 .. proof:exercise::
 

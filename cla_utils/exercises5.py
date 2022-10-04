@@ -41,7 +41,7 @@ def backward_stability_householder(m):
         raise NotImplementedError
 
 
-def back_stab_solve_R(m):
+def back_stab_solve_U(m):
     """
     Verify backward stability for back substitution for
     real mxm matrices.

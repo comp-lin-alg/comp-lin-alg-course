@@ -21,7 +21,7 @@ def orthog_cpts(v, Q):
     return r, u
 
 
-def solveQ(Q, b):
+def solve_Q(Q, b):
     """
     Given a unitary mxm matrix Q and a vector b, solve Qx=b for x.
 

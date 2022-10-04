@@ -252,6 +252,20 @@ checked out (this should contain folders called `doc`, `cla_utils`,
 
 This creates a venv called "clavenv" (it is recommended you keep this
 name to avoid spuriously committing venv files to the git repository).
+  
+.. hint::
+
+   There is an alternative method if you are using Anaconda Python. In
+   this case, you need to type::
+
+     conda create --name clavenv
+     
+.. hint::
+
+   If you decide to give your venv a different name, please add that
+   name to the .gitignore file in your git repository. If you don't
+   know what this means, probably best to use the name "clavenv".
+  
 
 In VSCode, you will be asked if you want to make this venv the default
 for your project. Select "yes" as this will help to ensure that it is
@@ -294,6 +308,11 @@ On Windows the command is::
 Obviously if you are typing this in a folder other than the one
 containing the venv, you need to modify the path accordingly.
 
+If you are using Anaconda Python, you need to instead type::
+
+  conda activate clavenv
+  conda deactivate
+  
 Installing the course package to the venv
 -----------------------------------------
 
@@ -425,21 +444,21 @@ check the code you have just written. These are located in the
 ``test`` folder and employ the `pytest <http://pytest.org/>`_
 testing framework. You run the tests with:: 
 
-   py.test test_script.py
+   pytest test_script.py
 
 from the bash Terminal, replacing ``test_script.py`` with the appropriate
-test file name. The ``-x`` option to ``py.test`` will cause the test
+test file name. The ``-x`` option to ``pytest`` will cause the test
 to stop at the first failure it finds, which is often the best place
 to start fixing a problem. For those familiar with debuggers, the
 ``--pdb`` option will drop you into the Python debugger at the first
 error.
 
-You can also run all the tests by running ``py.test`` on the tests
+You can also run all the tests by running ``pytest`` on the tests
 folder. This works particularly well with the -x option, resulting
 in the tests being run in course order and stopping at the first
 failing test::
 
-  py.test -x tests/
+  pytest -x tests/
 
 You should make sure that your code passes tests before moving on
 to the next exercise.

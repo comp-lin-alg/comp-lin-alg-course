@@ -194,7 +194,7 @@ Setting up your repository
 We're using a tool called `GitHub classroom
 <https://classroom.github.com>`_ to automate the creation of your
 copies of the repository. Follow this `create your personal repository
-for the course.
+for the course <https://classroom.github.com/a/lBb9WH_i>`_
 
 .. warning::
 

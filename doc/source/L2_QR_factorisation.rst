@@ -755,7 +755,7 @@ We call this procedure "implicit multiplication".
    :func:`cla_utils.exercises3.householder`.  If you have not already
    done so, you will need to modified
    :func:`cla_utils.exercises3.householder` to use the ``kmax``
-   argument.
+   argument. You will also need :func:`cla_utils.exercises3.solve_U`.
 
 If we really need `Q`, we can get it by matrix-vector products with
 each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.  This

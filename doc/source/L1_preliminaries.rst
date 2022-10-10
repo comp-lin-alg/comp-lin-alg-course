@@ -539,9 +539,6 @@ The inner product is a critical tool in computational linear algebra.
 
       x^*y = \sum_{i=1}^m \bar{x}_iy_i.
 
-(Exercise: check that the inner product is bilinear, i.e. linear in
-both of the arguments.)
-
 We will frequently use the natural norm derived from the inner product
 to define size of vectors.
 

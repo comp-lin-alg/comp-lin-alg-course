@@ -364,7 +364,7 @@ example, at the first iteration,
       \underbrace{
       \begin{pmatrix}
       \frac{1}{r_{11}} & -\frac{r_{12}}{r_{11}} & \ldots &
-      \ldots & -\frac{r_{11}}{r_{11}} \\
+      \ldots & -\frac{r_{1n}}{r_{11}} \\
       0 & 1 & 0 & \ldots & 0 \\    
       0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
@@ -396,7 +396,7 @@ Similarly, the second iteration may be written as
       \begin{pmatrix}
       1 & 0 & 0 &
       \ldots & 0 \\
-      0 & \frac{1}{r_{22}} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{nn}} \\      0 & 0 & 1 & \ldots & 0 \\
+      0 & \frac{1}{r_{22}} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{22}} \\      0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
       0 & 0 & 0 & \ldots & 1 \\
       \end{pmatrix}}_{R_2}

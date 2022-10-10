@@ -311,7 +311,6 @@ containing the venv, you need to modify the path accordingly.
 If you are using Anaconda Python, you need to instead type::
 
   conda activate clavenv
-  conda deactivate
   
 Installing the course package to the venv
 -----------------------------------------

@@ -26,7 +26,7 @@ check that you have everything ready to do your work.
    3. Create a virtual environment (venv) in your course repository.
    4. Activate the venv.
    5. Install the course module to the venv.
-   6. Install `numpy` to the venv.
+   6. Install `numpy` to the venv, and `pytest`.
    7. Remember to activate the venv every time you work on the course module.
       
 To follow these steps read the information below.
@@ -329,7 +329,8 @@ should contain folders called `doc`, `cla_utils`, `test`, etc.).
 
 The package has a dependency on Numpy (Numeric Python). To install
 Numpy, follow steps 1-2 above and then type `python -m pip install
-numpy`.
+numpy`. You also need to install pytest, `python -m pip install
+pytest` .
 
 .. hint::
 

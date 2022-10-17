@@ -10,3 +10,6 @@ repositories for Autumn 2022. An up to date version is in the
 
 * Exercises 2.4 and 2.5: the tests expect you to change the array
   provided as input and not make a copy.
+
+* Exercise 2.12 was updated as we don't need to use scipy anymore (because
+  solve\_U was moved earlier.

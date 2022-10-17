@@ -161,14 +161,14 @@ for code blocks in pseudo-code in these notes.)
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function has been
-   left unimplemented. It should implement the classical Gram-Schmidt
-   algorithm above, using Numpy slice notation so that only one Python
-   for loop is used. The function should work "in place" by making a
-   copy of `A` and then changing the values in the copy, without
-   introducing additional intermediate arrays (you will need to create
-   a new array to store `R`). The test script ``test_exercises2.py``
-   in the ``test`` directory will test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function
+   has been left unimplemented. It should implement the classical
+   Gram-Schmidt algorithm above, using Numpy slice notation so that
+   only one Python for loop is used. The function should work "in
+   place" by changing the values in `A`, without introducing
+   additional intermediate arrays (you will need to create a new array
+   to store `R`). The test script ``test_exercises2.py`` in the
+   ``test`` directory will test this function.
 
 .. hint::
 
@@ -321,9 +321,9 @@ in `A` with the `v` s and eventually the `q` s.
    What is the minimal number of Python
    for loops possible?
 
-   The function should work "in place" by making a
-   copy of `A` and then changing those values, without introducing
-   additional intermediate arrays. The test script
+   The function should work "in place" by changing the values in `A`,
+   without introducing additional intermediate arrays (you will need
+   to create a new array to store `R`). The test script
    ``test_exercises2.py`` in the ``test`` directory will test this
    function.
 

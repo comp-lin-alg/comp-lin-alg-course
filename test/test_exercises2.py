@@ -20,13 +20,13 @@ def test_orthog_cpts(m, n):
 
 
 @pytest.mark.parametrize('m', [17, 35, 100])
-def test_solveQ(m):
+def test_solve_Q(m):
     random.seed(1431*m)
     A = random.randn(m, m) + 1j*random.randn(m, m)
     v = random.randn(m) + 1j*random.randn(m)
     Q, R = np.linalg.qr(A)
 
-    x = cla_utils.solveQ(Q, v)
+    x = cla_utils.solve_Q(Q, v)
     x0 = np.linalg.solve(Q, v)
     err = x - x0
 

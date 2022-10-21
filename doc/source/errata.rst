@@ -13,3 +13,7 @@ repositories for Autumn 2022. An up to date version is in the
 
 * Exercise 2.12 was updated as we don't need to use scipy anymore (because
   solve\_U was moved earlier.
+
+* Theorem 1.29 - replaced `Q\mapsto \hat{Q}`.
+
+* Section 3.2 - removed `x'` from the FLOP count "derivation".

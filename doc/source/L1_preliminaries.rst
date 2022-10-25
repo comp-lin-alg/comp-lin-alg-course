@@ -891,7 +891,7 @@ In fact the following is true.
 
 .. proof:theorem::
 
-   `P=P^*` if and only if `Q` is orthogonal.
+   `P=P^*` if and only if `\hat{Q}` is orthogonal.
 
 .. proof:exercise::
 

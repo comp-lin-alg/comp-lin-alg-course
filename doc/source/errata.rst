@@ -13,3 +13,5 @@ repositories for Autumn 2022. An up to date version is in the
 
 * Exercise 2.12 was updated as we don't need to use scipy anymore (because
   solve\_U was moved earlier.
+
+* solveQ should be renamed to solve\_Q in test\_exercises1.test\_solveQ.

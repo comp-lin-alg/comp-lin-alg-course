@@ -102,7 +102,7 @@ def pow_it(A, x0, tol, maxit, store_iterations = False):
     :return lambda0: the final eigenvalue.
     """
 
-    Raise(NotImplementedError)
+    raise NotImplementedError
     return x, lambda0
 
 

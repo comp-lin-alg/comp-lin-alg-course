@@ -391,7 +391,7 @@ with pivoting,
 
    .. math::
 
-      L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1 = U.
+      L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1A = U.
 
 .. details:: Supplementary video
 
@@ -410,8 +410,8 @@ of Gaussian elimination. We have
 
    .. math::
 
-      A_2 = L_2P_2L_1P_1 = L_2\underbrace{P_2L_1P_2}_{=L_1^{(2)}}P_2P_1
-      = L_2L_1^{(2)}P_2P_1,
+      A_2 = L_2P_2L_1P_1A = L_2\underbrace{P_2L_1P_2}_{=L_1^{(2)}}P_2P_1A
+      = L_2L_1^{(2)}P_2P_1A,
 
 having used `P_2^{-1}=P_2`. Left multiplication with `P_2` exchanges
 row 2 with some other row `j` with `j>2`. Hence, right multiplication
@@ -428,8 +428,8 @@ Moving on to the next stage, and we have
 
    .. math::
 
-      A_3 = L_3P_3L_2L_1P_2P_1 = L_3\underbrace{P_3L_2P_3}_{=L_2^{(3)}}
-      \underbrace{P_3L_1P_3}_{=L_1^{(3)}}P_3P_2P_1.
+      A_3 = L_3P_3L_2L_1P_2P_1A = L_3\underbrace{P_3L_2P_3}_{=L_2^{(3)}}
+      \underbrace{P_3L_1P_3}_{=L_1^{(3)}}P_3P_2P_1A.
 
 By similar arguments we see that `L_2^{(3)}` is the same as `L_2` but
 with `l_{23}` exchanged with `l_{2j}` for some (different) `j`, and
@@ -439,7 +439,7 @@ with `l_{23}` exchanged with `l_{2j}` for some (different) `j`, and
    .. math::
 
       \underbrace{L_{m-1}^{(m-1)}\ldots L_2^{(m-1)}L_1^{(m-1)}}_{L^{-1}}
-      \underbrace{P_{m-1}\ldots P_2P_1}_P = U,
+      \underbrace{P_{m-1}\ldots P_2P_1}_PA = U,
 
 where we just need to keep track of the permutations in the `L`
 matrices as we go through the Gaussian elimination stages. These `L`

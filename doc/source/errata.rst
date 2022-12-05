@@ -21,3 +21,5 @@ repositories for Autumn 2022. An up to date version is in the
 * Section 3.2 - removed `x'` from the FLOP count "derivation".
 
 * After Definition 3.15 - `J=-x^{1/2}/2`.
+
+* Theorem 4.12, adding a missing `\tilde{P}`.

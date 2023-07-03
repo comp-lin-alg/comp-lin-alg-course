@@ -13,6 +13,12 @@
    This is the webpage for the `Imperial College London Mathematics
    <http://www.imperial.ac.uk/maths>`_  module
    MATH96023/MATH97032/MATH97140 - Computational Linear Algebra.
+
+.. warning::
+
+   This course is due for substantial revision and reorganisation
+   before Academic Year 23/24, and hence these pages are likely to
+   change in substantial ways before then.
    
    .. toctree::
 

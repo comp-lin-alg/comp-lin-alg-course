@@ -250,7 +250,7 @@ Repository" to create your personal repository for the course.
    "school's identifier" from a list. This will be your user ID that
    you use to log into Outlook (e.g., sbc21). If you don't find your
    ID on the list, *do not* click "Skip to the next step". And, *do
-   not* click someone else's ID! Instead, contact Professor Cotter
+   not* click someone else's ID! Instead, contact the course leader
    and ask to have your user ID added. We need to do this so that we
    can grade your work.
 

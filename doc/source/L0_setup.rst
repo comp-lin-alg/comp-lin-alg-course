@@ -285,13 +285,13 @@ To do this:
 should contain folders called `doc`, `cla_utils`, `test`, etc.).
    3. Type `python -m pip install -e .`
 
-.. hint::
-
-   Here is some useful information on `Modules
+.. proof:task::
+      
+   Read this useful information on `Modules
    <https://object-oriented-python.github.io/2_programs_in_files.html#modules>`_
    and `Packages
    <https://object-oriented-python.github.io/2_programs_in_files.html#packages>`_
-   that might be useful later.
+   that will be useful later.
 
 How to do the computational exercises
 =====================================
@@ -355,9 +355,10 @@ activated). You may need to install it first using `python -m install
 ipython`. Then you can import `cla_utils` interactively using `from
 cla_utils import *`. To exit IPython type Ctrl-D.
 
-.. hint::
+.. proof:task::
 
-   Here is some `Information about IPython <https://object-oriented-python.github.io/2_programs_in_files.html#ipython>`_.
+   Briefly read this `Information about IPython
+   <https://object-oriented-python.github.io/2_programs_in_files.html#ipython>`_.
 
 If you also import `numpy` then you can create
 example `numpy` arrays and pass them to `cla_utils` functions to try
@@ -380,9 +381,10 @@ typing `python run_ABiC.py` (remember to change to the folder where
 the file is located). Scripts are better because you can run the whole
 thing again more easily if you make a mistake, and you can save them.
 
-.. hint::
+.. proof:task::
 
-   Here is some `information about Python scripts <https://object-oriented-python.github.io/2_programs_in_files.html#python-scripts-and-text-editors>`_.
+   Briefly read this `information about Python scripts
+   <https://object-oriented-python.github.io/2_programs_in_files.html#python-scripts-and-text-editors>`_.
 
 .. warning::
 

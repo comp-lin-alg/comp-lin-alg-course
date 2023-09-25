@@ -1,0 +1,8 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cla_utils"
+version = "2023.00"
+dependencies = ["numpy", "pytest"]

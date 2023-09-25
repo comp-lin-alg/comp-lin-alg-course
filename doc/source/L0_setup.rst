@@ -31,7 +31,12 @@ check that you have everything ready to do your work.
    5. Install `numpy` to the venv, and `pytest`.
    6. Install the course module to the venv.
    7. Remember to activate the venv every time you work on the course module.
-
+   8. Make sure that you understand how to run code in the course repository
+      (including your own code you have added).
+   9. Make sure that you understand how to commit your changes to your
+      Git repository and how to push them to Github.
+   10. Make sure that you know how to run the tests.
+      
 To follow these steps read the sections below.
 
 

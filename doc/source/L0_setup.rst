@@ -293,7 +293,7 @@ for example.
 
    1. Activate the clavenv as above.
    2. Change folder to the repository that you just checked out (this
-should contain folders called `doc`, `cla_utils`, `test`, etc.).
+      should contain folders called `doc`, `cla_utils`, `test`, etc.).
    3. Type `python -m pip install -e .`
 
       

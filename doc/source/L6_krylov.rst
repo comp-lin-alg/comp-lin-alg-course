@@ -359,8 +359,8 @@ to zero.
    What do you observe? What is it about the three matrices that
    causes this different behaviour?
 
-Preconditioning
----------------
+Preconditioned GMRES
+--------------------
 
 .. details:: Supplementary video
 

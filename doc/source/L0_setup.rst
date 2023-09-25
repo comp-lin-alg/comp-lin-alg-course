@@ -286,12 +286,17 @@ everything as a module using `from cla_utils import *` without needing
 to be in a particular folder. This is what makes the tests work,
 for example.
 
-To do this:
+.. proof:task::
+
+   Install the course package to your venv.
+   To do this:
+
    1. Activate the clavenv as above.
    2. Change folder to the repository that you just checked out (this
 should contain folders called `doc`, `cla_utils`, `test`, etc.).
    3. Type `python -m pip install -e .`
 
+      
 .. proof:task::
       
    Read this useful information on `Modules

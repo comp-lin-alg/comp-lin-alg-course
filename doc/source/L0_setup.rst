@@ -254,8 +254,6 @@ Repository" to create your personal repository for the course.
    and ask to have your user ID added. We need to do this so that we
    can grade your work.
 
-  python3 -m venv clavenv
-
 .. hint::
 
    To change folder in the terminal, type `cd <path>` where `<path>`

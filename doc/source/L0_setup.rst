@@ -1,7 +1,7 @@
 .. _comp_exercises:
 
 =========================
-Computational exercises
+Getting ready for computational exercises
 =========================
 
 In the course notes you will encounter computational exercises for you
@@ -25,11 +25,11 @@ There is a lot of information below, but here is a summary checklist to
 check that you have everything ready to do your work.
 
    1. Install Python, Git and a text editor using the instructions below.
-   2. Check out your course repository from Github Classroom.
-   3. Create a virtual environment (venv) in your course repository.
+   2. Create a working folder and put a virtual environment in it (venv).
+   3. Check out your course repository from Github Classroom.
    4. Activate the venv.
-   5. Install the course module to the venv.
-   6. Install `numpy` to the venv, and `pytest`.
+   5. Install `numpy` to the venv, and `pytest`.
+   6. Install the course module to the venv.
    7. Remember to activate the venv every time you work on the course module.
 
 To follow these steps read the sections below.
@@ -38,19 +38,20 @@ To follow these steps read the sections below.
 Getting the software that you need
 ==================================
 
-The core requirements are Python 3, Git, and a Python-aware text editor.
+The core requirements are Python (version >=3.7), Git, and a
+Python-aware text editor.
 
 In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
 editors available and you can use any you like. If you haven't used
 Python and/or Git before, it is a good idea to use Visual Studio Code
 (VSCode) which is a Python-aware text editor, since VSCode also
-provides a command line and an interface to Git.
+provides a Terminal and an interface to Git.
 
 Up to date information on how to install Python, Git and VSCode on a
 Windows, Linux or Mac machine is available at the `Installing the
-necessary sofware
-<https://object-oriented-python.github.io/installation.html/>`_
+necessary software
+<https://object-oriented-python.github.io/installation.html>`_
 section of the Principles of Programming website.
 
 .. proof:task::
@@ -73,7 +74,7 @@ section of the Principles of Programming website.
    desktop or visit the `Software Hub
    <https://softwarehub.imperial.ac.uk/>`_ page.
 
-The command line
+The Terminal
 ================
 
 A lot of the routine activity involved in this module revolves around
@@ -109,6 +110,46 @@ focusses on the Bash shell, which is the one we will use.
    
 .. _bitbucket-git:
 
+Python virtual environment
+==========================
+
+The next step is to set up a Python virtual environment using the
+Terminal. This is described in `Section 1.2
+<https://object-oriented-python.github.io/1_introduction.html#setting-up-a-python-virtual-environment>`_
+of the Principles of Programming website.
+
+.. proof:task::
+
+   Create a new virtual environment for your Computational Linear Algebra
+   work, following the instructions of Section 1.3 of PoP linked above.
+
+   Two differences are as follows.
+
+   1.  You should name the working folder something more relevant to
+       this course!
+   2.  You should name the venv:
+
+          clavenv
+
+       instead of:
+
+          PoP_venv
+
+.. hint::
+
+   It is recommended you keep this name to avoid spuriously committing
+   venv files to the git repository.  If you decide to give your venv a
+   different name, please add that name to the .gitignore file in your
+   git repository. If you don't know what this means, it is probably best
+   to use the name "clavenv".
+	  
+.. proof:task::
+
+   Following the instructions in `Section 1.3
+   <https://object-oriented-python.github.io/1_introduction.html#installing-python-packages>`_
+   of the Principles of Programming website, install the `numpy` and
+   `pytest` packages to your venv (don't forget to activate it first).
+
 GitHub and git
 ==============
 
@@ -125,58 +166,74 @@ edits you make over time and to submit your work for feedback and,
 eventually, marking.
 
 We will be using the revision control system `git
-<http://git-scm.com/>`_, which is the current state of the art and is
-widely adopted. We'll be combining git with the online hosting service GitHub.
+<http://git-scm.com/>`_, which has cornered the market in this area
+now. We'll be combining git with the online hosting service GitHub.
 
-Getting started with git and GitHub
------------------------------------
+There is a brief introduction to Git in the `Just Enough Git to Get By
+<https://object-oriented-python.github.io/a2_git.html#git>`_ section
+of the Principles of Programming website.
 
-The very first thing you'll need is a GitHub account. Navigate to
-`GitHub <https://github.com/>`_ and sign up.
+.. proof:task::
 
-.. note::
+   Read through (or review, if you read it before) Sections 2.1, 2.2, and
+   2.3 of Just Enough Git to Get By.
 
-   Make sure you use your Imperial College email address on
-   GitHub. This enables you to request unlimited free private GitHub
-   repositories and other goodies by `applying here
-   <https://education.github.com/pack>`_. You don't strictly need this
-   for this module, but there are some nice things in there that you
-   might want anyway.
+.. proof:task::
 
-Next you need to do just a little Git setup. At the Terminal, type the
-following::
-  
-  git config --global user.name "Jane Bloggs"
-
-Obviously you put in your own name rather than "Jane Bloggs". Similarly, you need to set your email::
-
-  git config --global user.email "Jane.Bloggs12@imperial.ac.uk"
-
-Once again, you obviously use your own email address. Now there is a
-small setting which makes the output of git colourful and therefore a
-lot easier to read::
-  
-  git config --global color.ui "auto"
+   Configure your Git installation by following the instructions in
+   Section 2.4 of Just Enough Git to Get By.
 
 .. hint::
 
-   If you are a more confident computer user, you could go ahead and
-   set up git to work with ssh, the secure shell. This will save a lot
-   of password typing but it's not essential so if you are not so
-   confident with computers, you can skip this bit. You can follow these `ssh key generating instructions
-   <https://help.github.com/articles/generating-an-ssh-key/>`_.
-   
-If you haven't used Git before, it might be a good idea to look at the
-excellent `git tutorial <https://swcarpentry.github.io/git-novice/>`_
-over at Software Carpentry.
+   These instructions involve typing into the Terminal. VSCode
+   provides other ways to configure but it is much easier to get help
+   if you are typing into the Terminal. Make sure that you have selected
+   the Bash interpreter for your Terminal.
 
+.. proof:task::
+
+   Create and/or setup your Github account following the instructions
+   in Section 2.5 of Just Enough Git to Get By.
+
+.. proof:task::
+
+   If you have not done it before, complete the simple exercise in
+   Section 2.6 of Just Enough Git to Get By. This exercise uses the
+   Git Training Assignment which is linked on Blackboard, which you
+   should clone into your working folder.
+
+.. hint::
+
+   Above all else, never use::
+
+     git add -A
+
+   to add all the files in the repository. This is bad practice and
+   makes a mess for the markers, making them grumpy. When you commit
+   changes to files in your repository for this course, just use::
+
+     git add
+
+   to add the files you changed to the list of files to be updated
+   in the commit history.
+
+   Similarly, VSCode has a graphic interface for Git. It is preferred
+   to use the Terminal in this course, as it is easier to get help.
+   If you do decide to use the graphic interface, just ignore any
+   files that are marked as not added. Do not try to click them to
+   remove the marks.
+
+.. hint::
+
+   Never clone a repository inside the folder of another folder.
+   
 Setting up your repository
 ==========================
 
 We're using a tool called `GitHub classroom
 <https://classroom.github.com>`_ to automate the creation of your
-copies of the repository. Follow this link to `create your personal
-repository for the course <https://classroom.github.com/a/lBb9WH_i>`_
+copies of the repository. Follow the link on Blackboard marked "Course
+Repository" to create your personal repository for the course.
 
 .. warning::
 
@@ -188,70 +245,7 @@ repository for the course <https://classroom.github.com/a/lBb9WH_i>`_
    and ask to have your user ID added. We need to do this so that we
    can grade your work.
 
-Cloning a local copy
---------------------
-
-At the Terminal on your working machine type::
-
-  git clone <url> comp-lin-alg-course
-
-Substituting your git repository url for <url>. Your git repository
-url can be found by clicking on `clone or download` at the top right
-of your repository page on GitHub. You have to select the `ssh` version
-of the repository, and it may be necessary to set up "ssh keys" for this.
-
-
-.. hint::
-
-   If you are using VSCode, you can do this by:
-
-   1. Opening the Command Palette using the View menu.
-   2. Type `git clone` into the Command Palette prompt and paste in
-      the repository URL.
-
-
-
-.. hint::
-
-   If you get stuck cloning your repository, try reading the `FONS help on git
-   <https://imperial-fons-computing.github.io/git.html>`_.
-
-Setting up your venv
---------------------
-
-We're going to use a Python Virtual Environment (venv). This is a
-private Python environment in which we'll install the packages we
-need, including our own implementation exercise. This minimises
-interference between this project and anything else which might be
-using Python on the system.  You need to get this right or we won't be
-able to mark your code correctly.
-
-In your Terminal, change folder to the repository that you just
-checked out (this should contain folders called `doc`, `cla_utils`,
-`test`, etc.). Then, create the venv by typing::
-
   python3 -m venv clavenv
-
-This creates a venv called "clavenv" (it is recommended you keep this
-name to avoid spuriously committing venv files to the git repository).
-  
-.. hint::
-
-   There is an alternative method if you are using Anaconda Python. In
-   this case, you need to type::
-
-     conda create --name clavenv
-     
-.. hint::
-
-   If you decide to give your venv a different name, please add that
-   name to the .gitignore file in your git repository. If you don't
-   know what this means, probably best to use the name "clavenv".
-  
-
-In VSCode, you will be asked if you want to make this venv the default
-for your project. Select "yes" as this will help to ensure that it is
-activated.
 
 .. hint::
 
@@ -266,53 +260,30 @@ activated.
    the terminal" linked above.
 
 .. hint::
+   
+   In VSCode, you will be asked if you want to make this venv the default
+   for your project. Select "yes" as this will help to ensure that it is
+   activated.
 
-   If you get stuck with your venv, try reading the `FONS help on venvs
-   <https://imperial-fons-computing.github.io/python.html#python-virtual-environments>`_.
+.. hint::
 
-Activating your venv
---------------------
+   **Every time** you want to work on the implementation exercises and
+   courseworks, you need to activate the venv.
 
-**Every time** you want to work on the implementation exercise, you need
-to activate the venv. On Linux or Mac do this in the Terminal with::
-
-  source venv/bin/activate
-
-This assumes that you have already changed folder to the repository
-that you just checked out (this should contain folders called `doc`,
-`cla_utils`, `test`, etc.). Otherwise, you need to provide the full
-path to `venv/bin/activate`.
-  
-On Windows the command is::
-
-  source venv/Scripts/activate
-
-Obviously if you are typing this in a folder other than the one
-containing the venv, you need to modify the path accordingly.
-
-If you are using Anaconda Python, you need to instead type::
-
-  conda activate clavenv
-  
 Installing the course package to the venv
 -----------------------------------------
 
 In this course we will be working on skeleton code stored as a Python
 package in the repository. This means that we will be able to import
 everything as a module using `from cla_utils import *` without needing
-to be in a particular directory. This is what makes the tests work,
+to be in a particular folder. This is what makes the tests work,
 for example.
 
 To do this:
-   1. Activate the venv as above.
+   1. Activate the clavenv as above.
    2. Change folder to the repository that you just checked out (this
 should contain folders called `doc`, `cla_utils`, `test`, etc.).
    3. Type `python -m pip install -e .`
-
-The package has a dependency on Numpy (Numeric Python). To install
-Numpy, follow steps 1-2 above and then type `python -m pip install
-numpy`. You also need to install pytest, `python -m pip install
-pytest` .
 
 .. hint::
 
@@ -337,7 +308,8 @@ build the :doc:`cla_utils` web documentation.
 As you do the exercises, **commit your code** to your repository. This
 will build up your computational exercise solution sets. You should
 commit code early and often - small commits are easier to understand
-and debug than large ones. 
+and debug than large ones. Push your commits to your remote repository
+on Github.
 
 .. hint::
 

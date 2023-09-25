@@ -1,7 +1,7 @@
 .. default-role:: math
 
 ===============
-Linear Algebra Preliminaries
+Linear algebra preliminaries
 ===============
 
 In this preliminary section, we revise a few key linear algebra

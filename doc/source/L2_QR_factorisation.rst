@@ -2,7 +2,7 @@
 
 .. default-role:: math
 
-QR Factorisation
+QR factorisation
 ================
 
 A common theme in computational linear algebra is transformations

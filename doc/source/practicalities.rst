@@ -31,12 +31,12 @@ Assumed knowledge
 The theory component of the module will assume only a familiarity with
 undergraduate linear algebra.
 
-The implementation will be in Python, a
-very high level and simple language with similarities to
-Matlab. Students who are not familiar with Python will need to acquire
-some familiarity with the language, for example by doing one of the
-suggested tutorials. We won't use that many features of Python though,
-mainly just functions and loops.
+The implementation will be in Python, a very high level and simple
+language with similarities to Matlab. We won't use that many features
+of Python though, mainly just functions and loops. If you haven't done
+any Python before, then it is worth referring to `the official Python
+tutorial <https://docs.python.org/3/tutorial/index.html>`_ as you work
+through the exercises (Sections 1 to 5 are a good start).
 
 We will use the version control system Git to manage our code in
 files. We will combine this with Github Classroom to submit your code
@@ -47,7 +47,6 @@ the beginning covering a few of the basic topics on using Python in
 files, packages and dealing with Github. In the course we will link to
 the relevant part of the Principles of Programming notes so that you
 can catch up on these skills.
-
 
 Assessment
 ----------

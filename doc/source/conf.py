@@ -122,6 +122,7 @@ proof_theorem_types = {
     "property": "Property",
     "theorem": "Theorem",
     "exercise": "Exercise",
+    "task": "Task"
 }
 
 # -- Options for HTML output ----------------------------------------------

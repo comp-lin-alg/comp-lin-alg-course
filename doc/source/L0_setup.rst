@@ -1,7 +1,7 @@
 .. _comp_exercises:
 
 =========================
- Computational exercises
+Computational exercises
 =========================
 
 In the course notes you will encounter computational exercises for you
@@ -12,11 +12,14 @@ valuable scientific computing skills in coding, software engineering
 and rigorous testing. They involve completing unfinished "skeleton"
 code.
 
-In this section, we will explain how to get set up to do the
-computational exercises.
+In this preliminary section, we will explain how to get set up to do
+the computational exercises. If you have taken Principles of
+Programming (a second year optional course on our undergraduate
+Mathematics programme) then you will have already been shown how to
+do most of this. If not, we will provide some links to some material
+on that course that it is well worth reading.
 
-You can either use the machines in the maths department labs, or
-you can use your own laptop running Windows, Linux, or macOS. 
+You can use your own laptop running Windows, Linux, or macOS. 
 
 There is a lot of information below, but here is a summary checklist to
 check that you have everything ready to do your work.
@@ -28,47 +31,47 @@ check that you have everything ready to do your work.
    5. Install the course module to the venv.
    6. Install `numpy` to the venv, and `pytest`.
    7. Remember to activate the venv every time you work on the course module.
-      
-To follow these steps read the information below.
 
+To follow these steps read the sections below.
 
-Editing code
-============
-
-In order to write the code required for the implementation exercise,
-you'll need to use a Python-aware text editor. There are many such
-editors available and you can use any you like, but you haven't used
-Python and/or Git before, it is a good idea to use Visual Studio Code
-(VSCode) which is a Python-aware text editor, since VSCode also
-provides a command line and an interface to Git.
 
 Getting the software that you need
 ==================================
 
-The
-core requirements are Python 3, git, and a Python-aware text editor.
+The core requirements are Python 3, Git, and a Python-aware text editor.
 
-Using your own machine (recommended)
-------------------------------------
+In order to write the code required for the implementation exercise,
+you'll need to use a Python-aware text editor. There are many such
+editors available and you can use any you like. If you haven't used
+Python and/or Git before, it is a good idea to use Visual Studio Code
+(VSCode) which is a Python-aware text editor, since VSCode also
+provides a command line and an interface to Git.
 
 Up to date information on how to install Python, Git and VSCode on a
-Windows, Linux or Mac machine is available at the `FONS Computing
-<https://imperial-fons-computing.github.io/>`_ page.
+Windows, Linux or Mac machine is available at the `Installing the
+necessary sofware
+<https://object-oriented-python.github.io/installation.html/>`_
+section of the Principles of Programming website.
 
+.. proof:task::
 
-Using the Windows machines in the computer labs
------------------------------------------------
+   Install Python, Git and VSCode (or your preferred text editor for
+   coding) on your computer that you will use for this course.
 
-Imperial's lab machines have the software you need installed, in some
-cases via the `Software Hub`. To get started, double click the
-`Software Hub` icon on the desktop or visit the `Software Hub
-<https://softwarehub.imperial.ac.uk/>`_ page.
+.. hint::
 
-Alternatively, from Software Hub you can run `git`, which will give
-you a terminal to run git and Python commands, and `atom`, which will
-provide you with an editor. This is the link to the `VSCode
-installation instructions
-<https://imperial-fons-computing.github.io/vscode.html>`_.
+   If you are a Mac user, you'll need to avoid using the preinstalled
+   Python on your system, as it is a very cut down version for
+   interacting with the MacOS. You should install a fully featured
+   Python (using Anaconda or Homebrew, as described in the link above).
+   
+.. hint::
+
+   If you want to use Imperial's computer lab machines, they have the
+   software you need installed, in some cases via the `Software
+   Hub`. To get started, double click the `Software Hub` icon on the
+   desktop or visit the `Software Hub
+   <https://softwarehub.imperial.ac.uk/>`_ page.
 
 The command line
 ================
@@ -92,27 +95,6 @@ focusses on the Bash shell, which is the one we will use.
    .. image:: _static/bash.png
       :align: right
       :width: 20ex
-
-
-Python
-======
-
-Your implementation will be written in Python based on a code skeleton
-provided. This means that you'll need a certain familiarity with the
-Python language. But don't panic! Python is a very easy language to
-work with. This module will use Python 3. 
-
-If you haven't done any Python before, then go through `the official
-Python tutorial <https://docs.python.org/3/tutorial/index.html>`_
-(Sections 1 to 5 are a good start).
-
-The Matlab-like array features of Python are provided by `Numpy
-<http://www.numpy.org/>`_ for which there is a `helpful tutorial
-<http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_. There is also a
-handy `guide for Matlab users
-<http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
-code provided in this course will always use Numpy arrays, and never
-Numpy matrices.
 
 .. hint::
 
@@ -138,9 +120,9 @@ can be combined with online hosting to provide secure backups and to
 enable you to work on code from different locations.
 
 In this module, you'll use revision control to access the skeleton
-files, and to update those files if and when they change. You'll also
-use the same revision control system to record the edits you make over
-time and to submit your work for feedback and, eventually, marking.
+files. You'll also use the same revision control system to record the
+edits you make over time and to submit your work for feedback and,
+eventually, marking.
 
 We will be using the revision control system `git
 <http://git-scm.com/>`_, which is the current state of the art and is

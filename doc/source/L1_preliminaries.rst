@@ -1,7 +1,7 @@
 .. default-role:: math
 
 ===============
- Preliminaries
+Linear Algebra Preliminaries
 ===============
 
 In this preliminary section, we revise a few key linear algebra
@@ -183,6 +183,16 @@ later.
 .. hint::
 
   Don't forget to activate the virtual environment before running the tests to make sure that you have access to all the necessary packages
+
+.. hint::
+
+   The Matlab-like array features of Python are provided by `Numpy
+   <http://www.numpy.org/>`_ for which there is a `helpful tutorial
+   <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_. There is also a
+   handy `guide for Matlab users
+   <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
+   code provided in this course will always use Numpy arrays, and never
+   Numpy matrices.
 
 .. _ex-column-matvec:
 

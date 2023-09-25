@@ -23,7 +23,6 @@
    .. toctree::
 
       practicalities
-      exercises
       errata
       
    .. image:: _static/trefbau.jpg
@@ -47,11 +46,14 @@
 .. raw:: latex
          
    \mainmatter
+
+.. toctree::
    
 .. toctree::
    :numbered:
    :maxdepth: 2
 
+   L0_setup
    L1_preliminaries
    L2_QR_factorisation
    L3_analysing_algorithms

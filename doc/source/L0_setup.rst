@@ -5,12 +5,12 @@ Getting ready for computational exercises
 =========================
 
 In the course notes you will encounter computational exercises for you
-to complete.  The object of these exercise is to build up
+to complete.  The object of these exercises is to build up
 understanding about how computational linear algebra algorithms
 actually work. Along the way you will have the opportunity to pick up
 valuable scientific computing skills in coding, software engineering
 and rigorous testing. They involve completing unfinished "skeleton"
-code.
+code, which we will then use in the courseworks.
 
 In this preliminary section, we will explain how to get set up to do
 the computational exercises. If you have taken Principles of
@@ -213,6 +213,10 @@ of the Principles of Programming website.
 
      git add -A
 
+   or:
+
+     git add *
+     
    to add all the files in the repository. This is bad practice and
    makes a mess for the markers, making them grumpy. When you commit
    changes to files in your repository for this course, just use::

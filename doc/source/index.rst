@@ -16,10 +16,10 @@
 
    .. warning::
 
-      This course is due for substantial revision and reorganisation
-      before Academic Year 23/24, and hence these pages are likely to
-      change in substantial ways before then.
-   
+      This course is undergoing substantial revision and reorganisation
+      going into Academic Year 23/24, and hence these pages are likely to
+      change in substantial ways as the course goes underway.
+
    .. toctree::
 
       practicalities

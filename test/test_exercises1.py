@@ -12,7 +12,7 @@ def test_basic_matvec(m, n):
     A = random.randn(m, n)
     x = random.randn(n)
 
-    b0 = A.dot(x)
+    b0 = A@x
     b = cla_utils.basic_matvec(A, x)
 
     assert(np.linalg.norm(b-b0) < 1.0e-6)
@@ -25,7 +25,7 @@ def test_column_matvec(m, n):
     A = random.randn(m, n)
     x = random.randn(n)
 
-    b0 = A.dot(x)
+    b0 = A@x
     b = cla_utils.column_matvec(A, x)
 
     assert(np.linalg.norm(b-b0) < 1.0e-6)
@@ -43,7 +43,7 @@ def test_rank2_matrix(m, n):
     a1 = random.randn(m)
     a2 = random.randn(n)
 
-    n1 = np.vdot(a1, A.dot(a2))
+    n1 = np.vdot(a1, A@a2)
     n2 = np.vdot(a1, u1)*np.vdot(v1, a2) + \
         np.vdot(a1, u2)*np.vdot(v2, a2)
 
@@ -61,8 +61,8 @@ def test_rank1pert_inv(m):
 
     x = 1/np.sqrt(2)*(random.randn(m) + 1j*random.randn(m))
 
-    y = A.dot(x)
-    err = x - Ainv.dot(y)
+    y = A@x
+    err = x - Ainv@y
 
     assert(np.linalg.norm(err)<1.0e-7)
 
@@ -84,7 +84,7 @@ def test_ABiC(m):
 
     z = zr + 1j*zi
     x = xr + 1j*xi
-    err = z - np.dot(A, x)
+    err = z - A@x
 
     assert(np.linalg.norm(err) < 1.0e-7)
 

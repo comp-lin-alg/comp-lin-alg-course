@@ -161,14 +161,14 @@ for code blocks in pseudo-code in these notes.)
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function has been
-   left unimplemented. It should implement the classical Gram-Schmidt
-   algorithm above, using Numpy slice notation so that only one Python
-   for loop is used. The function should work "in place" by making a
-   copy of `A` and then changing the values in the copy, without
-   introducing additional intermediate arrays (you will need to create
-   a new array to store `R`). The test script ``test_exercises2.py``
-   in the ``test`` directory will test this function.
+   `(\ddagger)` The :func:`cla_utils.exercises2.GS_classical` function
+   has been left unimplemented. It should implement the classical
+   Gram-Schmidt algorithm above, using Numpy slice notation so that
+   only one Python for loop is used. The function should work "in
+   place" by changing the values in `A`, without introducing
+   additional intermediate arrays (you will need to create a new array
+   to store `R`). The test script ``test_exercises2.py`` in the
+   ``test`` directory will test this function.
 
 .. hint::
 
@@ -321,9 +321,9 @@ in `A` with the `v` s and eventually the `q` s.
    What is the minimal number of Python
    for loops possible?
 
-   The function should work "in place" by making a
-   copy of `A` and then changing those values, without introducing
-   additional intermediate arrays. The test script
+   The function should work "in place" by changing the values in `A`,
+   without introducing additional intermediate arrays (you will need
+   to create a new array to store `R`). The test script
    ``test_exercises2.py`` in the ``test`` directory will test this
    function.
 
@@ -364,7 +364,7 @@ example, at the first iteration,
       \underbrace{
       \begin{pmatrix}
       \frac{1}{r_{11}} & -\frac{r_{12}}{r_{11}} & \ldots &
-      \ldots & -\frac{r_{11}}{r_{11}} \\
+      \ldots & -\frac{r_{1n}}{r_{11}} \\
       0 & 1 & 0 & \ldots & 0 \\    
       0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
@@ -396,7 +396,7 @@ Similarly, the second iteration may be written as
       \begin{pmatrix}
       1 & 0 & 0 &
       \ldots & 0 \\
-      0 & \frac{1}{r_{22}} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{nn}} \\      0 & 0 & 1 & \ldots & 0 \\
+      0 & \frac{1}{r_{22}} & -\frac{r_{23}}{r_{22}} & \ldots & -\frac{r_{2n}}{r_{22}} \\      0 & 0 & 1 & \ldots & 0 \\
       \vdots & \ddots & \ddots & \ldots & \vdots \\
       0 & 0 & 0 & \ldots & 1 \\
       \end{pmatrix}}_{R_2}
@@ -705,7 +705,40 @@ We call this procedure "implicit multiplication".
 
    .. vimeo:: 450202242
 
+In this section we will frequently encounter systems of the form
+	      
+.. math::
 
+      \hat{R}x = y.
+
+This is an upper triangular system that can be solved efficiently
+using back-substitution.
+
+Written in components, this equation is
+
+  .. math::
+
+     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
+
+     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
+     
+     \vdots
+
+     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
+     
+      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
+
+The last equation yields `x_m` directly by dividing by `R_{mm}`, then
+we can use this value to directly compute `x_{m-1}`. This is repeated
+for all of the entries of `x` from `m` down to 1. This procedure is
+called back substitution, which we summarise in the following
+pseudo-code.
+
+* `x_m  \gets y_m/R_{mm}`
+* FOR `i= m-1` TO 1 (BACKWARDS)
+  
+  * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
+	      
 .. proof:exercise::
 
    `(\ddagger)` The function :func:`cla_utils.exercises3.solve_U` has
@@ -755,11 +788,7 @@ We call this procedure "implicit multiplication".
    :func:`cla_utils.exercises3.householder`.  If you have not already
    done so, you will need to modified
    :func:`cla_utils.exercises3.householder` to use the ``kmax``
-   argument. You may make use of the built-in triangular solve
-   algorithm :func:`scipy.linalg.solve_triangular` (we shall consider
-   triangular matrix algorithms briefly later). The test script
-   ``test_exercises3.py`` in the ``test`` directory will also test this
-   function.
+   argument. You will also need :func:`cla_utils.exercises3.solve_U`.
 
 If we really need `Q`, we can get it by matrix-vector products with
 each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.  This
@@ -865,30 +894,7 @@ Left multiplication by `\hat{Q}^*` then gives
       \hat{R}x = \hat{Q}^*b.
 
 This is an upper triangular system that can be solved efficiently
-using back-substitution. Written in components, this equation is
-
-  .. math::
-
-     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
-
-     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
-     
-     \vdots
-
-     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
-     
-      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
-
-The last equation yields `x_m` directly by dividing by `R_{mm}`, then
-we can use this value to directly compute `x_{m-1}`. This is repeated
-for all of the entries of `x` from `m` down to 1. This procedure is
-called back substitution, which we summarise in the following
-pseudo-code.
-
-* `x_m  \gets y_m/R_{mm}`
-* FOR `i= m-1` TO 1 (BACKWARDS)
-  
-  * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
+using back-substitution.
 
 .. proof:exercise::
 
@@ -899,7 +905,7 @@ pseudo-code.
    by forming an appropriate augmented matrix `\hat{A}`, calling
    :func:`cla_utils.exercises3.householder` and extracting appropriate
    subarrays using slice notation, before using
-   :func:`scipy.linalg.solve_triangular` to solve the resulting upper
+   :func:`cla_utils.exercises3.solve_U` to solve the resulting upper
    triangular system, before returning the solution `x`. The test
    script ``test_exercises3.py`` in the ``test`` directory will also
    test this function.

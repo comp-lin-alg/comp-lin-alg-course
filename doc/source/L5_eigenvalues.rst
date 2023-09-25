@@ -938,5 +938,5 @@ This is very cheap, we just read off the bottom right-hand corner
 from `A^{(k)}`! This is called the Rayleigh quotient shift.
 
 It turns out that the Rayleigh quotient shift is not guaranteed to
-work in all cases, so there is an alernative approach called the
+work in all cases, so there is an alternative approach called the
 Wilkinson shift, but we won't discuss that here.

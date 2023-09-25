@@ -1,3 +1,4 @@
+
 .. default-role:: math
 
 Analysing algorithms
@@ -74,7 +75,7 @@ over `j`, which we can estimate by approximating the sum as an integral,
    .. math::
 
       N_{\mbox{FLOPS}} \sim \sum_{i=1}^n \sum_{j=i+1}^n 4m
-      \sim 4m \int_0^n \int_{x}^n x'\,d x' \,d x
+      \sim 4m \int_0^n \int_{x}^n \,d x' \,d x
       = 4m\frac{n^2}{2} = 2mn^2,
 
 as suggested above.
@@ -412,7 +413,7 @@ then we say that a problem is ill conditioned.
 
 As a first example, consider the problem of finding the square root,
 `f:x\mapsto \sqrt{x}`, a one dimensional problem. In this case,
-`J=x^{1/2}/2`. The (linear) condition number is
+`J=x^{-1/2}/2`. The (linear) condition number is
 
    .. math::
 
@@ -693,18 +694,21 @@ by which we mean that `\exists C>0` such that
 
       \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} \leq C\varepsilon,
 
-for sufficiently small `\varepsilon`. We shall see below that
-we have to lower our aspirations depending on the condition number of `A`.
+for sufficiently small `\varepsilon` (assuming, albeit
+unrealistically, that we have a sequence of computers with smaller and
+smaller $\varepsilon$). We shall see below that we have to lower our
+aspirations depending on the condition number of `A`.
 
 .. proof:definition:: Stability
 
    An algorithm `\tilde{f}` for `f` is stable if for each `x\in X`,
+   there exists `\tilde{x}` with
 
       .. math::
 
 	 \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
 
-   there exists `\tilde{x}` with
+	 and
 
       .. math::
 

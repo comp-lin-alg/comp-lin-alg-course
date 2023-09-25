@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def randomQ(m):
     """
     Produce a random orthogonal mxm matrix.
@@ -9,7 +8,7 @@ def randomQ(m):
     
     :return Q: the mxm numpy array containing the orthogonal matrix.
     """
-    Q, R = linalg.qr(random.randn(m, m))
+    Q, R = np.linalg.qr(np.random.randn(m, m))
     return Q
 
 
@@ -22,8 +21,8 @@ def randomR(m):
     :return R: the mxm numpy array containing the upper triangular matrix.
     """
     
-    A = random.randn(m, m)
-    return numpy.triu(A)
+    A = np.random.randn(m, m)
+    return np.triu(A)
 
 
 def backward_stability_householder(m):
@@ -50,7 +49,7 @@ def back_stab_solve_U(m):
     """
     # repeat the experiment a few times to capture typical behaviour
     for k in range(20):
-        A = random.randn(m, m)
+        A = np.random.randn(m, m)
         R = np.triu(A)
 
         raise NotImplementedError

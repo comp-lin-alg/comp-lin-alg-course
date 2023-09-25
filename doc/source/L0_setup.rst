@@ -359,8 +359,9 @@ or in a script.
 
 To use IPython, type `ipython` in the Terminal (when the venv is
 activated). You may need to install it first using `python -m install
-ipython`. Then you can import `cla_utils` interactively using `from
-cla_utils import *`. To exit IPython type Ctrl-D.
+ipython` (you must start the venv first). Then you can import
+`cla_utils` interactively using `from cla_utils import *`. To exit
+IPython type Ctrl-D.
 
 .. proof:task::
 

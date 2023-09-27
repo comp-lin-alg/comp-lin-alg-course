@@ -417,14 +417,14 @@ check the code you have just written. These are located in the
 ``test`` folder and employ the `pytest <http://pytest.org/>`_
 testing framework. You run the tests with:: 
 
-   pytest test_script.py
+   python -m pytest test_script.py
 
-from the bash Terminal, replacing ``test_script.py`` with the appropriate
-test file name. The ``-x`` option to ``pytest`` will cause the test
-to stop at the first failure it finds, which is often the best place
-to start fixing a problem. For those familiar with debuggers, the
-``--pdb`` option will drop you into the Python debugger at the first
-error.
+from the bash Terminal, replacing ``test_script.py`` with the
+appropriate test file name (remember to activate the venv first). The
+``-x`` option to ``pytest`` will cause the test to stop at the first
+failure it finds, which is often the best place to start fixing a
+problem. For those familiar with debuggers, the ``--pdb`` option will
+drop you into the Python debugger at the first error.
 
 You can also run all the tests by running ``pytest`` on the tests
 folder. This works particularly well with the -x option, resulting

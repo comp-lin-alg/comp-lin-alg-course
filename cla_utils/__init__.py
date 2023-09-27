@@ -8,3 +8,4 @@ from cla_utils.exercises7 import *
 from cla_utils.exercises8 import *
 from cla_utils.exercises9 import *
 from cla_utils.exercises10 import *
+from numpy.linalg import norm

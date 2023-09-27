@@ -834,7 +834,7 @@ matrices, and a running product of all of the `R` matrices (again).
 
 .. proof:proof::
 
-   We prove by induction. At `k=0`, `A_k={R'}^{(k)}={Q'}^{(k)}=0`. Now
+   We prove by induction. At `k=0`, `A_k={R'}^{(k)}={Q'}^{(k)}=I`. Now
    we assume that the inductive hypothesis is true for `k`, and aim to
    deduce that it is true for `k+1`.
 
@@ -858,7 +858,7 @@ matrices, and a running product of all of the `R` matrices (again).
       .. math::
 
 	 A^k = AA^{k-1} =A{Q'}^{(k-1)}{R'}^{(k-1)}
-	 {Q'}^{(k-1)}A^{(k-1)}{R'}^{(k-1)} =
+	 = {Q'}^{(k-1)}A^{(k-1)}{R'}^{(k-1)} =
 	 {Q'}^{(k-1)}Q^{(k)}R^{(k)}{R'}^{(k-1)}
 	 = {Q'}^{(k)}{R'}^{(k)},
 

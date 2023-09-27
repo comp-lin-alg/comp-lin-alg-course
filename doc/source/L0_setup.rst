@@ -26,7 +26,8 @@ check that you have everything ready to do your work.
 
    1. Install Python, Git and a text editor using the instructions below.
    2. Create a working folder and put a virtual environment in it (venv).
-   3. Check out your course repository from Github Classroom.
+   3. Clone your course repository from Github Classroom into the
+      working folder.
    4. Activate the venv.
    5. Install `numpy` to the venv, and `pytest`.
    6. Install the course module to the venv.

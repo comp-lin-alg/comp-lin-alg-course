@@ -363,7 +363,7 @@ imported into IPython (in the terminal, or using a Jupyter notebook),
 or in a script.
 
 To use IPython, type `ipython` in the Terminal (when the venv is
-activated). You may need to install it first using `python -m install
+activated). You may need to install it first using `python -m pip install
 ipython` (you must start the venv first). Then you can import
 `cla_utils` interactively using `from cla_utils import *`. To exit
 IPython type Ctrl-D.

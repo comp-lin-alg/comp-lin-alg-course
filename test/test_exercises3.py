@@ -62,11 +62,12 @@ def test_householder_ls(m, n):
     A = random.randn(m, n)
     b = random.randn(m)
 
+    A0 = A0.copy()
     x = cla_utils.householder_ls(A, b)
     #!!!change test param to b
 
     #check normal equation residual
-    assert(cla_utils.norm(np.dot(A.T, np.dot(A, x) - b)) < 1.0e-6)
+    assert(cla_utils.norm(np.dot(A0.T, np.dot(A0, x) - b)) < 1.0e-6)
 
 
 if __name__ == '__main__':

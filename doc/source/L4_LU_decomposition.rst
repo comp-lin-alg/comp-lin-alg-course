@@ -251,6 +251,11 @@ a mathematical concept to translate from the row operations into the final
    Once it passes the tests, experiment with the inverse and
    multiplication properties above, to verify that they work.
 
+.. warning::
+
+   There is a sign error in the test for the above exercise. But this
+   is not currently part of the course so we are not fixing it currently.
+   
 .. details:: Supplementary video
 
    .. vimeo:: 454098164

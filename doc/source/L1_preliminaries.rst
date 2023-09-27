@@ -13,7 +13,7 @@ that should be found in an undergraduate linear algebra course.
 
    Before you attempt any exercises, you need to make sure that you
    have everything you need set up on your computer. See the checklist
-   in :ref:`the exercises section <comp_exercises>`.
+   in :ref:`the previous section <comp_exercises>`.
 
 Matrices, vectors and matrix-vector multiplication
 ==================================================
@@ -177,7 +177,7 @@ later.
 
       py.test test/test_exercises1.py
 
-   from the Bash command line. Make sure you commit your modifications
+   from the Bash Terminal. Make sure you commit your modifications
    and push them to your fork of the course repository.
 
 .. hint::

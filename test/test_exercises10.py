@@ -13,8 +13,8 @@ def test_arnoldi(m, k):
     Q, H = cla_utils.arnoldi(A, b, k)
     assert(Q.shape == (m, k+1))
     assert(H.shape == (k+1, k))
-    assert(np.linalg.norm((Q.conj().T)@Q - np.eye(k+1)) < 1.0e-6)
-    assert(np.linalg.norm(A@Q[:,:-1] - Q@H) < 1.0e-6)
+    assert(cla_utils.norm((Q.conj().T)@Q - np.eye(k+1)) < 1.0e-6)
+    assert(cla_utils.norm(A@Q[:,:-1] - Q@H) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -23,7 +23,7 @@ def test_GMRES(m):
     b = random.randn(m)
 
     x, _ = cla_utils.GMRES(A, b, maxit=1000, tol=1.0e-3)
-    assert(np.linalg.norm(np.dot(A, x) - b) < 1.0e-3)
+    assert(cla_utils.norm(np.dot(A, x) - b) < 1.0e-3)
 
 
 if __name__ == '__main__':

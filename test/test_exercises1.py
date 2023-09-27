@@ -15,7 +15,7 @@ def test_basic_matvec(m, n):
     b0 = A@x
     b = cla_utils.basic_matvec(A, x)
 
-    assert(np.linalg.norm(b-b0) < 1.0e-6)
+    assert(cla_utils.norm(b-b0) < 1.0e-6)
 
 
 # Test the basic matvec
@@ -28,7 +28,7 @@ def test_column_matvec(m, n):
     b0 = A@x
     b = cla_utils.column_matvec(A, x)
 
-    assert(np.linalg.norm(b-b0) < 1.0e-6)
+    assert(cla_utils.norm(b-b0) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, n', [(20, 20), (40, 20), (20, 45)])
@@ -64,7 +64,7 @@ def test_rank1pert_inv(m):
     y = A@x
     err = x - Ainv@y
 
-    assert(np.linalg.norm(err)<1.0e-7)
+    assert(cla_utils.norm(err)<1.0e-7)
 
 
 @pytest.mark.parametrize('m', [3, 7, 20, 43])
@@ -86,7 +86,7 @@ def test_ABiC(m):
     x = xr + 1j*xi
     err = z - A@x
 
-    assert(np.linalg.norm(err) < 1.0e-7)
+    assert(cla_utils.norm(err) < 1.0e-7)
 
 
 if __name__ == '__main__':

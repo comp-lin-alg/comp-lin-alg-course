@@ -13,22 +13,22 @@ def test_householder(m):
     cla_utils.householder(A0)
     R = A0
     assert(np.allclose(R, np.triu(R)))  # check R is upper triangular
-    assert(np.linalg.norm(np.dot(R.T, R) - np.dot(A.T, A)) < 1.0e-6)
+    assert(cla_utils.norm(np.dot(R.T, R) - np.dot(A.T, A)) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
 def test_solve_U(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
-    _, U = np.linalg.qr(random.randn(m,m))
+    _, U = cla_utils.qr(random.randn(m,m))
     #check that the solver works
     x = cla_utils.solve_U(U, b)
     err1 = b - np.dot(U, x)
-    assert(np.linalg.norm(err1) < 1.0e-6)
+    assert(cla_utils.norm(err1) < 1.0e-6)
     #check that an upper triangular solver is being used
     A = random.randn(m, m)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) > 1.0e-6)
+    assert(cla_utils.norm(err2) > 1.0e-6)
 
     
 @pytest.mark.parametrize('m, n', [(20, 7), (40, 13), (87, 9)])
@@ -38,7 +38,7 @@ def test_householder_solve(m, n):
     x0 = random.randn(m, n)
     b = np.dot(A, x0)
     x = cla_utils.householder_solve(A, b)
-    assert(np.linalg.norm(x - x0) < 1.0e-6)
+    assert(cla_utils.norm(x - x0) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, n', [(20, 7), (40, 13), (87, 9)])
@@ -49,11 +49,11 @@ def test_householder_qr(m, n):
     Q, R = cla_utils.householder_qr(A0)
 
     # check orthonormality
-    assert(np.linalg.norm(np.dot(np.conj(Q.T), Q) - np.eye(m)) < 1.0e-6)
+    assert(cla_utils.norm(np.dot(np.conj(Q.T), Q) - np.eye(m)) < 1.0e-6)
     # check upper triangular
     assert(np.allclose(R, np.triu(R)))
     # check QR factorisation
-    assert(np.linalg.norm(np.dot(Q, R) - A) < 1.0e-6)
+    assert(cla_utils.norm(np.dot(Q, R) - A) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, n', [(3, 2), (20, 7), (40, 13), (87, 9)])
@@ -66,7 +66,7 @@ def test_householder_ls(m, n):
     #!!!change test param to b
 
     #check normal equation residual
-    assert(np.linalg.norm(np.dot(A.T, np.dot(A, x) - b)) < 1.0e-6)
+    assert(cla_utils.norm(np.dot(A.T, np.dot(A, x) - b)) < 1.0e-6)
 
 
 if __name__ == '__main__':

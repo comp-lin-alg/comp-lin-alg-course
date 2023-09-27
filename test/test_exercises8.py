@@ -14,7 +14,7 @@ def test_Q1AQ1s(m):
     # check preserves trace (similarity transform)x
     assert(np.abs(np.trace(A0) - np.trace(Ah)) < 1.0e-6)
     # check transformation was via unitary transformations
-    assert(np.abs(np.linalg.norm(Ah) - np.linalg.norm(A0)) < 1.0e-6)
+    assert(np.abs(cla_utils.norm(Ah) - cla_utils.norm(A0)) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -26,9 +26,9 @@ def test_hessenberg(m):
     # check preserves trace
     assert(np.abs(np.trace(A0) - np.trace(A)) < 1.0e-6)
     # check transformation was via unitary transformations
-    assert(np.abs(np.linalg.norm(A) - np.linalg.norm(A0)) < 1.0e-6)
+    assert(np.abs(cla_utils.norm(A) - cla_utils.norm(A0)) < 1.0e-6)
     # check Hessenberg structure
-    assert(np.linalg.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
+    assert(cla_utils.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -41,13 +41,13 @@ def test_hessenbergQ(m):
     b = random.randn(m)
     x0 = np.dot(A0, b)
     xh = np.dot(A, b)
-    assert(np.abs(np.linalg.norm(A) - np.linalg.norm(A0)) < 1.0e-6)
+    assert(np.abs(cla_utils.norm(A) - cla_utils.norm(A0)) < 1.0e-6)
     # check Hessenberg structure
-    assert(np.linalg.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
+    assert(cla_utils.norm(A[np.tril_indices(m, -2)]) < 1.0e-6)
     # check orthogonality
-    assert(np.linalg.norm(Q.T@Q - np.eye(m)) < 1.0e-6)
+    assert(cla_utils.norm(Q.T@Q - np.eye(m)) < 1.0e-6)
     # check the Schur factorisation
-    assert(np.linalg.norm(A - np.dot((Q.conj()).T, np.dot(A0, Q))) < 1.0e-6)
+    assert(cla_utils.norm(A - np.dot((Q.conj()).T, np.dot(A0, Q))) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -57,7 +57,7 @@ def test_ev(m):
     A0 = 1.0*A
     V = cla_utils.ev(A)
     #check that V and AV are aligned
-    norm = np.linalg.norm
+    norm = cla_utils.norm
     for i in range(m):
         v = V[:, i]
         Av = A0@v

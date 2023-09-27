@@ -18,11 +18,11 @@ def test_get_Lk(m, k):
     b = random.randn(m)
     x = np.dot(Lk, b)
     # should leave the first k entries the same
-    assert(np.linalg.norm(x[0:k]-b[0:k]) < 1.0e-6)
+    assert(cla_utils.norm(x[0:k]-b[0:k]) < 1.0e-6)
     lfull = 0.*b
     lfull[k:m] = lk
     # last m-k entries should have had l*bk subtracted from them
-    assert(np.linalg.norm(x[k:]-b[k:]+lfull[k:]*b[k-1]) < 1.0e-6)
+    assert(cla_utils.norm(x[k:]-b[k:]+lfull[k:]*b[k-1]) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -37,7 +37,7 @@ def test_LU_inplace(m):
     U = np.triu(A)
     A1 = np.dot(L, U)
     err = A1 - A0
-    assert(np.linalg.norm(err) < 1.0e-6)
+    assert(cla_utils.norm(err) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m, k', [(20, 4), (204, 100), (18, 7)])
@@ -49,12 +49,12 @@ def test_solve_L(m, k):
     L = R.T
     x = cla_utils.solve_L(L, b)
     err1 = b - np.dot(L, x)
-    assert(np.linalg.norm(err1) < 1.0e-6)
+    assert(cla_utils.norm(err1) < 1.0e-6)
     #check that a lower triangular solver is being used
     A = random.randn(m, m)
     x = solve_L(A, b)
     err2 = b - np.dot(A, x)
-    assert(np.linalg.norm(err2) > 1.0e-6)
+    assert(cla_utils.norm(err2) > 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -65,7 +65,7 @@ def test_inverse_LU(m):
 
     Ainv = cla_utils.inverse_LU(A0)
     err = np.dot(Ainv, A) - np.eye(m)
-    assert(np.linalg.norm(err) < 1.0e-6)
+    assert(cla_utils.norm(err) < 1.0e-6)
 
 
 if __name__ == '__main__':

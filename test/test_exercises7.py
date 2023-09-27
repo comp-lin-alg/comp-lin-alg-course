@@ -31,7 +31,7 @@ def test_LUP_inplace(m):
     A1 = np.dot(L, U)
     A0 = A0[p, :]
     err = A1 - A0
-    assert(np.linalg.norm(err) < 1.0e-6)
+    assert(cla_utils.norm(err) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [20, 204, 18])
@@ -41,7 +41,7 @@ def test_solve_LUP(m):
     A0 = 1.0*A
     b = random.randn(m)
     x = cla_utils.solve_LUP(A, b)
-    assert(np.linalg.norm(b - np.dot(A0, x)) < 1.0e-6)
+    assert(cla_utils.norm(b - np.dot(A0, x)) < 1.0e-6)
 
 
 @pytest.mark.parametrize('m', [3, 9, 18])

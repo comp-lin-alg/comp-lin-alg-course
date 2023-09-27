@@ -178,7 +178,7 @@ later.
       py.test test/test_exercises1.py
 
    from the Bash Terminal. Make sure you commit your modifications
-   and push them to your fork of the course repository.
+   and push them to your course repository.
 
 .. hint::
 

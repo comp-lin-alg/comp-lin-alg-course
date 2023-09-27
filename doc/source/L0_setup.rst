@@ -234,7 +234,7 @@ of the Principles of Programming website.
    files that are marked as not added. Do not try to click them to
    remove the marks.
 
-.. hint::
+.. warning::
 
    Never clone a repository inside the folder of another folder.
    

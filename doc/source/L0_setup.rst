@@ -125,8 +125,9 @@ of the Principles of Programming website.
 
 .. proof:task::
 
-   Create a new virtual environment for your Computational Linear Algebra
-   work, following the instructions of Section 1.3 of PoP linked above.
+   Create a new virtual environment for your Computational Linear
+   Algebra work and activate it, following the instructions of Section
+   1.3 of PoP linked above.
 
    Two differences are as follows.
 
@@ -242,7 +243,9 @@ Setting up your repository
 We're using a tool called `GitHub classroom
 <https://classroom.github.com>`_ to automate the creation of your
 copies of the repository. Follow the link on Blackboard marked "Course
-Repository" to create your personal repository for the course.
+Repository" to create your personal repository for the course. Then,
+clone it to your working folder on your computer following the
+instructions in the previous section.
 
 .. warning::
 

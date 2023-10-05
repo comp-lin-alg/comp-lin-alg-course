@@ -159,7 +159,7 @@ we see
 
 which means that all the columns of `uv^T` are multiples of `u`. We will
 see in the next section that this matrix has rank 1. In the complex
-number case, the transpose $^T$ is replaced by the adjoint $^*$ which
+number case, the transpose `^T` is replaced by the adjoint `^*` which
 is the complex conjugate of the transpose. There will be more about this
 later.
 
@@ -169,14 +169,14 @@ Your first programming exercises
 In this course, there will be programming exercises, the first one of
 which is coming up right now. The aim of these programming exercises
 is to gain understanding of the mathematical algorithms by expressing
-them as code. The `numpy` Python package has a module called
-`numpy.linalg` that contains many of these algorithms. Hence for this
+them as code. The :mod:`numpy` Python package has a module called
+:mod:`numpy.linalg` that contains many of these algorithms. Hence for this
 course we will not use this module, just use the functions and classes
-available when you import `numpy` itself. There is one exception,
-which is that `numpy.linalg.norm` is quite useful, but also covers a lot
+available when you import :mod:`numpy` itself. There is one exception,
+which is that :meth:`numpy.linalg.norm` is quite useful, but also covers a lot
 of different cases which are not very edifying to replicate. Hence,
-we have included `numpy.linalg.norm` in the `cla_utils` package as
-`cla_utils.norm`, should you wish to use it.
+we have included :meth:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
+:meth:`cla\_utils.norm`, should you wish to use it.
 
 .. _ex-basic-matvec:
 

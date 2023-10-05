@@ -44,10 +44,10 @@ polynomial fitting. It is also at the core of one of the most widely
 used algorithms for finding eigenvalues of matrices. We shall discuss
 all of this later during this course.
 
-When `m > n`, `R` must have all zero rows after the `n`th row. Hence,
+When `m > n`, `R` must have all zero rows after the `n` th row. Hence,
 it makes sense to only work with the top `n\times n` block of `R`
 consisting of the first `n` rows, which we call `\hat{R}`. Similarly,
-in the matrix vector product `QR`, all columns of `Q` beyond the `n`th
+in the matrix vector product `QR`, all columns of `Q` beyond the `n` th
 column get multiplied by those zero rows in `R`, so it makes sense to
 only work with the first `n` columns of `Q`, which we call `\hat{Q}`.
 We then have the reduced QR factorisation, `\hat{Q}\hat{R}`.

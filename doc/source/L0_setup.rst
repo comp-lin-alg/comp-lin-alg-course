@@ -29,7 +29,7 @@ check that you have everything ready to do your work.
    3. Clone your course repository from Github Classroom into the
       working folder.
    4. Activate the venv.
-   5. Install `numpy` to the venv, and `pytest`.
+   5. Install :mod:`numpy` to the venv, and :mod:`pytest`.
    6. Install the course module to the venv.
    7. Remember to activate the venv every time you work on the course module.
    8. Make sure that you understand how to run code in the course repository
@@ -154,8 +154,8 @@ of the Principles of Programming website.
 
    Following the instructions in `Section 1.3
    <https://object-oriented-python.github.io/1_introduction.html#installing-python-packages>`_
-   of the Principles of Programming website, install the `numpy` and
-   `pytest` packages to your venv (don't forget to activate it first).
+   of the Principles of Programming website, install the :mod:`numpy` and
+   :mod:`pytest` packages to your venv (don't forget to activate it first).
 
 GitHub and git
 ==============
@@ -286,7 +286,7 @@ Installing the course package to the venv
 
 In this course we will be working on skeleton code stored as a Python
 package in the repository. This means that we will be able to import
-everything as a module using `from cla_utils import *` without needing
+everything as a module using `from cla\_utils import *` without needing
 to be in a particular folder. This is what makes the tests work,
 for example.
 
@@ -297,7 +297,7 @@ for example.
 
    1. Activate the clavenv as above.
    2. Change folder to the repository that you just checked out (this
-      should contain folders called `doc`, `cla_utils`, `test`, etc.).
+      should contain folders called `doc`, `cla\_utils`, `test`, etc.).
    3. Type `python -m pip install -e .`
 
       
@@ -362,14 +362,14 @@ on Github.
 Running your work
 =================
 
-If you want to execute your code written in `cla_utils`, this can be
+If you want to execute your code written in `cla\_utils`, this can be
 imported into IPython (in the terminal, or using a Jupyter notebook),
 or in a script.
 
 To use IPython, type `ipython` in the Terminal (when the venv is
 activated). You may need to install it first using `python -m pip install
 ipython` (you must start the venv first). Then you can import
-`cla_utils` interactively using `from cla_utils import *`. To exit
+:mod:`cla_utils` interactively using `from cla_utils import *`. To exit
 IPython type Ctrl-D.
 
 .. proof:task::
@@ -378,7 +378,7 @@ IPython type Ctrl-D.
    <https://object-oriented-python.github.io/2_programs_in_files.html#ipython>`_.
 
 If you also import `numpy` then you can create
-example `numpy` arrays and pass them to `cla_utils` functions to try
+example `numpy` arrays and pass them to :mod:`cla_utils` functions to try
 them out. You can also do this in a script, e.g.::
 
   from cla_utils import *
@@ -393,8 +393,8 @@ them out. You can also do this in a script, e.g.::
   ABiC(A, xr, xi)
 
 After saving your text to a script with a filename ending in `.py`,
-e.g.  `run_ABiC.py`, you can execute the script in the Terminal by
-typing `python run_ABiC.py` (remember to change to the folder where
+e.g.  `run\_ABiC.py`, you can execute the script in the Terminal by
+typing `python run\_ABiC.py` (remember to change to the folder where
 the file is located). Scripts are better because you can run the whole
 thing again more easily if you make a mistake, and you can save them.
 

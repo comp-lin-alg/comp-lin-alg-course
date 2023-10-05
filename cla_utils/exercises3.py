@@ -10,9 +10,6 @@ def householder(A, kmax=None):
     :param A: an mxn-dimensional numpy array
     :param kmax: an integer, the number of columns of A to reduce \
     to upper triangular. If not present, will default to n.
-
-    :return R: an mxn-dimensional numpy array containing the upper \
-    triangular matrix
     """
 
     m, n = A.shape

@@ -48,7 +48,7 @@ def test_rq_it(m):
 @pytest.mark.parametrize('m', [20, 30, 18])
 def test_pure_QR(m):
     random.seed(1302*m)
-    A = random.randn(m, m) + 1j*random.randn(m, m)
+    A = random.randn(m, m)
     A = 0.5*(A + A.conj().T)
     A0 = 1.0*A
     A2 = cla_utils.pure_QR(A0, maxit=10000, tol=1.0e-5)

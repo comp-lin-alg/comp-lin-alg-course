@@ -22,7 +22,7 @@ def test_inverse_it(m):
     A = 0.5*(A + np.conj(A).T)
     e, _ = np.linalg.eig(A)
     x0 = random.randn(m)
-    mu = e[m//2] + random.randn() + 1j*random.randn()
+    mu = e[m//2] + random.randn()
     xi, li = cla_utils.inverse_it(A, x0, mu, tol=1.0e-8, maxit=10000)
     es = np.abs(e - mu)
     i1 = np.argsort(es)

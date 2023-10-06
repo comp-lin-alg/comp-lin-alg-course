@@ -19,7 +19,7 @@ def arnoldi(A, b, k):
     raise NotImplementedError
 
 
-def GMRES(A, b, maxit, tol, x0=None, return_residual_norms=False,
+def GMRES(A, b, maxit, tol, return_residual_norms=False,
           return_residuals=False):
     """
     For a matrix A, solve Ax=b using the basic GMRES algorithm.
@@ -28,7 +28,6 @@ def GMRES(A, b, maxit, tol, x0=None, return_residual_norms=False,
     :param b: m dimensional numpy array
     :param maxit: integer, the maximum number of iterations
     :param tol: floating point number, the tolerance for termination
-    :param x0: the initial guess (if not present, use b)
     :param return_residual_norms: logical
     :param return_residuals: logical
 
@@ -40,9 +39,6 @@ def GMRES(A, b, maxit, tol, x0=None, return_residual_norms=False,
     :return r: mxnits dimensional numpy array, column k contains residual \
     at iteration k
     """
-
-    if x0 is None:
-        x0 = b
     
     raise NotImplementedError
 

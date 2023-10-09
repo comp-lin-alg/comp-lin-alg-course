@@ -281,6 +281,12 @@ instructions in the previous section.
    **Every time** you want to work on the implementation exercises and
    courseworks, you need to activate the venv.
 
+.. warning::
+
+   Your classroom repository will contain a branch called "feedback".
+   Do not commit to, or remove, this branch. This is how we will
+   provide feedback on your code.
+
 Installing the course package to the venv
 -----------------------------------------
 

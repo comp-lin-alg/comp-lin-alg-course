@@ -21,7 +21,7 @@ def test_householder(m):
 def test_solve_U(m, k):
     random.seed(1002*m + 2987*k)
     b = random.randn(m, k)
-    _, U = cla_utils.qr(random.randn(m,m))
+    _, U = cla_utils.householder_qr(random.randn(m,m))
     #check that the solver works
     x = cla_utils.solve_U(U, b)
     err1 = b - np.dot(U, x)
@@ -63,7 +63,7 @@ def test_householder_ls(m, n):
     A = random.randn(m, n)
     b = random.randn(m)
 
-    A0 = A0.copy()
+    A0 = A.copy()
     x = cla_utils.householder_ls(A, b)
     #!!!change test param to b
 

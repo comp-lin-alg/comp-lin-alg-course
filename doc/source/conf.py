@@ -121,6 +121,7 @@ proof_theorem_types = {
     "proof": "Proof",
     "property": "Property",
     "theorem": "Theorem",
+    "proposition": "Proposition",
     "exercise": "Exercise",
     "task": "Task"
 }

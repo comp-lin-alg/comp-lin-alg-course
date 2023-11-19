@@ -370,25 +370,25 @@ This final topic has been a strong focus of computational linear algebra
 over the last 30 years. Typically, the matrices that we want to solve
 do not have eigenvalues clustered in a small number of groups, and so
 GMRES is slow. The solution (and the challenge) is to find a matrix
-`M` such that `Mx = y` is cheap to solve (diagonal, or triangular, or
-something else) and such that `M^{-1}A` *does* have eigenvalues clustered
-in a small number of groups (e.g. `M` is a good approximation of `A`, so
-that `M^{-1}A\approx I` which has eigenvalues all equal to 1). We call
-`M` the preconditioning matrix, and the idea is to apply GMRES to
+`\hat{A}` such that `\hat{A}x = y` is cheap to solve (diagonal, or triangular, or
+something else) and such that `\hat{A}^{-1}A` *does* have eigenvalues clustered
+in a small number of groups (e.g. `\hat{A}` is a good approximation of `A`, so
+that `\hat{A}^{-1}A\approx I` which has eigenvalues all equal to 1). We call
+`\hat{A}` the preconditioning matrix, and the idea is to apply GMRES to
 the (left) preconditioned system
 
    .. math::
 
-      M^{-1}Ax = M^{-1}b.
+      \hat{A}^{-1}Ax = \hat{A}^{-1}b.
 
 GMRES on this preconditioned system is equivalent to the following algorithm,
 called preconditioned GMRES.
 
-* SOLVE `M\tilde{b}=b`.
+* SOLVE `\hat{A}\tilde{b}=b`.
 * `q_1 \gets \tilde{b}/\|\tilde{b}\|`
 * FOR `n=1,2,\dots`
 
-  * SOLVE `Mv = Aq_n`
+  * SOLVE `\hat{A}v = Aq_n`
   * FOR `j=1` TO `n`
 
     * `h_{jn}=q_j^*v`
@@ -406,9 +406,49 @@ called preconditioned GMRES.
    Show that this algorithm is equivalent to GMRES applied to the
    preconditioned system.
   
-The art and science of finding preconditioning matrices `M` (or
-matrix-free procedures for solving `Mx=y`) for specific problems
+The art and science of finding preconditioning matrices `\hat{A}` (or
+matrix-free procedures for solving `\hat{A}x=y`) for specific problems
 arising in data science, engineering, physics, biology etc. can
 involve ideas from linear algebra, functional analysis, asymptotics,
 physics, etc., and represents a major activity in scientific computing
 today.
+
+Knowing when to stop
+--------------------
+
+We should stop an iterative method when the error is sufficiently small.
+But, we don't have access the the exact solution, so we can't compute the
+error. Two things we can look at are:
+
+* The residual `{r}^k=A{x}^k-{b}`, or
+* The pseudo-residual `{s}^k = {x}^{k+1}-{x}^k`,
+  which both tend to zero as `{x}^k\to{x}^*` provided that `A` is
+  invertible.
+  
+How do their sizes relate to the size of `{e}^k={x}^k-{x}^*`?
+
+.. math::
+   {e}^k  = & {x}^* - {x}^k \\
+    = & A^{-1}(A{x}^*-A{x}^k) \\
+    = & A^{-1}({b}-A{x}^k) \\
+    = & A^{-1}{r}^k,
+
+so `\|e^k\| \leq \|A^{-1}\|\|r^k\|`.
+
+The relative error `\|e^k\|/\|x^*\|` satisfies
+
+.. math::
+
+   \frac{\|e^k\|}{\|x^*\|}
+   = \frac{\|A^{-1}r^k\|}{\|x\|}
+   \leq \|A^{-1}\|\frac{\|r^k\|}{\|x\|}
+   \leq \|A^{-1}\|\|A\|\frac{\|r^k\|}{\|b\|},
+
+so the relative error is bounded from above by
+the condition number of `\|A\|` multiplied by
+the relative residual `\|r^k\|/\|b\|`. If the condition
+number is large, it is possible to have a small residual
+but still have a large condition number.
+
+Similar results hold for the pseudoresidual, but are
+more complicated to show for the case of GMRES.

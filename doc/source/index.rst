@@ -59,6 +59,7 @@
    L3_analysing_algorithms
    L5_eigenvalues
    L6_krylov
+   L7_preconditioning
 
 The automated documentation for the skeleton code is below.
 

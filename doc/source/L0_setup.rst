@@ -455,8 +455,7 @@ documented in `PEP8
 editor modes which can help you with this. The skeleton implementation
 follows PEP8 quite closely. You are encouraged, especially if you are
 a more experienced programmer, to follow PEP8 in your
-implementation. However nobody is going to lose marks for PEP8
-failures.
+implementation. Full code marks will require PEP8 compliance.
 
 Skeleton code documentation
 ===========================

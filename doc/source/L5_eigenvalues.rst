@@ -199,7 +199,7 @@ on the left but also on the right with the inverse, i.e.
 
    .. math::
 
-      A \mapsto \underbrace{Q_1^*AQ_1}_{A_1} \mapsto \underbrace{Q_2^*Q_1^*AQ_2Q_1}_{A_2}, \ldots
+      A \mapsto \underbrace{Q_1^*AQ_1}_{A_1} \mapsto \underbrace{Q_2^*Q_1^*AQ_1Q_2}_{A_2}, \ldots
 
 At each stage, we have a similarity transformation,
 

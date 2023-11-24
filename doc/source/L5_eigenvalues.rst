@@ -880,6 +880,64 @@ that the QR algorithm finds an orthonormal basis (the columns of
 `{Q'}^{(k)}`) from the columns of each power of `A^k`; this is how
 it relates to power iteration.
 
+Connections between power iteration, inverse iteration, and QR algorithm
+------------------------------------------------------------------------
+
+There are some subtle connections between these algorithms that we can
+exploit to accelerate the convergence of the QR algorithm. After `k`
+iterations we have
+
+.. math::
+
+   A^k = {Q'}^{(k)}{R'}^{(k)},
+
+from the above theorem. (Remember that `{Q'}^{(k)}` and `{R'}^{(k)}`,
+are different from `{Q'}^{(k)}` and `{R'}^{(k)}`.)  In particular, the
+first column of `R^{(k)}` is `e_1r_{11}^{(k)}` (because `R^{(k)}` is
+an upper triangular matrix), so the first column of `A^k` is
+
+.. math::
+
+   A^ke_1 = r_{11}^{(k)}Q^{(k)}e_1.
+
+In other words, the first column of `Q^{(k)}` is the result of `k`
+iterations of power iteration starting at `e_1`. (We already knew this
+from the previous theorem, but here we are introducing ways to look at
+different components of `{Q'}^{(k)}` and `{R'}^{(k)}`). This means that
+it will converge to the eigenvector of `A` with the eigenvalue of
+largest magnitude, and the convergence rate will depend on the gap
+between the magnitude of that eigenvalue and the magnitude of the next
+largest.
+
+To look at connections with inverse iteration, we use the inverse formula,
+
+.. math::
+
+   A^{-k} = \left({R'}^{(k)}\right)^{-1}\left({Q'}^{(k)}\right)^* :=
+   {\tilde{R}}^{(k)}\left({Q'}^{(k)}\right)^*,
+
+where `{\tilde{R}}^{(k)}=\left({R'}^{(k)}\right)^{-1}` is also upper
+triangular since invertible upper triangular matrices form a group.
+
+Then, 
+
+.. math::
+
+   (A^{-k})^T = 
+   {Q'}^{(k)}({\tilde{R}}^{(k)})^T.
+
+The last column of `({\tilde{R}}^{(k)})^T` is `\tilde{r}^{(k)}_{nn}e_n`,
+so the last column of `(A^{-k})^T` is
+
+.. math::
+
+   (A^{-k})^Te_n = {Q'}^{(k)}\tilde{r}_{nn} e_n,
+
+i.e. the last column of `{Q'}^{(k)}` corresponds to the `k` th step of
+inverse iteration applied to `A^T`. When `A` is symmetric, this is the
+same as inverse iteration applied to `e_n`. 
+
+
 The practical QR algorithm
 --------------------------
 
@@ -890,10 +948,19 @@ The practical QR algorithm
 The practical QR algorithm for real symmetric matrices has a number of
 extra elements that make it fast. First, recall that we start by
 transforming to tridiagonal (symmetric Hessenberg) form. This cuts
-down the numerical cost of the steps of the QR algorithm. Second, the
-Rayleigh quotient algorithm idea is incorporated by applying shifts
-`A^{(k)}-\mu^{(k)}I`, where `\mu^{(k)}` is some eigenvalue
-estimate. Third, when an eigenvalue is found (i.e. an eigenvalue
+down the numerical cost of the steps of the QR algorithm.
+
+For the second element, the Rayleigh quotient algorithm idea is
+incorporated by applying shifts `A^{(k)}-\mu^{(k)}I`, where
+`\mu^{(k)}` is some eigenvalue estimate for the smallest
+eigenvalues. Relying on the fact that if `A` is symmetric, then we
+know that the last diagonal in `R^{(k)}` will be converging to the
+smallest eigenvalue of `A` via inverse iteration. Then, applying QR to
+the shifted matrix, the last diagonal will converge to the eigenvalue
+of `A` closest to `\mu^{(k)}`. This will happen quickly if `\mu^{(k)}`
+is an accurate estimate of an eigenvalue of `A`.
+
+For the third element, when an eigenvalue is found (i.e. an eigenvalue
 appears accurately on the diagonal of `A^{(k)}`) the off-diagonal
 components are very small, and the matrix decouples into a block
 diagonal matrix where the QR algorithm can be independently applied to

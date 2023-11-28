@@ -743,7 +743,7 @@ first one of the remaining projected vectors as an approximation of
 `q_2` and project it again from the rest.
 
 We can translate this idea to matrices by defining `V^{(0)}` to be the
-matrix with columns given by the set of initial `v`s. Then after `k`
+matrix with columns given by the set of initial `v` s. Then after `k`
 applications of `A`, we have `V^{(k)}=A^{k} V^{(0)}`. By the column space
 interpretation of matrix-matrix multiplication, each column of `V^{(k)}`
 is `A^{k}` multiplied by the corresponding column of `V^{(0)}`. To make the
@@ -892,15 +892,15 @@ iterations we have
    A^k = {Q'}^{(k)}{R'}^{(k)},
 
 from the above theorem. (Remember that `{Q'}^{(k)}` and `{R'}^{(k)}`,
-are different from `{Q'}^{(k)}` and `{R'}^{(k)}`.)  In particular, the
-first column of `R^{(k)}` is `e_1r_{11}^{(k)}` (because `R^{(k)}` is
+are different from `{Q}^{(k)}` and `{R}^{(k)}`.)  In particular, the
+first column of `{R'}^{(k)}` is `e_1r_{11}^{(k)}` (because `{R'}^{(k)}` is
 an upper triangular matrix), so the first column of `A^k` is
 
 .. math::
 
-   A^ke_1 = r_{11}^{(k)}Q^{(k)}e_1.
+   A^ke_1 = r_{11}^{(k)}{Q'}^{(k)}e_1.
 
-In other words, the first column of `Q^{(k)}` is the result of `k`
+In other words, the first column of `{Q'}^{(k)}` is the result of `k`
 iterations of power iteration starting at `e_1`. (We already knew this
 from the previous theorem, but here we are introducing ways to look at
 different components of `{Q'}^{(k)}` and `{R'}^{(k)}`). This means that

@@ -92,7 +92,7 @@ we see that the `n`-th column is
 
    .. math::
 
-      Aq_n = h_{1n}q_1 + h_{2n}q_n + \ldots + h_{n,n}q_n + h_{n+1,n}q_{n+1}.
+      Aq_n = h_{1n}q_1 + h_{2n}q_2 + \ldots + h_{n,n}q_n + h_{n+1,n}q_{n+1}.
 
 This formula shows us how to construct the non-zero entries of the
 nth column of `H`; this defines the Arnoldi algorithm which we

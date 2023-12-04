@@ -350,7 +350,7 @@ for some `\delta A`.
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises8.hessenbergQ` function
+   The :func:`cla_utils.exercises8.hessenbergQ` function
    has been left unimplemented. It should implement the Hessenberg
    algorithm again (you can just copy paste the code from the previous
    exercise) but it should also return the matrix `Q` such that
@@ -532,7 +532,7 @@ normalisation does not select `v^k` to have the direction as `q_1`.
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises9.pow_it` function has
+   The :func:`cla_utils.exercises9.pow_it` function has
    been left unimplemented. It should apply power iteration to a given
    matrix and initial vector, according to the docstring. The test
    script ``test_exercises9.py`` in the ``test`` directory will test
@@ -592,7 +592,7 @@ eigenvalues by choosing `\mu`.
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises9.inverse_it` function
+   The :func:`cla_utils.exercises9.inverse_it` function
    has been left unimplemented. It should apply inverse iteration to a
    given matrix and initial vector, according to the docstring. The
    test script ``test_exercises9.py`` in the ``test`` directory will
@@ -642,7 +642,7 @@ Thus we have cubic convergence, which is super fast!
 
 .. proof:exercise::
 
-   `(\ddagger)` The :func:`cla_utils.exercises9.rq_it` function has
+   The :func:`cla_utils.exercises9.rq_it` function has
    been left unimplemented. It should apply inverse iteration to a
    given matrix and initial vector, according to the docstring. The
    test script ``test_exercises9.py`` in the ``test`` directory will

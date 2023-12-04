@@ -253,7 +253,7 @@ We are now in position to present the GMRES algorithm as pseudo-code.
 
 .. proof:exercise::
 
-   `(\ddagger)` The least squares problem in GMRES requires the QR
+   The least squares problem in GMRES requires the QR
    factorisation of `H_k`. It is wasteful to rebuild this from scratch
    given that we just computed the QR factorisation of
    `H_{k-1}`. Modify your code so that it recycles the QR

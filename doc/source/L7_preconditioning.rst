@@ -303,11 +303,11 @@ so that
 
    x^1 = M^{-T}(M^T + M - A)M^{-1}b,
    
-i.e. `\hat{A}=M^{-T}(M^T + M-A)M^{-1}`.
+i.e. `\hat{A}^{-1}=M^{-T}(M^T + M-A)M^{-1}`.
 
 .. proof:example:: Symmetric Gauss-Seidel preconditioner
 
-   `\hat{A} = (L+D)^{-T}D(L+D)^{-1}`.
+   `\hat{A}^{-1} = (L+D)^{-T}D(L+D)^{-1}`.
 
 .. A = L+D+L^T, M=L+D, (L+D)^T + (L+D) - L+D+L^T = D.
    
@@ -401,24 +401,24 @@ between `M_s` and `\hat{A}` for symmetric methods.
 .. proof:exercise::
 
    Show that this implies that `{e}^k={x}^*-{x}^k\to{0}` i.e.
-   `{x}^k\to 0` as `k\to\infty`.
+   `{x}^k\to x^*` as `k\to\infty`.
 
 .. proof:theorem:: A first convergence criterion
 
-   If `\|C\|_p<1` for `p=1`, 2 or `\infty`, then the iterative method
-     converges.
+   If `\|C\|<1`, using the operator norm for some chosen vector norm,
+     then the iterative method converges.
 
 .. proof:proof::
 
    .. math::
 
-      \|{y}^k\|_p  = & \|C^k{y}^0\|_p \\
-      \leq & \|C^k\|_p\|{y}^0\|_p \\
-       \leq & \ \left(\|C\|_p\right)^k\|{y}^0\|_p
+      \|{y}^k\|  = & \|C^k{y}^0\| \\
+      \leq & \|C^k\|\|{y}^0\| \\
+       \leq & \ \left(\|C\|\right)^k\|{y}^0\|
       \to  0\quad\mbox{as}\,k\to\infty.
 
 This is only a sufficient condition. There may be matrices `C` with
-`\|C\|_p>1` for some `p=1,2,\infty`, but the method is still
+`\|C\|>1`, but the method is still
 convergent.
 
 To obtain a necessary condition, we need to use the spectral radius.
@@ -461,18 +461,19 @@ To obtain a necessary condition, we need to use the spectral radius.
       C^k{z} = \sum_{i=1}^n\alpha_iC^k{v}_i
       = \sum_{i=1}^n\alpha_i\lambda^k{v}_i\to 0.
 
-For symmetric matrices `B`, `\rho(B)=\|B\|_2`, so
+* For symmetric matrices `B`, `\rho(B)=\|B\|_2`, so
 the two convergence theorems are related.
-If `\|C\|_p=c<1`, then
 
-.. math::
+* If `\|C\|=c<1`, then
 
-   \|{e}^{k+1}\|_p = \|C{e}^k\|_p \leq \|C\|_p\|{e}^k\|_p
-   = c\|{e}^k\|_p.
+  .. math::
+     
+     \|{e}^{k+1}\| = \|C{e}^k\| \leq \|C\|\|{e}^k\|
+     = c\|{e}^k\|.
 
-This guarantees that the error will be reduced by a factor of at least
-`c` in each iteration. If we only have `\rho(C)<1`, not `\|C\|_p<1`
-then the error may not converge monotonically.
+  This guarantees that the error will be reduced by a factor of at least
+  `c` in each iteration. If we only have `\rho(C)<1`, not `\|C\|<1`
+  then the error may not converge monotonically.
 
 .. proof:example:: Range of SOR parameter
 

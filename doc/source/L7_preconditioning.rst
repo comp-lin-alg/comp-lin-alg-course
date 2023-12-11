@@ -839,8 +839,9 @@ This enables us to show the following useful result for symmetric
 positive definite matrices.
       
 .. proof:theorem::
-     Let `A` be a symmetric positive definite matrix with
-     splitting `A=M+N`, if `M` is positive definite, then
+
+   Let `A` be a symmetric positive definite matrix with
+   splitting `A=M+N`, if `M` is positive definite, then
 
    .. math::
       \rho(I-M^{-1}A) = \|I-M^{-1}A\|_A=\|I-M^{-1}A\|_M.

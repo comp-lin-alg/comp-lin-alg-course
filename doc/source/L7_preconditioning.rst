@@ -21,7 +21,7 @@ as follows.
 .. proof:definition:: Stationary iterative methods
 
    A stationary iterative method is constructed from matrices `M` and
-   `N`with `A=M+N`. Then the iterative method is defined by
+   `N` with `A=M+N`. Then the iterative method is defined by
 
    .. math::
 
@@ -240,18 +240,24 @@ Using splitting methods as preconditioners
 
 A (non-symmetric) preconditioner `\hat{A}` can be built from a
 splitting method by applying one iteration with initial guess
-`{z}^0={0}`. Then
+`{x}^0={0}`.
 
-.. math::   
-   \hat{A}^{-1}A{x} = {z},
-
-where
+A preconditioner is used to compute `v` by solving
 
 .. math::
-   M{z} = -N{z}^0 + A{x} = A{x},
+
+   \hat{A}v = r,
+
+such that `Av \approx r`, and the above equation is easy to solve.
+We can use a stationary method by setting `v=x^1` and `x^0=0`,
+
+to get
+
+.. math::
+   Mv:= M{x}^1 = -N\underbrace{x^0}_{=0} + r = r,
    
-i.e. `\hat{A}=M`. Later we shall see how to relate convergence
-properties of splitting methods to the convergence of
+i.e. we are choosing `\hat{A}=M`. Later we shall see how to relate
+convergence properties of splitting methods to the convergence of
 preconditioned CG using `\hat{A}=M`.
 
 Symmetric iterative methods

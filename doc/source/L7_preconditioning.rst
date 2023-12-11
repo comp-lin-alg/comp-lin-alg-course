@@ -589,9 +589,9 @@ For symmetric splittings we can say a little more about the preconditioner.
 
    .. math::
 
-      M^{S}A = SSA = S(SAS)S^{-1}.
+      M_s^{-1}A = SSA = S(SAS)S^{-1}.
 
-   Thus, `M_sA` is similar to (and therefore has the same eigenvalues as)
+   Thus, `M_s^{-1}A` is similar to (and therefore has the same eigenvalues as)
    `SAS`, which is symmetric, and therefore has real eigenvalues,
    and the result follows.
 
@@ -607,7 +607,7 @@ First we examine Richardson iteration. In the unscaled case,
 Let `{e}` be an eigenvector of `A` with eigenvalue `\lambda`, so
 `A{e}=\lambda{e}`.  Then `(I-A){e}={e}-\lambda{e}=(1-\lambda){e}`.
 So, `{e}` is an eigenvector of `I-A` with eigenvalue `1-\lambda`.
-Richardson's method will converge if `\rho(C)<1` \emph{i.e.}
+Richardson's method will converge if `\rho(C)<1` i.e.
 `|1-\lambda|<1` for all eigenvalues `\lambda` of `A`.
 
 This is restrictive, which motivates the scaled Richardson iteration,

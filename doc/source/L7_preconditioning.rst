@@ -882,18 +882,29 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
 .. proof:proof::
 
    For scaled Jacobi iteration with `M=D/\omega`, we have
-   `M^T+M-A=2D/\omega-A`. We have
+   `M^T+M-A=2D/\omega-A`. To check positive definiteness we need to
+   show that
 
    .. math::
-      2D/\omega-A=D^{1/2}(2I/\omega-D^{-1}A)D^{1/2},
 
-   so `2D/\omega-A` and `2I/\omega-D^{-1}A` have the same eigenvalues.
-   If `\lambda` is the maximum eigenvalue of `D^{-1}A` (which has real
-   eigenvalues because it is similar to `D^{-1/2}AD^{1/2}`, a symmetric
-   matrix), then `2/\omega-\lambda` is the minimum eigenvalue of
-   `2I/\omega-D^{-1}A` and hence of `2D/\omega-A`. Hence, `2D/\omega-A`
-   is positive definite (so scaled Jacobi converges) if
-   `2/\omega-\lambda>0` i.e. `\omega<2/\lambda`.
+      x^T\left(\frac{2}{\omega}D - A)^x > 0,
+
+   for all `x\neq 0`.
+
+   To show this, we write `x = D^{-1/2}y`, so that
+
+   .. math::
+
+      x^T\left(\frac{2}{\omega}D - A)^x & =
+      y^T\left(\frac{2}{\omega}I - D^{-1/2}AD^{-1/2})^y \\
+      & \geq \mu \|y\|^2 > 0,
+
+   provided that the minimum eigenvalue `\mu` of
+   `F=\frac{2}{\omega}I - D^{-1/2}AD^{-1/2})` is positive (it is real
+   since `F` is symmetric). We have `\mu=2/\omega - \lambda`
+   Hence, `2D/\omega-A` is positive
+   definite (so scaled Jacobi converges) if `2/\omega-\lambda>0`
+   i.e. `\omega<2/\lambda`.
 
 .. proof:proposition::
 

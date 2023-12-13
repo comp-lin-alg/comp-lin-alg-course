@@ -887,7 +887,7 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
 
    .. math::
 
-      x^T\left(\frac{2}{\omega}D - A)^x > 0,
+      x^T\left(\frac{2}{\omega}D - A\right)x > 0,
 
    for all `x\neq 0`.
 
@@ -895,12 +895,12 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
 
    .. math::
 
-      x^T\left(\frac{2}{\omega}D - A)^x & =
-      y^T\left(\frac{2}{\omega}I - D^{-1/2}AD^{-1/2})^y \\
+      x^T\left(\frac{2}{\omega}D - A\right)x & =
+      y^T\left(\frac{2}{\omega}I - D^{-1/2}AD^{-1/2}\right)y \\
       & \geq \mu \|y\|^2 > 0,
 
    provided that the minimum eigenvalue `\mu` of
-   `F=\frac{2}{\omega}I - D^{-1/2}AD^{-1/2})` is positive (it is real
+   `F=\frac{2}{\omega}I - D^{-1/2}AD^{-1/2}` is positive (it is real
    since `F` is symmetric). We have `\mu=2/\omega - \lambda`
    Hence, `2D/\omega-A` is positive
    definite (so scaled Jacobi converges) if `2/\omega-\lambda>0`

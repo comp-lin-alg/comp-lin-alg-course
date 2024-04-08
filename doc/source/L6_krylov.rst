@@ -123,7 +123,7 @@ provide as pseudo-code below.
    script ``test_exercises10.py`` in the ``test`` directory will test
    this function.
   
-If we were to form the QR factorisation of the `m\times n` Krylov
+If we were to form the (reduced) QR factorisation of the `m\times n` Krylov
 matrix
 
    .. math::
@@ -132,7 +132,7 @@ matrix
       b & Ab & \ldots & A^{n_1}b \\
       \end{pmatrix}
 
-then we would get `Q=Q_n`. Importantly, in the Arnoldi iteration, we
+then we would get `Q=\hat{Q}_n`. Importantly, in the Arnoldi iteration, we
 never form `K_n` or `R_n` explicitly, since these are very
 ill-conditioned and not useful numerically.
 
@@ -199,13 +199,13 @@ that minimises the residual
 
    .. math::
 
-      \mathcal{R}_n = \|AQ_ny - b\|.
+      \mathcal{R}_n = \|A\hat{Q}_ny - b\|.
 
 This explains the Minimum Residual part of the name. We also see from
 this definition that the residual cannot increase with iterations,
 because it only increases the subspace where we seek a solution.
 
-This problem can be simplified further by using `AQ_n = Q_{n+1}\tilde{H}_n`,
+This problem can be simplified further by using `A\hat{Q}_n = \hat{Q}_{n+1}\tilde{H}_n`,
 so
 
    .. math::

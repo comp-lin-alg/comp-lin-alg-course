@@ -1193,7 +1193,7 @@ The condition `\omega<2/\lambda` thus requires that
    \]
    }
 
-Chebyshev acceleration
+Chebyshev acceleration (nonexaminable in 2023/24)
 ----------------------
 
 Say we have computed iterates `{x}^0,{x}^1,\ldots,{x}^k` using

@@ -97,8 +97,8 @@ total cost of `\sim 2(n-k)(m-k)` (we already examined inner products
 in the previous example). To evaluate the part marked 2 then requires
 the outer product of two vectors in `\mathbb{C}^{m-k}` and
 `\mathbb{C}^{n-k}` respectively, at a total cost of `(m-k)(n-k)` FLOPs.
-Finally two `(k-m)\times(n-k)` matrices are substracted, at cost
-`(k-m)(n-k)`. Putting all this together gives `\sim 4(n-k)(m-k)` FLOPs
+Finally two `(m-k)\times(n-k)` matrices are substracted, at cost
+`(m-k)(n-k)`. Putting all this together gives `\sim 4(n-k)(m-k)` FLOPs
 per `k` iteration.
 
 Now we have to sum this over `k`, so the total operation count is

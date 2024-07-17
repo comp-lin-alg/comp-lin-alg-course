@@ -783,12 +783,10 @@ pseudo-code.
    The :func:`cla_utils.exercises3.householder_solve` function has
    been left unimplemented. It takes in a set of right hand side
    vectors `b_1,b_2,\ldots,b_k` and returns a set of solutions
-   `x_1,x_2,\ldots,x_k`.  It should construct an extended array
-   `\hat{A}`, and then pass it to
-   :func:`cla_utils.exercises3.householder`.  If you have not already
-   done so, you will need to modified
-   :func:`cla_utils.exercises3.householder` to use the ``kmax``
-   argument. You will also need :func:`cla_utils.exercises3.solve_U`.
+   `x_1,x_2,\ldots,x_k`.  In the course of solving, it should
+   construct an extended array `\hat{A}`, and then pass it to
+   :func:`cla_utils.exercises3.householder`. You will also need
+   :func:`cla_utils.exercises3.solve_U`.
 
 If we really need `Q`, we can get it by matrix-vector products with
 each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.  This

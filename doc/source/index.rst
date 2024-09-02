@@ -14,12 +14,6 @@
    <http://www.imperial.ac.uk/maths>`_  module
    MATH60024/MATH70024 - Computational Linear Algebra.
 
-   .. warning::
-
-      This course is undergoing substantial revision and reorganisation
-      going into Academic Year 23/24, and hence these pages are likely to
-      change in substantial ways as the course goes underway.
-
    .. toctree::
 
       practicalities

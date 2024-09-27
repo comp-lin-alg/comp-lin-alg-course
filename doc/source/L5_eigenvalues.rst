@@ -701,6 +701,14 @@ written as pseudo-code.
    or compute norms of the components of the matrices below the diagonal,
    for example. What do you observe? How does this relate to the structure
    of the four matrices?
+
+.. hint::
+
+   Some of this examples will require a complex valued QR factorisation.
+   This just requires a minor modification of your Householder QR code.
+   If you have complex entries, then you should replace `\sign(x_1)`
+   with `-e^{i\arg(x_1)}` which is the numerically stable choice in the
+   complex case.
     
 The algorithm simply finds the QR factorisation of `A`, swaps Q and R,
 and repeats. We call this algorithm the "pure" QR algorithm, since it

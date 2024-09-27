@@ -706,7 +706,7 @@ written as pseudo-code.
 
    Some of this examples will require a complex valued QR factorisation.
    This just requires a minor modification of your Householder QR code.
-   If you have complex entries, then you should replace `\sign(x_1)`
+   If you have complex entries, then you should replace `\mbox{sign}(x_1)`
    with `-e^{i\arg(x_1)}` which is the numerically stable choice in the
    complex case.
     

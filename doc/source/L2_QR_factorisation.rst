@@ -183,9 +183,6 @@ for code blocks in pseudo-code in these notes.)
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
 
-
-   
-
 .. details:: Supplementary video
 
    .. vimeo:: 450192723
@@ -673,11 +670,32 @@ columns from `r` to `s`.
 
 .. hint::
 
+   The "slice" notation using colons ":" is more an more important
+   when we are doing operations on submatrices. For example,
+
+.. python::
+
+   A[0:3, 3:6] -= B[0:3, 3:6]
+
+   only updates the specified `4\times 4` submatrix of `A`, but does it
+   using fast precompiled code.
+
+.. hint::
+
    Don't forget that Python numbers from zero, which will be important
    when implementing the submatrices using Numpy slice notation. 
 
+.. hint::
 
-   
+   The Python functions "inner", "outer", and "dot" are very useful
+   for succinctly expressing many linear algebra
+   operations. "inner(a,b)" multiplies each component of a
+   multidimensional array `a` with the corresponding component of another
+   array `b` (with the same "shape") and sums over all indices.
+   "dot(a, b)" only sums over the last index of `a` and the first
+   index of `b`. For some algorithms it may be necessary to swap
+   the order of `a` and `b` and make use of transposes to sum
+   over the correct index.
 
 .. details:: Supplementary video
 

@@ -709,7 +709,7 @@ written as pseudo-code.
    If you have complex entries, then you should replace `\mbox{sign}(x_1)`
    with `-e^{i\arg(x_1)}` which is the numerically stable choice in the
    complex case.
-    
+
 The algorithm simply finds the QR factorisation of `A`, swaps Q and R,
 and repeats. We call this algorithm the "pure" QR algorithm, since it
 can be accelerated with some modifications that comprise the

@@ -201,13 +201,13 @@ we have included :meth:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
 
 .. hint::
 
-   The Matlab-like array features of Python are provided by `Numpy
+   The fast array features of Python are provided by `Numpy
    <http://www.numpy.org/>`_ for which there is a `helpful tutorial
    <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_. There is also a
    handy `guide for Matlab users
-   <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context, the
-   code provided in this course will always use Numpy arrays, and never
-   Numpy matrices.
+   <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context,
+   the code provided in this course will always use Numpy arrays, and
+   never Numpy matrices.
 
 .. _ex-column-matvec:
 

@@ -112,7 +112,7 @@ focusses on the Bash shell, which is the one we will use.
       comes up.
    3. Select the correct Python interpreter from the pulldown menu (on
       Mac, the one you installed from Homebrew or Anaconda, on
-      Windows, the one that you installed from Anaconda).
+      Windows, the one that you installed from the Microsoft Store).
    
 .. _bitbucket-git:
 

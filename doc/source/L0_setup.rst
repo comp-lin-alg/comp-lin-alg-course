@@ -437,7 +437,7 @@ folder. This works particularly well with the -x option, resulting
 in the tests being run in course order and stopping at the first
 failing test::
 
-  python -m pytest -x tests/
+  python -m pytest -x
 
 You should make sure that your code passes tests before moving on
 to the next exercise.

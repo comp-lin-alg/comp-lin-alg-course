@@ -879,7 +879,7 @@ Hence, the map
 
 is an orthogonal projector. In fact, `P` has very simple form.
 
-.. _orthogonal_projector:
+.. _orthogonalprojector:
 
 .. proof:theorem::
 

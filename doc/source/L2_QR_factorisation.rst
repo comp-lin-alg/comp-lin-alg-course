@@ -604,7 +604,7 @@ Now we use this to show that `F` is unitary,
       F^*F = \left(I - 2\frac{vv^*}{v^*v}\right)
       \left(I - 2\frac{vv^*}{v^*v}\right)
 
-      = I - 4\frac{vv^*}{v^*v}\frac{vv^*}{v^*v} +
+      = I - 4\frac{vv^*}{v^*v} +
       4 \frac{vv^*}{v^*v}\frac{vv^*}{v^*v} = I,
 
 so `F^*=F^{-1}`. In summary, we have constructed a unitary
@@ -882,7 +882,7 @@ the 2-norm of the residual `r=b-Ax`, i.e. `x` is the minimiser of
 This residual will not be zero in general, when `b` is not in the
 range of `A`. The nearest point in the range of `A` to `b` is `Pb`,
 where `P` is the orthogonal projector onto the range of `A`. From
-:numref:`Theorem {number}<orthogonal_projector>`, we know that
+:numref:`theorem {number} <orthogonalprojector>`, we know that
 `P=\hat{Q}\hat{Q}^*`, where `\hat{Q}` from the reduced `QR`
 factorisation has the same column space as `A` (but with orthogonal
 columns).

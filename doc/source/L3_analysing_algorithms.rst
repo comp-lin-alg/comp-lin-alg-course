@@ -663,7 +663,7 @@ by which we mean that `\exists C>0` such that
 
 for sufficiently small `\varepsilon` (assuming, albeit
 unrealistically, that we have a sequence of computers with smaller and
-smaller $\varepsilon$). We shall see below that we have to lower our
+smaller `\varepsilon`). We shall see below that we have to lower our
 aspirations depending on the condition number of `A`.
 
 .. proof:definition:: Stability
@@ -704,7 +704,7 @@ right question.
 	 \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).
 
 A backward stable algorithm gives exactly the right answer to nearly 
-the right answer. The following result shows what accuracy we can expect
+the right question. The following result shows what accuracy we can expect
 from a backward stable algorithm, which involves the condition number
 of `f`.
 

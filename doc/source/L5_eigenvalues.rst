@@ -104,7 +104,7 @@ decomposition can be found.
 
 If the algebraic multiplicity is greater than the geometric
 multiplicity for any eigenvalue of `A`, then the matrix is defective,
-the eigenspaces do not span `\mathbb{C}^m`, and an eigenvalue
+the eigenvectors do not span `\mathbb{C}^m`, and an eigenvalue
 decomposition is not possible.
 
 This all motivates the search for other eigenvalue revealing

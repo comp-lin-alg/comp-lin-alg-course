@@ -458,8 +458,8 @@ Power iteration
 
    .. vimeo:: 454124701
 
-Power iteration is a simple method for finding the eigenvalue of
-`A` with largest eigenvalue (in magnitude). It is based on the following
+Power iteration is a simple method for finding the largest eigenvalue of
+`A` (in magnitude). It is based on the following
 idea. We expand a vector `v` in eigenvectors of `A`,
 
    .. math::
@@ -467,7 +467,7 @@ idea. We expand a vector `v` in eigenvectors of `A`,
       v = a_1q_1 + a_2q_2 + \ldots a_mq_m,
 
 where we have ordered the eigenvalues so that `|\lambda_1|\geq |\lambda_2|
-\geq |\lambda 3| \geq \ldots \geq |\lambda_m`.
+\geq |\lambda_3| \geq \ldots \geq |\lambda_m`.
 
 Then,
 

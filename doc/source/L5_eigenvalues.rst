@@ -178,7 +178,7 @@ decomposition.
    
 .. proof:theorem::
 
-   A Hermitian matrix is unitary diagonalisable, with real `\Lambda`.
+   A Hermitian matrix is unitarily diagonalisable, with real `\Lambda`.
 
 Hence, if we have a Hermitian matrix, we can follow a Schur
 factorisation strategy (such as we shall develop in this section), and

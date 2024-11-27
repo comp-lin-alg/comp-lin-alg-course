@@ -263,7 +263,7 @@ preconditioned CG using `\hat{A}=M`.
 Symmetric iterative methods
 ---------------------------
 
-Consider a symmetric matrix `A=A^T`.xs
+Consider a symmetric matrix `A=A^T`
 If we can build iterative methods from the splitting
 `A=M+N`, then we can also build iterative methods from the splitting
 `A=A^T=M^T+N^T`. We can then combine them together.

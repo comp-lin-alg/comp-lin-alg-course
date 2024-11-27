@@ -744,7 +744,7 @@ set `v_1^{k},v_2^{k},\ldots,v_n^{k}`, `n\leq m`. All of the vectors in this set
 will be very close to `q_1`, the eigenvector with largest magnitude of
 corresponding eigenvalue. We can choose `v_1^{k}` as our approximation
 of `q_1`, and project this approximation of `q_1` from the rest of the
-vectors `v_2^{k},v_3^{k},\ldots v_m^{k}`.  All the remaining vectors
+vectors `v_2^{k},v_3^{k},\ldots v_n^{k}`.  All the remaining vectors
 will be close to `q_2`, the eigenvector with the next largest
 magnitude of corresponding eigenvalue. Similarly we can choose the
 first one of the remaining projected vectors as an approximation of

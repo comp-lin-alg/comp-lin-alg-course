@@ -104,7 +104,7 @@ decomposition can be found.
 
 If the algebraic multiplicity is greater than the geometric
 multiplicity for any eigenvalue of `A`, then the matrix is defective,
-the eigenspaces do not span `\mathbb{C}^m`, and an eigenvalue
+the eigenvectors do not span `\mathbb{C}^m`, and an eigenvalue
 decomposition is not possible.
 
 This all motivates the search for other eigenvalue revealing
@@ -178,7 +178,7 @@ decomposition.
    
 .. proof:theorem::
 
-   A Hermitian matrix is unitary diagonalisable, with real `\Lambda`.
+   A Hermitian matrix is unitarily diagonalisable, with real `\Lambda`.
 
 Hence, if we have a Hermitian matrix, we can follow a Schur
 factorisation strategy (such as we shall develop in this section), and
@@ -458,8 +458,8 @@ Power iteration
 
    .. vimeo:: 454124701
 
-Power iteration is a simple method for finding the eigenvalue of
-`A` with largest eigenvalue (in magnitude). It is based on the following
+Power iteration is a simple method for finding the largest eigenvalue of
+`A` (in magnitude). It is based on the following
 idea. We expand a vector `v` in eigenvectors of `A`,
 
    .. math::
@@ -467,7 +467,7 @@ idea. We expand a vector `v` in eigenvectors of `A`,
       v = a_1q_1 + a_2q_2 + \ldots a_mq_m,
 
 where we have ordered the eigenvalues so that `|\lambda_1|\geq |\lambda_2|
-\geq |\lambda 3| \geq \ldots \geq |\lambda_m`.
+\geq |\lambda_3| \geq \ldots \geq |\lambda_m`.
 
 Then,
 
@@ -744,7 +744,7 @@ set `v_1^{k},v_2^{k},\ldots,v_n^{k}`, `n\leq m`. All of the vectors in this set
 will be very close to `q_1`, the eigenvector with largest magnitude of
 corresponding eigenvalue. We can choose `v_1^{k}` as our approximation
 of `q_1`, and project this approximation of `q_1` from the rest of the
-vectors `v_2^{k},v_3^{k},\ldots v_m^{k}`.  All the remaining vectors
+vectors `v_2^{k},v_3^{k},\ldots v_n^{k}`.  All the remaining vectors
 will be close to `q_2`, the eigenvector with the next largest
 magnitude of corresponding eigenvalue. Similarly we can choose the
 first one of the remaining projected vectors as an approximation of

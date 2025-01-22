@@ -821,8 +821,8 @@ of `A`, and a running product of all of the `R` matrices.
   * `A^{(k)} = ({Q'}^{(k)})^TA{Q'}^{(k)}`
   * `{R'}^{(k)} = R^{(k)}R^{(k-1)}\ldots R^{(1)}`
 
-To the pure QR factorisation we append a running product of the `Q^{k}`
-matrices, and a running product of all of the `R` matrices (again).
+To the pure QR algorithm, we append a running product of the `Q^{k}`
+matrices plus a running product of all of the `R` matrices (again).
 
 * `A^{(0)} \gets A`
 * FOR `k=1,2,\ldots`

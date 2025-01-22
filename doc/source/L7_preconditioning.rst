@@ -938,7 +938,7 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
    which is symmetric positive definite provided that
    `0<\omega<2`.
 
-An example matrix
+An example matrix (Non-examinable in 2024/25)
 -----------------
 
 We consider stationary methods for an example arising from the
@@ -1193,7 +1193,7 @@ The condition `\omega<2/\lambda` thus requires that
    \]
    }
 
-Chebyshev acceleration (nonexaminable in 2023/24)
+Chebyshev acceleration (examinable in 2024/25)
 ----------------------
 
 Say we have computed iterates `{x}^0,{x}^1,\ldots,{x}^k` using

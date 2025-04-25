@@ -1287,7 +1287,7 @@ subject to the constraint that the coefficient of `t^k` is
 `2^{2k-1}/(\beta-\alpha)`.
 The maximum value is `1`.
 
-Then we scale the polynomial to reach the condition `p_k(0)=1`.
+Then we scale the polynomial to reach the condition `p_k(1)=1`.
 
 .. math::
    p_k=\frac{T_k\left(\frac{2t-\beta-\alpha}{\beta-\alpha}\right)}
@@ -1295,7 +1295,7 @@ Then we scale the polynomial to reach the condition `p_k(0)=1`.
    \quad\mbox{minimises}
    \quad \max_{\alpha\leq t\leq \beta}|p_k(t)|
    
-subject to the constraint that `p_k(0)=1`.
+subject to the constraint that `p_k(1)=1`.
 The maximum value is 
 
 .. math::

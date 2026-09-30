@@ -4,5 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cla_utils"
-version = "2023.00"
+version = "2026.00"
 dependencies = ["numpy", "pytest"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test/test_exercises[1-9].py",
+    "test/test_exercises[1-9][0-9].py",
+]

@@ -26,8 +26,8 @@ check that you have everything ready to do your work.
 
    1. Install Python, Git and a text editor using the instructions below.
    2. Create a working folder and put a virtual environment in it (venv).
-   3. Clone your course repository from Github Classroom into the
-      working folder.
+   3. Accept the course assignment in Classroom 50 and clone the
+      resulting GitHub repository into the working folder.
    4. Activate the venv.
    5. Install :mod:`numpy` to the venv, and :mod:`pytest`.
    6. Install the course module to the venv.
@@ -35,7 +35,7 @@ check that you have everything ready to do your work.
    8. Make sure that you understand how to run code in the course repository
       (including your own code you have added).
    9. Make sure that you understand how to commit your changes to your
-      Git repository and how to push them to Github.
+      Git repository and how to push them to GitHub.
    10. Make sure that you know how to run the tests.
       
 To follow these steps read the sections below.
@@ -44,8 +44,8 @@ To follow these steps read the sections below.
 Getting the software that you need
 ==================================
 
-The core requirements are Python (version >=3.7), Git, and a
-Python-aware text editor.
+The core requirements are Python (version >=3.10, with version 3.13
+recommended), Git, and a Python-aware text editor.
 
 In order to write the code required for the implementation exercise,
 you'll need to use a Python-aware text editor. There are many such
@@ -70,7 +70,7 @@ section of the Principles of Programming website.
    If you are a Mac user, you'll need to avoid using the preinstalled
    Python on your system, as it is a very cut down version for
    interacting with the MacOS. You should install a fully featured
-   Python (using Anaconda or Homebrew, as described in the link above).
+   Python using Homebrew, as described in the link above.
    
 .. hint::
 
@@ -96,7 +96,7 @@ focusses on the Bash shell, which is the one we will use.
    In VSCode you can get a terminal by selecting New Terminal from the
    Terminal menu. This should open a Terminal window on your VS Code
    screen.  To the top right of this window is a pulldown menu to
-   select the interpreter, which needs to be Bash. The image to the
+   select the shell, which needs to be Bash. The image to the
    right shows this pulldown menu.
 
    .. image:: _static/bash.png
@@ -128,7 +128,7 @@ of the Principles of Programming website.
 
    Create a new virtual environment for your Computational Linear
    Algebra work and activate it, following the instructions of Section
-   1.3 of PoP linked above.
+   1.2 of PoP linked above.
 
    Two differences are as follows.
 
@@ -195,11 +195,11 @@ of the Principles of Programming website.
    These instructions involve typing into the Terminal. VSCode
    provides other ways to configure but it is much easier to get help
    if you are typing into the Terminal. Make sure that you have selected
-   the Bash interpreter for your Terminal.
+   the Bash shell for your Terminal.
 
 .. proof:task::
 
-   Create and/or setup your Github account following the instructions
+   Create and/or set up your GitHub account following the instructions
    in Section 2.5 of Just Enough Git to Get By.
 
 .. proof:task::
@@ -211,7 +211,7 @@ of the Principles of Programming website.
 
 .. hint::
 
-   Above all else, never use::
+   For this course, do not use::
 
      git add -A
 
@@ -219,14 +219,14 @@ of the Principles of Programming website.
 
      git add *
      
-   to add all the files in the repository. This is bad practice and
-   makes a mess for the markers, making them grumpy. When you commit
-   changes to files in your repository for this course, just use::
+   to add all the files in the repository. These commands can stage
+   unintended files. Instead, stage each file you intend to commit
+   explicitly using::
 
-     git add
+     git add <filename>
 
-   to add the files you changed to the list of files to be updated
-   in the commit history.
+   This adds the specified file to the list of changes for the next
+   commit.
 
    Similarly, VSCode has a graphic interface for Git. It is preferred
    to use the Terminal in this course, as it is easier to get help.
@@ -236,27 +236,25 @@ of the Principles of Programming website.
 
 .. warning::
 
-   Never clone a repository inside the folder of another folder.
+   Never clone a Git repository inside another Git repository.
    
 Setting up your repository
 ==========================
 
-We're using a tool called `GitHub classroom
-<https://classroom.github.com>`_ to automate the creation of your
-copies of the repository. Follow the link on Blackboard marked "Course
-Repository" to create your personal repository for the course. Then,
-clone it to your working folder on your computer following the
-instructions in the previous section.
+We're using a tool called `Classroom 50
+<https://classroom50.org/>`_ to automate the creation of your
+copies of the repository. Follow the GitHub organisation invitation
+sent by email. Then sign in to Classroom 50, accept the course
+assignment, and clone the resulting GitHub repository to your working
+folder following the instructions in the previous section.
 
 .. warning::
 
-   When you follow the link, you will be asked to select your
-   "school's identifier" from a list. This will be your user ID that
-   you use to log into Outlook (e.g., sbc21). If you don't find your
-   ID on the list, *do not* click "Skip to the next step". And, *do
-   not* click someone else's ID! Instead, contact the course leader
-   and ask to have your user ID added. We need to do this so that we
-   can grade your work.
+   When you follow the link, we will link the Imperial ID that you use
+   to log into Outlook (e.g., sbc21) to your GitHub username. If you
+   have not received an email from GitHub, check your spam folder. If
+   it is not there, contact the course leader. We need this link to
+   grade your work.
 
 .. hint::
 
@@ -272,8 +270,8 @@ instructions in the previous section.
 
 .. hint::
    
-   In VSCode, you will be asked if you want to make this venv the default
-   for your project. Select "yes" as this will help to ensure that it is
+   If VSCode asks whether you want to make this venv the default for
+   your project, select "yes". This will help to ensure that it is
    activated.
 
 .. hint::
@@ -283,8 +281,8 @@ instructions in the previous section.
 
 .. warning::
 
-   Your classroom repository will contain a branch called "feedback".
-   Do not commit to, or remove, this branch. This is how we will
+   If your classroom repository contains a branch called "feedback",
+   do not commit to, or remove, this branch. This is how we will
    provide feedback on your code.
 
 Installing the course package to the venv
@@ -331,27 +329,28 @@ As you do the exercises, **commit your code** to your repository. This
 will build up your computational exercise solution sets. You should
 commit code early and often - small commits are easier to understand
 and debug than large ones. Push your commits to your remote repository
-on Github.
+on GitHub. You can push as often as you like: ordinary pushes save your
+work but do not trigger grading.
 
 .. hint::
 
    In Git, we use the Terminal to commit changes and push them to the
-   remote repository on Github Classroom. A repository is a record of
-   the history of the code as you are working.  To add a file to the
-   list of files whose changes will be committed to the repository,
-   type `git add <filename> -m <log message>`, where `<log message>`
-   is a short description of the changes you made.  To commit those
-   changes, type `git commit`. They will now be saved locally.  To
-   push these changes to the "remote" repository on Github Classroom,
-   type `git push` (you may be asked to set the name of the remote,
-   just paste the suggested command into the Terminal). To pull
-   changes from the remote repository on Github Classroom, type `git
-   pull`. For further features and better explanation, please take
-   a look at the Github Tutorial linked above.
+   remote GitHub repository managed through Classroom 50. A repository
+   is a record of the history of the code as you are working. To add a
+   file to the list of files whose changes will be committed to the
+   repository, type `git add <filename>`. To commit those changes with
+   a short description of what you changed, type
+   `git commit -m "<log message>"`.
+   They will now be saved locally. To push these changes to the remote
+   GitHub repository, type `git push` (you may be asked to set the
+   upstream branch; just paste the suggested command into the
+   Terminal). To pull changes from the remote GitHub repository, type
+   `git pull`. For further features and better explanation, please
+   take a look at the Just Enough Git guide linked above.
 
 .. warning::
 
-   Never use `git add *`, since this will add unwanted files to the
+   Never use `git add *`, since this can add unwanted files to the
    repository which shouldn't be there. You should never add machine
    specific files such as your venv, or `.pyc` files which are
    temporary machine specific files generated by the Python
@@ -361,9 +360,10 @@ on Github.
 
 .. warning::
    
-   Do not commit to the feedback branch.  This branch is just there so
-   that we can provide feedback on your changes to the main branch,
-   and if you commit there, it will mess up our marking system.
+   If your repository contains a feedback branch, do not commit to it.
+   This branch is just there so that we can provide feedback on your
+   changes to the main branch, and committing there will interfere with
+   our marking system.
 
 Running your work
 =================
@@ -388,7 +388,7 @@ example `numpy` arrays and pass them to :mod:`cla_utils` functions to try
 them out. You can also do this in a script, e.g.::
 
   from cla_utils import *
-  from numpy import *
+  import numpy
   A = numpy.array([[1.0,2.0,0.,0.,1.0+1.0j],
                   [0.0,1.0,3.,0.,0.],
 		  [0.0,0.0,1.,0.,0.],
@@ -421,21 +421,21 @@ Testing your work
 As you complete the exercises, there will often be test scripts which
 check the code you have just written. These are located in the
 ``test`` folder and employ the `pytest <http://pytest.org/>`_
-testing framework. You run the tests with:: 
+testing framework. From the root of the repository, run an individual
+test file with::
 
-   python -m pytest test_script.py
+   python -m pytest test/test_exercises1.py
 
-from the bash Terminal, replacing ``test_script.py`` with the
-appropriate test file name (remember to activate the venv first). The
+from the bash Terminal, replacing ``test/test_exercises1.py`` with the
+appropriate test file path (remember to activate the venv first). The
 ``-x`` option to ``pytest`` will cause the test to stop at the first
 failure it finds, which is often the best place to start fixing a
 problem. For those familiar with debuggers, the ``--pdb`` option will
 drop you into the Python debugger at the first error.
 
-You can also run all the tests by running ``pytest`` on the tests
-folder. This works particularly well with the -x option, resulting
-in the tests being run in course order and stopping at the first
-failing test::
+You can also run all the tests from the root of the repository. The
+test files are run in exercise order, and the ``-x`` option stops at
+the first failing test::
 
   python -m pytest -x
 

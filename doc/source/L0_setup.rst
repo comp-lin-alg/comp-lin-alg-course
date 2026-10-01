@@ -29,7 +29,7 @@ check that you have everything ready to do your work.
    3. Accept the course assignment in Classroom 50 and clone the
       resulting GitHub repository into the working folder.
    4. Activate the venv.
-   5. Install :mod:`numpy` to the venv, and :mod:`pytest`.
+   5. Install `numpy <https://numpy.org/>`_ to the venv, and `pytest <https://docs.pytest.org/>`_.
    6. Install the course module to the venv.
    7. Remember to activate the venv every time you work on the course module.
    8. Make sure that you understand how to run code in the course repository

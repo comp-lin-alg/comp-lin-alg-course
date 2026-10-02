@@ -146,22 +146,21 @@ useful in understanding computational linear algebra algorithms.
 An important example is the outer product of two vectors, `u \in
 \mathbb{C}^m` and `v \in \mathbb{C}^n`. Here it is useful to see these
 vectors as matrices with one column, i.e. `u \in \mathbb{C}^{m\times
-1}` and `v \in \mathbb{C}^{n\times 1}`. The outer product is `u v^T
-\in \mathbb{C}^{m\times n}`. The columns of `v^T` are just single numbers
+1}` and `v \in \mathbb{C}^{n\times 1}`. The outer product is `u v^*
+\in \mathbb{C}^{m\times n}`. The columns of `v^*` are just single numbers
 (i.e. vectors of length 1), so viewing this as a matrix multiplication
 we see
 
    .. math::
 
-      uv^T = \begin{pmatrix}
-      uv_1 & uv_2 & \ldots & uv_n
+      uv^* = \begin{pmatrix}
+      u\bar{v}_1 & u\bar{v}_2 & \ldots & u\bar{v}_n
       \end{pmatrix},
 
-which means that all the columns of `uv^T` are multiples of `u`. We will
-see in the next section that this matrix has rank 1. In the complex
-number case, the transpose `^T` is replaced by the adjoint `^*` which
-is the complex conjugate of the transpose. There will be more about this
-later.
+which means that all the columns of `uv^*` are multiples of `u`. We will
+see in the next section that this matrix has rank 1 if `u` and `v` are
+both nonzero, and rank 0 otherwise. For real vectors, `v^*=v^T`. There
+will be more about adjoints later.
 
 Your first programming exercises
 --------------------------------
@@ -173,10 +172,10 @@ them as code. The :mod:`numpy` Python package has a module called
 :mod:`numpy.linalg` that contains many of these algorithms. Hence for this
 course we will not use this module, just use the functions and classes
 available when you import :mod:`numpy` itself. There is one exception,
-which is that :meth:`numpy.linalg.norm` is quite useful, but also covers a lot
+which is that :func:`numpy.linalg.norm` is quite useful, but also covers a lot
 of different cases which are not very edifying to replicate. Hence,
-we have included :meth:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
-:meth:`cla\_utils.norm`, should you wish to use it.
+we have included :func:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
+:func:`cla\_utils.norm`, should you wish to use it.
 
 .. _ex-basic-matvec:
 
@@ -336,8 +335,8 @@ interpretation of matrix-vector multiplication.
 
 .. proof:theorem::
 
-   An `m\times n` matrix `A` is full rank if and only if it maps no two
-   distinct vectors to the same vector.
+   If `m\geq n`, an `m\times n` matrix `A` is full rank if and only if it
+   maps no two distinct vectors to the same vector.
 
 .. proof:definition::
 
@@ -348,9 +347,9 @@ interpretation of matrix-vector multiplication.
 
    The :func:`cla_utils.exercises1.rank2` function has been left
    unimplemented.  To finish the function, add code so that it
-   computes the rank-2 matrix `A = u_1v_1^* + u_2v_2^*` from
+   computes the rank-at-most-2 matrix `A = u_1v_1^* + u_2v_2^*` from
    `u_1,u_2\in \mathbb{C}^m` and `v_1,v_2 \in \mathbb{C}^n`. As you
-   can see, the function needs to implement this rank-2 matrix by
+   can see, the function needs to implement this matrix by
    first forming two matrices `B` and `C` from the inputs,
    and then forming `A` as the product of `B` and `C`. The
    test script ``test_exercises1.py`` in the ``test`` directory will also test this function.
@@ -360,9 +359,10 @@ interpretation of matrix-vector multiplication.
 
      r = numpy.linalg.matrix_rank(A)
 
-   and we should find that the rank is equal to 2. Can you explain why
-   this should be the case (use the column space interpretation of
-   matrix-matrix multiplication)?
+   and we should find that the rank is at most 2. The rank is equal to 2
+   if `u_1,u_2` are linearly independent and `v_1,v_2` are linearly
+   independent. Can you explain why this should be the case (use the
+   column space interpretation of matrix-matrix multiplication)?
 
 Invertibility and inverses
 ==========================
@@ -394,7 +394,7 @@ write
 
    .. math::
 
-      e_j = \sum_{k=1}^m z_{jk} a_k, \quad 1\leq j \leq m.
+      e_j = \sum_{k=1}^m z_{kj} a_k, \quad 1\leq j \leq m.
 
 In other words,
 
@@ -405,11 +405,11 @@ In other words,
       e_1 & e_2 & \ldots & e_m
       \end{pmatrix}
 
-      = ZA.
+      = AZ.
 
-We call `Z` a (left) inverse of `A`. It can be shown that `Z` is the
-   unique left inverse of `A`, and that `Z` is also the unique right
-   inverse of `A`, satisfying `I = AZ`. We write `Z=A^{-1}`.
+We call `Z` a (right) inverse of `A`. Since `A` is square, `Z` is also
+the unique left inverse of `A`, satisfying `I = ZA`. We write
+`Z=A^{-1}`.
 
 The first four parts of the next theorem are a consequence of what
 we have so far, and we shall quote the fifth and sixth (see a linear algebra
@@ -593,7 +593,7 @@ Orthogonality will emerge as an early key concept in this course.
 
    .. math::
 
-      x^*y = 0,\quad\forall x,y \in S.
+      x^*y = 0,\quad\forall x,y \in S \mbox{ with } x\neq y.
 
    We say that `S` is orthonormal if we also have `\|x\|=1`
    for all `x\in S`.
@@ -711,12 +711,14 @@ given by the orthonormal columns of `Q`.
 
    What did you expect and was it observed?
 
-   A quick way to get an orthogonal matrix is to take a general matrix $A$
+   A quick way to get a matrix with orthonormal columns is to take a
+   general matrix `A`
    and find the QR factorisation, which we will cover in the next section.
 
      Q, R = numpy.linalg.qr(A)
 
-   returns two matrices, of which `Q` is orthogonal.
+   returns two matrices, of which `Q` has orthonormal columns. If `Q` is
+   square, it is unitary (orthogonal in the real case).
 
 Vector norms
 ============
@@ -748,13 +750,14 @@ larger class of norms called p-norms, with
 
       \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
 
-for real `p>0`. We will also consider weighted norms
+for real `p\geq 1`. We will also consider weighted norms
 
    .. math::
 
       \|x\|_{W,p} = \|Wx \|_p,
 
-where `W` is a matrix.
+where `W` is a matrix with trivial nullspace. If `W` has a nontrivial
+nullspace, then `\|Wx\|_p` is only a seminorm.
 
 Projectors and projections
 ==========================
@@ -786,7 +789,7 @@ Then,
 
       P(Pv - v) = P^2v - Pv = Pv - Pv = 0,
 
-which means that `Pv-v` is the nullspace of `P`. We have
+which means that `Pv-v` is in the nullspace of `P`. We have
 
    .. math::
 
@@ -829,7 +832,7 @@ that the range of `P` is equal to the nullspace of `I-P`.
 We see that a projector `P` separates `\mathbb{C}^m` into two
 subspaces, the nullspace of `P` and the range of `P`. In fact the
 converse is also true: given two subspaces `S_1` and `S_2`
-of `\mathbb{C}^m` with `S_1 \cap S_2 = \{0\}`, then there
+of `\mathbb{C}^m` with `\mathbb{C}^m=S_1\oplus S_2`, then there
 exists a projector `P` whose range is `S_1` and whose nullspace
 is `S_2`.
 
@@ -844,7 +847,7 @@ Now we introduce orthogonality into the concept of projectors.
 
 .. proof:definition:: Orthogonal projector
 
-   `P` is an orthogonal projector if
+   A projector `P` is an orthogonal projector if
 
    .. math::
 
@@ -900,9 +903,9 @@ is an orthogonal projector. In fact, `P` has very simple form.
    result as multiplication by the formula for `P` above.
 
 This means that `\hat{Q}\hat{Q}^*` is an orthogonal projection onto
-the range of `\hat{Q}`. The complementary projector is `P_{\perp} =
+the range of `\hat{Q}`. The complementary projector `P_{\perp} =
 I - \hat{Q}\hat{Q}^*` is an orthogonal projection onto the nullspace
-of `\hat{Q}`.
+of `\hat{Q}^*`.
 
 An important special case is when `\hat{Q}` has just one column,
 and then
@@ -911,12 +914,12 @@ and then
 
    P = q_1q_1^*, \, P_{\perp}=I - q_1q_1^*.
 
-We notice that `P^* = (\hat{Q}\hat{Q}^*) = \hat{Q}\hat{Q}^* = P`.
+We notice that `P^* = (\hat{Q}\hat{Q}^*)^* = \hat{Q}\hat{Q}^* = P`.
 In fact the following is true.
 
 .. proof:theorem::
 
-   `P=P^*` if and only if `\hat{Q}` is orthogonal.
+   A projector `P` is an orthogonal projector if and only if `P=P^*`.
 
 .. proof:exercise::
 

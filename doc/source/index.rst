@@ -11,7 +11,7 @@
 .. only:: html
 
    This is the webpage for the `Imperial College London Mathematics
-   <http://www.imperial.ac.uk/maths>`_  module
+   <http://www.imperial.ac.uk/mathematics>`_  module
    MATH60024/MATH70024 - Computational Linear Algebra.
 
    .. toctree::

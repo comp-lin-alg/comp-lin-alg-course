@@ -1,4 +1,3 @@
-
 .. default-role:: math
 
 Analysing algorithms
@@ -56,25 +55,25 @@ means
 
    .. math::
 
-      \lim_{m,n\to \infty}\frac{N_{\mbox{FLOPS}}}{2mn^2} = 1.
+      \lim_{m,n\to \infty}\frac{N_{\mbox{FLOPs}}}{2mn^2} = 1.
 
 To get this result, we return to the pseudocode for the modified Gram-Schmidt
 algorithm, and concentrate on the operations that are happening
 inside the inner `j` loop. Inside that loop there are two operations,
 
-#. `r_{ij} \gets q^*_iv_i`. This is the inner product of two vectors
+#. `r_{ij} \gets q^*_iv_j`. This is the inner product of two vectors
    in `\mathbb{R}^m`, which requires `m` multiplications and `m-1` additions,
-   so we count `2m-1` FLOPS per inner iteration.
+   so we count `2m-1` FLOPs per inner iteration.
 #. `v_j \gets v_j - r_{ij}q_i`. This requires `m` multiplications and `m`
-   subtractions, so we count `2m` FLOPS per inner iteration.
+   subtractions, so we count `2m` FLOPs per inner iteration.
 
-At each iteration we require a combined operation count of `\sim 4m` FLOPS.
-There are `n` outer iterations over `i`, and `n-i-1` inner iterations
+At each iteration we require a combined operation count of `\sim 4m` FLOPs.
+There are `n` outer iterations over `i`, and `n-i` inner iterations
 over `j`, which we can estimate by approximating the sum as an integral,
 
    .. math::
 
-      N_{\mbox{FLOPS}} \sim \sum_{i=1}^n \sum_{j=i+1}^n 4m
+      N_{\mbox{FLOPs}} \sim \sum_{i=1}^n \sum_{j=i+1}^n 4m
       \sim 4m \int_0^n \int_{x}^n \,d x' \,d x
       = 4m\frac{n^2}{2} = 2mn^2,
 
@@ -97,7 +96,7 @@ total cost of `\sim 2(n-k)(m-k)` (we already examined inner products
 in the previous example). To evaluate the part marked 2 then requires
 the outer product of two vectors in `\mathbb{C}^{m-k}` and
 `\mathbb{C}^{n-k}` respectively, at a total cost of `(m-k)(n-k)` FLOPs.
-Finally two `(m-k)\times(n-k)` matrices are substracted, at cost
+Finally two `(m-k)\times(n-k)` matrices are subtracted, at cost
 `(m-k)(n-k)`. Putting all this together gives `\sim 4(n-k)(m-k)` FLOPs
 per `k` iteration.
 
@@ -106,7 +105,6 @@ Now we have to sum this over `k`, so the total operation count is
    .. math::
 
       4\sum_{k=1}^n(n-k)(m-k) = 4\sum_{k=1}^n(nm - k(n+m) + k^2)
-
       \sim 4n^2m - 4(n+m)\frac{n^2}{2} + 4\frac{n^3}{3}
       = 2mn^2 - \frac{2n^3}{3}.
 
@@ -177,7 +175,7 @@ Matrix norms for discussing stability
 In the rest of this section we will discuss another important aspect
 of analysing computational linear algebra algorithms, stability. To do
 this we need to introduce some norms for matrices in addition to the
-norms for vectors that we discussed in Section 1.
+norms for vectors that we discussed in :doc:`L1_preliminaries`.
 
 If we ignore their multiplication properties, matrices in
 `\mathbb{C}^{m\times n}` can be added and scalar multiplied, hence we
@@ -193,7 +191,7 @@ entries of a vector and evaluating the 2-norm.
 
       .. math::
 
-	 \|A\|_F = \sqrt{\sum_{i=1}^m\sum_{j=1}^nA_{ij}^2}.
+         \|A\|_F = \sqrt{\sum_{i=1}^m\sum_{j=1}^n|A_{ij}|^2}.
 
 (Exercise: show that `\|AB\|_F \leq \|A\|_F\|B\|_F`.)
 
@@ -208,8 +206,8 @@ can cause when multiplying a vector.
 
       .. math::
 
-	 \|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, x\neq 0}\frac{\|Ax\|_{(m)}}
-	 {\|x\|_{(n)}}.
+         \|A\|_{(m,n)} = \sup_{x\in\mathbb{C}^n, x\neq 0}\frac{\|Ax\|_{(m)}}
+         {\|x\|_{(n)}}.
 
 Directly from the definition we can show
 
@@ -230,14 +228,14 @@ and hence `\|Ax\|\leq \|A\|\|x\|` whenever we use an induced matrix norm.
 
      .. math::
       
-	\|A\|_{(m,n)} = \sqrt{\sup_{x\in\mathbb{C}^n, \|x\|^2=1}\|Ax\|_{(m)}^2}.
+        \|A\|_{(m,n)} = \sqrt{\sup_{x\in\mathbb{C}^n, \|x\|^2=1}\|Ax\|_{(m)}^2}.
 
-   Introduce a Lagrange multiplier `\lambda\in \mathbb{C}` to enforce
+   Introduce a Lagrange multiplier `\lambda\in \mathbb{R}` to enforce
    the constraint `\|x\|^2=1`.  Consider the case above where the norms
    on `\mathbb{C}^m` and `\mathbb{C}^n` are both 2-norms. Show that
    `\lambda` must be an eigenvalue of some matrix (which you should
    compute). Hence, given those eigenvalues, provide an expression
-   for the operator norm of `A`.
+   for the induced 2-norm `\|A\|_2` of `A`.
 
 Norm inequalities
 -----------------
@@ -245,24 +243,24 @@ Norm inequalities
 Often it is difficult to find exact values for norms, so we compute upper
 bounds using inequalities instead. Here are a few useful inequalities.
 
-.. proof:definition:: Hölder inequality
+.. proof:theorem:: Hölder inequality
 
-   Let `x,y\in \mathbb{C}^m`, and `p,q \in \mathbb{R}+` such that
+   Let `x,y\in \mathbb{C}^m`, and `1<p,q<\infty` such that
    `\frac{1}{p}+\frac{1}{q} = 1`. Then
 
       .. math::
 
-	 |x^*y| \leq \|x\|_p\|y\|_q.
+         |x^*y| \leq \|x\|_p\|y\|_q.
 
-In the case `p=q=2` this becomes the Cauchy-Schwartz inequality.
+In the case `p=q=2` this becomes the Cauchy-Schwarz inequality.
 
-.. proof:definition:: Cauchy-Schwartz inequality
+.. proof:theorem:: Cauchy-Schwarz inequality
 
    Let `x,y\in \mathbb{C}^m`. Then
 
       .. math::
 
-	 |x^*y| \leq \|x\|_2\|y\|_2.
+         |x^*y| \leq \|x\|_2\|y\|_2.
 
 For example, we can use this to bound the operator norm of the outer
 product `A=uv^*` of two vectors.
@@ -272,7 +270,8 @@ product `A=uv^*` of two vectors.
       \|Ax\|_2 = \|uv^*x\|_2 = \|u(v^*x)\|_2 = |v^*x|\|u\|_2
       \leq \|u\|_2\|v\|_2\|x\|_2,
 
-so `\|A\|_2 \leq \|u\|_2\|v\|_2`.
+so `\|A\|_2 \leq \|u\|_2\|v\|_2`. In fact, taking `x=v` shows that
+equality holds, `\|A\|_2 = \|u\|_2\|v\|_2`.
 
 We can also compute bounds for `\|AB\|_2`.
 
@@ -282,21 +281,21 @@ We can also compute bounds for `\|AB\|_2`.
 
       .. math::
 
-	 \|AB|_{(l,n)} \leq \|A\|_{(l,m)}\|B\|_{(m,n)}.
+         \|AB\|_{(l,n)} \leq \|A\|_{(l,m)}\|B\|_{(m,n)}.
 
 .. proof:proof::
 
       .. math::
 
-	 \|ABx\|_{(l)} \leq \|A\|_{(l,m)}\|Bx\|_{(m)}
-	 \leq \|A\|_{(l,m)}\|B\|_{(m,n)}\|x\|_{(n)},
+         \|ABx\|_{(l)} \leq \|A\|_{(l,m)}\|Bx\|_{(m)}
+         \leq \|A\|_{(l,m)}\|B\|_{(m,n)}\|x\|_{(n)},
 
    so
 
       .. math::
 
-	 \|AB\|_{(l,n)} = \sup_{x\neq 0}\frac{\|ABx\|_{(l)}}{\|x\|_{(n)}}
-	 \leq \|A\|_{(l,m)}\|B\|_{(m,n)},
+         \|AB\|_{(l,n)} = \sup_{x\neq 0}\frac{\|ABx\|_{(l)}}{\|x\|_{(n)}}
+         \leq \|A\|_{(l,m)}\|B\|_{(m,n)},
 
    as required.
    
@@ -316,7 +315,7 @@ normed vector spaces (further generalisations are possible). It is
 often the case that `f` has different properties under perturbation
 for different values of `x\in X`.
 
-.. proof:definition:: Well conditioned and ill conditioned.
+.. proof:definition:: Well conditioned and ill conditioned
 
    We say that a problem is well conditioned (at `x`) if small changes
    in `x` lead to small changes in `f(x)`. We say that a problem is
@@ -325,7 +324,7 @@ for different values of `x\in X`.
 
 These changes are measured by the condition number.
 
-.. proof:definition:: Absolute condition number.
+.. proof:definition:: Absolute condition number
 
    Let `\delta x` be a perturbation so that `x\mapsto x + \delta x`.
    The corresponding change in `f(x)` is `\delta f(x)`,
@@ -338,10 +337,11 @@ These changes are measured by the condition number.
 
    .. math::
 
-      \hat{\kappa} = \sup_{\delta x \neq 0}\frac{\|\delta f\|}{\|\delta x\|},
+      \hat{\kappa} = \lim_{\delta\to 0}\sup_{0<\|\delta x\|\leq\delta}
+      \frac{\|\delta f\|}{\|\delta x\|},
 
-   i.e. the maximum that `f` can change relative to the size of the
-   perturbation `\delta x`.
+   i.e. the maximum that `f` can change relative to the size of an
+   infinitesimally small perturbation `\delta x`.
 
    It is easier to consider linearised perturbations, defining
    a Jacobian matrix `J(x)` such that
@@ -363,21 +363,27 @@ These changes are measured by the condition number.
 This definition could be improved by measuring this change relative to the
 size of `f` itself.
    
-.. proof:definition:: Relative condition number.
+.. proof:definition:: Relative condition number
 
    The relative condition number of a problem `f` measures the changes
    `\delta x` and `\delta f` relative to the sizes of `x` and `f`.
 
    .. math::
 
-      \kappa = \sup_{\delta \neq 0}\frac{\|\delta f\|/\|f\|}
-      {\|\delta x\|/\|x\|}.
+      \kappa = \lim_{\delta\to 0}\sup_{0<\|\delta x\|\leq\delta}
+      \frac{\|\delta f\|/\|f(x)\|}{\|\delta x\|/\|x\|}.
 
    The linear relative condition number is
 
    .. math::
 
       \kappa = \frac{\|J\|/\|f\|}{1/\|x\|} = \frac{\|J\|\|x\|}{\|f\|}.
+
+If `f` is differentiable at `x`, then the limits in these definitions
+give exactly the linearised formulas, `\hat{\kappa}=\|J(x)\|` and
+`\kappa=\|J(x)\|\|x\|/\|f(x)\|`. The definitions via limits are still
+needed when `f` is not differentiable, as in the example of a double
+root below.
 
 Since we use floating point numbers on computers, it makes more sense
 to consider relative condition numbers in computational linear
@@ -413,11 +419,10 @@ gives a relative change of `10^{-2}` in the roots. Using the general formula
       r = 1 \pm\sqrt{1-c} = 1 \pm \sqrt{\delta c} \implies
       \delta r = \pm \sqrt{\delta c},
 
-where `r` returns the two roots with perturbations `\delta r` and `c`
-is the coefficient of `x^0` with perturbatino `\delta c`.
-is the perturbation to the coefficient of `x^0` (so 1 becomes
-`1+\delta c`). The (nonlinear) condition number is then
-the sup over `\delta c\neq 0` of 
+where `r` denotes the two roots, `\delta r` their perturbations, and
+`c=1-\delta c` is the perturbed coefficient of `x^0`. The (nonlinear)
+condition number is then the limit as `\delta c\to 0` of the
+supremum of
 
     .. math::
 
@@ -446,7 +451,7 @@ with `J=A`, so the condition number is
 
       \kappa = \frac{\|A\|\|x\|}{\|Ax\|}.
 
-When `A` is non singular, we can write `x = A^{-1}Ax`, and
+When `A` is square and nonsingular, we can write `x = A^{-1}Ax`, and
 
    .. math::
 
@@ -486,9 +491,9 @@ condition number, we can drop the nonlinear term, and we get
 
    .. math::
 
-      \delta A x + A \delta x = 0, \implies \delta x = -A^{-1}\delta Ax,
+      \delta A x + A \delta x = 0 \implies \delta x = -A^{-1}\delta Ax,
 
- from which we may compute the bound
+from which we may compute the bound
 
    .. math::
 
@@ -499,10 +504,10 @@ Then, we can compute the condition number
    .. math::
 
       \kappa = \sup_{\|\delta A\|\neq 0}
-      \frac{\|\delta x\|/\|x\|}{\|\delta A\|/\|A\|}.
+      \frac{\|\delta x\|/\|x\|}{\|\delta A\|/\|A\|}
       \leq \sup_{\|\delta A\|\neq 0}
-      \frac{\|A^{-1}\|\|\delta A\|\|x\|/\|x\|}{\|\delta A\|/\|A\|}.
-      = \|A^{-1}\|\|A\| = \kappa(A),
+      \frac{\|A^{-1}\|\|\delta A\|\|x\|/\|x\|}{\|\delta A\|/\|A\|}
+      =\|A^{-1}\|\|A\| = \kappa(A),
 
 having used the bound for `\delta x`. Hence the bound on the condition
 number for this problem is the condition number of `A`.
@@ -520,7 +525,10 @@ deduce from this fact is that there exists a largest and a smallest
 positive number.  In "double precision", the standard floating point
 number format for scientific computing these days, the largest number
 is `N_{\max}\approx 1.79\times 10^{308}`, and the smallest number is
-`N_{\min}\approx 2.23 \times 10^{-308}`. The second thing that we can
+`N_{\min}\approx 2.23 \times 10^{-308}` (this is the smallest
+positive *normalised* number; there are also "subnormal" numbers down
+to about `4.9\times 10^{-324}`, but with reduced relative accuracy).
+The second thing that we can
 deduce is that there must be gaps between adjacent numbers in the
 number system. In the double precision format, the interval `[1,2]` is
 subdivided as `(1,1+2^{-52},1+2\times 2^{-52},1+3\times 2^{-52},
@@ -532,13 +540,19 @@ scale with the number size. We call this set of numbers the (double
 precision) floating point numbers `\mathbb{F}\subset \mathbb{R}`.
 
 A key aspect of a floating point number system is "machine epsilon"
-(`\varepsilon`), which measures the largest relative distance between
-two numbers. Considering the description above, we see that
-`\varepsilon` is the the distance between 1 and the adjacent number, i.e.
+(`\varepsilon`), which measures the largest relative error made when
+rounding a real number to the nearest floating point number.
+Considering the description above, the distance between 1 and the next
+larger floating point number is `2^{-52}`, and `\varepsilon` is half
+of this, i.e.
 
    .. math::
 
       \varepsilon = 2^{-53} \approx 1.11 \times 10^{-16}.
+
+Note that ``numpy.finfo(float).eps`` returns the gap
+`2^{-52}\approx 2.22\times 10^{-16}` instead; both conventions are
+in common use.
 
 `\varepsilon` defines the accuracy with which arbitrary real numbers
 (within the range of the maximum magnitude above) can be approximated
@@ -559,16 +573,15 @@ in `\mathbb{F}`.
    `x\in \mathbb{R}` to the nearest floating point number.
 
 The following axiom is just a formal presentation of the properties
-of floating point numbers that we discussed below.
+of floating point numbers that we discussed above.
    
 .. proof:definition:: Floating point axiom I
 
       .. math::
 
-	 \forall x \in \mathbb{R}, \, \exists \epsilon' \mbox{ with }
-	 |\epsilon'| \leq \varepsilon, 
-
-	 \mbox{ such that } f_L(x) = x(1+\epsilon').
+         \forall x \in \mathbb{R}, \, \exists \epsilon' \mbox{ with }
+         |\epsilon'| \leq \varepsilon,
+         \mbox{ such that } f_L(x) = x(1+\epsilon').
 
 The arithmetic operations `+,-,\times,\div` on `\mathbb{R}` have
 analogous operations `\oplus,\ominus,\otimes`, etc. In general, binary
@@ -585,10 +598,9 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 .. proof:definition:: Floating point axiom II
 
    .. math::
-		      
+        	      
       \forall x,y \in \mathbb{F}, \exists \epsilon' \mbox{ with }
       |\epsilon'|\leq \varepsilon,\mbox{ such that }
-
       x\odot y = (x\cdot y)(1 + \epsilon').
 
 .. proof:exercise::
@@ -598,18 +610,18 @@ for `x,y\in \mathbb{F}`, with `\cdot` being one of `+,-,\times,\div`.
 
       .. math::
 
-	 x = p \pm\sqrt{p^2 + q}.
+         x = p \pm\sqrt{p^2 + q}.
 
    Show that the smallest root (with the minus sign above) also
    satisfies
 
       .. math::
 
-	 x = -\frac{q}{p + \sqrt{p^2 + q}}.
+         x = -\frac{q}{p + \sqrt{p^2 + q}}.
 
    In the case `p=12345678` and `q=1`, compare the result of these two
-   methods for computing the smallest root when using double floating
-   point arithmetic (the default floating point numbers in
+   methods for computing the smallest root when using double precision
+   floating point arithmetic (the default floating point numbers in
    Python/NumPy). Which is more accurate? Why is this?
       
 Stability
@@ -642,14 +654,14 @@ absolute error
 
       \|\tilde{f}(x)-f(x)\|,
 
- or the relative error (taking into account the size of `f`),
+or the relative error (taking into account the size of `f`),
 
    .. math::
 
       \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|}.
 
 An aspiration (but an unrealistic one) would be to aim for an algorithm
-to accurate to machine precision, i.e. 
+that is accurate to machine precision, i.e.
 
    .. math::
 
@@ -664,7 +676,7 @@ by which we mean that `\exists C>0` such that
 for sufficiently small `\varepsilon` (assuming, albeit
 unrealistically, that we have a sequence of computers with smaller and
 smaller `\varepsilon`). We shall see below that we have to lower our
-aspirations depending on the condition number of `A`.
+aspirations depending on the condition number of the problem `f`.
 
 .. proof:definition:: Stability
 
@@ -673,13 +685,13 @@ aspirations depending on the condition number of `A`.
 
       .. math::
 
-	 \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
+         \frac{\|\tilde{f}(x)-f(\tilde{x})\|}{\|f(\tilde{x})\|} = \mathcal{O}(\varepsilon),
 
-	 and
+   and
 
       .. math::
 
-	 \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).	 
+         \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).	 
 
 We say that a stable algorithm gives nearly the right answer to nearly the
 right question.
@@ -699,9 +711,9 @@ right question.
    
       .. math::
 
-	 \tilde{f}(x) = f(\tilde{x}),
-	 \mbox{ with }
-	 \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).
+         \tilde{f}(x) = f(\tilde{x}),
+         \mbox{ with }
+         \frac{\|\tilde{x}-x\|}{\|x\|} = \mathcal{O}(\varepsilon).
 
 A backward stable algorithm gives exactly the right answer to nearly 
 the right question. The following result shows what accuracy we can expect
@@ -719,8 +731,8 @@ of `f`.
 
       .. math::
 
-	 \frac{\|\tilde{f}(x) - f(x)\|}{\|f(x)\|}
-	 = \mathcal{O}(\kappa(x)\epsilon).
+         \frac{\|\tilde{f}(x) - f(x)\|}{\|f(x)\|}
+         = \mathcal{O}(\kappa(x)\varepsilon).
 
 .. proof:proof::
 
@@ -731,19 +743,19 @@ of `f`.
 
       .. math::
 
-	 \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} =
-	 \frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|},
+         \frac{\|\tilde{f}(x)-f(x)\|}{\|f(x)\|} =
+         \frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|},
 
-	 = 	 \underbrace{\frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|}
-	 \frac{\|x\|}{\|\tilde{x}-x\|}}_{=\kappa}
-	 \underbrace{\frac{\|\tilde{x}-x\|}{\|x\|}}_{=\mathcal{O}(\epsilon)},
+         = 	 \underbrace{\frac{\|f(\tilde{x})-f(x)\|}{\|f(x)\|}
+         \frac{\|x\|}{\|\tilde{x}-x\|}}_{=\kappa}
+         \underbrace{\frac{\|\tilde{x}-x\|}{\|x\|}}_{=\mathcal{O}(\varepsilon)},
 
    as required.
 
 This type of calculation is known as backward error analysis,
 originally introduced by Jim Wilkinson to analyse the accuracy of
 eigenvalue calculations using the PILOT ACE, one of the early
-computers build at the National Physical Laboratory in the late 1940s
+computers built at the National Physical Laboratory in the late 1940s
 and early 1950s. In backward error analysis we investigate the
 accuracy via conditioning and stability. This is usually much easier
 than forward analysis, where one would simply try to keep a running
@@ -761,11 +773,11 @@ factorisation of a matrix `A`, implemented in floating point
 arithmetic using the Householder method. The input is `A`, and the
 exact output is `Q,R`, whilst the floating point algorithm output is
 `\tilde{Q},\tilde{R}`. Here, we consider `\tilde{Q}` as the exact
-unitary matrix produced by composing Householder rotations made by
+unitary matrix produced by composing Householder reflections made by
 the floating point vectors `\tilde{v}_k` that approximate the `v_k`
 vectors in the exact arithmetic Householder algorithm.
 
-For this problem, backwards stability means
+For this problem, backward stability means
 that there exists a perturbed input `A+\delta A`, with `\|\delta
 A\|/\|A\| =\mathcal{O}(\varepsilon)`, such that `\tilde{Q},\tilde{R}`
 are exact solutions to the problem, i.e. `\tilde{Q}\tilde{R}=A+\delta
@@ -775,18 +787,18 @@ A`. This means that there is very small backward error,
 
       \frac{\|A-\tilde{Q}\tilde{R}\|}{\|A\|} = \mathcal{O}(\varepsilon).
       
-It turns out that the Householder method is backwards stable.
+It turns out that the Householder method is backward stable.
 
 .. proof:theorem::
 
    Let the QR factorisation be computed for `A` using a floating point
    implementation of the Householder algorithm. This factorisation is
-   backwards stable, i.e. the result `\tilde{Q}\tilde{R}` satisfy
+   backward stable, i.e. the computed factors `\tilde{Q},\tilde{R}` satisfy
 
       .. math::
 
-	 \tilde{Q}\tilde{R} = A + \delta A, \quad
-	 \frac{\|\delta A\|}{\|A\|} = \mathcal{O}(\varepsilon).
+         \tilde{Q}\tilde{R} = A + \delta A, \quad
+         \frac{\|\delta A\|}{\|A\|} = \mathcal{O}(\varepsilon).
 
 .. proof:proof::
 
@@ -794,18 +806,29 @@ It turns out that the Householder method is backwards stable.
 
 .. proof:exercise::
 
-   Use your Householder implementation to generate random `Q_1` and
-   `R_1` matrices of dimension `m`. It is very important that the two
-   matrices `Q_1` and `R_1` are uncorrelated. In particular, computing
-   them as the QR factorisation of the same matrix would spoil the
-   experiment). So what you need to do is to randomly generate two
-   independent `m\times m` matrices `A_1` and `A_2`. Then `Q_1` should
-   come from the QR factorisation of `A_1`, and `R_2` should come from
-   the QR factorisation of `A_2`.
+   Use your Householder implementation to generate a random unitary
+   matrix `Q_1` of dimension `m`, from the QR factorisation of a
+   random `m\times m` matrix, and let `R_1` be a random upper
+   triangular `m\times m` matrix (e.g. using :func:`numpy.triu`). It is
+   important that `Q_1` and `R_1` are uncorrelated (in particular,
+   taking them from the QR factorisation of the same matrix would
+   spoil the experiment).
 
-   Print out the value of `\|Q_2-Q_1\|`,
-   `\|R_2-R_1\|`, `\|A-Q_2R_2\|`. Explain what you see using what you
-   know about the stability of the Householder algorithm.
+   Now form `A=Q_1R_1`, and use your Householder implementation to
+   compute its QR factorisation `A=Q_2R_2`. Print out the values of
+   `\|Q_2-Q_1\|`, `\|R_2-R_1\|/\|R_1\|` and `\|A-Q_2R_2\|/\|A\|`.
+   Explain what you see using what you know about the stability of
+   the Householder algorithm. (Hint: what is the condition number of
+   `R_1`?)
+
+   .. note::
+
+      The QR factorisation is only unique up to the signs of the
+      diagonal entries of `R`. Use your own Householder
+      implementation for both factorisations: another implementation,
+      such as :func:`numpy.linalg.qr`, may use a different sign
+      convention, so that `Q_2` differs from `Q_1` by the signs of
+      some of its columns.
    
 Backward stability for solving a linear system using QR
 -------------------------------------------------------
@@ -825,12 +848,13 @@ gives
 
 The solution of this equation is `x=R^{-1}y`, but if there is one
 message to take home from this course, it is that you should *never*
-form the inverse of a matrix. It is especially disasterous to use
-Kramer's rule, which the `m` dimensional extension of the formula for
+form the inverse of a matrix. It is especially disastrous to use
+Cramer's rule, which is the `m`-dimensional extension of the formula for
 the inverse of `2\times 2` matrices that you learned at
-school. Kramer's rule has an operation count scaling like
-`\mathcal{O}(m!)` and is numerically unstable. Hence it is so
-disasterous that we won't even show the formula for Kramer's rule
+school. Cramer's rule, with the determinants computed by cofactor
+expansion, has an operation count scaling like `\mathcal{O}(m!)`, and
+it is numerically unstable. Hence it is so
+disastrous that we won't even show the formula for Cramer's rule
 here.
 
 There are some better algorithms for finding the inverse of a matrix
@@ -844,8 +868,9 @@ recall the backward substitution algorithm below.
 * FOR `i= m-1` TO 1 (BACKWARDS)
   
   * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
+* END FOR
 
-In each iteration, there are `m-i-1` multiplications and subtractions
+In each iteration, there are `m-i` multiplications and subtractions
 plus a division, so the total operation count is `\sim m^2` FLOPs.
 
 In comparison, the least bad way to form the inverse `Z` of `R` is to
@@ -855,7 +880,7 @@ write `RZ = I`. Then, the `k`-th column of this equation is
 
       Rz_k = e_k,
 
-where `z_k` is the kth column of `Z`. Solving for each column
+where `z_k` is the `k`-th column of `Z`. Solving for each column
 independently using back substitution leads to an operation count of
 `\sim m^3` FLOPs, much slower than applying back substitution directly
 to `b`. Hopefully this should convince you to always seek an
@@ -876,7 +901,7 @@ We already know that the Householder algorithm is stable, and a
 floating point implementation produces `\tilde{Q},\tilde{R}` such that
 `\tilde{Q}\tilde{R}=A+\delta A` with `\|\delta
 A\|/\|A\|=\mathcal{O}(\varepsilon)`. It turns out that the implicit
-multiplication algorithm is also backwards stable, for similar reasons
+multiplication algorithm is also backward stable, for similar reasons
 (as it is applying the same Householder reflections). This means that
 given `\tilde{Q}` (we have already perturbed `Q` when forming it using
 Householder) and `b`, the floating point implementation gives
@@ -885,13 +910,12 @@ satisfies
 
    .. math::
 
-      \tilde{y}= (\tilde{Q}+\delta{Q})^*b \implies
       (\tilde{Q} + \delta{Q})\tilde{y} = b,
 
 for some perturbation `\delta Q` with `\|\delta
 Q\|=\mathcal{O}(\varepsilon)` (note that `\|Q\|=1` because it is
 unitary). Note that here, we are treating `b` as fixed and considering
-the backwards stability under perturbations to `\tilde{Q}`.
+the backward stability under perturbations to `\tilde{Q}`.
 
 Finally, it can be shown (see Lecture 17 of Trefethen and Bau for a
 proof) that the backward substitution algorithm is backward
@@ -911,12 +935,13 @@ we show the following result.
 
 .. proof:theorem::
 
-   The QR algorithm to solve `Ax=b` is backward stable, producing
+   Solving `Ax=b` using the Householder QR factorisation, as above,
+   is backward stable, producing
    a solution `\tilde{x}` such that
 
       .. math::
 
-	 (A+\Delta A)\tilde{x} = b,
+         (A+\Delta A)\tilde{x} = b,
 
    for some `\|\Delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 
@@ -926,9 +951,8 @@ we show the following result.
 
       .. math::
 
-	 b = (\tilde{Q}+\delta Q)\tilde{y},
-
-	 = (\tilde{Q} + \delta Q)(\tilde{R} + \delta R)\tilde{x},
+         b = (\tilde{Q}+\delta Q)\tilde{y}
+         = (\tilde{Q} + \delta Q)(\tilde{R} + \delta\tilde{R})\tilde{x},
 
    having substituted the backward stability formula for back
    substitution in the second line. Multiplying out the brackets
@@ -936,15 +960,14 @@ we show the following result.
 
       .. math::
 
-	 b = (\tilde{Q}\tilde{R} + (\delta Q)\tilde{R} + \tilde{Q}\delta R
-	 + (\delta Q)\delta R)\tilde{x},
-
-	 = (A + \underbrace{\delta A + (\delta Q)\tilde{R} +
-	 \tilde{Q}\delta R
-	   + (\delta Q)\delta R}_{=\Delta A}\tilde{x}).
+         b = (\tilde{Q}\tilde{R} + (\delta Q)\tilde{R} + \tilde{Q}\delta\tilde{R}
+         + (\delta Q)\delta\tilde{R})\tilde{x}
+         = (A +\underbrace{\delta A + (\delta Q)\tilde{R} +
+         \tilde{Q}\delta\tilde{R}
+           + (\delta Q)\delta\tilde{R}}_{=\Delta A})\tilde{x}.
 
    This defines `\Delta A` and it remains to estimate each of these
-   terms. We immediately have `\|\delta A\|=\mathcal{O}(\varepsilon)`
+   terms. We immediately have `\|\delta A\|/\|A\|=\mathcal{O}(\varepsilon)`
    from backward stability of the Householder method.
 
    Next we estimate the second term. Using `A + \delta A =
@@ -952,44 +975,44 @@ we show the following result.
 
       .. math::
 
-	 \tilde{R} = \tilde{Q}^*(A + \delta A),
+         \tilde{R} = \tilde{Q}^*(A + \delta A),
 
-   we have
+   and hence
 
       .. math::
 
-	 \frac{\|\tilde{R}\|}{\|A\|} \leq \|\tilde{Q}^*\|
-	 \frac{\|A+\delta A\|}{\|A\|} = \mathcal{O}(1), \mbox{ as }
-	 \varepsilon \to 0.
+         \frac{\|\tilde{R}\|}{\|A\|} \leq \|\tilde{Q}^*\|
+         \frac{\|A+\delta A\|}{\|A\|} = \mathcal{O}(1), \mbox{ as }
+         \varepsilon \to 0.
 
    Then we have
 
       .. math::
 
-	 \frac{\|(\delta Q)\tilde{R}\|}{\|A\|}
-	 \leq \|\delta Q\|\frac{\|\tilde{R}\|}{\|A\|}
-	 = \mathcal{O}(\varepsilon).
+         \frac{\|(\delta Q)\tilde{R}\|}{\|A\|}
+         \leq \|\delta Q\|\frac{\|\tilde{R}\|}{\|A\|}
+         = \mathcal{O}(\varepsilon).
 
    To estimate the third term, we have
 
       .. math::
 
-	 \frac{\|\tilde{Q}\delta R\|}{\|A\|} \leq \frac{\|\delta
-	 R\|}{\|A\|}\underbrace{\|\tilde{Q}\|}_{=1} =
-	 \underbrace{\frac{\|\delta
-	 R\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
-	 \underbrace{\frac{\|\tilde{R}\|}{\|A\|}}_{\mathcal{O}(1)}
-	 = \mathcal{O}(\varepsilon).
+         \frac{\|\tilde{Q}\delta\tilde{R}\|}{\|A\|} \leq \frac{\|\delta
+         \tilde{R}\|}{\|A\|}\underbrace{\|\tilde{Q}\|}_{=1} =
+         \underbrace{\frac{\|\delta
+         \tilde{R}\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
+         \underbrace{\frac{\|\tilde{R}\|}{\|A\|}}_{\mathcal{O}(1)}
+         = \mathcal{O}(\varepsilon).
 
    Finally, the fourth term has size
 
    .. math::
 
-      \frac{\|\delta Q\delta R\|}{\|A\|} \leq
+      \frac{\|\delta Q\delta\tilde{R}\|}{\|A\|} \leq
       \underbrace{\|\delta Q\|}_{\mathcal{O}(\varepsilon)}
-      \underbrace{\frac{\|\delta R\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
+      \underbrace{\frac{\|\delta\tilde{R}\|}{\|\tilde{R}\|}}_{\mathcal{O}(\varepsilon)}
       \underbrace{\frac{\|\tilde{R}\|}
-      {\|A\|}}_{\mathcal{O}(1)} = \mathcal{O}(\epsilon^2),
+      {\|A\|}}_{\mathcal{O}(1)} = \mathcal{O}(\varepsilon^2),
 
    hence `\|\Delta A\|/\|A\|=\mathcal{O}(\varepsilon)`.
 
@@ -998,7 +1021,7 @@ we show the following result.
    .. vimeo:: 450215261
 
    
-.. proof:Corollary::
+.. proof:corollary::
 
    When solving `Ax=b` using the QR factorisation procedure above, the
    floating point implementation produces an approximate solution
@@ -1006,7 +1029,7 @@ we show the following result.
    
       .. math::
 
-	 \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa(A)\varepsilon).
+         \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa(A)\varepsilon).
    
 .. proof:proof::
    
@@ -1015,7 +1038,7 @@ we show the following result.
    
       .. math::
 
-	 \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa\varepsilon),
+         \frac{\|\tilde{x}-x\|}{\|{x}\|} = \mathcal{O}(\kappa\varepsilon),
 
    where `\kappa` is the condition number of the problem of solving
    `Ax=b`, which we have shown is bounded from above by `\kappa(A)`.

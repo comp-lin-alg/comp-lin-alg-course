@@ -8,6 +8,46 @@ Here we'll list all the updates to the exercises and coursework Classroom
 repositories for Autumn 2026. An up to date version is in the
 `public repository <https://github.com/comp-lin-alg/comp-lin-alg-course>`_.
 
+Chapter 4: Analysing algorithms
+-------------------------------
+
+* In :doc:`L3_analysing_algorithms`, in the operation count for
+  modified Gram-Schmidt, the inner product is `r_{ij}\gets q_i^*v_j`,
+  rather than `q_i^*v_i`.
+* In :doc:`L3_analysing_algorithms`, modified Gram-Schmidt has `n-i`
+  inner iterations over `j` for each `i`, rather than `n-i-1`.
+* In :doc:`L3_analysing_algorithms`, the Frobenius norm is
+  `\|A\|_F=\sqrt{\sum_{i,j}|A_{ij}|^2}`; the absolute value was
+  missing, which matters for complex matrices.
+* In :doc:`L3_analysing_algorithms`, the absolute and relative
+  condition numbers are defined with a limit over small
+  perturbations, `\lim_{\delta\to 0}\sup_{0<\|\delta x\|\leq\delta}`,
+  rather than a supremum over all `\delta x\neq 0`, so that they
+  measure the conditioning of `f` at `x`.
+* In :doc:`L3_analysing_algorithms`, in the example on the roots of
+  `x^2-2x+c`, the perturbed coefficient should be `c=1-\delta c`
+  (rather than `1+\delta c`) for the roots to be `1\pm\sqrt{\delta c}`.
+* In :doc:`L3_analysing_algorithms`, machine epsilon
+  `\varepsilon=2^{-53}` is half the distance between 1 and the next
+  floating point number (which is `2^{-52}`), not the distance itself.
+* In :doc:`L3_analysing_algorithms`, in the backward stability of
+  the Householder algorithm, Householder transformations are
+  reflections, not rotations.
+* In :doc:`L3_analysing_algorithms`, the exercise on the stability of
+  the Householder algorithm has been corrected: `R_1` is a random
+  upper triangular matrix, and the exercise now states that
+  `A=Q_1R_1` is formed and factorised as `A=Q_2R_2` before comparing.
+* In :doc:`L3_analysing_algorithms`, each step of back substitution
+  requires `m-i` multiplications and subtractions, rather than
+  `m-i-1`.
+* In :doc:`L3_analysing_algorithms`, backward stability of computing
+  `\tilde{Q}^*b` means that `(\tilde{Q}+\delta Q)\tilde{y}=b` for some
+  small `\delta Q`; this does not follow from
+  `\tilde{y}=(\tilde{Q}+\delta Q)^*b`, as was stated.
+* In :doc:`L3_analysing_algorithms`, in the proof that solving
+  `Ax=b` via QR is backward stable, the result should read
+  `b=(A+\Delta A)\tilde{x}`; a bracket was misplaced.
+
 Chapter 5: Finding eigenvalues of matrices
 ------------------------------------------
 

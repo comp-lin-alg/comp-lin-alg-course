@@ -128,9 +128,10 @@ the exact solution of `Ax=b` then lies in this subspace, and GMRES
 
    `(\ddagger)` The :func:`cla_utils.exercises10.arnoldi` function has
    been left unimplemented. It should implement the Arnoldi algorithm
-   using Numpy array operations where possible, and return the `Q` and
-   `H` matrices after the requested number of iterations is complete.
-   What is the minimal number of Python for loops possible?
+   using NumPy array operations for inner products and vector updates,
+   and return the `Q` and `H` matrices after the requested number of
+   iterations is complete. Follow the modified Gram-Schmidt pseudocode
+   above; two nested Python loops are appropriate.
 
    The test
    script ``test_exercises10.py`` in the ``test`` directory will test
@@ -277,7 +278,9 @@ the Krylov subspace is generated from `r_0` instead of `b`.
 
    `(\ddagger)` The :func:`cla_utils.exercises10.GMRES` function has
    been left unimplemented. It should implement the basic GMRES
-   algorithm above, using one loop over the iteration count. You can
+   algorithm above, using one outer loop over the iteration count, with
+   an inner loop for modified Gram-Schmidt orthogonalisation as in your
+   Arnoldi implementation. You can
    paste code from your :func:`cla_utils.exercises10.arnoldi`
    implementation, and you should use your least squares code to solve
    the least squares problem.  The test script ``test_exercises10.py``

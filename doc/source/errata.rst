@@ -8,6 +8,77 @@ Here we'll list all the updates to the exercises and coursework Classroom
 repositories for Autumn 2026. An up to date version is in the
 `public repository <https://github.com/comp-lin-alg/comp-lin-alg-course>`_.
 
+Chapter 5: Finding eigenvalues of matrices
+------------------------------------------
+
+* In :doc:`L5_eigenvalues`, after the Schur factorisation theorem,
+  the eigenvalues are read from the diagonal of `T`, not from the
+  diagonal of `A`.
+* In :doc:`L5_eigenvalues`, the stopping criterion for the iterative
+  transformation to Schur form should measure the strictly lower
+  triangular part of `A_k`, rather than the lower triangular part
+  of `A`.
+* In :doc:`L5_eigenvalues`, the argument for why the transformation
+  to Schur form must be iterative should conclude that an explicit
+  formula for the roots of the characteristic polynomial is
+  impossible in general (not "explicit in general").
+* In :doc:`L5_eigenvalues`, the reduction to upper Hessenberg form
+  takes `m-2` steps, rather than `m-1`.
+* In :doc:`L5_eigenvalues`, in the explanation of why a single
+  similarity transformation cannot triangularise `A`, the product
+  should be `Q_1^*(Q_1^*A)^*` rather than `Q_1^*(Q_1^*A)`, and it
+  forms linear combinations of rows, not columns.
+* In :doc:`L5_eigenvalues`, in the reduction to Hessenberg form,
+  Householder transformations are reflections, not rotations.
+* In :doc:`L5_eigenvalues`, in the Hessenberg pseudo-code, the
+  normalisation should be `v_k\gets v_k/\|v_k\|_2`, rather than
+  `v_k/\|v\|_2`.
+* In :doc:`L5_eigenvalues`, in the operation count for the reduction
+  to Hessenberg form, the right multiplication costs `\sim 2m^3`
+  FLOPs; `\frac{10}{3}m^3` is the total for the left and right
+  multiplications together.
+* In :doc:`L5_eigenvalues`, in the proof of convergence of power
+  iteration, the eigenvector estimate follows from the eigenvector
+  expansion of `A^kv^0`, not from the Taylor series; the eigenvalue
+  estimate then follows from the quadratic accuracy of the Rayleigh
+  quotient.
+* In :doc:`L5_eigenvalues`, inverse iteration converges to the
+  eigenvector for which `1/|\lambda-\mu|` is largest (not smallest),
+  i.e. whose eigenvalue is closest to `\mu`.
+* In :doc:`L5_eigenvalues`, in the convergence of Rayleigh quotient
+  iteration, the eigenvalue error is `|\lambda^{(k)}-\lambda_J|`,
+  rather than `|\lambda^{(k)}-q_J|`.
+* In :doc:`L5_eigenvalues`, the exercise on
+  :func:`cla_utils.exercises9.rq_it` should ask for Rayleigh quotient
+  iteration, rather than inverse iteration.
+* In :doc:`L5_eigenvalues`, in the hint on complex QR factorisation,
+  `\mbox{sign}(x_1)` should be replaced by `e^{i\arg(x_1)}`, rather
+  than `-e^{i\arg(x_1)}`; the minus sign reintroduces the
+  cancellation that the choice of sign is meant to avoid.
+* In :doc:`L5_eigenvalues`, the convergence condition for
+  simultaneous iteration with `n<m` vectors also requires
+  `|\lambda_n|>|\lambda_{n+1}|`.
+* In :doc:`L5_eigenvalues`, in the simultaneous iteration
+  pseudo-code, `\hat{Q}^{(0)}` is an `m\times n` matrix with
+  orthonormal columns (unitary only when `n=m`), and the QR
+  factorisation computes `\hat{Q}^{(k)},\hat{R}^{(k)}`.
+* In :doc:`L5_eigenvalues`, in the connection between the QR
+  algorithm and inverse iteration, the indices should be `m` rather
+  than `n` (`e_m`, `\tilde{r}^{(k)}_{mm}`), and the last column of
+  `{Q'}^{(k)}` is the result of `k` steps of inverse iteration with
+  `\mu=0` applied to `A^T`, starting from `e_m`.
+* In :doc:`L5_eigenvalues`, in the description of shifts in the
+  practical QR algorithm, it is the last diagonal entry of `A^{(k)}`
+  (not of `R^{(k)}`) that converges, via inverse iteration, to the
+  eigenvalue of `A` of smallest magnitude.
+* In :doc:`L5_eigenvalues`, the Rayleigh quotient shift computed
+  from `A^{(k)}` is `A^{(k)}_{mm}=(q_m^{(k)})^TAq_m^{(k)}`, and it is
+  used as the shift `\mu^{(k+1)}` for the next iteration (rather than
+  `\mu^{(k)}`).
+
+Chapter 6: Krylov methods
+-------------------------
+
 * In :doc:`L6_krylov`, the last column of the Krylov matrix `K_n`
   should be `A^{n-1}b`, rather than `A^{n_1}b`.
 * In :doc:`L6_krylov`, the orthogonal projection of `Av` onto the
@@ -30,6 +101,10 @@ repositories for Autumn 2026. An up to date version is in the
   times the relative residual; if the condition number is large, a
   small residual can coexist with a large relative error (not a
   large condition number).
+
+Chapter 7: Preconditioning Krylov methods
+-----------------------------------------
+
 * In :doc:`L7_preconditioning`, in the proof that a stationary method
   does not converge when `\rho(C)\geq 1`, the eigenvalue condition
   `|\lambda|>1` should be `|\lambda|\geq 1`, to include the case

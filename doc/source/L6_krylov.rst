@@ -38,15 +38,15 @@ In this section we will introduce Krylov subspace methods for solving
 `Ax=b` (we will not specialise to real or symmetric matrices
 here). The idea is to approximate the solution using the basis
 
-.. math::
+   .. math::
 
-   (b, Ab, A^2b, A^3b, \ldots, A^kb)
+      (b, Ab, A^2b, A^3b, \ldots, A^{n-1}b)
 
 whose span is called a Krylov subspace. After each iteration the
 Krylov subspace grows by one dimension. As we have already seen from
 studying power iteration, the later elements in this sequence will get
-very parallel (they will all be approximating the eigenvector with
-largest magnitude of eigenvalue). Hence, we once again need to resort
+very parallel (they will all be approximating the eigenvector whose
+eigenvalue has the largest magnitude). Hence, we once again need to resort
 to orthogonalising the basis. We could simply take the QR
 factorisation of this basis, but the Arnoldi iteration coming up
 next also provides a neat way to solve the equation when projected
@@ -56,8 +56,8 @@ Arnoldi iteration
 -----------------
 
 The key to Krylov subspace methods turns out to be the transformation
-of `A` to an upper Hessenberg matrix by orthogonal similarity
-transforms, so that `A=QHQ^*`. We have already looked at using
+of `A` to an upper Hessenberg matrix by unitary similarity
+transformations, so that `A=QHQ^*`. We have already looked at using
 Householder transformations to do this in the previous section.
 The Householder technique is not so suitable for large dimensional
 problems, so instead we look at a way of proceeding column by
@@ -66,8 +66,8 @@ column, just like the Gram-Schmidt method does for finding
 
 We do this by rewriting `AQ=QH`. The idea is that at iteration `n` we
 only look at the first `n` columns of `Q`, which we
-call `\hat{Q}_n`. When `m` is large, this is a significant saving:
-`mn \ll m^2`.
+call `\hat{Q}_n`. When `m` is large and `n\ll m`, this is a
+significant saving: `mn \ll m^2`.
 To execute the iteration, it turns out that
 we should look at the `(n+1)\times n` upper left-hand section of `H`,
 i.e.
@@ -95,7 +95,7 @@ we see that the `n`-th column is
       Aq_n = h_{1n}q_1 + h_{2n}q_2 + \ldots + h_{n,n}q_n + h_{n+1,n}q_{n+1}.
 
 This formula shows us how to construct the non-zero entries of the
-nth column of `H`; this defines the Arnoldi algorithm which we
+`n`-th column of `H`; this defines the Arnoldi algorithm which we
 provide as pseudo-code below.
 
 * `q_1\gets b/\|b\|`
@@ -110,6 +110,19 @@ provide as pseudo-code below.
   * `h_{n+1,n} \gets \|v\|`
   * `q_{n+1} \gets v/\|v\|`
 * END FOR
+
+If `h_{n+1,n}=0` at some step, then `q_{n+1}` cannot be formed. This
+is called a breakdown, but it is a fortunate one: it means that
+`A\hat{Q}_n=\hat{Q}_nH_n`, so the Krylov subspace
+`\mathrm{span}(K_n)` is invariant under `A`. If `A` is invertible,
+the exact solution of `Ax=b` then lies in this subspace, and GMRES
+(below) finds it at this step.
+
+.. proof:exercise::
+
+   Suppose that `A` is invertible and that `h_{n+1,n}=0`. Show that
+   `H_n` is invertible, and that `x=\hat{Q}_nH_n^{-1}\|b\|e_1`
+   solves `Ax=b`.
 
 .. proof:exercise::
 
@@ -129,12 +142,14 @@ matrix
    .. math::
 
       K_n = \begin{pmatrix}
-      b & Ab & \ldots & A^{n_1}b \\
+      b & Ab & \ldots & A^{n-1}b \\
       \end{pmatrix}
 
-then we would get `Q=\hat{Q}_n`. Importantly, in the Arnoldi iteration, we
-never form `K_n` or `R_n` explicitly, since these are very
-ill-conditioned and not useful numerically.
+then we would get `K_n=\hat{Q}_nR_n`, i.e. the orthonormal factor is
+exactly the matrix `\hat{Q}_n` from the Arnoldi iteration.
+Importantly, in the Arnoldi iteration, we never form `K_n` or `R_n`
+explicitly, since these are very ill-conditioned and not useful
+numerically.
 
 .. details:: Supplementary video
 
@@ -145,8 +160,7 @@ But what is the use of the `\tilde{H}_n` matrix? Applying
 
    .. math::
 
-      \hat{Q}_n^*A\hat{Q}_n = \hat{Q}_n^*\hat{Q}_{n+1}\tilde{H}_n,
-
+      \hat{Q}_n^*A\hat{Q}_n = \hat{Q}_n^*\hat{Q}_{n+1}\tilde{H}_n
       = \begin{pmatrix}
       1 & 0 & \ldots & 0 & 0 \\
       0 & \ddots & \ddots & \vdots & \vdots \\
@@ -162,15 +176,18 @@ where `H_n` is the `n\times n` top left-hand corner of `H`.
 
    .. vimeo:: 454171516
 
-The intrepretation of this is that `H_n` is the orthogonal projection
-of `A` onto the Krylov subspace `\mathrm{span}(K_n)`. To see this, take any vector `v`,
-and project `Av` onto the the Krylov subspace `\mathrm{span}(K_n)`.
+The interpretation of this is that `H_n` is the matrix of the
+orthogonal projection of `A` onto the Krylov subspace
+`\mathrm{span}(K_n)`, written in the basis `q_1,\ldots,q_n`. To see
+this, take any vector `v\in\mathrm{span}(K_n)`, and project `Av` onto
+the Krylov subspace `\mathrm{span}(K_n)`,
 
    .. math::
 
-      PAv = \hat{Q}_n\hat{Q}_n^*v.
+      PAv = \hat{Q}_n\hat{Q}_n^*Av.
 
-Then, changing basis to the orthogonal basis gives
+Then, writing `v=\hat{Q}_nw` and changing to coordinates in the
+orthonormal basis `q_1,\ldots,q_n`, the matrix of this map is
 
    .. math::
 
@@ -184,12 +201,14 @@ GMRES
 
    .. vimeo:: 454171559
 
-The Generalised Minimum Residual method (GMRES), due to Saad (1986),
+The Generalised Minimum Residual method (GMRES), due to Saad and
+Schultz (1986),
 exploits these properties of the Arnoldi iteration. The idea is
-that we build up the orthogonal basis for the Krylov subspaces
-one by one, and at each iteration we solve the projection of
-`Ax=b` onto the Krylov basis as a least squares problem, until
-the residual `\|Ax-b\|` is below some desired tolerance.
+that we build up the orthonormal basis for the Krylov subspaces
+one by one, and at each iteration we find the vector in the current
+Krylov subspace that minimises the residual `\|Ax-b\|`, by solving
+a small least squares problem. We stop when the residual is below
+some desired tolerance.
 
 To avoid the numerical instabilities that would come from using the
 basis `(b,Ab,A^2b,\ldots)`, we use the Arnoldi iteration to build an
@@ -203,7 +222,8 @@ that minimises the residual
 
 This explains the Minimum Residual part of the name. We also see from
 this definition that the residual cannot increase with iterations,
-because it only increases the subspace where we seek a solution.
+because each iteration enlarges the subspace in which we seek a
+solution, so the previous minimiser is still available.
 
 This problem can be simplified further by using `A\hat{Q}_n = \hat{Q}_{n+1}\tilde{H}_n`,
 so
@@ -212,10 +232,11 @@ so
 
       \mathcal{R}_n = \|\hat{Q}_{n+1}\tilde{H}_n y - b\|.
 
-Remembering that `b=\|b\|q_1`, we see that the entire residual is in
-the column space of `\hat{Q}_{n+1}`, and hence we can invert
-on the column space using `\hat{Q}_{n+1}^*` which does not change
-the norm of the residual due to the orthonormality.
+Remembering that `b=\|b\|q_1`, we see that the entire residual
+`\hat{Q}_{n+1}\tilde{H}_ny-b` lies in the column space of
+`\hat{Q}_{n+1}`. Multiplying a vector in this column space by
+`\hat{Q}_{n+1}^*` does not change its norm, since the columns of
+`\hat{Q}_{n+1}` are orthonormal. Hence
 
    .. math::
 
@@ -224,7 +245,13 @@ the norm of the residual due to the orthonormality.
 
 Finding `y` to minimise `\mathcal{R}_n` requires the solution of a
 least squares problem, which can be computed via QR factorisation
-as we saw much earlier in the course.
+as we saw much earlier in the course. Here
+`e_1=(1,0,\ldots,0)^T\in\mathbb{C}^{n+1}` is the first standard
+basis vector: since `b=\|b\|q_1` and `q_1` is orthogonal to
+`q_2,\ldots,q_{n+1}`, only the first entry of `\hat{Q}_{n+1}^*b` is
+nonzero. Note that `\mathcal{R}_n` can be computed from this small
+`(n+1)\times n` problem, without forming `x_n`, so in practice `x_n`
+only needs to be computed once the iteration stops.
 
 .. details:: Supplementary video
 
@@ -241,6 +268,11 @@ We are now in position to present the GMRES algorithm as pseudo-code.
   * CHECK IF `\mathcal{R}_n <` TOL
 * END FOR
 
+Here we have implicitly used the initial guess `x_0=0`. For a
+nonzero initial guess `x_0`, we apply the same algorithm to
+`Ae=r_0`, where `r_0=b-Ax_0`, and set `x_n=x_0+e_n`. In other words,
+the Krylov subspace is generated from `r_0` instead of `b`.
+
 .. proof:exercise::
 
    `(\ddagger)` The :func:`cla_utils.exercises10.GMRES` function has
@@ -254,10 +286,11 @@ We are now in position to present the GMRES algorithm as pseudo-code.
 .. proof:exercise::
 
    The least squares problem in GMRES requires the QR
-   factorisation of `H_k`. It is wasteful to rebuild this from scratch
-   given that we just computed the QR factorisation of
-   `H_{k-1}`. Modify your code so that it recycles the QR
-   factorisation, applying just one extra Householder rotation per
+   factorisation of `\tilde{H}_k`. It is wasteful to rebuild this from
+   scratch given that we just computed the QR factorisation of
+   `\tilde{H}_{k-1}`. Modify your code so that it recycles the QR
+   factorisation: apply the previous reflections to the new column of
+   `\tilde{H}_k`, and then just one extra Householder reflection per
    GMRES iteration. Don't forget to check that it still passes the
    test.
 
@@ -283,26 +316,26 @@ We know that `x_n\in \mathrm{span}(K_n)`, so we can write
    .. math::
 
       x_n = c_0b + c_1Ab + c_2A^2b + \ldots + c_{n-1}A^{n-1}b
-      = p'(A)b,
+      = \phi(A)b,
 
 where
 
    .. math::
 
-      p'(z) = c_0 + c_1z + c_2z^2 + \ldots + \ldots c_{n-1}z^{n-1} \implies
-      p'(A) = c_0I + c_1A + c_2A^2 + \ldots + c_{n-1}A^{n-1}.
+      \phi(z) = c_0 + c_1z + c_2z^2 + \ldots + c_{n-1}z^{n-1} \implies
+      \phi(A) = c_0I + c_1A + c_2A^2 + \ldots + c_{n-1}A^{n-1}.
 
 Here we have introduced the idea of a matrix polynomial, where the
-kth power of `z` is replaced by the kth power of `A`.
+`k`-th power of `z` is replaced by the `k`-th power of `A`.
 
 The residual becomes
 
    .. math::
 
-      r_n = b - Ax_n = b - Ap'(A)b = (I - Ap'(A))b
+      r_n = b - Ax_n = b - A\phi(A)b = (I - A\phi(A))b
       = p(A)b,
 
-where `p(z) = 1 - zp'(z)`. Thus, the residual is a matrix polynomial
+where `p(z) = 1 - z\phi(z)`. Thus, the residual is a matrix polynomial
 `p` of `A` applied to `b`, where `p\in \mathcal{P}_n`, and
 
    .. math::
@@ -320,11 +353,12 @@ optimisation problem: find `p_n\in \mathcal{P}_n` such that
       \implies \frac{\|r_n\|}{\|b\|} \leq \|p_n(A)\|.
 
 Assuming that `A` is diagonalisable, `A=V\Lambda V^{-1}`, then
-`A^s=V\Lambda^sV^{-1}`, and
+`A^s=V\Lambda^sV^{-1}` for every `s\geq 0`. Since `p_n(A)` is a
+linear combination of such powers, `p_n(A)=Vp_n(\Lambda)V^{-1}`, and
 
    .. math::
 
-      \|p_n(A)\| = \|Vp_n(\Lambda^s)V^{-1}\|
+      \|p_n(A)\| = \|Vp_n(\Lambda)V^{-1}\|
       \leq \underbrace{\|V\|\|V^{-1}\|}_{=\kappa(V)}
       \|p_n\|_{\Lambda(A)},
 
@@ -332,18 +366,29 @@ where `\Lambda(A)` is the set of eigenvalues of `A`, and
 
    .. math::
 
-      \|p\|_{\Lambda(A)} = \sup_{x\in \Lambda(A)}\|p(x)\|.
+      \|p\|_{\Lambda(A)} = \sup_{\lambda\in \Lambda(A)}|p(\lambda)|.
+
+Since `p_n` minimises `\|p(A)b\|` over `\mathcal{P}_n`, we have
+`\|r_n\|\leq\|p(A)b\|` for every `p\in\mathcal{P}_n`, so the same
+bound `\|r_n\|/\|b\|\leq\kappa(V)\|p\|_{\Lambda(A)}` holds for any
+`p\in\mathcal{P}_n`.
 
 Hence we see that GMRES will converge quickly if `V` is
-well-conditioned, and `p(x)` is small for all `x\in \Lambda(A)`.  This
+well-conditioned, and there is some `p\in\mathcal{P}_n` with
+`p(\lambda)` small for all `\lambda\in \Lambda(A)`.  This
 latter condition is not trivial due to the `p(0)=1` requirement. One
 way it can happen is if `A` has all eigenvalues clustered in a small
-number of groups, away from $0$. Then we can find a low degree
-polynomial that passes through 1 at `x=0`, and 0 near each of the
+number of groups, away from `0`. Then we can find a low degree
+polynomial that passes through 1 at `z=0`, and 0 near each of the
 clusters. Then GMRES will essentially converge in a small number of
-iterations (equal to the degree of the polynomial). There are problems
+iterations (roughly the degree of the polynomial). In the extreme
+case where `A` has only `k` distinct eigenvalues
+`\lambda_1,\ldots,\lambda_k`, the polynomial
+`p(z)=\prod_{j=1}^k(1-z/\lambda_j)` lies in `\mathcal{P}_k` and
+vanishes at every eigenvalue, so GMRES finds the exact solution in at
+most `k` iterations (in exact arithmetic). There are problems
 if the eigenvalues are scattered over a wide region of the complex
-plane: we need a very high degree polynomial to make `p(x)` small at
+plane: we need a very high degree polynomial to make `p(\lambda)` small at
 all the eigenvalues and hence we need a very large number of
 iterations. Similarly there are problems if eigenvalues are very close
 to zero.
@@ -367,7 +412,7 @@ Preconditioned GMRES
    .. vimeo:: 454218547
 
 This final topic has been a strong focus of computational linear algebra
-over the last 30 years. Typically, the matrices that we want to solve
+for several decades. Typically, the matrices that we want to solve
 do not have eigenvalues clustered in a small number of groups, and so
 GMRES is slow. The solution (and the challenge) is to find a matrix
 `\hat{A}` such that `\hat{A}x = y` is cheap to solve (diagonal, or triangular, or
@@ -391,15 +436,22 @@ called preconditioned GMRES.
   * SOLVE `\hat{A}v = Aq_n`
   * FOR `j=1` TO `n`
 
-    * `h_{jn}=q_j^*v`
-    * `v = v - h_{jn}q_j`
+    * `h_{jn}\gets q_j^*v`
+    * `v \gets v - h_{jn}q_j`
   * END FOR
   * `h_{n+1,n} \gets \|v\|`
-  * `q_{n+1}`\gets v/\|v\|`
+  * `q_{n+1} \gets v/\|v\|`
   * FIND `y` TO MINIMIZE `\|\tilde{H}_ny - \|\tilde{b}\|e_1\|`
   * `x_n \gets \hat{Q}_ny`
   * CHECK IF `\mathcal{R}_n <` TOL
 * END FOR
+
+Note that in this algorithm, the residual norm checked against the
+tolerance is `\mathcal{R}_n=\|\hat{A}^{-1}r_n\|`, the norm of the
+*preconditioned* residual, rather than `\|r_n\|`, where
+`r_n=b-Ax_n`. Since `\|r_n\|\leq\|\hat{A}\|\|\hat{A}^{-1}r_n\|`,
+a small preconditioned residual does not by itself guarantee a small
+true residual.
 
 .. proof:exercise::
 
@@ -417,38 +469,40 @@ Knowing when to stop
 --------------------
 
 We should stop an iterative method when the error is sufficiently small.
-But, we don't have access the the exact solution, so we can't compute the
+But, we don't have access to the exact solution, so we can't compute the
 error. Two things we can look at are:
 
-* The residual `{r}^k=A{x}^k-{b}`, or
-* The pseudo-residual `{s}^k = {x}^{k+1}-{x}^k`,
-  which both tend to zero as `{x}^k\to{x}^*` provided that `A` is
-  invertible.
-  
-How do their sizes relate to the size of `{e}^k={x}^k-{x}^*`?
+* The residual `{r}^k={b}-A{x}^k`, or
+* The pseudo-residual `{s}^k = {x}^{k+1}-{x}^k`.
 
-.. math::
-   {e}^k  = & {x}^* - {x}^k \\
-    = & A^{-1}(A{x}^*-A{x}^k) \\
-    = & A^{-1}({b}-A{x}^k) \\
-    = & A^{-1}{r}^k,
+Both tend to zero as `{x}^k\to{x}^*`. We would like the converse:
+that a small residual or pseudo-residual implies a small error
+`{e}^k={x}^*-{x}^k`. For the residual, this requires `A` to be
+invertible, as the following shows.
+
+   .. math::
+
+      {e}^k &= {x}^* - {x}^k \\
+      &= A^{-1}(A{x}^*-A{x}^k) \\
+      &= A^{-1}({b}-A{x}^k) \\
+      &= A^{-1}{r}^k,
 
 so `\|e^k\| \leq \|A^{-1}\|\|r^k\|`.
 
 The relative error `\|e^k\|/\|x^*\|` satisfies
 
-.. math::
+   .. math::
 
-   \frac{\|e^k\|}{\|x^*\|}
-   = \frac{\|A^{-1}r^k\|}{\|x\|}
-   \leq \|A^{-1}\|\frac{\|r^k\|}{\|x\|}
-   \leq \|A^{-1}\|\|A\|\frac{\|r^k\|}{\|b\|},
+      \frac{\|e^k\|}{\|x^*\|}
+      = \frac{\|A^{-1}r^k\|}{\|x^*\|}
+      \leq \|A^{-1}\|\frac{\|r^k\|}{\|x^*\|}
+      \leq \|A^{-1}\|\|A\|\frac{\|r^k\|}{\|b\|},
 
 so the relative error is bounded from above by
-the condition number of `\|A\|` multiplied by
+the condition number `\kappa(A)=\|A\|\|A^{-1}\|` multiplied by
 the relative residual `\|r^k\|/\|b\|`. If the condition
 number is large, it is possible to have a small residual
-but still have a large condition number.
+but still have a large relative error.
 
-Similar results hold for the pseudoresidual, but are
+Similar results hold for the pseudo-residual, but are
 more complicated to show for the case of GMRES.

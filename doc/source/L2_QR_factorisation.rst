@@ -298,7 +298,7 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
 * FOR `i = 1` TO `n`
   
   * `r_{ii} \gets \|v_i\|_2`
-  * `q_i = v_i/r_{ii}`
+  * `q_i \gets v_i/r_{ii}`
 
   * FOR `j = i+1` TO `n`
 
@@ -344,9 +344,10 @@ Modified Gram-Schmidt as triangular orthogonalisation
 
    
 
-.. details:: Supplementary video
+..
+   .. details:: Supplementary video
 
-   .. vimeo:: 450193575
+      .. vimeo:: 450193575
 
 This iterative transformation process can be written as
 right-multiplication by an upper triangular matrix. For
@@ -654,7 +655,7 @@ columns from `r` to `s`.
 
 * FOR `k = 1` TO `n`
 
-  * `x = A_{k:m,k}`
+  * `x \gets A_{k:m,k}`
   * `v_k \gets \mbox{sign}(x_1)\|x\|_2e_1 + x`
   * `v_k \gets v_k/\|v_k\|`
   * `A_{k:m,k:n} \gets A_{k:m,k:n} - 2v_k(v_k^*A_{k:m,k:n})`.
@@ -882,7 +883,7 @@ the 2-norm of the residual `r=b-Ax`, i.e. `x` is the minimiser of
 This residual will not be zero in general, when `b` is not in the
 range of `A`. The nearest point in the range of `A` to `b` is `Pb`,
 where `P` is the orthogonal projector onto the range of `A`. From
-:numref:`theorem {number} <orthogonalprojector>`, we know that
+:ref:`the orthogonal-projector theorem <orthogonalprojector>`, we know that
 `P=\hat{Q}\hat{Q}^*`, where `\hat{Q}` from the reduced `QR`
 factorisation has the same column space as `A` (but with orthogonal
 columns).

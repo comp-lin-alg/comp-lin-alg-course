@@ -1,8 +1,8 @@
 .. default-role:: math
 
-===============
+============================
 Linear algebra preliminaries
-===============
+============================
 
 In this preliminary section, we revise a few key linear algebra
 concepts that will be used in the rest of the course, emphasising

@@ -10,7 +10,7 @@ preconditioner. We will focus on the link between stationary
 iterative methods and preconditioners.
 
 Stationary iterative methods
----------------------------
+----------------------------
 
 As we have already discussed, given a matrix equation `Ax=b`,
 iterative methods provide a way of obtaining a (hopefully) better

@@ -8,6 +8,12 @@ Here we'll list all the updates to the exercises and coursework Classroom
 repositories for Autumn 2026. An up to date version is in the
 `public repository <https://github.com/comp-lin-alg/comp-lin-alg-course>`_.
 
+Chapter 3: QR factorisation
+---------------------------
+
+* In :doc:`L2_QR_factorisation`, the slice `A[0:3, 3:6]` is a
+  `3\times 3` submatrix, rather than `4\times 4`.
+
 Chapter 4: Analysing algorithms
 -------------------------------
 

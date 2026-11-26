@@ -671,14 +671,14 @@ columns from `r` to `s`.
 
 .. hint::
 
-   The "slice" notation using colons ":" is more an more important
+   The "slice" notation using colons ":" is more and more important
    when we are doing operations on submatrices. For example,
 
-.. python::
+   .. code-block:: python
 
-   A[0:3, 3:6] -= B[0:3, 3:6]
+      A[0:3, 3:6] -= B[0:3, 3:6]
 
-   only updates the specified `4\times 4` submatrix of `A`, but does it
+   only updates the specified `3\times 3` submatrix of `A`, but does it
    using fast precompiled code.
 
 .. hint::

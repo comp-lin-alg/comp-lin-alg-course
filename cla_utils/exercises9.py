@@ -3,7 +3,7 @@ import numpy.random as random
 
 def get_A100():
     """
-    Return A100 matrix for investigating QR factoration.
+    Return A100 matrix for investigating QR factorisation.
 
     :return A: The 100x100 numpy array
     """
@@ -15,7 +15,7 @@ def get_A100():
 
 def get_B100():
     """
-    Return B100 matrix for investigating QR factoration.
+    Return B100 matrix for investigating QR factorisation.
 
     :return A: The 100x100 numpy array
     """
@@ -28,7 +28,7 @@ def get_B100():
 
 def get_C100():
     """
-    Return C100 matrix for investigating QR factoration.
+    Return C100 matrix for investigating QR factorisation.
 
     :return A: The 100x100 numpy array
     """
@@ -41,7 +41,7 @@ def get_C100():
 
 def get_D100():
     """
-    Return D100 matrix for investigating QR factoration.
+    Return D100 matrix for investigating QR factorisation.
 
     :return A: The 100x100 numpy array
     """
@@ -114,7 +114,7 @@ def inverse_it(A, x0, mu, tol, maxit, store_iterations = False):
 
     :param A: an mxm numpy array
     :param mu: a floating point number, the shift parameter
-    :param x0: the starting vector for the power iteration
+    :param x0: the starting vector for the inverse iteration
     :param tol: a positive float, the tolerance
     :param maxit: integer, max number of iterations
     :param store_iterations: if True, then return the entire sequence \
@@ -134,24 +134,24 @@ def inverse_it(A, x0, mu, tol, maxit, store_iterations = False):
 
 def rq_it(A, x0, tol, maxit, store_iterations = False):
     """
-    For a Hermitian matrix A, apply the Rayleigh quotient algorithm
+    For a Hermitian matrix A, apply the Rayleigh quotient iteration
     with initial guess x0, using the same termination criteria as
     for pow_it.
 
     :param A: an mxm numpy array
-    :param x0: the starting vector for the power iteration
+    :param x0: the starting vector for the Rayleigh quotient iteration
     :param tol: a positive float, the tolerance
     :param maxit: integer, max number of iterations
     :param store_iterations: if True, then return the entire sequence \
-    of inverse iterates, instead of just the final iteration. Default is \
-    False.
+    of Rayleigh quotient iterates, instead of just the final iteration. \
+    Default is False.
 
     :return x: an m dimensional numpy array containing the final iterate, or \
     if store_iterations, an mxmaxit dimensional numpy array containing \
     all the iterates.
     :return l: a floating point number containing the final eigenvalue \
-    estimate, or if store_iterations, an m dimensional numpy array containing \
-    all the iterates.
+    estimate, or if store_iterations, a maxit dimensional numpy array \
+    containing all the iterates.
     """
 
     raise NotImplementedError

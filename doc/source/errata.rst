@@ -8,11 +8,65 @@ Here we'll list all the updates to the exercises and coursework Classroom
 repositories for Autumn 2026. An up to date version is in the
 `public repository <https://github.com/comp-lin-alg/comp-lin-alg-course>`_.
 
+Chapter 2: Linear algebra preliminaries
+---------------------------------------
+
+* In :doc:`L1_preliminaries`, the exercise on solving `Qx=b` referred
+  to ``solveQ``; the function is :func:`cla_utils.exercises2.solve_Q`.
+* In ``cla_utils/exercises1.py``, the docstrings of ``rank1pert_inv``
+  and ``ABiC`` now document the return value and the ``xr``, ``xi``
+  arguments, respectively.
+* In ``cla_utils/exercises2.py``, the docstring of ``orthog_proj`` no
+  longer mentions an input vector ``v``, which is not an argument.
+
 Chapter 3: QR factorisation
 ---------------------------
 
+* In :doc:`L2_QR_factorisation`, in the motivation of the classical
+  Gram-Schmidt algorithm, the first column of `Q` is proportional to
+  the first column of `A`, and the third column (not row) of `Q` is
+  the third column of `A` with the first two columns of `Q` projected
+  out.
+* In :doc:`L2_QR_factorisation`, modified Gram-Schmidt transforms `A`
+  to `\hat{Q}`, which has orthonormal columns (and is unitary only if
+  `m=n`); an arrow was missing in the displayed sequence of matrices.
+* In :doc:`L2_QR_factorisation`, in Householder triangularisation,
+  the submatrix `F` is `(m-k+1)\times(m-k+1)`, rather than
+  `(n-k+1)\times(n-k+1)`.
+* In :doc:`L2_QR_factorisation`, the stable sign choice in the
+  Householder algorithm makes the target `Fx=-\mbox{sign}(x_1)\|x\|e_1`
+  furthest from `x` (so that computing `v` involves no cancellation),
+  rather than making `v` furthest from `x`.
 * In :doc:`L2_QR_factorisation`, the slice `A[0:3, 3:6]` is a
   `3\times 3` submatrix, rather than `4\times 4`.
+* In :doc:`L2_QR_factorisation`, the hint on Numpy's ``inner`` and
+  ``dot`` has been corrected: ``numpy.inner`` sums over the last index
+  of each array (not over all indices), and neither function takes the
+  complex conjugate, so `x^*y` should be computed with ``numpy.vdot``
+  or ``x.conj() @ y``.
+* In :doc:`L2_QR_factorisation`, in the exercise on implicit
+  multiplication, Householder is performed on the first `n` columns
+  (not rows) of the extended array `\hat{A}`.
+* In :doc:`L2_QR_factorisation`, the full `m\times m` matrix `Q` is
+  obtained from `Qe_1,\ldots,Qe_m`, rather than `Qe_1,\ldots,Qe_n`
+  (which give only `\hat{Q}`).
+* In :doc:`L2_QR_factorisation`, in the least squares problem,
+  `\hat{Q}` has orthonormal columns, and its column space equals that
+  of `A` provided that `A` has full rank `n`, which is assumed.
+* In ``cla_utils/exercises2.py``, the docstring of ``GS_modified_R``
+  now refers to the upper (not lower) triangular formulation of
+  modified Gram-Schmidt.
+* In ``cla_utils/exercises2.py``, the docstring of
+  ``GS_modified_get_R`` now describes the modified Gram-Schmidt step:
+  `R` normalises column `k` and makes the later columns orthogonal to
+  it (rather than making column `k` orthogonal to the previous ones).
+* In ``test/test_exercises2.py``, ``test_GS_modified_R`` now also
+  checks that `Q` has orthonormal columns and that `R` is upper
+  triangular; previously a ``GS_modified_get_R`` returning the identity
+  matrix would pass.
+* In ``cla_utils/exercises3.py``, the docstring of
+  ``householder_solve`` describes the returned columns as solution
+  vectors, rather than right-hand side vectors.
 
 Chapter 4: Analysing algorithms
 -------------------------------
@@ -88,6 +142,10 @@ Chapter 5: Finding eigenvalues of matrices
   expansion of `A^kv^0`, not from the Taylor series; the eigenvalue
   estimate then follows from the quadratic accuracy of the Rayleigh
   quotient.
+* In :doc:`L5_eigenvalues`, the exercise on power iteration referred
+  to ``A3`` and ``B3``; the functions are
+  :func:`cla_utils.exercises9.get_A3` and
+  :func:`cla_utils.exercises9.get_B3`.
 * In :doc:`L5_eigenvalues`, inverse iteration converges to the
   eigenvector for which `1/|\lambda-\mu|` is largest (not smallest),
   i.e. whose eigenvalue is closest to `\mu`.
@@ -121,6 +179,14 @@ Chapter 5: Finding eigenvalues of matrices
   from `A^{(k)}` is `A^{(k)}_{mm}=(q_m^{(k)})^TAq_m^{(k)}`, and it is
   used as the shift `\mu^{(k+1)}` for the next iteration (rather than
   `\mu^{(k)}`).
+* In ``cla_utils/exercises8.py``, ``hessenberg_ev`` used
+  ``cla_utils.norm`` without importing ``cla_utils``, so it (and hence
+  ``ev`` and its test) failed with a ``NameError``; it now uses
+  ``numpy.linalg.norm``.
+* In ``cla_utils/exercises9.py``, the docstrings of ``inverse_it`` and
+  ``rq_it`` have been corrected (``rq_it`` had text copied from
+  ``inverse_it``, and its eigenvalue history has length ``maxit``), and
+  "factoration" is now "factorisation".
 
 Chapter 6: Krylov methods
 -------------------------
@@ -147,6 +213,10 @@ Chapter 6: Krylov methods
   times the relative residual; if the condition number is large, a
   small residual can coexist with a large relative error (not a
   large condition number).
+* In ``cla_utils/exercises10.py``, ``get_AA100``, ``get_BB100`` and
+  ``get_CC100`` now load their data files from the ``cla_utils``
+  directory; previously they only worked when run from inside that
+  directory.
 
 Chapter 7: Preconditioning Krylov methods
 -----------------------------------------

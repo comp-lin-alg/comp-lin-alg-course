@@ -95,7 +95,6 @@ def rank2(u1, u2, v1, v2):
 
     raise NotImplementedError
 
-    A = B.dot(C)
 
     return A
 
@@ -103,10 +102,12 @@ def rank2(u1, u2, v1, v2):
 def rank1pert_inv(u, v):
     """
     Return the inverse of the matrix A = I + uv^*, where I
-    is the mxm dimensional identity matrix, with
+    is the mxm dimensional identity matrix.
 
     :param u: m-dimensional numpy array
     :param v: m-dimensional numpy array
+
+    :return Ainv: an mxm-dimensional numpy array
     """
 
     raise NotImplementedError
@@ -120,6 +121,8 @@ def ABiC(Ahat, xr, xi):
 
     :param Ahat: an mxm-dimensional numpy array with Ahat[i,j] = B[i,j] \
     for i>=j and Ahat[i,j] = C[i,j] for i<j.
+    :param xr: m-dimensional numpy array containing the real part of x.
+    :param xi: m-dimensional numpy array containing the imaginary part of x.
 
     :return zr: m-dimensional numpy arrays containing the real part of z.
     :return zi: m-dimensional numpy arrays containing the imaginary part of z.

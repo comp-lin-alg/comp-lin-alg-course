@@ -38,7 +38,7 @@ def solve_Q(Q, b):
 
 def orthog_proj(Q):
     """
-    Given a vector v and an orthonormal set of vectors q_1,...q_n,
+    Given an orthonormal set of vectors q_1,...q_n,
     compute the orthogonal projector P that projects vectors onto
     the subspace spanned by those vectors.
 
@@ -103,13 +103,16 @@ def GS_modified(A):
 def GS_modified_get_R(A, k):
     """
     Given an mxn matrix A, with columns of A[:, 0:k] assumed orthonormal,
-    return upper triangular nxn matrix R such that
-    Ahat = A*R has the properties that
+    and the remaining columns assumed orthogonal to them, return the
+    upper triangular nxn matrix R such that Ahat = A*R has the properties
+    that
     1) Ahat[:, 0:k] = A[:, 0:k],
-    2) A[:, k] is normalised and orthogonal to the columns of A[:, 0:k].
+    2) Ahat[:, k] is A[:, k] normalised,
+    3) the columns of Ahat[:, k+1:n] are orthogonal to Ahat[:, k].
 
     :param A: mxn numpy array
-    :param k: integer indicating the column that R should orthogonalise
+    :param k: integer indicating the column that R should normalise and \
+    project out of the later columns
 
     :return R: nxn numpy array
     """
@@ -120,7 +123,7 @@ def GS_modified_get_R(A, k):
 
 def GS_modified_R(A):
     """
-    Implement the modified Gram Schmidt algorithm using the lower triangular
+    Implement the modified Gram Schmidt algorithm using the upper triangular
     formulation with Rs provided from GS_modified_get_R.
 
     :param A: mxn numpy array

@@ -1,5 +1,3 @@
-
-
 .. default-role:: math
 
 QR factorisation
@@ -28,9 +26,9 @@ We start with another definition.
    An `m\times n` upper triangular matrix `R` has coefficients satisfying
    `r_{ij}=0` when `i > j`.
 
-   It is called upper triangular because the nonzero rows form a triangle
+   It is called upper triangular because the nonzero entries form a triangle
    on and above the main diagonal of `R`.
-   
+
 Now we can describe the QR factorisation.
 
 .. proof:definition:: QR factorisation
@@ -44,10 +42,10 @@ polynomial fitting. It is also at the core of one of the most widely
 used algorithms for finding eigenvalues of matrices. We shall discuss
 all of this later during this course.
 
-When `m > n`, `R` must have all zero rows after the `n` th row. Hence,
+When `m > n`, `R` must have all zero rows after the `n`-th row. Hence,
 it makes sense to only work with the top `n\times n` block of `R`
 consisting of the first `n` rows, which we call `\hat{R}`. Similarly,
-in the matrix-matrix product `QR`, all columns of `Q` beyond the `n` th
+in the matrix-matrix product `QR`, all columns of `Q` beyond the `n`-th
 column get multiplied by those zero rows in `R`, so it makes sense to
 only work with the first `n` columns of `Q`, which we call `\hat{Q}`.
 We then have the reduced QR factorisation, `\hat{Q}\hat{R}`.
@@ -62,7 +60,7 @@ We then have the reduced QR factorisation, `\hat{Q}\hat{R}`.
 
       .. math::
 
-	 U^{\perp} = \{x \in \mathbb{C}^m: x^*v = 0, \, \forall v \in U\}. 
+         U^{\perp} = \{x \in \mathbb{C}^m: x^*v = 0, \, \forall v \in U\}. 
 
    It is expected that it will only compute this up to a tolerance.
    You should make use of the built in QR factorisation routine
@@ -77,30 +75,27 @@ better ones.
 QR factorisation by classical Gram-Schmidt algorithm
 ----------------------------------------------------
 
-
-   
-
 .. details:: Supplementary video
 
    .. vimeo:: 450192200
 
 The classical Gram-Schmidt algorithm for QR factorisation is motivated
 by the column space interpretation of the matrix-matrix multiplication
-`A = QR`, namely that the jth column `a_j` of `A` is a linear
+`A = QR`, namely that the `j`-th column `a_j` of `A` is a linear
 combination of the orthonormal columns of `Q`, with the coefficients
-given by the jth column `r_j` of `R`. 
+given by the `j`-th column `r_j` of `R`.
 
 The first column of `R` only has a non-zero entry in the first row, so
-the first column of `Q` must be proportional to `A`, but normalised
-(i.e. rescaled to have length 1). The scaling factor is this first row
-of the first column of `R`. The second column of `R` has only non-zero
+the first column of `Q` must be proportional to the first column of `A`,
+but normalised (i.e. rescaled to have length 1). The scaling factor is
+the first entry of the first column of `R`. The second column of `R` has only non-zero
 entries in the first two rows, so the second column of `A` must be
 writeable as a linear combination of the first two columns of
-`Q`. Hence, the second column of `Q` must by the second column of `A`
+`Q`. Hence, the second column of `Q` must be the second column of `A`
 with the first column of `Q` projected out, and then normalised. The
-first row of the second column of `R` is then the coefficient for this
-projection, and the second row is the normalisation scaling
-factor. The third row of `Q` is then the third row of `A` with the
+first entry of the second column of `R` is then the coefficient for this
+projection, and the second entry is the normalisation scaling
+factor. The third column of `Q` is then the third column of `A` with the
 first two columns of `Q` projected out, and so on.
 
 Hence, finding a QR factorisation is equivalent to finding an
@@ -119,7 +114,7 @@ Hence we have to find `R` coefficients such that
    \vdots
 
    q_n = \frac{a_n - \sum_{i=1}^{n-1}r_{in}q_i}{r_{nn}},
-   
+
 with `(q_1,q_2,\ldots,q_n)` an orthonormal set. The non-diagonal
 entries of `R` are found by inner products, i.e.,
 
@@ -141,14 +136,14 @@ to be real and non-negative.
 We now present the classical Gram-Schmidt algorithm as pseudo-code.
 
 * FOR `j = 1` TO `n`
-  
+
   * `v_j \gets a_j`
   * FOR `i = 1` TO `j-1`
-    
+
     * `r_{ij} \gets q_i^*a_j`
   * END FOR
   * FOR `i = 1` TO `j-1`
-    
+
     * `v_j \gets v_j - r_{ij}q_i`
   * END FOR
   * `r_{jj} \gets \|v_j\|_2`
@@ -178,7 +173,6 @@ for code blocks in pseudo-code in these notes.)
    appropriate use of Numpy slice operations, efficient use of array
    memory, loop minimisation, and avoiding computation inside loops
    that could be done beforehand.
-
 
 Projector interpretation of Gram-Schmidt
 ----------------------------------------
@@ -216,9 +210,6 @@ Hence, `P_j` is the complementary projector, `P_j=I -
 Modified Gram-Schmidt
 ---------------------
 
-
-   
-
 .. details:: Supplementary video
 
    .. vimeo:: 450193303
@@ -226,7 +217,7 @@ Modified Gram-Schmidt
 There is a big problem with the classical Gram-Schmidt algorithm. It
 is unstable, which means that when it is implemented in inexact
 arithmetic on a computer, round-off error unacceptably pollutes the
-entries of `Q` and `R`, and the algorithm is not useable in
+entries of `Q` and `R`, and the algorithm is not usable in
 practice. What happens is that the columns of `Q` are not quite
 orthogonal, and this loss of orthogonality spoils everything. We will
 discuss stability later in the course, but right now we will just
@@ -257,29 +248,24 @@ Here we notice that we must apply `P_{\perp q_1}` to all but one
 columns of `A`, and `P_{\perp q_2}` to all but two columns of `A`,
 `P_{\perp q_3}` to all but three columns of `A`, and so on.
 
-By doing this, we gradually transform `A` to a unitary matrix, as follows.
+By doing this, we gradually transform `A` to the matrix `\hat{Q}` with
+orthonormal columns (which is unitary if `m=n`), as follows.
 
    .. math::
 
-      A = 
-      \begin{pmatrix}
-      a_1 & a_2 & a_3 & \ldots & a_n \\
+      A = \begin{pmatrix}
+      a_1 & a_2 & a_3 & \ldots & a_n
       \end{pmatrix}
-      
-      \begin{pmatrix}
-      q_1 & v_2^1 & v_3^1 & \ldots & v_n^1 \\
+      &\to \begin{pmatrix}
+      q_1 & v_2^1 & v_3^1 & \ldots & v_n^1
       \end{pmatrix}
-
-      \to
+      \to \begin{pmatrix}
+      q_1 & q_2 & v_3^2 & \ldots & v_n^2
+      \end{pmatrix} \\
+      &\to \ldots \to
       \begin{pmatrix}
-      q_1 & q_2 & v_3^2 & \ldots & v_n^2 \\
-      \end{pmatrix}
-
-      \ldots
-      \to 
-      \begin{pmatrix}
-      q_1 & q_2 & q_3 & \ldots & q_n \\
-      \end{pmatrix}.
+      q_1 & q_2 & q_3 & \ldots & q_n
+      \end{pmatrix} = \hat{Q}.
 
 Then it is just a matter of keeping a record of the coefficients
 of the projections and normalisation scaling factors and storing
@@ -296,7 +282,7 @@ We now present this modified Gram-Schmidt algorithm as pseudo-code.
   * `v_i \gets a_i`
 * END FOR
 * FOR `i = 1` TO `n`
-  
+
   * `r_{ii} \gets \|v_i\|_2`
   * `q_i \gets v_i/r_{ii}`
 
@@ -340,9 +326,6 @@ in `A` with the `v` s and eventually the `q` s.
 
 Modified Gram-Schmidt as triangular orthogonalisation
 -----------------------------------------------------
-
-
-   
 
 ..
    .. details:: Supplementary video
@@ -401,25 +384,26 @@ Similarly, the second iteration may be written as
       =
       \underbrace{
       \begin{pmatrix}
-      q_1 & q_2 & v_3^2 \ldots & v_n^2
+      q_1 & q_2 & v_3^2 & \ldots & v_n^2
       \end{pmatrix}}_{A_2}.
 
-It should become clear that each transformation from `A_i` to `A_{i+1}`
-takes place by right multiplication by an upper triangular matrix `R_{i+1}`,
-which is an identity matrix plus entries in row i. By combining these
+It should become clear that each transformation from `A_{j-1}` to `A_j`
+(with `A_0=A`) takes place by right multiplication by an upper
+triangular matrix `R_j`, which is an identity matrix plus entries in
+row `j`. By combining these
 transformations together, we obtain
 
    .. math::
 
       A\underbrace{R_1R_2\ldots R_n}_{\hat{R}^{-1}} = \hat{Q}.
 
-Since upper triangular matrices form a group, the product of the `R_i`
+Since invertible upper triangular matrices form a group, the product of the `R_i`
 matrices is upper triangular. Further, all the `R_i` matrices have
 non-zero determinant, so the product is invertible, and we can write
 this as `\hat{R}^{-1}`. Right multiplication by `\hat{R}` produces the
 usual reduced QR factorisation. We say that modified Gram-Schmidt
 implements triangular orthogonalisation: the transformation of `A` to
-an orthogonal matrix by right multiplication of upper triangular
+a matrix with orthonormal columns by right multiplication of upper triangular
 matrices.
 
 This is a powerful way to view the modified Gram-Schmidt process from
@@ -432,7 +416,7 @@ above).
    In a break from the format so far, the
    :func:`cla_utils.exercises2.GS_modified_R` function has been
    implemented. It implements the modified Gram-Schmidt algorithm in
-   the form describe above using upper triangular matrices. This is
+   the form described above using upper triangular matrices. This is
    not a good way to implement the algorithm, because of the inversion
    of `R` at the end, and the repeated multiplication by zeros in
    multiplying entries of the `R_k` matrices, which is a
@@ -448,12 +432,8 @@ above).
    script ``test_exercises2.py`` in the ``test`` directory will also
    test this function.
 
-
-Householder triangulation
--------------------------
-
-
-   
+Householder triangularisation
+-----------------------------
 
 .. details:: Supplementary video
 
@@ -472,9 +452,6 @@ matrices to transform `A` to `R`,
 Multiplying unitary matrices produces unitary matrices, so we obtain
 `A=QR` as a full factorisation of `A`.
 
-
-   
-
 .. details:: Supplementary video
 
    .. vimeo:: 450199366
@@ -483,7 +460,7 @@ To do this, we need to work on the columns of `A`, from left to right,
 transforming them so that each column has zeros below the
 diagonal. These unitary transformations need to be designed so that they
 don't spoil the structure created in previous columns. The easiest
-way to ensure this is construct a unitary matrix `Q_k` with an identity
+way to ensure this is to construct a unitary matrix `Q_k` with an identity
 matrix as the `(k-1)\times (k-1)` submatrix,
 
    .. math::
@@ -498,7 +475,7 @@ This means that multiplication by `Q_k` won't change the first `k-1`
 rows, leaving the previous work to remove zeros below the diagonal
 undisturbed. For `Q_k` to be unitary and to transform all below
 diagonal entries in column `k` to zero, we need the
-`(n-k+1)\times(n-k+1)` submatrix `F` to also be unitary, since
+`(m-k+1)\times(m-k+1)` submatrix `F` to also be unitary, since
 
    .. math::
 
@@ -513,7 +490,7 @@ diagonal entries in column `k` to zero, we need the
       0 & F^{-1} \\
       \end{pmatrix}.
 
-We write the `k` th column `v_k^k` of `A_k` as
+We write the `k`-th column `v_k^k` of `A_k` as
 
    .. math::
 
@@ -531,7 +508,7 @@ gets transformed according to
       Q_kv_k^k = \begin{pmatrix}
       \hat{v}_k^k \\
       Fx
-      \end{pmatrix}.
+      \end{pmatrix},
 
 and our goal is that `Fx` is zero, except for the first entry (which
 becomes the diagonal entry of `Q_kv_k^k`). Since `F` is unitary, we must
@@ -569,15 +546,12 @@ We can check that this does what we want,
 
    .. math::
 
-      Fx = \left(I - 2\frac{vv^*}{v^*v}\right)x,
-
-         = x - 2\frac{(\pm\|x\|e_1 - x)}{\|\pm\|x\|e_1 - x\|^2}
-	 (\pm\|x\|e_1 - x)^*x,
-
-	 = x - 2\frac{(\pm\|x\|e_1 - x)}{\|\pm\|x\|e_1 - x\|^2}
-	 \|x\|(\pm x_1 - \|x\|),
-
-	 = x + (\pm\|x\|e_1 - x) = \pm\|x\|e_1,
+      Fx &= \left(I - 2\frac{vv^*}{v^*v}\right)x \\
+      &= x - 2\frac{(\pm\|x\|e_1 - x)}{\|\pm\|x\|e_1 - x\|^2}
+      (\pm\|x\|e_1 - x)^*x \\
+      &= x - 2\frac{(\pm\|x\|e_1 - x)}{\|\pm\|x\|e_1 - x\|^2}
+      \|x\|(\pm x_1 - \|x\|) \\
+      &= x + (\pm\|x\|e_1 - x) = \pm\|x\|e_1,
 
 as required, having checked that (assuming `x` is real)
 
@@ -592,29 +566,23 @@ is Hermitian,
    .. math::
 
       \left(I - 2\frac{vv^*}{v^*v}\right)^*
-      = I - 2\frac{(vv^*)^*}{v^*v},
-
-      = I - 2\frac{(v^*)^*v^*}{v^*v},
-
+      = I - 2\frac{(vv^*)^*}{v^*v}
+      = I - 2\frac{(v^*)^*v^*}{v^*v}
       = I - 2\frac{vv^*}{v^*v} = F.
 
 Now we use this to show that `F` is unitary,
-      
+
    .. math::
 
       F^*F = \left(I - 2\frac{vv^*}{v^*v}\right)
       \left(I - 2\frac{vv^*}{v^*v}\right)
-
       = I - 4\frac{vv^*}{v^*v} +
       4 \frac{vv^*}{v^*v}\frac{vv^*}{v^*v} = I,
 
 so `F^*=F^{-1}`. In summary, we have constructed a unitary
 matrix `Q_k` that transforms the entries below the diagonal
-of the kth column of `A_k` to zero, and leaves the previous
+of the `k`-th column of `A_k` to zero, and leaves the previous
 `k-1` columns alone.
-
-
-   
 
 .. details:: Supplementary video
 
@@ -623,14 +591,18 @@ of the kth column of `A_k` to zero, and leaves the previous
 Earlier, we mentioned that there is a choice of sign in `v`.  This
 choice gives us the opportunity to improve the numerical stability of
 the algorithm. In the case of real matrices, to avoid unnecessary
-numerical round off, we choose the sign that makes `v` furthest from
-`x`, i.e.
+numerical round off, we choose the sign so that the target
+`Fx=-\mbox{sign}(x_1)\|x\|e_1` is the one of the two candidates
+`\pm\|x\|e_1` that is furthest from `x`. Then `v` is not computed as
+the difference of two nearly equal vectors, which would cause
+cancellation. Since `F` only depends on the direction of `v`, we can
+change its overall sign and write
 
    .. math::
 
       v = \mbox{sign}(x_1)\|x\|e_1 + x.
 
-(Exercise, show that this choice of sign achieves this.) It is critical
+(Exercise: show that this choice of sign achieves this.) It is critical
 that we use a definition of `\mbox{sign}` that always returns a number
 that has magnitude 1, so we conventionally choose `\mbox{sign}(0)=1`.
 
@@ -642,9 +614,9 @@ that has magnitude 1, so we conventionally choose `\mbox{sign}(0)=1`.
 
 For complex valued matrices, the Householder reflection uses `x_1/|x_1|`
 (except for `x_1=0` where we use 1 as above).
-   
+
 We are now in a position to describe the algorithm in
-pseudo-code. Here it is described an "in-place" algorithm, where the
+pseudo-code. Here it is described as an "in-place" algorithm, where the
 successive transformations to the columns of `A` are implemented as
 replacements of the values in `A`. This means that we can allocate
 memory on the computer for `A` which is eventually replaced with the
@@ -688,15 +660,19 @@ columns from `r` to `s`.
 
 .. hint::
 
-   The Python functions "inner", "outer", and "dot" are very useful
-   for succinctly expressing many linear algebra
-   operations. "inner(a,b)" multiplies each component of a
-   multidimensional array `a` with the corresponding component of another
-   array `b` (with the same "shape") and sums over all indices.
-   "dot(a, b)" only sums over the last index of `a` and the first
-   index of `b`. For some algorithms it may be necessary to swap
-   the order of `a` and `b` and make use of transposes to sum
-   over the correct index.
+   The Numpy functions :func:`numpy.inner`, :func:`numpy.outer` and
+   :func:`numpy.dot` (or the ``@`` operator) are very useful for
+   succinctly expressing many linear algebra operations.
+   ``numpy.inner(a, b)`` multiplies components of `a` and `b` and sums
+   over the *last* index of each (for vectors, this is the usual sum of
+   products). ``numpy.dot(a, b)`` (and ``a @ b``) sums over the last
+   index of `a` and the first index of `b`, when `b` is a vector or a
+   matrix. For some algorithms it may be necessary to swap the order of
+   `a` and `b` and make use of transposes to sum over the correct index.
+
+   Note that none of these functions takes the complex conjugate. For
+   complex vectors, compute `x^*y` with ``numpy.vdot(x, y)`` or
+   ``x.conj() @ y``.
 
 .. details:: Supplementary video
 
@@ -717,35 +693,33 @@ apply the same operations to `b` that are applied to the columns of
 
 We call this procedure "implicit multiplication".
 
-
-   
-
 .. details:: Supplementary video
 
    .. vimeo:: 450202242
 
 In this section we will frequently encounter systems of the form
-	      
-.. math::
 
-      \hat{R}x = y.
+   .. math::
 
-This is an upper triangular system that can be solved efficiently
-using back-substitution.
+      Rx = y,
+
+where `R` is an `m\times m` upper triangular matrix (for example
+`R=\hat{R}`, with `m=n`). This is an upper triangular system that can
+be solved efficiently using back-substitution.
 
 Written in components, this equation is
 
-  .. math::
+   .. math::
 
-     R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
+      R_{11}x_1 + R_{12}x_2 + \ldots + R_{1(m-1)}x_{m-1} + R_{1m}x_m = y_1,
 
-     0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
-     
-     \vdots
+      0x_1 + R_{22}x_2 + \ldots + R_{2(m-1)}x_{m-1} + R_{2m}x_m = y_2,
 
-     0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
-     
-      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.    
+      \vdots
+
+      0x_1 + 0x_2 + \ldots + R_{(m-1)(m-1)}x_{m-1} + R_{(m-1)m}x_m = y_{m-1},
+
+      0x_1 + 0x_2 + \ldots + 0x_{m-1} + R_{mm}x_m = y_{m}.
 
 The last equation yields `x_m` directly by dividing by `R_{mm}`, then
 we can use this value to directly compute `x_{m-1}`. This is repeated
@@ -755,20 +729,20 @@ pseudo-code.
 
 * `x_m  \gets y_m/R_{mm}`
 * FOR `i= m-1` TO 1 (BACKWARDS)
-  
+
   * `x_i \gets (y_i - \sum_{k=i+1}^mR_{ik}x_k)/R_{ii}`
-	      
+* END FOR
+
 .. proof:exercise::
 
    `(\ddagger)` The function :func:`cla_utils.exercises3.solve_U` has
    been left unimplemented.  It should use backward substitution to
    solve upper triangular systems. The interfaces are set so that
    multiple right hand sides can be provided and solved at the same
-   time. The functions should only use one loop over the rows of `U`,
+   time. The function should only use one loop over the rows of `U`,
    to efficiently solve the multiple problems. The test script
-   ``test_exercises3.py`` in the ``test`` directory will test these
-   functions.
-
+   ``test_exercises3.py`` in the ``test`` directory will test this
+   function.
 
 .. proof:exercise::
 
@@ -777,11 +751,11 @@ pseudo-code.
 
       .. math::
 
-	 \hat{A} = \begin{pmatrix}
-	 a_1 & a_2 & \ldots & a_n & b
-	 \end{pmatrix}
+         \hat{A} = \begin{pmatrix}
+         a_1 & a_2 & \ldots & a_n & b
+         \end{pmatrix}
 
-   and performing Householder on the first `n` rows. Transform the
+   and performing Householder on the first `n` columns. Transform the
    equation `Ax=b` into `Rx=\hat{b}` where `QR=A`, and find the form
    of `\hat{b}`, explaining how to get `\hat{b}` from Householder
    applied to `\hat{A}` above. Solving systems with upper triangular
@@ -808,7 +782,8 @@ pseudo-code.
    :func:`cla_utils.exercises3.solve_U`.
 
 If we really need `Q`, we can get it by matrix-vector products with
-each element of the canonical basis `(e_1,e_2,\ldots,e_n)`.  This
+each element of the canonical basis `(e_1,e_2,\ldots,e_m)` (the first
+`n` of these give the columns of `\hat{Q}`).  This
 means that first we need to compute a matrix-vector product `Qx` with
 a vector `x`. One way to do this is to apply the Householder
 reflections in reverse, since
@@ -825,7 +800,7 @@ Hermitian. This can be expressed in the following pseudo-code.
   * `x_{k:m} \gets x_{k:m} - 2v_k(v_k^*x_{k:m})`
 * END FOR
 
-Note that this requires to record all of the history of the `v` vectors,
+Note that this requires us to record all of the history of the `v` vectors,
 whilst the `Q^*` application algorithm above can be interlaced with the
 steps of the Householder algorithm, using the `v` values as they are
 needed and throwing them away. Then we can compute `Q` via
@@ -833,7 +808,7 @@ needed and throwing them away. Then we can compute `Q` via
     .. math::
 
        Q = \begin{pmatrix}
-       Qe_1 & Qe_2 & \ldots & Qe_n
+       Qe_1 & Qe_2 & \ldots & Qe_m
        \end{pmatrix},
 
 with each column using the `Q` application algorithm described above.
@@ -854,19 +829,15 @@ with each column using the `Q` application algorithm described above.
    appropriate subarrays using slice notation. The test script
    ``test_exercises3.py`` in the ``test`` directory will also test
    this function.
-   
 
 Application: Least squares problems
 -----------------------------------
-
-
-   
 
 .. details:: Supplementary video
 
    .. vimeo:: 450202726
 
-Least square problems are relevant in data fitting problems,
+Least squares problems are relevant in data fitting problems,
 optimisation and control, and are also a crucial ingredient of modern
 massively parallel linear system solver algorithms such as GMRES,
 which we shall encounter later in the course. They are a way of
@@ -878,15 +849,16 @@ the 2-norm of the residual `r=b-Ax`, i.e. `x` is the minimiser of
 
    .. math::
 
-      min_x \|Ax - b\|^2.
+      \min_x \|Ax - b\|^2.
 
 This residual will not be zero in general, when `b` is not in the
 range of `A`. The nearest point in the range of `A` to `b` is `Pb`,
 where `P` is the orthogonal projector onto the range of `A`. From
 :ref:`the orthogonal-projector theorem <orthogonalprojector>`, we know that
 `P=\hat{Q}\hat{Q}^*`, where `\hat{Q}` from the reduced `QR`
-factorisation has the same column space as `A` (but with orthogonal
-columns).
+factorisation has the same column space as `A` (but with orthonormal
+columns), assuming that `A` has full rank `n` (so that `\hat{R}` is
+invertible).
 
 Then, we just have to solve
 
@@ -894,7 +866,7 @@ Then, we just have to solve
 
       Ax = Pb,
 
-which is now solveable since `Pb` is in the column space of `A` (and
+which is now solvable since `Pb` is in the column space of `A` (and
 hence can be written as a linear combination of the columns of `A` i.e.
 as a matrix-vector product `Ax` for some unknown `x`).
 
@@ -929,5 +901,5 @@ using back-substitution.
 
 .. hint::
 
-   You will need to do extract the appropriate submatrix to obtain the
+   You will need to extract the appropriate submatrix to obtain the
    square (and invertible) reduced matrix `\hat{R}`.

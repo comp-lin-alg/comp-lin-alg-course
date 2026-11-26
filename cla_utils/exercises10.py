@@ -1,5 +1,9 @@
+import os
 import numpy as np
 import numpy.random as random
+
+# directory containing this file (and the AA100.dat etc. data files)
+_data_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 def arnoldi(A, b, k):
@@ -49,7 +53,7 @@ def get_AA100():
 
     :return A: a 100x100 numpy array used in exercises 10.
     """
-    AA100 = np.fromfile('AA100.dat', sep=' ')
+    AA100 = np.fromfile(os.path.join(_data_dir, 'AA100.dat'), sep=' ')
     AA100 = AA100.reshape((100, 100))
     return AA100
 
@@ -60,7 +64,7 @@ def get_BB100():
 
     :return B: a 100x100 numpy array used in exercises 10.
     """
-    BB100 = np.fromfile('BB100.dat', sep=' ')
+    BB100 = np.fromfile(os.path.join(_data_dir, 'BB100.dat'), sep=' ')
     BB100 = BB100.reshape((100, 100))
     return BB100
 
@@ -71,6 +75,6 @@ def get_CC100():
 
     :return C: a 100x100 numpy array used in exercises 10.
     """
-    CC100 = np.fromfile('CC100.dat', sep=' ')
+    CC100 = np.fromfile(os.path.join(_data_dir, 'CC100.dat'), sep=' ')
     CC100 = CC100.reshape((100, 100))
     return CC100

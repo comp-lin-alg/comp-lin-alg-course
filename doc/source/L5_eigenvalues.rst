@@ -558,8 +558,8 @@ normalisation does not select `v^k` to have the same sign as `q_1`.
 
 .. proof:exercise::
 
-   The functions :func:`cla_utils.exercises9.A3` and
-   :func:`cla_utils.exercises9.B3` each return a 3x3 matrix, `A_3` and
+   The functions :func:`cla_utils.exercises9.get_A3` and
+   :func:`cla_utils.exercises9.get_B3` each return a 3x3 matrix, `A_3` and
    `B_3` respectively. Apply :func:`cla_utils.exercises9.pow_it` to
    each of these matrices. What differences in behaviour do you
    observe? What is it about `A_3` and `B_3` that causes this?

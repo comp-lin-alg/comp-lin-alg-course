@@ -113,6 +113,9 @@ def test_GS_modified_R(m, n):
     err = A0 - np.dot(Q, R)
 
     assert(cla_utils.norm(err) < 1.0e-6)
+    # check that Q has orthonormal columns and R is upper triangular
+    assert(cla_utils.norm(np.dot(np.conj(Q.T), Q) - np.eye(n)) < 1.0e-6)
+    assert(np.allclose(R, np.triu(R)))
 
 
 if __name__ == '__main__':

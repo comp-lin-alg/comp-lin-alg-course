@@ -1,8 +1,8 @@
 .. _comp_exercises:
 
-=========================
+=========================================
 Getting ready for computational exercises
-=========================
+=========================================
 
 In the course notes you will encounter computational exercises for you
 to complete.  The object of these exercises is to build up
@@ -420,7 +420,7 @@ Testing your work
 
 As you complete the exercises, there will often be test scripts which
 check the code you have just written. These are located in the
-``test`` folder and employ the `pytest <http://pytest.org/>`_
+``test`` folder and employ the `pytest <https://docs.pytest.org/>`__
 testing framework. From the root of the repository, run an individual
 test file with::
 

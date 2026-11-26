@@ -1,8 +1,8 @@
 .. default-role:: math
 
-===============
+============================
 Linear algebra preliminaries
-===============
+============================
 
 In this preliminary section, we revise a few key linear algebra
 concepts that will be used in the rest of the course, emphasising
@@ -68,7 +68,7 @@ specialise to `\mathbb{R}`.
 
    .. vimeo:: 450156255
 
-We can quickly check that the map `x \to Ax` given by matrix
+We can quickly check that the map `x \mapsto Ax` given by matrix
 multiplication is a linear map from `\mathbb{C}^n \to \mathbb{C}^m`, since
 it is straightforward to check from the definition that
 
@@ -107,9 +107,6 @@ then
 
 i.e. a linear combination of the columns of `A` as described above.
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450161699
@@ -124,21 +121,18 @@ We can extend this idea to matrix-matrix multiplication. Taking
       b_{ij} = \sum_{k=1}^l a_{ik}c_{kj}, \quad 1\leq i \leq m, \,
       1\leq j \leq n.
 
-Writing `b_j \in \mathbb{C}^m` as the jth column of `B`, for `1\leq j \leq n`,
-and `c_j` as the jth column of `C`,
+Writing `b_j \in \mathbb{C}^m` as the `j`-th column of `B`, for `1\leq j \leq n`,
+and `c_j` as the `j`-th column of `C`,
 we see that
 
    .. math::
 
       b_j = Ac_j.
 
-This means that the jth column of `B` is the matrix-vector product of
-`A` with the jth column of `C`. This kind of "column thinking" is very
+This means that the `j`-th column of `B` is the matrix-vector product of
+`A` with the `j`-th column of `C`. This kind of "column thinking" is very
 useful in understanding computational linear algebra algorithms.
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450162431
@@ -170,12 +164,12 @@ which is coming up right now. The aim of these programming exercises
 is to gain understanding of the mathematical algorithms by expressing
 them as code. The :mod:`numpy` Python package has a module called
 :mod:`numpy.linalg` that contains many of these algorithms. Hence for this
-course we will not use this module, just use the functions and classes
+course we will not use this module, but just use the functions and classes
 available when you import :mod:`numpy` itself. There is one exception,
 which is that :func:`numpy.linalg.norm` is quite useful, but also covers a lot
 of different cases which are not very edifying to replicate. Hence,
-we have included :func:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
-:func:`cla\_utils.norm`, should you wish to use it.
+we have included :func:`numpy.linalg.norm` in the :mod:`cla_utils` package as
+:func:`cla_utils.norm`, should you wish to use it.
 
 .. _ex-basic-matvec:
 
@@ -189,22 +183,23 @@ we have included :func:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
    and one for the `i` elements of `b`). Run this script to test your code
    (and all the exercises from this exercise set)::
 
-      py.test test/test_exercises1.py
+      python -m pytest test/test_exercises1.py
 
    from the Bash Terminal. Make sure you commit your modifications
    and push them to your course repository.
-   
+
 .. hint::
 
-  Don't forget to activate the virtual environment before running the tests to make sure that you have access to all the necessary packages
+   Don't forget to activate the virtual environment before running the
+   tests to make sure that you have access to all the necessary packages.
 
 .. hint::
 
    The fast array features of Python are provided by `Numpy
-   <http://www.numpy.org/>`_ for which there is a `helpful tutorial
-   <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_. There is also a
+   <https://numpy.org/>`_ for which there is a `helpful tutorial
+   <https://numpy.org/doc/stable/user/quickstart.html>`_. There is also a
    handy `guide for Matlab users
-   <http://wiki.scipy.org/NumPy_for_Matlab_Users>`_. In that context,
+   <https://numpy.org/doc/stable/user/numpy-for-matlab-users.html>`_. In that context,
    the code provided in this course will always use Numpy arrays, and
    never Numpy matrices.
 
@@ -230,8 +225,8 @@ we have included :func:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
      A[:, 3]
 
    will return the 4th (since Python numbers from zero) column of `A`.
-   For more information, see the `Numpy documentation on slicing.
-   <https://numpy.org/doc/stable/reference/arrays.indexing.html>`_
+   For more information, see the `Numpy documentation on slicing
+   <https://numpy.org/doc/stable/user/basics.indexing.html>`__.
 
 .. proof:exercise::
 
@@ -268,13 +263,9 @@ we have included :func:`numpy.linalg.norm` in the :mod:`cla\_utils` package as
 Range, nullspace and rank
 =========================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450162984
-
 
 In this section we'll quickly rattle through some definitions and results.
 
@@ -299,9 +290,6 @@ interpretation of matrix-vector multiplication.
 
       \mbox{null}(A) = \{x \in \mathbb{C}^n: Ax=0\}.
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450166119
@@ -367,35 +355,34 @@ interpretation of matrix-vector multiplication.
 Invertibility and inverses
 ==========================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450171203
 
-This means that an invertible matrix has columns that form a basis for
+By the definition above, an invertible matrix `A\in\mathbb{C}^{m\times m}`
+has `m` linearly independent columns, which therefore form a basis for
 `\mathbb{C}^m`. Given the canonical basis vectors defined by
 
    .. math::
 
       e_j = \begin{pmatrix}
       0 \\
-      \ldots \\
+      \vdots \\
       0 \\
       1 \\
       0 \\
-      \ldots \\
+      \vdots \\
       0 \\
       \end{pmatrix},
 
-i.e. `e_j` has all entries zero except for the jth entry which is 1, we can
-write
+i.e. `e_j` has all entries zero except for the `j`-th entry which is 1, we can
+therefore write
 
    .. math::
 
-      e_j = \sum_{k=1}^m z_{kj} a_k, \quad 1\leq j \leq m.
+      e_j = \sum_{k=1}^m z_{kj} a_k, \quad 1\leq j \leq m,
 
+for some coefficients `z_{kj}`, which we collect into a matrix `Z`.
 In other words,
 
    .. math::
@@ -404,7 +391,6 @@ In other words,
       \begin{pmatrix}
       e_1 & e_2 & \ldots & e_m
       \end{pmatrix}
-
       = AZ.
 
 We call `Z` a (right) inverse of `A`. Since `A` is square, `Z` is also
@@ -426,9 +412,6 @@ course).
    #. 0 is not an eigenvalue of `A`.
    #. The determinant `\det(A)\neq 0`.
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450172407
@@ -449,7 +432,7 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
 
 .. proof:exercise::
 
-   For matrices of the form, `A = I + uv^*`, where `I` is the `m\times
+   For matrices of the form `A = I + uv^*`, where `I` is the `m\times
    m` identity matrix, and `u,v \in \mathbb{C}^m`, show that whenever
    `A` is invertible, the inverse is of the form `A^{-1} = I + \alpha uv^*`
    where `\alpha \in \mathbb{C}`, and calculate the form of `\alpha`.
@@ -470,13 +453,9 @@ give basis coefficients for `b` in the basis given by the columns of `A`.
    What do you observe? Why do you think this is? We will examine the
    cost of general purpose matrix inversion algorithms later.
 
-
 Adjoints and Hermitian matrices
 ===============================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450173092
@@ -489,7 +468,7 @@ Adjoints and Hermitian matrices
 
    .. math::
 
-      a^*_{ij} = \bar{a_{ji}},
+      a^*_{ij} = \bar{a}_{ji},
 
    where the bar denotes the complex conjugate of a complex number. If
    `A^* = A` then we say that `A` is Hermitian.
@@ -512,7 +491,7 @@ The following identity is very important when dealing with adjoints.
 
    (This is an advanced exercise if the other exercises are complete.
    If you are behind on the exercises please skip this one.)
-   
+
    Consider a matrix `A=B + iC` where `B,C\in\mathbb{R}^{m\times m}`
    and `A` is Hermitian. Show that `B=B^T` and `C=-C^T`. To save
    memory, instead of storing values of `A` (`m\times m` complex
@@ -537,19 +516,14 @@ The following identity is very important when dealing with adjoints.
 
      x[3:5] = y[3:5]
 
-   will copy the 4th and 5th entries of `y` (Python numbers from zero,
-   and the upper limit of the slice is the first index value not to
-   use.  For more information, see the `Numpy documentation on
-   slicing.
-   <https://numpy.org/doc/stable/reference/arrays.indexing.html>`_
-
+   will copy the 4th and 5th entries of `y` into `x` (Python numbers
+   from zero, and the upper limit of the slice is the first index value
+   not to use). For more information, see the `Numpy documentation on
+   slicing <https://numpy.org/doc/stable/user/basics.indexing.html>`__.
 
 Inner products and orthogonality
 ================================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450172520
@@ -601,9 +575,6 @@ Orthogonality will emerge as an early key concept in this course.
 Orthogonal components of a vector
 =================================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450184086
@@ -622,7 +593,6 @@ for each `1\leq i \leq n`,
    .. math::
 
       q^*_ir = q_i^*v - (q_1^*v)(q_i^*q_1) - \ldots - (q_n^*v)(q_i^*q_n)
-
       = q_i^*v - q_i^*v = 0,
 
 since `q_i^*q_j=0` if `i\neq j`, and 1 if `i=j`.
@@ -650,9 +620,6 @@ If `S` is a basis for `\mathbb{C}^m`, then `n=m` and `r=0`, and we have
 Unitary matrices
 ================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450184373
@@ -676,7 +643,7 @@ Unitary matrices
 
       e_j = Q^*q_j,
 
-   where `q_j` is the jth column of `Q`. Taking row i of `e_j`, we have
+   where `q_j` is the `j`-th column of `Q`. Taking row `i` of `e_j`, we have
 
    .. math::
 
@@ -688,13 +655,13 @@ Unitary matrices
       \end{array}\right. .
 
 Extending a theme from earlier, we can interpret `Q^*=Q^{-1}` as
-representing a change of orthogonal basis. If `Qx = b`, then
+representing a change of orthonormal basis. If `Qx = b`, then
 `x=Q^*b` contains the coefficients of `b` expanded in the basis
 given by the orthonormal columns of `Q`.
 
 .. proof:exercise::
 
-   The :func:`cla_utils.exercises2.solveQ` function has been left
+   The :func:`cla_utils.exercises2.solve_Q` function has been left
    unimplemented. Given a square unitary matrix `Q` and a vector `b`
    it should solve `Qx=b` using information above (it is not expected
    to work when `Q` is not unitary or square). The test script
@@ -702,7 +669,7 @@ given by the orthonormal columns of `Q`.
    function.
 
    Add a function to :mod:`cla_utils.exercises2` that measures the
-   time to solve `Qx=b` using ``solveQ`` for an input matrix of sizes 100,
+   time to solve `Qx=b` using ``solve_Q`` for an input matrix of sizes 100,
    200, 400,
    and compare with the times to solve the equation using the general purpose
    solve (which uses LU factorisation, which we will discuss later)::
@@ -713,7 +680,7 @@ given by the orthonormal columns of `Q`.
 
    A quick way to get a matrix with orthonormal columns is to take a
    general matrix `A`
-   and find the QR factorisation, which we will cover in the next section.
+   and find the QR factorisation, which we will cover in the next section::
 
      Q, R = numpy.linalg.qr(A)
 
@@ -723,9 +690,6 @@ given by the orthonormal columns of `Q`.
 Vector norms
 ============
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450184674
@@ -738,7 +702,7 @@ etc.
 
    A norm is a function `\|\cdot\|:\mathbb{C}^m \to \mathbb{R}`, such that
 
-   #. `\|x\|\geq 0`, and `\|x\|=0\implies x =0.`
+   #. `\|x\|\geq 0`, and `\|x\|=0\implies x =0`.
    #. `\|x+y\| \leq \|x\| + \|y\|` (triangle inequality).
    #. `\|\alpha x\| = |\alpha|\|x\|` for all `x \in \mathbb{C}^m`
       and `\alpha \in \mathbb{C}`.
@@ -748,7 +712,7 @@ larger class of norms called p-norms, with
 
    .. math::
 
-      \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p}, \quad
+      \|x\|_p = \left(\sum_{i=1}^m |x_i|^p\right)^{1/p},
 
 for real `p\geq 1`. We will also consider weighted norms
 
@@ -762,9 +726,6 @@ nullspace, then `\|Wx\|_p` is only a seminorm.
 Projectors and projections
 ==========================
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450185110
@@ -836,9 +797,6 @@ of `\mathbb{C}^m` with `\mathbb{C}^m=S_1\oplus S_2`, then there
 exists a projector `P` whose range is `S_1` and whose nullspace
 is `S_2`.
 
-
-
-   
 .. details:: Supplementary video
 
    .. vimeo:: 450185494
@@ -861,26 +819,26 @@ Constructing orthogonal projectors from sets of orthonormal vectors
 Let `\{q_1,\ldots,q_n\}` be an orthonormal set of vectors in
 `\mathbb{C}^m`. We write
 
-.. math::
+   .. math::
 
-   \hat{Q} = \begin{pmatrix}
-   q_1 & q_2 & \ldots & q_n \\
-   \end{pmatrix}.
+      \hat{Q} = \begin{pmatrix}
+      q_1 & q_2 & \ldots & q_n \\
+      \end{pmatrix}.
 
 Previously we showed that for any `v\in \mathbb{C}^m`, we have
 
-.. math::
+   .. math::
 
-   v = \underbrace{r}_{\mbox{Orthogonal to column space of }\hat{Q}} +
-   \underbrace{\sum_{i=1}^n (q_iq^*_i)v}_{\mbox{in the column space of }\hat{Q}}.
+      v = \underbrace{r}_{\mbox{Orthogonal to column space of }\hat{Q}} +
+      \underbrace{\sum_{i=1}^n (q_iq^*_i)v}_{\mbox{in the column space of }\hat{Q}}.
 
 Hence, the map
 
-.. math::
+   .. math::
 
-   v \mapsto Pv = \underbrace{\sum_{i=1}^n (q_iq^*_i)}_{=P}v,
+      v \mapsto Pv = \underbrace{\sum_{i=1}^n (q_iq^*_i)}_{=P}v,
 
-is an orthogonal projector. In fact, `P` has very simple form.
+is an orthogonal projector. In fact, `P` has a very simple form.
 
 .. _orthogonalprojector:
 
@@ -895,7 +853,7 @@ is an orthogonal projector. In fact, `P` has very simple form.
 .. proof:proof::
 
    From the change of basis interpretation of multiplication by
-   `\hat{Q}^*`, the entries in `\hat{Q}^*v` gives coefficients of the
+   `\hat{Q}^*`, the entries in `\hat{Q}^*v` give coefficients of the
    projection of `v` onto the column space of `\hat{Q}` when expanded
    using the columns as a basis. Then, multiplication by `\hat{Q}`
    gives the projection of `v` expanded again in the canonical basis.

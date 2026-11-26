@@ -10,7 +10,7 @@ preconditioner. We will focus on the link between stationary
 iterative methods and preconditioners.
 
 Stationary iterative methods
----------------------------
+----------------------------
 
 As we have already discussed, given a matrix equation `Ax=b`,
 iterative methods provide a way of obtaining a (hopefully) better
@@ -30,7 +30,7 @@ as follows.
 The word "stationary" refers to the fact that exactly the same thing
 is done at each iteration. This contrasts with Krylov methods such as
 GMRES, where the sequence of operations depends on the previous
-iterations (e.g. a different size least square system is solve in each
+iterations (e.g. a different sized least squares system is solved in each
 GMRES iteration).
 
 In this section we will introduce/recall some classic stationary
@@ -130,7 +130,7 @@ This approach is convenient for parallel computing, because each entry in
 
    .. math::
       
-      L_{ij}=0, \, j\geq i, \quad D_{ij}=0, \, i\neq j, \quad U_{ij}, \, i\geq j.
+      L_{ij}=0, \, j\geq i, \quad D_{ij}=0, \, i\neq j, \quad U_{ij}=0, \, i\geq j.
 
    Then, Jacobi's method is
 
@@ -177,7 +177,7 @@ system by forward/backward substitution.
 
 .. proof:exercise::
 
-   Show that forward Gauss-Seidel is a modification Jacobi's method
+   Show that forward Gauss-Seidel is a modification of Jacobi's method
    but using new values as soon as possible.
 
 .. \frame{
@@ -292,7 +292,7 @@ If we can build iterative methods from the splitting
       D-L\right){x}^{k+\frac{1}{2}} + {b}.
 
 Some Krylov methods, notably the Conjugate Gradient method, require
-the preconditioner `\hat{A}` to be symmetric.
+the preconditioner `\hat{A}` to be symmetric positive definite.
 We can build symmetric preconditioners from symmetric splitting methods.
 Write the symmetric iteration as a single step with
 `{x}^0={0}`.
@@ -396,7 +396,7 @@ between `M_s` and `\hat{A}` for symmetric methods.
 .. proof:definition:: Convergence of stationary methods
 
    An iterative method based on the splitting `A=M+N` with iteration
-   matrix `C=-M^{-1}N` is called {convergent} if
+   matrix `C=-M^{-1}N` is called *convergent* if
 
    .. math::
 
@@ -448,7 +448,7 @@ To obtain a necessary condition, we need to use the spectral radius.
    [Proof that `\rho(C)\geq 1\implies` non-convergence]
 
    If `\rho(C)\geq 1`, then `C` has an eigenvector `{v}` with
-   `\|{v}\|_2=1` and eigenvalue `\lambda` with `|\lambda|>1`. Then
+   `\|{v}\|_2=1` and eigenvalue `\lambda` with `|\lambda|\geq 1`. Then
 
    .. math::
       
@@ -456,16 +456,16 @@ To obtain a necessary condition, we need to use the spectral radius.
   
    which does not converge to zero.
 
-   [Proof that `\rho(C)< 1\implies` convergence]
+   [Proof that `\rho(C)< 1\implies` convergence in the diagonalizable case]
 
-   Assume a linearly independent eigenvalue expansion (not necessary
-   for the proof but it simplifies things a lot)
+   For this simplified proof, assume that `C` has a basis of eigenvectors,
+   so that any vector can be expanded as
    `{z} = \sum_{i=1}^n\alpha_i{v}_i`. Then,
    
    .. math::
 
       C^k{z} = \sum_{i=1}^n\alpha_iC^k{v}_i
-      = \sum_{i=1}^n\alpha_i\lambda^k{v}_i\to 0.
+      = \sum_{i=1}^n\alpha_i\lambda_i^k{v}_i\to 0.
 
 * For symmetric matrices `B`, `\rho(B)=\|B\|_2`, so
 the two convergence theorems are related.
@@ -490,7 +490,7 @@ the two convergence theorems are related.
       \left(\frac{1}{\omega}D+L\right){x}^{k+1} =
       {b}+\left(\left(\frac{1}{\omega}-1\right)D-U\right){x}^k
   
-   What values of `\omega`? For SOR,iteration matrix `C` is
+   What values of `\omega`? For SOR, the iteration matrix `C` is
 
    .. math::
       
@@ -517,8 +517,9 @@ the two convergence theorems are related.
 Splitting methods as preconditioners
 ------------------------------------
 
-Recall that preconditioned GMRES converges well if the eigenvalues
-of `\hat{A}^{-1}A` are clustered together.
+Clustering the eigenvalues of `\hat{A}^{-1}A` away from zero can help
+preconditioned GMRES converge quickly. For general nonsymmetric matrices,
+eigenvalues alone do not determine the convergence rate.
 
 .. proof:theorem::
 
@@ -539,11 +540,13 @@ of `\hat{A}^{-1}A` are clustered together.
       
       1>c>\rho(C)=\rho(I-M^{-1}A),
 
-   and the result follows since `I` and `M^{-1}A` have a simultaneous
-   eigendecomposition.
+   and the result follows since `M^{-1}Av=\lambda v` implies
+   `Cv=(1-\lambda)v`, so `|1-\lambda|<c`.
 
-We deduce that good convergence of the GMRES algorithm occurs when `c`
-is small.
+A small `c` gives a tight eigenvalue cluster around `1`. For a
+diagonalizable preconditioned matrix, the GMRES convergence bound also
+depends on the conditioning of its eigenvector matrix; a small `c`
+alone does not guarantee fast convergence.
 
 For symmetric splittings, we have already observed that the iteration
 matrix is
@@ -562,7 +565,7 @@ For symmetric splittings we can say a little more about the preconditioner.
 
 .. proof:theorem::
 
-   Let `A` be a matrix with splitting
+   Let `A` be a symmetric matrix with splitting
    `M+N`, such that the symmetric splitting has iteration matrix
 
    .. math::
@@ -585,7 +588,7 @@ For symmetric splittings we can say a little more about the preconditioner.
    so `\rho(I- \hat{A}^{-1}A) = \rho(C) = c`. Further, `M_s` is
    symmetric and positive definite, so there exists a unique symmetric
    positive definite matrix square root `S` such that `SS =
-   M_s`. Then,
+   M_s^{-1}`. Then,
 
    .. math::
 
@@ -761,7 +764,7 @@ Rayleigh Quotient formula,
 
 .. math::
    \lambda_{\max}=\max_{{x}\ne
-    0}\frac{{x}^TA{x}}{{x}^T{x}}\equiv \|A\|_2^2, \quad
+    0}\frac{{x}^TA{x}}{{x}^T{x}}\equiv \|A\|_2, \quad
    \lambda_{\min}=\min_{{x}\ne
     0}\frac{{x}^TA{x}}{{x}^T{x}},
 
@@ -825,7 +828,7 @@ for `A{x}={b}` in the symmetric positive definite case.
 
    where `\hat{\mu}_{\min}` is the minimum eigenvalue of
    `A^{1/2}\left(M^{-1}\right)^TM^{-1}A^{1/2}` i.e.  the square
-   of the minimum eigenvalue of `M^{-1}A^{1/2}`, which is invertible so
+   of the smallest singular value of `M^{-1}A^{1/2}`, which is invertible so
    `\hat{\mu}_{\min}>0`. If `{y}=(I-M^{-1}A){x}`,
    `{w}=M^{-1}A{x}`, then
 
@@ -866,7 +869,7 @@ positive definite matrices.
 The consequence of this is that if `M+M^T-A` is symmetric
 positive definite then there is a guaranteed reduction in the `A`-norm
 of the error in each iteration. If `M` is also symmetric
-positive definite the there is guaranteed reduction in the `M`-norm of
+positive definite then there is guaranteed reduction in the `M`-norm of
 the error in each iteration.
 
 Now we apply this to the convergence of Jacobi iteration.  In this
@@ -876,7 +879,7 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
 .. proof:proposition::
 
    Let `A` be a symmetric positive definite matrix. Let `\lambda` be
-   the (real) maximum eigenvalue of `D^{-1/2}AD^{-1/2}`.  If `\omega <
+   the (real) maximum eigenvalue of `D^{-1/2}AD^{-1/2}`.  If `0<\omega <
    2/\lambda` then scaled Jacobi iteration converges.
 
 .. proof:proof::
@@ -923,7 +926,7 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
 .. proof:proposition::
 
    Let `A` be a symmetric positive definite matrix. Then SOR converges
-   provided that `0<\omega 2`.
+   provided that `0<\omega<2`.
 
 .. proof:proof::
 
@@ -938,7 +941,7 @@ We generalise to scaled Jacobi iteration with `M=D/\omega`.
    which is symmetric positive definite provided that
    `0<\omega<2`.
 
-An example matrix (Non-examinable in 2024/25)
+An example matrix
 -----------------
 
 We consider stationary methods for an example arising from the
@@ -959,7 +962,7 @@ finite difference approximation
 
    -u_{k-1} + 2u_k - u_{k+1} = f_k, \quad 1\leq k \leq n,
 
-where `f_k=f(k/n)/n^2`, `1\leq k\leq n`. Taking into account the
+where `f_k=f(k/(n+1))/(n+1)^2`, `1\leq k\leq n`. Taking into account the
 boundary conditions `u_0=u_{n+1}=0`, we can write this as a matrix
 system `Ax=b` with
 
@@ -1014,6 +1017,7 @@ Jacobi.
       \begin{pmatrix}
       \sin(l\pi/(n+1)) \\
       \sin(2l\pi/(n+1)) \\
+      \vdots \\
       \sin(nl\pi/(n+1)) \\
       \end{pmatrix}
       \right),
@@ -1021,7 +1025,8 @@ Jacobi.
    with one eigenvector for each value of `0< l <n+1`. This can be proved
    by considering symmetries of the matrix, but here we just assume this
    form and establish that we have eigenvectors after substituting into the
-   definition of an eigenvector `Av=\lambda v`. This is a general approach
+   general eigenvector relation `Bv=\lambda v`, here with `B=D^{-1}A`.
+   This is a general approach
    that can be tried for any matrices arising in the analysis of convergence
    of classic stationary methods for this example matrix.
 
@@ -1035,29 +1040,29 @@ Jacobi.
 
    .. math::
 
-      \lambda\sin(kl\pi/(n+1)) = -\sin((l-1)k\pi/(n+1))/2 + \sin(kl\pi/(n+1)) - \sin((l+1)k\pi/(n+1))/2,
+      \lambda\sin(kl\pi/(n+1)) = -\sin((k-1)l\pi/(n+1))/2 + \sin(kl\pi/(n+1)) - \sin((k+1)l\pi/(n+1))/2,
 
    and you can use trigonometric formulae, or write
 
    .. math::
 
-      \lambda\sin(kl\pi/(n+1) & = 
-      -\sin((l-1)k\pi/(n+1))/2 + \sin(lk\pi/(n+1)) - \sin((l+1)k\pi/(n+1))/2\\
-      & = \sin(kl\pi/(n+1)) - \Im\left(\exp(ik(l-1)\pi/(n+1)) + \exp(ik(l+1)\pi/(n+1))\right)/2 \\
+      \lambda\sin(kl\pi/(n+1)) & =
+      -\sin((k-1)l\pi/(n+1))/2 + \sin(lk\pi/(n+1)) - \sin((k+1)l\pi/(n+1))/2\\
+      & = \sin(kl\pi/(n+1)) - \Im\left(\exp(il(k-1)\pi/(n+1)) + \exp(il(k+1)\pi/(n+1))\right)/2 \\
       & = \sin(kl\pi/(n+1)) - \Im\left(\left(
-      \exp(-ik\pi/(n+1)) + \exp(ik\pi/(n+1))\right)\exp(ikl\pi/(n+1))\right)/2 \\
-      & = \sin(kl\pi/(n+1)) - \Im\left(\sin(k\pi/(n+1))\exp(ikl\pi/(n+1))\right) \\
-      & = \sin(kl\pi/(n+1))(1 - \sin(k\pi/(n+1)))
+      \exp(-il\pi/(n+1)) + \exp(il\pi/(n+1))\right)\exp(ikl\pi/(n+1))\right)/2 \\
+      & = \sin(kl\pi/(n+1)) - \Im\left(\cos(l\pi/(n+1))\exp(ikl\pi/(n+1))\right) \\
+      & = \sin(kl\pi/(n+1))(1 - \cos(l\pi/(n+1)))
 
-and we conclude that `\lambda=1-\sin(k\pi/(n+1))` are the eigenvalues
-with `0<k<n+1`. The maximum eigenvalue corresponds to `k=1` and `k=n`,
-with `\lambda=1-\sin(\pi/(n+1))`. 
+and we conclude that `\lambda=1-\cos(l\pi/(n+1))` are the eigenvalues
+with `0<l<n+1`. The maximum eigenvalue corresponds to `l=n`,
+with `\lambda=1+\cos(\pi/(n+1))`.
 
 The condition `\omega<2/\lambda` thus requires that
 
 .. math::
 
-   \omega < \frac{2}{1-\sin(\pi/(n+1))}.
+   \omega < \frac{2}{1+\cos(\pi/(n+1))}.
 
 .. proof:exercise::
 
@@ -1193,7 +1198,7 @@ The condition `\omega<2/\lambda` thus requires that
    \]
    }
 
-Chebyshev acceleration (examinable in 2024/25)
+Chebyshev acceleration
 ----------------------
 
 Say we have computed iterates `{x}^0,{x}^1,\ldots,{x}^k` using
@@ -1206,7 +1211,7 @@ solution. Can we use extrapolation through these iterates to obtain a
 better guess for the solution?
 
 .. math::
-   \mbox{Find}\,c_{jk},\,j=1,\ldots,k,\,\mbox{with}\,
+   \mbox{Find}\,c_{jk},\,j=0,\ldots,k,\,\mbox{with}\,
    {y}^k = \sum_{j=0}^kc_{jk}{x}^j,
 
 with `{y}^k` the best possible approximation to `{x}^*`.
@@ -1235,17 +1240,17 @@ where
 .. math::
    p_k(X) = c_{0k} + c_{1k}X + c_{2k}X^2 + \ldots + c_{kk}X^k,
 
-with `p_k(1)=1` (from our condition `\sum_{j=0}^kc_{jk}=1)`.
+with `p_k(1)=1` (from our condition `\sum_{j=0}^kc_{jk}=1`).
 
 We want to try to minimise `{y}^k-{x}^*` by choosing `c_{0k}`,
-`c_{1k}`, `\ldots`, `c_{kk}` so that the eigenvalues of `p_k` are as
+`c_{1k}`, `\ldots`, `c_{kk}` so that the eigenvalues of `p_k(C)` are as
 small as possible.  If `\lambda` is an eigenvalue of `C=-M^{-1}N`,
 then `p_k(\lambda)` is an eigenvalue of `p_k(C)`.  It is not practical
 to know all the eigenvalues of a large matrix, so we will develop
 methods that work if we know that all eigenvalues of `C` are real, and
 satisfy `-1<\alpha<\lambda<\beta<1`, for some constants `\alpha`
 and `\beta` (we know that `|\lambda|<1` otherwise the basic method is
-not convergent.
+not convergent).
 
 If all eigenvalues of `C` are real, and satisfy
 `-1<\alpha<\lambda<\beta<1`,
@@ -1284,7 +1289,7 @@ This is not quite what we want, so we change variables, to get
    \quad \max_{\alpha\leq t\leq \beta}|p_k(t)|
 
 subject to the constraint that the coefficient of `t^k` is
-`2^{2k-1}/(\beta-\alpha)`.
+`2^{2k-1}/(\beta-\alpha)^k`.
 The maximum value is `1`.
 
 Then we scale the polynomial to reach the condition `p_k(1)=1`.
@@ -1320,7 +1325,7 @@ in the form
 then
 
 .. math::
-   {y}^k = \sum_{j=0}^kc_{jk}{x}^k.
+   {y}^k = \sum_{j=0}^kc_{jk}{x}^j.
 
 .. Since `k`-th order Chebyshev acceleration requires `k` iterations of
    the original method, we compute the {average rate of
@@ -1378,7 +1383,7 @@ where
 .. math::
    \gamma=\frac{2}{2-\beta-\alpha}, \quad M{z}^{k-1}={b}-A{y}^{k-1}.
 
-with starting formulas
+With starting formulas
 
 .. math::
    {y}^0 & =  {x}^0 \\
@@ -1400,7 +1405,7 @@ and lower bounds on the eigenvalues are known.
    \frametitle{Accelerated Richardson's method}
    If A is symmetric positive definite with eigenvalues `0\leq
    \lambda_{\min}\leq \lambda \leq \lambda_{\max}`, we use the optimal
-   scaling `M=2I/(\lambda_{\min}+\lambda_{\max})`.\\
+   scaling `M=(\lambda_{\min}+\lambda_{\max})I/2`.\\
    \[
    C= I-\frac{2A}{\lambda_{\min}+\lambda_{\max}}, \quad
    \mbox{so}\,
@@ -1417,7 +1422,7 @@ and lower bounds on the eigenvalues are known.
 
    \frame{
    \frametitle{Accelerated Jacobi's method}
-   We need to check that `M^{-1}N=I-D^{-1}A` has real eigenvalues so we
+   We need to check that `-M^{-1}N=I-D^{-1}A` has real eigenvalues so we
    can use Chebyshev acceleration.
    \begin{enumerate}
    \item  `D^{-\frac{1}{2}}AD^{-\frac{1}{2}}` is symmetric, so it has
@@ -1426,7 +1431,7 @@ and lower bounds on the eigenvalues are known.
      `D^{-1}A=D^{-\frac{1}{2}}D^{-\frac{1}{2}}AD^{-\frac{1}{2}}D^{\frac{1}{2}}`so
        `D^{-1}A` has real eigenvalues.
    \item If `\lambda` is an eigenvalue of `I-D^{-1}A` then `1-\lambda` is
-     an eigenvalue of `D^{-1}`, so `I-D^{-1}A` has real eigenvalues. 
+     an eigenvalue of `D^{-1}A`, so `I-D^{-1}A` has real eigenvalues.
    \end{enumerate}
    Need some way of estimating or bounding the maximum and minimum
    eigenvalues of `I-D^{-1}A` for acceleration to work well.
@@ -1440,8 +1445,8 @@ and lower bounds on the eigenvalues are known.
      not symmetric.
    \item Instead, use SSOR
    \[
-   (\omega L+D){x}^{k+\frac{1}{2}}=\omega(-U{x}^k + {b}), \quad
-   (\omega U+D){x}^{k+1}=\omega(-L{x}^{k+\frac{1}{2}} +{b}).
+   (\omega L+D){x}^{k+\frac{1}{2}}=((1-\omega)D-\omega U){x}^k + \omega{b}, \quad
+   (\omega U+D){x}^{k+1}=((1-\omega)D-\omega L){x}^{k+\frac{1}{2}} + \omega{b}.
    \]
    \item A good (nearly optimal) choice of `\omega` is 
    \[

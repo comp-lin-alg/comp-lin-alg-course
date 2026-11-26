@@ -40,7 +40,7 @@ def householder_solve(A, b):
     right-hand side vectors b_1,b_2,...,b_k.
 
     :return x: an mxk-dimensional numpy array whose columns are the \
-    right-hand side vectors x_1,x_2,...,x_k.
+    solution vectors x_1,x_2,...,x_k.
     """
 
     raise NotImplementedError
